@@ -1,9 +1,9 @@
-# Name of project
+# Portfolio Project 2 - JavaScript
 <!-- ![Multiple Device Demo](./readme-content/images/multi-device.png) -->
 ## Live Site
-<!-- [nameOfSite](siteURL)) -->
+<!-- [Mastermind - A Logic Game](https://daveyjh.github.io/ci-portfolio-two) -->
 ## Repository
-<!-- [repoLocation](repoLocation) -->
+<!-- [https://github.com/daveyjh/ci-portfolio-two](https://github.com/daveyjh/ci-portfolio-two) -->
 ***
 ## Table of Contents
 - [Objective](#Objective)
@@ -37,7 +37,7 @@
 **The needs within this project are not genuine and are made purely for the purpose of completing my Code Institute project**
 ***
 ## Brief
-### **nameOfSite**
+### **Mastermind - A Logic Game**
 <!-- brief description of goals and requirements -->
 ***
 ## UX &#8722; User Experience Design
