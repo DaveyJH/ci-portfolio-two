@@ -1,5 +1,7 @@
 # Portfolio Project 2 - JavaScript
 <!-- ![Multiple Device Demo](./readme-content/images/multi-device.png) -->
+
+*A gentle reminder to all - to open links in a new tab, hold 'Ctrl' (or '⌘' on Apple devices) as you click!*
 ## Live Site
 <!-- [Mastermind - A Logic Game](https://daveyjh.github.io/ci-portfolio-two) -->
 ## Repository
