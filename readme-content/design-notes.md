@@ -114,7 +114,7 @@ List of desired features and ability to deliver those features
 | Appealing design/visuals | 9/10 | 8/10 | a |
 | Option to select number of colours | 7/10 | 7/10 | b |
 | Option to select number of circles in solution | 10/10 | 8/10 | c |
-| Option to select if colours may be repeated within solution | 7/10 | 7/10 | d |
+| Option to select if colours may be repeated within the solution | 7/10 | 7/10 | d |
 | Option to repeat colours in guess if the solution has no repeats | 4/10 | 6/10 | e |
 | Click control mechanism with revealing colour options | 8/10 | 6/10 | f |
 | Display result of each guess | 10/10 | 7/10 | g |
@@ -140,4 +140,35 @@ List of desired features and ability to deliver those features
 ![Trade Off Chart](./images/trade-off-chart.png)
 #
 ## Scope
+Considering the chart above I will focus on these elements as priorities:
+- The game *(this isn't on the chart, but without it, there isn't much else!)*
+- The rules page
+- The developer page
+- Designs/visuals
+- Option to select number of colours
+- Option to select number of circles in solution
+- Option to select if colours may be repeated within the solution
+- Click control mechanism
+- Display results of each guess
+- Score count
+- Stop guess if not all selections made
+- Challenge mode
 
+As I have a fairly good timescale to work on the project, I would hope to work on the following elements too:
+- Demo game
+- Hidden solution that reveals on correct answer/give up
+- Offer an increment in difficulty when winning
+- Option to repeat colours in guess if the solution has no repeats
+- Timers
+- Option to hide timer during gameplay
+- Best score display
+
+The remaining elements are things that may take more time for me to develop. If I am able, I will include as many as possible:
+- Confirmation Sounds
+- Pause function
+- Pop up to remind meaning of results
+
+The final two elements are likely to take a little more research and could require a lot more time to refine. I will only attempt to include these if I am really ahead of schedule:
+- Alternative images to just using colours
+- Set a code for 'AI' to solve
+  - *This would utilise the [Donald Knuth](https://en.wikipedia.org/wiki/Mastermind_(board_game)#Algorithms_and_strategies) 5 guess algorithm which, logically, I understand...I just imagine it would take me a while to write the scripts for it*
