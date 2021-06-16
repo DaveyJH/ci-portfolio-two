@@ -109,28 +109,35 @@ The developer section will be more targeted toward the business category and so 
 
 List of desired features and ability to deliver those features
 
-| Desired Feature | Importance /10 | Viability /10 |
-| :---------------------: | :--------: | :-------: |
-| Appealing design/visuals | 9/10 | 8/10 |
-| Option to select number of colours | 7/10 | 7/10 |
-| Option to select number of circles in solution | 10/10 | 8/10 |
-| Option to select if colours may be repeated within solution | 7/10 | 7/10 |
-| Option to repeat colours in guess if the solution has no repeats | 4/10 | 6/10 |
-| Click control mechanism with revealing colour options | 8/10 | 6/10 |
-| Display result of each guess | 10/10 | 7/10 |
-| Pop up to remind meaning of results | 2/10 | 5/10 |
-| Hidden solution that reveals on correct answer/give up | 6/10 | 6/10 |
-| Score count | 7/10 | 7/10 |
-| Best score display | 3/10 | 6/10 |
-| Timers | 4/10 | 5/10 |
-| Pause function | 2/10 | 4/10 |
-| Option to hide timer during gameplay | 4/10 | 6/10 |
-| Rules page | 10/10 | 10/10 |
-| Demo game | 5/10 | 8/10 |
-| Developer section | 9/10 | 10/10 |
-| Stop guess if not all selections made | 9/10 | 8/10 |
-| Challenge mode with a limited number of attempts | 7/10 | 7/10 |
-| Offer an increment in difficulty when winning | 6/10 | 5/10 |
-| Confirmation sounds | 7/10 | 4/10 |
-| Alternative images to just using colours | 1/10 | 3/10 |
-| Set a code for 'AI' to solve | 1/10 | 3/10 |
+| Desired Feature | Importance /10 | Viability /10 | Graph Reference |
+| :---------------------: | :--------: | :-------: | :-------------: |
+| Appealing design/visuals | 9/10 | 8/10 | a |
+| Option to select number of colours | 7/10 | 7/10 | b |
+| Option to select number of circles in solution | 10/10 | 8/10 | c |
+| Option to select if colours may be repeated within solution | 7/10 | 7/10 | d |
+| Option to repeat colours in guess if the solution has no repeats | 4/10 | 6/10 | e |
+| Click control mechanism with revealing colour options | 8/10 | 6/10 | f |
+| Display result of each guess | 10/10 | 7/10 | g |
+| Pop up to remind meaning of results | 2/10 | 5/10 | h |
+| Hidden solution that reveals on correct answer/give up | 6/10 | 6/10 | i |
+| Score count | 7/10 | 7/10 | j |
+| Best score display | 3/10 | 6/10 | k |
+| Timers | 4/10 | 5/10 | l |
+| Pause function | 2/10 | 4/10 | m |
+| Option to hide timer during gameplay | 4/10 | 6/10 | n |
+| Rules page | 10/10 | 10/10 | o |
+| Demo game | 5/10 | 8/10 | p |
+| Developer section | 9/10 | 10/10 | q |
+| Stop guess if not all selections made | 9/10 | 8/10 | r |
+| Challenge mode with a limited number of attempts | 7/10 | 7/10 | s |
+| Offer an increment in difficulty when winning | 6/10 | 5/10 | t |
+| Confirmation sounds | 7/10 | 4/10 | u |
+| Alternative images to just using colours | 1/10 | 3/10 | v |
+| Set a code for 'AI' to solve | 1/10 | 3/10 | w |
+
+<br>
+
+![Trade Off Chart](./images/trade-off-chart.png)
+#
+## Scope
+
