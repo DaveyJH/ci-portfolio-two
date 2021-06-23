@@ -1,67 +1,73 @@
 # Design Notes
 
 General notes regarding the initial concept, layout and features of the Mastermind game application
-#
+
+---
+
 ## Strategy
 
 - Who is it for?
-  - **People who like logic games**
-  - **People who want to see my coding capabilities**
+  - People who like logic games
+  - People who want to see my coding capabilities
 - What content is relevant?
-  - **Rules for the game**
-  - **The game itself**
-  - **A brief section on me as a developer**
+  - Rules for the game
+  - The game itself
+  - A brief section on me as a developer
 - What else is available?
-  - **Many other versions online**
-
+  - Many other versions online
   - What is good in those versions?
-    - **Scaleable difficulty**
-    - **Alert if selections not completed**
+    - Scaleable difficulty
+    - Alert if selections not completed
   - What is not good in those versions?
-    - **Text heavy content**
-    - **Very basic styling**
-    - **Drag and drop controls**
-    - **Unclear order of play**
+    - Text heavy content
+    - Very basic styling
+    - Drag and drop controls
+    - Unclear order of play
 - Why use my version?
-  - **More appealing style/visual design**
-  - **Clear layout**
-  - **Variety of parameters that can alter difficulty**
-  - **Relevant visual aids in rules**
-  - **Click control system with positive user feedback**
-#
+  - More appealing style/visual design
+  - Clear layout
+  - Variety of parameters that can alter difficulty
+  - Relevant visual aids in rules
+  - Click control system with positive user feedback
+
+---
+
 ### User Considerations
 
 #### Audience
 
-*The majority of users will fall into the consumer category, with that in mind, the site should allow quick access to the game. It should require minor input to view the rules and change the difficulty levels.<br>
-The developer section will be more targeted toward the business category and so may involve a little more input from the user. It should maintain the style of the site but should also portray a slightly more professional approach with links to learn more if desired.*
-#
+The majority of users will fall into the consumer category, with that in mind, the site should allow quick access to the game. It should require minor input to view the rules and change the difficulty levels.  
+The developer section will be more targeted toward the business category and so may involve a little more input from the user. It should maintain the style of the site but should also portray a slightly more professional approach with links to learn more if desired.
+
+---
+
 #### User Reviews and Suggestions
 
-*I asked a few people to advise on what they liked about current versions of the game that are available from other developers*
+I asked a few potential users of the game to advise on what they liked about current versions that are available from other developers
+
 > "I like a little confirmation sound when I choose a colour or submit my answer"
-
+>
 > "I want to be able to click rather than drag and drop"
-
+>
 > "I like different difficulty settings"
-
+>
 > "I know how to play, please don't force me to the rules"
-
+>
 > "A lot of these logic games look a bit basic, it would be nice to see a little more style"
-
+>
 > "I don't want to waste a turn because I have forgotten to add all the colours"
-
+>
 > "I like to know my best score"
-
+>
 > "I enjoy trying to complete the game within a set number guesses"
-
+>
 > "I don't enjoy seeing a timer"
-
+>
 > "I like being offered a harder difficulty if I win"
-
+>
 > "I don't want to play with colours, how about some animals or symbols instead"
-# 
 
+---
 
 ### Rules
 
@@ -69,7 +75,9 @@ The developer section will be more targeted toward the business category and so 
 - Correct colours in the wrong place generate a white peg response
 - Correct colours in the correct place generate a black peg response
 - Complete the correct colour and order to win
-#
+
+---
+
 ### Difficulties
 
 - Number of coloured circles
@@ -77,7 +85,9 @@ The developer section will be more targeted toward the business category and so 
 - Whether colours may be repeated within the solution
 - Whether the player may repeat colour selections if the solution is not allowed repeats
 - Limit number of attempts (challenge mode)
-#
+
+---
+
 ### Design Considerations
 
 - Colour options
@@ -104,7 +114,9 @@ The developer section will be more targeted toward the business category and so 
     - Link to Donald Knuth algorithm
     - 6 attempts leaves room for one error
 - About the developer page
-#
+
+---
+
 ### Importance/Viability Trade Offs
 
 List of desired features and ability to deliver those features
@@ -135,12 +147,16 @@ List of desired features and ability to deliver those features
 | Alternative images to just using colours | 1/10 | 3/10 | v |
 | Set a code for 'AI' to solve | 1/10 | 3/10 | w |
 
-<br>
+---
 
 ![Trade Off Chart](./images/trade-off-chart.png)
-#
+
+---
+
 ## Scope
+
 Considering the chart above I will focus on these elements as priorities:
+
 - The game *(this isn't on the chart, but without it, there isn't much else!)*
 - The rules page
 - The developer page
@@ -155,6 +171,7 @@ Considering the chart above I will focus on these elements as priorities:
 - Challenge mode
 
 As I have a fairly good timescale to work on the project, I would hope to work on the following elements too:
+
 - Demo game
 - Hidden solution that reveals on correct answer/give up
 - Offer an increment in difficulty when winning
@@ -164,11 +181,13 @@ As I have a fairly good timescale to work on the project, I would hope to work o
 - Best score display
 
 The remaining elements are things that may take more time for me to develop. If I am able, I will include as many as possible:
+
 - Confirmation Sounds
 - Pause function
 - Pop up to remind meaning of results
 
 The final two elements are likely to take a little more research and could require a lot more time to refine. I will only attempt to include these if I am really ahead of schedule:
+
 - Alternative images to just using colours
 - Set a code for 'AI' to solve
   - *This would utilise the [Donald Knuth](https://en.wikipedia.org/wiki/Mastermind_(board_game)#Algorithms_and_strategies) 5 guess algorithm which, logically, I understand...I just imagine it would take me a while to write the scripts for it*
