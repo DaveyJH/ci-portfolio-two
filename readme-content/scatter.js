@@ -58,4 +58,4 @@ let layout = {
 Plotly.newPlot(tradeOff, data, layout);
 
 //Credit to Tobi - CI Slack
-//Tech - Plotly.js
+//Tech - Plotly https://images.plot.ly/plotly-documentation/images/plotly_js_cheat_sheet.pdf?_ga=2.127420040.422647987.1624435889-546926682.1623857373
