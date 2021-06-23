@@ -46,12 +46,23 @@ let data = [plotA, plotB, plotC, plotD, plotE, plotF, plotG, plotH, plotI, plotJ
 
 let layout = {
   xaxis: {
-    range: [0, 10.5]
+    title: "Importance",
+    range: [0, 10.5],
+    font: {
+      size: 14,
+    }
   },
   yaxis: {
-    range: [0, 10.5]
+    title: "Viability",
+    range: [0, 10.5],
+    font: {
+      size: 14,
+    }
   },
   title:'Trade Off Comparison',
+  font: {
+    size: 18,
+  },
   showlegend: false,
 };
 
