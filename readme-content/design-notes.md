@@ -149,7 +149,7 @@ List of desired features and ability to deliver those features
 
 ---
 
-![Trade Off Chart](./images/trade-offs-plotly.png)
+![Trade Off Chart](./images/trade-offs-plotly.png)  
 [Trade Off Chart Javascript](./scatter.js)  
 [Trade Off Chart HTML](./scatter.html)
 
