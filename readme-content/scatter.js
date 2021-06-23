@@ -56,3 +56,6 @@ let layout = {
 };
 
 Plotly.newPlot(tradeOff, data, layout);
+
+//Credit to Tobi - CI Slack
+//Tech - Plotly.js
