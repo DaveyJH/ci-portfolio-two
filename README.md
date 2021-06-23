@@ -2,76 +2,115 @@
 <!-- ![Multiple Device Demo](./readme-content/images/multi-device.png) -->
 
 *A gentle reminder to all - to open links in a new tab, hold 'Ctrl' (or '⌘' on Apple devices) as you click!*
+
 ## Live Site
+
 <!-- [Mastermind - A Logic Game](https://daveyjh.github.io/ci-portfolio-two) -->
 ## Repository
+
 <!-- [https://github.com/daveyjh/ci-portfolio-two](https://github.com/daveyjh/ci-portfolio-two) -->
 ***
+
 ## Table of Contents
-- [Objective](#Objective)
-- [Brief](#Brief)
-- [UX &#8722; User Experience Design](#UX-&#8722;-User-Experience-Design)
-- [Initial Concept](#Initial-Concept)
-    - [Wireframes](#Wireframes)
-        - [All Wireframes - Separate Document](./readme-content/wireframes.md)
-    - [Colour Scheme](#Colour-Scheme)
-    - [Typography](#Typography)
-    - [Imagery](#Imagery)
-- [Features](#Features)
-    - [Existing Features](#Existing-Features)
-    - [Features Left to Implement](#Features-Left-to-Implement)
-- [Technologies Used](#Technologies-Used)
-- [Testing](#Testing)
-    - [Validation Results - Separate Document](./readme-content/w3c.md)
-- [Bugs](#Bugs)
-    - [Current](#Current)
-    - [Resolved](#Resolved)
-- [Development](#Development)
-- [Deployment](#Deployment)
-- [Credits](#Credits)
-    - [Content](#Content)
-    - [Media](#Media)
-    - [Acknowledgements](#Acknowledgements)
-- [Personal Development](#Personal-Development)
+
+- [Portfolio Project 2 - JavaScript](#portfolio-project-2---javascript)
+  - [Live Site](#live-site)
+  - [Repository](#repository)
+  - [Table of Contents](#table-of-contents)
+  - [Objective](#objective)
+  - [Brief](#brief)
+    - [Mastermind - A Logic Game](#mastermind---a-logic-game)
+  - [UX &#8722; User Experience Design](#ux--user-experience-design)
+    - [User Requirements](#user-requirements)
+    - [Initial Concept](#initial-concept)
+      - [Wireframes](#wireframes)
+      - [Colour Scheme](#colour-scheme)
+      - [Typography](#typography)
+      - [Imagery](#imagery)
+  - [Features](#features)
+    - [Existing Features](#existing-features)
+    - [Features Left to Implement](#features-left-to-implement)
+  - [Technologies Used](#technologies-used)
+  - [Testing](#testing)
+  - [Bugs](#bugs)
+    - [Current](#current)
+    - [Resolved](#resolved)
+  - [Development](#development)
+  - [Deployment](#deployment)
+  - [Credits](#credits)
+    - [Content](#content)
+    - [Media](#media)
+    - [Acknowledgements](#acknowledgements)
+    - [Personal Development](#personal-development)
+
 ***
+
 ## Objective
+
 <!-- objective description here -->
-**The needs within this project are not genuine and are made purely for the purpose of completing my Code Institute project**
+
+***The needs within this project are not genuine and are made purely for the purpose of completing my Code Institute project***
+
 ***
+
 ## Brief
-### **Mastermind - A Logic Game**
+
+### Mastermind - A Logic Game
+
 <!-- brief description of goals and requirements -->
 ***
+
 ## UX &#8722; User Experience Design
+
 ### User Requirements
+
 Some example user stories which will affect the design
 
 <!-- user stories here -->
+
 ***
+
 ### Initial Concept
+
 <!-- concept here -->
+
 #### Wireframes
+
 <!-- wireframes here -->
 <!-- *See [here](./readme-content/wireframes.md#tablet) for other device types* -->
+
 ***
+
 #### Colour Scheme
+
 <!-- colour scheme, remember to contrast check!!! -->
+
 ***
+
 #### Typography
+
 <!-- typography -->
+
 ***
+
 #### Imagery
+
 <!-- imagery -->
+
 ***
+
 ## Features
- 
+
 ### Existing Features
+
 <!-- - Feature 1 - allows users X to achieve Y, by having them fill out Z -->
 <!-- 1. feature1
 >*"User... **story quote**"*
 - *explanation*-->
 F1
+
 ***
+
 <!-- - Feature 2 - allows users X to achieve Y, by having them fill out Z -->
 <!-- 1. feature2
 >*"User... **story quote**"*
@@ -79,8 +118,11 @@ F1
   ![imgName](imgURL)
 -->
 F2
+
 ***
+
 ### Features Left to Implement
+
 <!-- features left to implement -->
 <!-- 1. Explain desired feature 1
   - *Notes regarding feature*
@@ -88,14 +130,19 @@ F2
 <!-- 2. Explain desired feature 2
   - *Notes regarding feature*
   - Explanation of feature need etc. -->
+
 ***
+
 ## Technologies Used
+
 <!-- tech used -->
 <!-- - *[techNameOne](techURL)*
        - Description -->
 <!-- - *[techNameTwo](techURL)*
        - Description -->
+
 ## Testing
+
 <!-- explain testing
 ? item tested
 ? expected result
@@ -109,36 +156,51 @@ look at daisy's testing documentation and [webinar](https://us02web.zoom.us/rec/
 
 <!-- validation of html, css and script. -->
 <!-- lighthouse testing -->
+
 ## Bugs
+
 ### Current
+
 <!-- current bugs -->
 
 <!-- - bugOne explanation
 
 *notes on explanation* -->
+
 ***
+
 <!-- - bugTwo explanation
 
 *notes on explanation* -->
+
 ***
+
 ### Resolved
+
 <!-- resolved bugs -->
 <!-- 1. bugOne
 
 ![bugOneImg](bugOneImgURL)
 
 *Commit - **[sha](commit link with highlighted lines)** - explanation of fix* -->
+
 ***
+
 <!-- 1. bugTwo
 
 ![bugTwoImg](bugTwoImgURL)
 
 *Commit - **[sha](commit link with highlighted lines)** - explanation of fix* -->
+
 ***
+
 ## Development
+
 <!-- section missed in first project. 
 !describe development process -->
+
 ## Deployment
+
 <!-- !check this section, may need adjusting as using additional languages -->
 
 <!-- **Github Pages**
@@ -166,18 +228,28 @@ look at daisy's testing documentation and [webinar](https://us02web.zoom.us/rec/
 https://daveyjh.github.io/ci-portfolio-one-v4/
 
 The site is now live and operational -->
+
 ***
+
 ## Credits
 
 ### Content
+
 <!-- - the a comes from b -->
 <!-- - the c comes from d -->
+
 ### Media
+
 <!-- - the a comes from b -->
 <!-- - the c comes from d -->
+
 ### Acknowledgements
+
 <!-- - acknowledge a, found at [b](bURL), for c -->
 <!-- - acknowledge d, found at [e](eURL), for f -->
+
 ***
+
 ### Personal Development
+
 <!-- notes -->
