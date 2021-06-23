@@ -48,16 +48,24 @@ let layout = {
   xaxis: {
     title: "Importance",
     range: [0, 10.5],
+    dtick: 1,
+    ticklen: 3,
     font: {
       size: 14,
-    }
+    },
+    gridwidth: 3,
+    zerolinewidth: 4,
   },
   yaxis: {
     title: "Viability",
     range: [0, 10.5],
+    dtick: 1,
+    ticklen: 3,
     font: {
       size: 14,
-    }
+    },
+    gridwidth: 3,
+    zerolinewidth: 4,
   },
   title:'Trade Off Comparison',
   font: {
