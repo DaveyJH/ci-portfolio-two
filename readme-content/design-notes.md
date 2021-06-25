@@ -201,3 +201,10 @@ The final two elements are likely to take a little more research and could requi
 The information architecture of the site should allow users to navigate easily between different pages. All pages should be accessible from each other, as the overall construct is not too complex, and the site will have just five pages.  
 I am yet to decide whether there will be a welcome page. My initial thoughts are that users will enjoy being able to play immediately, with the option to explore further if desired. Pages will be easily accessible via a header element which will remain present at the top of the page.  
 The interaction design will be styled in a way that maintains the user experience throughout. Navigation elements will remain in the same places, colour schemes and typography will remain consistent across the pages.  
+
+---
+
+## Skeleton
+
+As the game has a few aspects to present on the page, I will adjust and simplify thing as necessary. The wireframe shown below has many comments attached which can be viewed in [*Blasamiq*](https://balsamiq.com/) and can be downloaded from the readme-content directory or [here](./mastermind.bmpr)  
+![Mobile Wireframe](./images/mobile-game.png)
