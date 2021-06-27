@@ -76,6 +76,13 @@ The goal of this website is to provide an interactive version of the classic Mas
 Some example user stories which will affect the design
 
 <!-- user stories here -->
+> *"As a person who enjoys Mastermind, I want to get straight into playing the game. I have played other versions and find them a little aesthetically dull"*
+>
+> *"As a person who hasn't played before, I would like to read the rules of the game. I want to know exactly how to play and what to expect"*
+>
+> *"As a person that likes a challenge, I would like the option of a more difficult game"*
+>
+> *"As an interested developer/employer, I would like to learn more about the developer of this site"*
 
 ***
 
