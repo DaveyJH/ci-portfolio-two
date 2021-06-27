@@ -8,7 +8,7 @@
 <!-- [Mastermind - A Logic Game](https://daveyjh.github.io/ci-portfolio-two) -->
 ## Repository
 
-<!-- [https://github.com/daveyjh/ci-portfolio-two](https://github.com/daveyjh/ci-portfolio-two) -->
+[https://github.com/daveyjh/ci-portfolio-two](https://github.com/daveyjh/ci-portfolio-two)
 ***
 
 ## Table of Contents
