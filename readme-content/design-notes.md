@@ -123,29 +123,29 @@ List of desired features and ability to deliver those features
 
 | Desired Feature | Importance /10 | Viability /10 | Graph Reference |
 | :---------------------: | :--------: | :-------: | :-------------: |
-| Appealing design/visuals | 9/10 | 8/10 | a |
-| Option to select number of colours | 7/10 | 7/10 | b |
-| Option to select number of circles in solution | 10/10 | 8/10 | c |
-| Option to select if colours may be repeated within the solution | 7/10 | 7/10 | d |
-| Option to repeat colours in guess if the solution has no repeats | 4/10 | 6/10 | e |
-| Click control mechanism with revealing colour options | 8/10 | 6/10 | f |
-| Display result of each guess | 10/10 | 7/10 | g |
-| Pop up to remind meaning of results | 2/10 | 5/10 | h |
-| Hidden solution that reveals on correct answer/give up | 6/10 | 6/10 | i |
-| Score count | 7/10 | 7/10 | j |
-| Best score display | 3/10 | 6/10 | k |
-| Timers | 4/10 | 5/10 | l |
-| Pause function | 2/10 | 4/10 | m |
-| Option to hide timer during gameplay | 4/10 | 6/10 | n |
-| Rules page | 10/10 | 10/10 | o |
-| Demo game | 5/10 | 8/10 | p |
-| Developer section | 9/10 | 10/10 | q |
-| Stop guess if not all selections made | 9/10 | 8/10 | r |
-| Challenge mode with a limited number of attempts | 7/10 | 7/10 | s |
-| Offer an increment in difficulty when winning | 6/10 | 5/10 | t |
-| Confirmation sounds | 7/10 | 4/10 | u |
-| Alternative images to just using colours | 1/10 | 3/10 | v |
-| Set a code for 'AI' to solve | 1/10 | 3/10 | w |
+| Appealing design/visuals | 9/10 | 8/10 | A |
+| Option to select number of colours | 7/10 | 7/10 | B |
+| Option to select number of circles in solution | 10/10 | 8/10 | C |
+| Option to select if colours may be repeated within the solution | 7/10 | 7/10 | D |
+| Option to repeat colours in guess if the solution has no repeats | 4/10 | 6/10 | E |
+| Click control mechanism with revealing colour options | 8/10 | 6/10 | F |
+| Display result of each guess | 10/10 | 7/10 | G |
+| Pop up to remind meaning of results | 2/10 | 5/10 | H |
+| Hidden solution that reveals on correct answer/give up | 6/10 | 6/10 | I |
+| Score count | 7/10 | 7/10 | J |
+| Best score display | 3/10 | 6/10 | K |
+| Timers | 4/10 | 5/10 | L |
+| Pause function | 2/10 | 4/10 | M |
+| Option to hide timer during gameplay | 4/10 | 6/10 | N |
+| Rules page | 10/10 | 10/10 | O |
+| Demo game | 5/10 | 8/10 | P |
+| Developer section | 9/10 | 10/10 | Q |
+| Stop guess if not all selections made | 9/10 | 8/10 | R |
+| Challenge mode with a limited number of attempts | 7/10 | 7/10 | S |
+| Offer an increment in difficulty when winning | 6/10 | 5/10 | T |
+| Confirmation sounds | 7/10 | 4/10 | U |
+| Alternative images to just using colours | 1/10 | 3/10 | V |
+| Set a code for 'AI' to solve | 1/10 | 3/10 | W |
 
 ---
 
