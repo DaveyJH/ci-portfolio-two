@@ -217,7 +217,7 @@ The game features will be designed to be as intuitive as possible, however, due 
 <!-- Colour schemes -->
 The classic version of this game is played in a wooden box construction. I will look at contrast viability of browns and see if I can maintain the classic look. If that seems improbable, I will research some more modern designs and look to give the game a more modern 'edgy' representation.
 <!-- Typography -->
-The game is logic based and so does not require any very fancy typography. I will aim to keep the font basic and clean to give good readability. 
+The game is logic based and so does not require any very fancy typography. I will aim to keep the font basic and clean to give good readability.
 <!-- Imagery/design -->
 With the game being of logic design, the image I intend to use as a logo should reference the human brain. Most other images will be generated through the development process via screenshots or snips. The design of the colour selections/positions should be maintained throughout and be kept simple and functional. The result pegs should also follow the simple and functional design aspects.  
 I intend to use the Rubik's cube as a 'logo' for myself as a developer but need to look into the legality of this. If needed, I can use my own profile image on the 'about' page.
