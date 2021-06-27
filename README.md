@@ -89,6 +89,7 @@ Some example user stories which will affect the design
 ### Initial Concept
 
 <!-- concept here -->
+I hope to provide a fully functioning version of the Mastermind game using JavaScript, HTML and CSS. I anticipate using a wooden colour scheme, perhaps with photographic textures, to add a little more style than some versions I have researched. The site should be simple to navigate, not allow errors during use and encourage users to play at increasing difficulty levels. The application is to be designed with 'mobile first' in mind
 
 #### Wireframes
 
