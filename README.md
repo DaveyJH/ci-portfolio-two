@@ -47,7 +47,6 @@
 
 ## Objective
 
-<!-- objective description here -->
 Design an interactive Mastermind game using JavaScript. The project should demonstrate competency with HTML, CSS and JavaScript.
 
 ***The needs within this project are not genuine and are made purely for the purpose of completing my Code Institute project***
@@ -58,7 +57,6 @@ Design an interactive Mastermind game using JavaScript. The project should demon
 
 ### Mastermind - A Logic Game
 
-<!-- brief description of goals and requirements -->
 The goal of this website is to provide an interactive version of the classic Mastermind game. The site should have:
 
 - an emotive and enjoyable, interactive Mastermind game written using JavaScript
@@ -75,7 +73,6 @@ The goal of this website is to provide an interactive version of the classic Mas
 
 Some example user stories which will affect the design
 
-<!-- user stories here -->
 > *"As a person who enjoys Mastermind, I want to get straight into playing the game. I have played other versions and find them a little aesthetically dull"*
 >
 > *"As a person who hasn't played before, I would like to read the rules of the game. I want to know exactly how to play and what to expect"*
@@ -88,14 +85,12 @@ Some example user stories which will affect the design
 
 ### Initial Concept
 
-<!-- concept here -->
 I hope to provide a fully functioning version of the Mastermind game using JavaScript, HTML and CSS. I anticipate using a wooden colour scheme, perhaps with photographic textures, to add a little more style than some versions I have researched. The site should be simple to navigate, not allow errors during use and encourage users to play at increasing difficulty levels. The application is to be designed with 'mobile first' in mind
 
 The design process is detailed in more depth in the [design-notes](./readme-content/design-notes.md) document
 
 #### Wireframes
 
-<!-- wireframes here -->
 ![Mobile Home Wireframe](readme-content/images/mobile-game.png)
 *See [here](./readme-content/wireframes.md) for all mobile pages and other device types*
 
