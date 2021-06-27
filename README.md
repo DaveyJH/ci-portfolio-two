@@ -94,7 +94,8 @@ I hope to provide a fully functioning version of the Mastermind game using JavaS
 #### Wireframes
 
 <!-- wireframes here -->
-<!-- *See [here](./readme-content/wireframes.md#tablet) for other device types* -->
+![Mobile Home Wireframe](readme-content/images/mobile-game.png)
+*See [here](./readme-content/wireframes.md) for all mobile pages and other device types*
 
 ***
 
