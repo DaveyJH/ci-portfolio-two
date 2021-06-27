@@ -1,3 +1,17 @@
 body {
-  background-color: blue;
+  box-sizing: border-box;
+  background-color: burlywood;
+}
+header {
+  padding: .5rem;
+  position: relative;
+}
+header img {
+  width: 12.5%;
+  height: 12.5%;
+}
+h1 {
+  font-family: "Orbitron", sans-serif;
+  margin-top: -2.8rem;
+  text-align: center;
 }
