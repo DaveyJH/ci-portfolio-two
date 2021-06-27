@@ -20,7 +20,7 @@
   - [Objective](#objective)
   - [Brief](#brief)
     - [Mastermind - A Logic Game](#mastermind---a-logic-game)
-  - [UX &#8722; User Experience Design](#ux--user-experience-design)
+  - [UX - User Experience Design](#ux---user-experience-design)
     - [User Requirements](#user-requirements)
     - [Initial Concept](#initial-concept)
       - [Wireframes](#wireframes)
@@ -48,6 +48,7 @@
 ## Objective
 
 <!-- objective description here -->
+Design an interactive Mastermind game using JavaScript. The project should demonstrate competency with HTML, CSS and JavaScript.
 
 ***The needs within this project are not genuine and are made purely for the purpose of completing my Code Institute project***
 
@@ -58,9 +59,17 @@
 ### Mastermind - A Logic Game
 
 <!-- brief description of goals and requirements -->
+The goal of this website is to provide an interactive version of the classic Mastermind game. The site should have:
+
+- an emotive and enjoyable, interactive Mastermind game written using JavaScript
+- a few difficulty options and settings
+- the rules of the game for those who have not played before
+- a brief intro and link to me as a developer
+- a consistent layout and design
+
 ***
 
-## UX &#8722; User Experience Design
+## UX - User Experience Design
 
 ### User Requirements
 
