@@ -12,3 +12,7 @@ for (let i = 0; i < numOfBalls; i++) {
 }
 
 console.log(solution)
+
+let solutionInsert = document.getElementById("solution").children;
+console.log(solutionInsert[0]);
+solutionInsert[0].classList.add(solution[0]);
