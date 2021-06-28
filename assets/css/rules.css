@@ -17,9 +17,9 @@ h2 {
 .main-rules.last {
   font-size: larger;
   margin-top: 1rem;
-  margin-bottom: 1.8rem;
+  margin-bottom: .8rem;
   text-align: center;
 }
 img {
-  margin: 0 auto;
+  margin: 1.5rem auto .3rem;
 }
