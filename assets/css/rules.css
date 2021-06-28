@@ -1,0 +1,25 @@
+main {
+  margin: 1.5rem .8rem 0;
+  padding: 1rem .8rem;
+  background-color: #a0622c;
+  font-size: 1.2rem;
+}
+h2 {
+  margin-bottom: .8rem;
+}
+.main-rules {
+  margin: .5rem 0;
+  text-align: justify;
+}
+.main-rules.first {
+  margin-top: 1.2rem;
+}
+.main-rules.last {
+  font-size: larger;
+  margin-top: 1rem;
+  margin-bottom: 1.8rem;
+  text-align: center;
+}
+img {
+  margin: 0 auto;
+}
