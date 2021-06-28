@@ -5,6 +5,8 @@ let solution = [];
 // create a variable for the number of balls in the solution
 let numOfBalls = 4;
 let colorSelectBox = document.getElementById("selector-box");
+let colorSelection;
+let colorSelected;
 
 // set colors of color selector balls to match available colors
 let colorSelectors = document.getElementsByClassName("selector");
@@ -40,7 +42,20 @@ document.querySelectorAll('.active-balls').forEach(item => {
   item.addEventListener('click', colorSelector)
 })
 
-function colorSelector() {
-  colorSelectBox.style.visibility = "visible"
+
+function colorSelector(event) {
+  colorSelectBox.style.visibility = "visible";
+  // add click listener to selectors
+  document.querySelectorAll('.selector').forEach(item => {
+    item.addEventListener('click', colorSelect)
+  })
+  function colorSelect(event) {
+    console.log("win");
+    colorSelected = event.target.style.backgroundColor;
+    colorSelectBox.style.visibility = "hidden";    
+  }
+  // set color of original selected ball
+  //! this is not working correctly and requires a second click of the appropriate ball
+  event.target.style.backgroundColor = colorSelected;
   console.log("success");
 }
