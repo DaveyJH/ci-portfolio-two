@@ -6,15 +6,20 @@ let solution = [];
 let numOfBalls = 4;
 let colorSelectBox = document.getElementById("selector-box");
 
+// set colors of color selector balls to match available colors
+let colorSelectors = document.getElementsByClassName("selector");
+for (let i = 0; i < colorSelectors.length; i++) {
+  colorSelectors[i].style.backgroundColor = (colors[i]);
+}
+
+// set solution
 for (let i = 0; i < numOfBalls; i++) {
   let newColor = colors[Math.floor(Math.random()*colors.length)]; //select a random color
   solution.push(newColor); //add new color to solution
-  console.log(i);
 }
 
 // get array of solution color balls
 let solutionInsert = document.getElementById("solution").children;
-
 // set color of solution balls
 for (let i = 0; i < solution.length; i++) {
   solutionInsert[i].style.backgroundColor = (solution[i]);
