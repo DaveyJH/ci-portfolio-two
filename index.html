@@ -10,12 +10,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani&family=Orbitron&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
   <title>Mastermind</title>
 </head>
 <body>
   <header>
       <img src="./assets/images/color-brain-split.png" alt="brain">
-      <h1>Mastermind</h1>
+      <h1 class="text-center">Mastermind</h1>
     <nav>
       <ul>
         <li>
@@ -36,66 +37,133 @@
       </ul>
     </nav>
   </header>
-  <div id="game-board">
-    <div id="scores-and-times">
-      <div class="best score">
-        10
+    <div id="game-board">
+      <div id="scores-and-times" class="text-center">
+        <div class="best score">
+          10
+        </div>
+        <div class="current time">
+          0:00
+        </div>
+        <div class="best time">
+          2:05
+        </div>
       </div>
-      <div class="current time">
-        0:00
+      <div class="row top">
+        <div id="hint" class="text-center">
+          <i class="fas fa-question-circle"></i>
+        </div>
+        <div id="solution">
+          <div class="color-ball"></div>
+          <div class="color-ball"></div>
+          <div class="color-ball"></div>
+        </div>
+        <div id="solution-cover">
+        </div>
+        <div id="give-up" class="text-center">
+          <i class="fas fa-skull-crossbones"></i>
+        </div>
       </div>
-      <div class="best time">
-        2:05
+      <div class="row guess">
+          <div class="number text-center">
+            88
+          </div>
+          <div class="selection">
+            <div class="color">
+              colour selection here
+            </div>
+            <div class="color">
+              colour selection here
+            </div>
+            <div class="color">
+              colour selection here
+            </div>
+            <div class="color">
+              colour selection here
+            </div>
+          </div>
+          <div class="result">
+            <div>
+              <div class="peg">
+              </div>
+              <div class="peg">
+              </div>
+            </div>
+            <div>
+              <div class="peg">
+              </div>
+              <div class="peg">
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="row guess">
+          <div class="number text-center">
+            88
+          </div>
+          <div class="selection">
+            <div class="color">
+              colour selection here
+            </div>
+            <div class="color">
+              colour selection here
+            </div>
+            <div class="color">
+              colour selection here
+            </div>
+            <div class="color">
+              colour selection here
+            </div>
+          </div>
+          <div class="result">
+            <div>
+              <div class="peg">
+              </div>
+              <div class="peg">
+              </div>
+            </div>
+            <div>
+              <div class="peg">
+              </div>
+              <div class="peg">
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="row guess">
+          <div class="number text-center">
+            88
+          </div>
+          <div class="selection">
+            <div class="color">
+              colour selection here
+            </div>
+            <div class="color">
+              colour selection here
+            </div>
+            <div class="color">
+              colour selection here
+            </div>
+            <div class="color">
+              colour selection here
+            </div>
+          </div>
+          <div class="result">
+            <div>
+              <div class="peg">
+              </div>
+              <div class="peg">
+              </div>
+            </div>
+            <div>
+              <div class="peg">
+              </div>
+              <div class="peg">
+              </div>
+            </div>
+          </div>
       </div>
     </div>
-    <div class="row top">
-      <div id="hint">
-        hint icon here
-      </div>
-      <div id="solution">
-        solution here
-      </div>
-      <div id="solution-cover">
-        cover for solution here
-      </div>
-      <div id="give-up">
-        give up icon here
-      </div>
-    </div>
-    <div class="row guess">
-        <div class="number">
-          gues number here
-        </div>
-        <div class="selection">
-          <div class="color">
-            colour selection here
-          </div>
-          <div class="color">
-            colour selection here
-          </div>
-          <div class="color">
-            colour selection here
-          </div>
-          <div class="color">
-            colour selection here
-          </div>
-        </div>
-        <div class="result">
-          <div class="peg">
-            peg result here
-          </div>
-          <div class="peg">
-            peg result here
-          </div>
-          <div class="peg">
-            peg result here
-          </div>
-          <div class="peg">
-            peg result here
-          </div>
-        </div>
-    </div>
-  </div>
   <div id="selector-box">
     <div class="selector">
       <div class="color">
