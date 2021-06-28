@@ -1,21 +1,24 @@
 /* general */
-body {
-  box-sizing: border-box;
+* {
   margin: 0;
   padding: 0;
-  background-color: #fffce8;
-  color: #fffce8;
-  font-family: "Rajdhani", sans-serif;
+  box-sizing: border-box;
 }
 a {
   text-decoration: none;
   color: inherit;
+}
+body {
+  background-color: #fffce8;
+  color: #fffce8;
+  font-family: "Rajdhani", sans-serif;
 }
 /* header start */
 header {
   color: #3e363f;
   background-color: #a0622c;
   font-family: "Orbitron", sans-serif;
+  text-transform: uppercase;
   position: relative;
 }
 header img {
@@ -31,8 +34,7 @@ header ul {
   font-size: .9rem;
   display: flex;
   justify-content: space-between;
-  padding: 0;
-  margin-top: -.8rem;
+  padding: .5rem .4rem;
 }
 header li {
   list-style-type: none;
@@ -42,9 +44,10 @@ header li {
 
 /* game board start */
 #game-board{
-  margin: 0 .8rem;
+  margin: 1.5rem .8rem 0;
   background: URL("../images/wood-effect.jpg") no-repeat center center / 100% auto;
 }
+/* scores and times */
 #scores-and-times {
   display: flex;
   justify-content: space-between;
@@ -74,6 +77,26 @@ header li {
   border-top: .2rem solid #3e363f;
   border-bottom: .2rem solid #3e363f;
 }
+/* rows */
 .row {
-  display: flex;
+  position: relative;
+  display: grid;
+  grid-template-columns: 15% 70% 15%;
+  height: 2.6rem;
+}
+.row * {
+  height: 100%;
+}
+/* top row */
+#solution {
+  background-color: #854e1e;
+}
+#solution-cover {
+  position: absolute;
+  left: 15%;
+  width: 70%;
+  background: URL("../images/horizontal-wood.jpg") no-repeat center / 100% 100%;
+  border: .2rem solid #854e1e;
+  box-sizing: border-box;
+  /* z-index: -1; */
 }
