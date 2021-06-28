@@ -2,7 +2,6 @@
 * {
   margin: 0;
   padding: 0;
-  /* box-sizing: border-box; */
 }
 .text-center {
   text-align: center;
@@ -16,7 +15,7 @@ body {
   color: #fffce8;
   font-family: "Rajdhani", sans-serif;
 }
-/* header start */
+/* header */
 header {
   color: #3e363f;
   background-color: #a0622c;
@@ -82,7 +81,7 @@ header li {
   border-top: .2rem solid #3e363f;
   border-bottom: .2rem solid #3e363f;
 }
-/* end of scores and times */
+/* scores and times end */
 
 /* rows */
 .row {
@@ -129,6 +128,8 @@ header li {
   border: .2rem solid #854e1e;
   z-index: -1;
 }
+/* top row end */
+
 /* guess rows */
 .row:last-of-type {
   margin-bottom: 1rem;
@@ -160,3 +161,26 @@ header li {
   height: .8rem;
   border-radius: 50%;
 }
+/* guess rows end */
+/* rows end */
+/* game-board end */
+
+/* selector box */
+#selector-box {
+ position: absolute;
+ width: calc(100% - 1.6rem);
+ margin: 0 .8rem;
+ bottom: 0px;
+ display: flex;
+ flex-wrap: wrap;
+ flex-direction: column;
+ justify-content: space-around;
+ align-items: center;
+ background-color: #3e363f;
+ height: 7rem;
+ /* visibility: hidden; */
+}
+#selector-box .color-ball {
+  border: .2rem solid #fffce8;
+}
+/* selector box end */
