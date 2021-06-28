@@ -1,8 +1,8 @@
-
 /* game board start */
 #game-board {
   margin: 1.5rem .8rem 0;
   padding: 0 .4rem;
+  background-color: #a0622c;
   background: linear-gradient(#fffce822, #fffce822), URL("../images/wood-effect.jpg") no-repeat center center / 100% auto;
   border: .2rem solid #854e1e;
   border-radius: .2rem;
