@@ -31,10 +31,10 @@ for (let i = 0; i < solution.length; i++) {
 // active row index number
 let aR = 0;
 // get and set active-row class
-let activeRow = document.getElementsByClassName("guess")[aR].children[1];
+let activeRow = document.getElementsByClassName("guess")[aR];
 activeRow.classList.add("active-row");
 // get and set active-balls class to color-balls in active-row
-let activeBalls = activeRow.children;
+let activeBalls = activeRow.children[1].children;
 for (let i = 0; i < activeBalls.length; i++) {
   activeBalls[i].classList.add("active-balls");
 }
