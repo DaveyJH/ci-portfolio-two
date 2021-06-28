@@ -1,3 +1,4 @@
+
 /* game board start */
 #game-board {
   margin: 1.5rem .8rem 0;
@@ -133,17 +134,9 @@
  align-items: center;
  background-color: #3e363f;
  height: 7rem;
- visibility: hidden;
+ /* visibility: hidden; */
 }
 #selector-box .color-ball {
   border: .2rem solid #fffce8;
 }
 /* selector box end */
-p {
-  margin-top: .5rem;
-  text-align: center;
-  color: #3e363f;
-  font-size: 2.4rem;
-  font-weight: 600;
-  font-variant: small-caps;
-}
