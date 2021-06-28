@@ -4,6 +4,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+.text-center {
+  text-align: center;
+}
 a {
   text-decoration: none;
   color: inherit;
@@ -18,7 +21,7 @@ header {
   color: #3e363f;
   background-color: #a0622c;
   font-family: "Orbitron", sans-serif;
-  text-transform: uppercase;
+  font-variant: small-caps;
   position: relative;
 }
 header img {
@@ -28,7 +31,6 @@ header img {
 }
 h1 {
   margin-top: -2.8rem;
-  text-align: center;
 }
 header ul {
   font-size: .9rem;
@@ -44,8 +46,12 @@ header li {
 
 /* game board start */
 #game-board{
+  max-width: 40rem;
   margin: 1.5rem .8rem 0;
+  padding: 0 .8rem;
   background: URL("../images/wood-effect.jpg") no-repeat center center / 100% auto;
+  border: .2rem solid #854e1e;
+  border-radius: .2rem;
 }
 /* scores and times */
 #scores-and-times {
@@ -54,7 +60,6 @@ header li {
   margin-bottom: .8rem;
   font-size: larger;
   font-weight: 700;;
-  text-align: center;
 }
 .best {
   border-radius: .15rem;
@@ -83,20 +88,57 @@ header li {
   display: grid;
   grid-template-columns: 15% 70% 15%;
   height: 2.6rem;
+  margin-bottom: .3rem;
 }
-.row * {
-  height: 100%;
+.row>* {
+  height: 2.6rem;
+  border-radius: .2rem;
 }
-/* top row */
-#solution {
+.row>div:nth-last-of-type(2){
   background-color: #854e1e;
 }
+#give-up, #hint {
+  font-size: 1.8rem;
+  line-height: 3rem;
+}
+/* top row */
 #solution-cover {
   position: absolute;
   left: 15%;
   width: 70%;
   background: URL("../images/horizontal-wood.jpg") no-repeat center / 100% 100%;
   border: .2rem solid #854e1e;
-  box-sizing: border-box;
   /* z-index: -1; */
+}
+.color-ball {
+  border-radius: 50%;
+  height: 80%;
+}
+/* guess rows */
+.number {
+  background-color: #854e1e;
+  font-size: 1.8rem;
+  justify-self: center;
+  border: .2rem solid;
+  position: relative;
+  width: 2.5rem;
+}
+.result {
+  background-color: #854e1e;
+  width: 3rem;
+  justify-self: center;
+  display: flex;
+  justify-content: space-around;
+  padding: .3rem 0;
+}
+.result>div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.peg {
+  background-color: #a0622c;
+  width: .8rem;
+  height: .8rem;
+  border-radius: 50%;
 }
