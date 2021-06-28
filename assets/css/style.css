@@ -114,6 +114,9 @@ header li {
 }
 
 /* top row */
+.top {
+  margin-bottom: 1rem;
+}
 #give-up, #hint {
   font-size: 1.8rem;
   line-height: 3rem;
@@ -127,6 +130,9 @@ header li {
   z-index: -1;
 }
 /* guess rows */
+.row:last-of-type {
+  margin-bottom: 1rem;
+}
 .number {
   background-color: #854e1e;
   font-size: 1.8rem;
