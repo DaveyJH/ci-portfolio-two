@@ -62,6 +62,20 @@ document.querySelectorAll('.selector').forEach(item => {
 function colorSelect(event) {
   colorSelected = event.target.style.backgroundColor;
   activeSelection.style.backgroundColor = colorSelected;
+  activeSelection.classList.remove("empty");
   colorSelected = null;
   colorSelectBox.style.visibility = "hidden";
+}
+
+activeRow.children[0].addEventListener("click", checkResult);
+
+/** check result of input colors
+ */
+function checkResult(){
+    if (activeBalls[0, 1, 2, 3].classList.contains("empty")) {
+      alert("Please complete selection!");
+    }
+    else {
+      console.log("success");
+    }
 }
