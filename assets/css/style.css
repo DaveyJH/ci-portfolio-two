@@ -2,7 +2,7 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
 }
 .text-center {
   text-align: center;
@@ -40,29 +40,29 @@ header ul {
 }
 header li {
   list-style-type: none;
-  padding: 0 .3rem .2rem;
+  padding: 0 .2rem .2rem;
 }
 /* header end */
 
 /* game board start */
-#game-board{
-  max-width: 40rem;
+#game-board {
   margin: 1.5rem .8rem 0;
-  padding: 0 .8rem;
-  background: URL("../images/wood-effect.jpg") no-repeat center center / 100% auto;
+  padding: 0 .4rem;
+  background: linear-gradient(#fffce822, #fffce822), URL("../images/wood-effect.jpg") no-repeat center center / 100% auto;
   border: .2rem solid #854e1e;
   border-radius: .2rem;
 }
+
 /* scores and times */
 #scores-and-times {
   display: flex;
   justify-content: space-between;
-  margin-bottom: .8rem;
-  font-size: larger;
-  font-weight: 700;;
+  margin-bottom: .5rem;
+  font-size: 1.2rem;
+  font-weight: 700;
 }
 .best {
-  border-radius: .15rem;
+  border-radius: .2rem;
   border: .2rem solid #3e363f;
   background-color: #854e1e;
   width: 4rem;
@@ -72,16 +72,18 @@ header li {
 .best.score {
   left: -.3rem;
 }
-.best.time{
+.best.time {
   left: .3rem;
 }
 .current {
   position: absolute;
   top: 1.1rem;
-  right: 1rem;
+  right: .8rem;
   border-top: .2rem solid #3e363f;
   border-bottom: .2rem solid #3e363f;
 }
+/* end of scores and times */
+
 /* rows */
 .row {
   position: relative;
@@ -93,26 +95,36 @@ header li {
 .row>* {
   height: 2.6rem;
   border-radius: .2rem;
+  box-sizing: border-box;
 }
-.row>div:nth-last-of-type(2){
+.row>div:nth-of-type(2) {
+  background-color: #a0622c;
+  border: .2rem solid #854e1e;
+}
+.ball-spacing {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.color-ball {
+  border-radius: 50%;
+  height: 2rem;
+  width: 2rem;
   background-color: #854e1e;
 }
+
+/* top row */
 #give-up, #hint {
   font-size: 1.8rem;
   line-height: 3rem;
 }
-/* top row */
 #solution-cover {
   position: absolute;
   left: 15%;
   width: 70%;
   background: URL("../images/horizontal-wood.jpg") no-repeat center / 100% 100%;
   border: .2rem solid #854e1e;
-  /* z-index: -1; */
-}
-.color-ball {
-  border-radius: 50%;
-  height: 80%;
+  z-index: -1;
 }
 /* guess rows */
 .number {
