@@ -126,6 +126,8 @@
  position: absolute;
  width: calc(100% - 1.6rem);
  margin: 0 .8rem;
+ border-top-left-radius: .2rem;
+ border-top-right-radius: .2rem;
  bottom: 0px;
  display: flex;
  flex-wrap: wrap;
