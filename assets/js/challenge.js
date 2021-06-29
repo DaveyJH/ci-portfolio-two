@@ -115,7 +115,14 @@ function checkResult(){
     // test for white and black peg results
     for (i = 0; i < solution.length; i++) {
       if (solution[i] === activeBalls[i].style.backgroundColor) {
+        // ?add "black" value to an array?
         console.log("black");
+      }
+    }
+    for (i = 0; i < solution.length; i++) {
+      if (solution[i] !== activeBalls[i].style.backgroundColor && solution.includes(activeBalls[i].style.backgroundColor)) {
+        // ?add "white" value to an array?
+        console.log("white");
       }
     }
     
@@ -123,7 +130,5 @@ function checkResult(){
     deactivateRow();
     aR++;
     activateRow();
-
-    //? stuck - how do i check for solution[0] value in classList of activeBalls[0]?
   }
 }
