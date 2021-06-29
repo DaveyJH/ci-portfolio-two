@@ -45,20 +45,20 @@ activateRow();
  * to enable selection of colors and result checking
  */
 function activateRow() {
-// get and set .active-row
-activeRow = document.getElementsByClassName("guess")[aR];
-activeRow.classList.add("active-row");
-// get and set .active-balls and .empty to color-balls in active-row
-activeBalls = activeRow.children[1].children;
-for (let i = 0; i < activeBalls.length; i++) {
-  activeBalls[i].classList.add("active-balls", "empty");
-}
-// add click listener to active-balls
-document.querySelectorAll('.active-balls').forEach(item => {
-  item.addEventListener('click', colorSelector)
-})
-// add click listener to row number to check result
-activeRow.children[0].addEventListener("click", checkResult);
+  // get and set .active-row
+  activeRow = document.getElementsByClassName("guess")[aR];
+  activeRow.classList.add("active-row");
+  // get and set .active-balls and .empty to color-balls in active-row
+  activeBalls = activeRow.children[1].children;
+  for (let i = 0; i < activeBalls.length; i++) {
+    activeBalls[i].classList.add("active-balls", "empty");
+  }
+  // add click listener to active-balls
+  document.querySelectorAll('.active-balls').forEach(item => {
+    item.addEventListener('click', colorSelector)
+  })
+  // add click listener to row number to check result
+  activeRow.children[0].addEventListener("click", checkResult);
 }
 
 function deactivateRow() {
