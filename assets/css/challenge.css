@@ -103,7 +103,9 @@
   width: 3rem;
   justify-self: center;
   display: flex;
+  flex-flow: column wrap;
   justify-content: space-around;
+  align-content: space-around;
   padding: .3rem 0;
 }
 .result>div {
