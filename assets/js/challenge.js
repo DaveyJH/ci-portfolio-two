@@ -6,6 +6,8 @@ let solution = [];
 let numOfBalls = 4;
 // make number of pegs === number of balls
 let numOfPegs = numOfBalls;
+// create variable to store peg results
+let pegColors = [];
 // get the color select box element
 let colorSelectBox = document.getElementById("selector-box");
 // create a variable to store the color selected from the selector box
@@ -18,7 +20,8 @@ var aR = 0;
 let activeRow;
 // create variable to store activeBalls
 let activeBalls;
-
+// create result pegs
+let activePegs;
 
 // set colors of color selector balls to match available colors
 let colorSelectors = document.getElementsByClassName("selector");
@@ -38,6 +41,11 @@ let solutionInsert = document.getElementById("solution").children;
 for (let i = 0; i < solution.length; i++) {
   solutionInsert[i].style.backgroundColor = (solution[i]);
 }
+
+// add click listener to selectors
+document.querySelectorAll('.selector').forEach(item => {
+  item.addEventListener('click', colorSelect)
+})
 
 activateRow();
 
@@ -59,8 +67,11 @@ function activateRow() {
   })
   // add click listener to row number to check result
   activeRow.children[0].addEventListener("click", checkResult);
+  // active pegs in active row
+  activePegs = activeRow.children[2].children;
 }
 
+/** deactivate row by removing classes */
 function deactivateRow() {
   activeRow.classList.remove("active-row");
   document.querySelectorAll('.active-balls').forEach(item => {
@@ -81,11 +92,6 @@ function colorSelector(event) {
   activeSelection = event.target;
 }
 
-// add click listener to selectors
-document.querySelectorAll('.selector').forEach(item => {
-  item.addEventListener('click', colorSelect)
-})
-
 /** set color of originally selected ball and then close selector box
 */
 function colorSelect(event) {
@@ -96,8 +102,14 @@ function colorSelect(event) {
   colorSelectBox.style.visibility = "hidden";
 }
 
-/** check result of input colors
- */
+/** assign colors to pegs based on result */
+function assignPegs() {
+  for (let i = 0; i < numOfPegs; i++) {
+    activePegs[i].style.backgroundColor = pegColors[i];
+  }
+}
+
+/** check result of input colors */
 function checkResult(){
   // check if any balls have not had colors selected and prevent wasted guess
   // ?can this be changed to for or switch statement?
@@ -117,15 +129,24 @@ function checkResult(){
       if (solution[i] === activeBalls[i].style.backgroundColor) {
         // ?add "black" value to an array?
         console.log("black");
+        pegColors.push("black");
       }
     }
+    // !white pegs repeat in situation [solution: r, r, g, b][guess: b, b, b, b]=[result: b, w, w, w]
     for (i = 0; i < solution.length; i++) {
-      if (solution[i] !== activeBalls[i].style.backgroundColor && solution.includes(activeBalls[i].style.backgroundColor)) {
+      if (solution[i] !== activeBalls[i].style.backgroundColor
+        && solution.includes(activeBalls[i].style.backgroundColor)) {
         // ?add "white" value to an array?
         console.log("white");
+        pegColors.push("white");
       }
     }
-    
+    console.log(pegColors);
+    // assign peg colors to pegs
+    assignPegs();
+    // delete values from pegColors
+    pegColors = [];
+    console.log(pegColors);
 
     deactivateRow();
     aR++;
