@@ -100,16 +100,26 @@ function colorSelect(event) {
  */
 function checkResult(){
   // check if any balls have not had colors selected and prevent wasted guess
-  if (activeBalls[0, 1, 2, 3].classList.contains("empty") || activeBalls[0].classList.contains("empty")) {
+  // ?can this be changed to for or switch statement?
+  if (activeBalls[0].classList.contains("empty") 
+    || activeBalls[1].classList.contains("empty")
+    || activeBalls[2].classList.contains("empty")
+    || activeBalls[3].classList.contains("empty")) {
     alert("Please complete selection!");
   }
   else {
-    console.log("success");
     // create logic to check if activeBalls contain class === solution array
     // check if index of ball with class is same as index of array value
     // if not, return white, if true, return black
     // repeat for all balls
     // test for white and black peg results
+    for (i = 0; i < solution.length; i++) {
+      if (solution[i] === activeBalls[i].style.backgroundColor) {
+        console.log("black");
+      }
+    }
+    
+
     deactivateRow();
     aR++;
     activateRow();
