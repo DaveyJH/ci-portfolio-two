@@ -191,6 +191,14 @@ function colorSelect(event) {
   colorSelected = null; // ?not necessary? removes chance of accidental color input
   colorSelectBox.style.visibility = "hidden"; // hide selector box
   activeSelection.style.border = "none"; // remove border from color ball in guess row
+  
+  // change border color if all four balls selected
+  if (!activeBalls[0].classList.contains("empty")
+  && !activeBalls[1].classList.contains("empty")
+  && !activeBalls[2].classList.contains("empty")
+  && !activeBalls[3].classList.contains("empty")) {
+    activeRow.children[0].style.borderColor = "#36b9d3"; // active row number border shows active row
+  }
 }
 
 // ! result functions
@@ -229,9 +237,9 @@ function checkResult(){
   solutionHolder = solution.slice(); // make a copy of the solution which is not modified
   
   if (activeBalls[0].classList.contains("empty") // check if any balls have not had colors selected
-    || activeBalls[1].classList.contains("empty") // ?can this be changed to for or switch statement?
-    || activeBalls[2].classList.contains("empty")
-    || activeBalls[3].classList.contains("empty")) {
+  || activeBalls[1].classList.contains("empty") // ?can this be changed to for or switch statement?
+  || activeBalls[2].classList.contains("empty")
+  || activeBalls[3].classList.contains("empty")) {
     alert("Please complete selection!"); // prevent wasted guess
   }
   else {
