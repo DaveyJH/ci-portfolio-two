@@ -228,6 +228,7 @@ function runChallenge() {
   setSolution();
   setSelectorBalls();
   activateRow();
+  // timer();
 }
 
 /** continue with next row or report lose */
@@ -275,4 +276,28 @@ function reset() {
 
 /** run the challenge */
 runChallenge();
-console.log(solution); // ! for ease of testing - remove!!!!
+
+
+
+
+
+
+// credit to Code Institute course content for basic timer function
+// modified with basic solution credit to https://stackoverflow.com/users/854246/joseph-marikle
+// https://stackoverflow.com/questions/8043026/how-to-format-numbers-by-prepending-0-to-single-digit-numbers/8043061#8043061
+// first answer which applies for positive integers only which works for this situation
+
+let seconds = document.getElementById("seconds");
+let minutes = document.getElementById("minutes");
+let secondsTime = 0;
+let minutesTime = 0;
+setInterval(function() {
+  secondsTime++;
+  seconds.innerHTML = ("0" + secondsTime).slice(-2);
+  if (secondsTime === 60) {
+    secondsTime = 0;
+    seconds.innerHTML = ("0" + secondsTime).slice(-2);
+    minutesTime++;
+    minutes.innerHTML = ("0" + minutesTime).slice(-2);
+  }
+}, 1000);
