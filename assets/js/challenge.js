@@ -1,30 +1,22 @@
-// create the colors available for the challenge
-let colors = ["red", "green", "blue", "yellow", "pink", "purple"]; //? change values to hex codes?
-// create a blank array for the solution
-let solution = [];
-// create a variable for the number of balls in the solution
-let numOfBalls = 4;
-// make number of pegs === number of balls
-let numOfPegs = numOfBalls;
-// create variable to store peg results
-let pegColors = [];
-// get the color select box element
-let colorSelectBox = document.getElementById("selector-box");
-// create a variable to store the color selected from the selector box
-let colorSelected;
-// create a variable to store which color-ball has been chosen for color change
-let activeSelection;
-// active row index number
-var aR = 0;
-// create variable to store activeRow
-let activeRow;
-// create variable to store activeBalls
-let activeBalls;
-// create result pegs
-let activePegs;
+//? change values to hex codes? 
+let colors = ["red", "green", "blue", "yellow", "pink", "purple"]; // create the colors available for the challenge
+let solution = []; // create a blank array for the solution
+let numOfBalls = 4; // create a variable for the number of balls in the solution
+let numOfPegs = numOfBalls; // number of pegs === number of balls
+let pegColors = []; // create array to store peg results
+let aR = 0; // active row index number
+let activeRow; // create variable to store activeRow
+let activeBalls; // create variable to store activeBalls
+let activeSelection; // create a variable to store which color-ball has been chosen for color change
+let activePegs; // create result pegs
+let colorSelectors = document.getElementsByClassName("selector"); // color selectors in selector-box
+let colorSelectBox = document.getElementById("selector-box"); // color select box element
+let colorSelected; // create a variable to store the color selected from the selector box
+let solutionBalls = document.getElementById("solution").children ; // get array of solution color balls
 
-// set colors of color selector balls to match available colors
-let colorSelectors = document.getElementsByClassName("selector");
+// todo create function to run game?
+
+// todo create function to house this
 for (let i = 0; i < colorSelectors.length; i++) {
   colorSelectors[i].style.backgroundColor = (colors[i]);
 }
@@ -35,10 +27,8 @@ for (let i = 0; i < numOfBalls; i++) {
   solution.push(newColor); //add new color to solution
 }
 
-// apply solution to balls
-// get array of solution color balls
-let solutionInsert = document.getElementById("solution").children;
-// set color of solution balls
+
+// todo create function to house this
 for (let i = 0; i < solution.length; i++) {
   solutionInsert[i].style.backgroundColor = (solution[i]);
 }
@@ -99,7 +89,7 @@ function colorSelector(event) {
   activeSelection.style.border = ".2rem solid white";
 }
 
-/** set color of originally selected ball and then close selector box
+/** set color of selected ball and then close selector box
 */
 function colorSelect(event) {
   colorSelected = event.target.style.backgroundColor;
