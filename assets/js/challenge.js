@@ -19,6 +19,9 @@ let solutionCover = document.getElementById("solution-cover"); // solution cover
 let message = document.getElementById("message"); // message paragraph
 let win = false; // set win to false
 let solutionHolder; // none modified solution array
+let bestScoreHTML = document.getElementsByClassName("best score")[0]; // bestScore to be filled in on win condition
+let bestScore = 0; // keep a record of the best score without having to get from DOM
+let score = 0; // score count
 
 /** set color of selector-box color balls to available colors */
 function setSelectorBalls() {
@@ -33,11 +36,12 @@ function setSolution () {
     let newColor = colors[Math.floor(Math.random()*colors.length)]; //select a random color
     solution.push(newColor); // add new color to solution
   }
-}
-
-// solution = ["red","red","yellow","red"]; // !test solutionA
+  solution = ["red","red","yellow","red"]; // !test solutionA
 // solution = ["red","blue","yellow","green"]; // !test solutionB
 // solution = ["red","blue","red","yellow"]; // !test solutionC
+}
+
+
 
 /** set color of solution balls to solution array values */
 function setSolutionBalls() {
@@ -73,6 +77,8 @@ function activateRow() {
   activeRow.children[0].style.borderColor = "#165764"; // active row number border shows active row
   activeRow.children[0].addEventListener("click", checkResult); // add click listener to row number
   activePegs = activeRow.children[2].children; // active pegs in active row
+  score++;
+  console.log(score);
 }
 
 /** deactivate row by removing classes and click listeners */
@@ -161,6 +167,7 @@ function checkResult(){
     if (win) {
       deactivateRow();
       ballReveal();
+      checkScore();
       message.innerHTML = "Well done!";
       setTimeout(winner, 100); // delay popup to allow 4 black pegs to be displayed
     }
@@ -182,6 +189,17 @@ function checkPegs() {
     else {
       win = false;
     }
+  }
+}
+
+/** check if best score has been set
+ * and if it is larger than the current winning
+ * score. if so, change the displayed number to the best score
+ */
+function checkScore() {
+  if (bestScore > score||bestScore === 0) {
+    bestScore = score.toString();
+    bestScoreHTML.innerHTML = `${bestScore}`;
   }
 }
 
@@ -233,7 +251,9 @@ function nextRow() {
  * active row number to first row,
  * peg color array to empty,
  * deactivate current row,
+ * reset message,
  * re-cover solution,
+ * reset score,
  * run challenge again
  */
 function reset() {
@@ -249,9 +269,10 @@ function reset() {
   deactivateRow();
   solutionCover.style.zIndex = "1"; // hide solution
   message.innerHTML = "Good luck!";
+  score = 0;
   runChallenge();
 }
 
 /** run the challenge */
 runChallenge();
-console.log(solution);
+console.log(solution); // ! for ease of testing - remove!!!!
