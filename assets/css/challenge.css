@@ -85,7 +85,6 @@
   width: 70%;
   background: URL("../images/horizontal-wood.jpg") no-repeat center / 100% 100%;
   border: .2rem solid #854e1e;
-  z-index: -1;
 }
 /* top row end */
 
@@ -154,4 +153,5 @@ p {
   font-size: 2.4rem;
   font-weight: 600;
   font-variant: small-caps;
+  text-transform: capitalize;
 }
