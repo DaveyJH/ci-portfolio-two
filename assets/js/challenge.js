@@ -91,12 +91,10 @@ function setSolution () {
     let newColor = colors[Math.floor(Math.random()*colors.length)]; //select a random color
     solution.push(newColor); // add new color to solution
   }
-  solution = ["red","red","yellow","red"]; // !test solutionA
+  // solution = ["red","red","yellow","red"]; // !test solutionA
 // solution = ["red","blue","yellow","green"]; // !test solutionB
 // solution = ["red","blue","red","yellow"]; // !test solutionC
 }
-
-
 
 /** set color of solution balls to solution array values */
 function setSolutionBalls() {
@@ -109,6 +107,8 @@ function setSolutionBalls() {
 document.querySelectorAll('.selector').forEach(item => {
   item.addEventListener('click', colorSelect)
 })
+
+// ! gameplay functions
 
 /** activates the next row by applying classes
  * to enable selection of colors and result checking
@@ -133,7 +133,6 @@ function activateRow() {
   activeRow.children[0].addEventListener("click", checkResult); // add click listener to row number
   activePegs = activeRow.children[2].children; // active pegs in active row
   score++;
-  console.log(score);
 }
 
 /** deactivate row by removing classes and click listeners */
@@ -147,6 +146,25 @@ function deactivateRow() {
     activeBalls[i].classList.remove("active-balls");
   }
   activeRow.children[0].removeEventListener("click", checkResult);
+}
+
+/** continue with next row or report lose.
+ * on lose, pause and then reset timer
+ */
+function nextRow() {
+  pegColors = []; // delete values from pegColors
+  deactivateRow();
+  aR++; // increment active row number
+  if (aR < 6) {
+    activateRow();
+  }
+  else { // if no rows remain for guesses
+    ballReveal();
+    message.innerHTML = "Oh dear!"
+    clearInterval(intervalCount);
+    resetTime();
+    setTimeout(loser, 100); // delay popup to allow result to be displayed
+  }
 }
 
 /** allows selected color-ball to be set as
@@ -174,6 +192,8 @@ function colorSelect(event) {
   colorSelectBox.style.visibility = "hidden"; // hide selector box
   activeSelection.style.border = "none"; // remove border from color ball in guess row
 }
+
+// ! result functions
 
 /** assign colors to pegs based on result */
 function assignPegs() {
@@ -220,6 +240,9 @@ function checkResult(){
     assignPegs();
     checkPegs();
     if (win) {
+      clearInterval(intervalCount); // stop timer
+      checkTime();
+      resetTime();
       deactivateRow();
       ballReveal();
       checkScore();
@@ -232,6 +255,8 @@ function checkResult(){
   }
   solution = solutionHolder.slice(); // set solution array back to correct values
 }
+
+// ! checks for winners/losers
 
 /** check for four black pegs,
  * pop up win message with option to reset
@@ -278,27 +303,14 @@ function loser() {
   }
 }
 
+// ! run and reset functions
+
 /** initiate challenge with new solution */
 function runChallenge() {
   setSolution();
   setSelectorBalls();
   activateRow();
-  // timer();
-}
-
-/** continue with next row or report lose */
-function nextRow() {
-  pegColors = []; // delete values from pegColors
-  deactivateRow();
-  aR++; // increment active row number
-  if (aR < 6) {
-    activateRow();
-  }
-  else { // if no rows remain for guesses
-    ballReveal();
-    message.innerHTML = "Oh dear!"
-    setTimeout(loser, 100); // delay popup to allow result to be displayed
-  }
+  timer();
 }
 
 /** reset solution to blank,
@@ -331,28 +343,3 @@ function reset() {
 
 /** run the challenge */
 runChallenge();
-
-
-
-
-
-
-// credit to Code Institute course content for basic timer function
-// modified with basic solution credit to https://stackoverflow.com/users/854246/joseph-marikle
-// https://stackoverflow.com/questions/8043026/how-to-format-numbers-by-prepending-0-to-single-digit-numbers/8043061#8043061
-// first answer which applies for positive integers only which works for this situation
-
-let seconds = document.getElementById("seconds");
-let minutes = document.getElementById("minutes");
-let secondsTime = 0;
-let minutesTime = 0;
-setInterval(function() {
-  secondsTime++;
-  seconds.innerHTML = ("0" + secondsTime).slice(-2);
-  if (secondsTime === 60) {
-    secondsTime = 0;
-    seconds.innerHTML = ("0" + secondsTime).slice(-2);
-    minutesTime++;
-    minutes.innerHTML = ("0" + minutesTime).slice(-2);
-  }
-}, 1000);
