@@ -105,8 +105,8 @@ function setSolutionBalls() {
 
 // add click listener to selectors
 document.querySelectorAll('.selector').forEach(item => {
-  item.addEventListener('click', colorSelect)
-})
+  item.addEventListener('click', colorSelect);
+});
 
 // ! gameplay functions
 
@@ -126,8 +126,8 @@ function activateRow() {
 
   // add click listener to active-balls
   document.querySelectorAll('.active-balls').forEach(item => {
-    item.addEventListener('click', colorSelector)
-  })
+    item.addEventListener('click', colorSelector);
+  });
 
   activeRow.children[0].style.borderColor = "#165764"; // active row number border shows active row
   activeRow.children[0].addEventListener("click", checkResult); // add click listener to row number
@@ -140,8 +140,8 @@ function deactivateRow() {
   activeRow.children[0].style.borderColor = "#fffce8"; // border color of previous row number back to normal
   activeRow.classList.remove("active-row");
   document.querySelectorAll('.active-balls').forEach(item => {
-    item.removeEventListener('click', colorSelector)
-  })
+    item.removeEventListener('click', colorSelector);
+  });
   for (let i = 0; i < activeBalls.length; i++) {
     activeBalls[i].classList.remove("active-balls");
   }
@@ -160,7 +160,7 @@ function nextRow() {
   }
   else { // if no rows remain for guesses
     ballReveal();
-    message.innerHTML = "Oh dear!"
+    message.innerHTML = "Oh dear!";
     clearInterval(intervalCount);
     resetTime();
     setTimeout(loser, 100); // delay popup to allow result to be displayed
