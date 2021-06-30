@@ -63,7 +63,7 @@ function activateRow() {
 }
 
 /** deactivate row by removing classes */
-function deactivateRow() {
+function deactivateRow() {  
   activeRow.classList.remove("active-row");
   document.querySelectorAll('.active-balls').forEach(item => {
     item.removeEventListener('click', colorSelector)
