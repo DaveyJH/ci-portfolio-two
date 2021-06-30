@@ -173,9 +173,8 @@ function nextRow() {
  */
 function colorSelector(event) {
   // check if activeSelection border is already in place
-  if (activeSelection !== undefined||null){
+  if (activeSelection !== undefined){
     activeSelection.style.border = "none"; // remove border from previous selected ball
-    activeSelection = null; // ?may not be necessary - removes activeSelection from previous selected ball?
   }
   colorSelectBox.style.visibility = "visible"; // make selector box visibile
   activeSelection = event.target; // set activeSelection to ball that created event
@@ -188,7 +187,6 @@ function colorSelect(event) {
   colorSelected = event.target.style.backgroundColor; // set colorSelected to color of clicked selector ball
   activeSelection.style.backgroundColor = colorSelected; // apply color to active ball in guess row
   activeSelection.classList.remove("empty"); // .empty removed to prevent alert when checking row
-  colorSelected = null; // ?not necessary? removes chance of accidental color input
   colorSelectBox.style.visibility = "hidden"; // hide selector box
   activeSelection.style.border = "none"; // remove border from color ball in guess row
   
@@ -243,6 +241,12 @@ function checkResult(){
     alert("Please complete selection!"); // prevent wasted guess
   }
   else {
+    // section added to prevent user confusion if guess ball selected
+    // after four ball colors entered and no new color is chosen
+    colorSelectBox.style.visibility = "hidden"; // hide selector box
+    activeSelection.style.border = "none"; // remove border from active ball
+    activeSelection = undefined; // set active ball to undefined
+
     checkBlack();
     checkWhite();
     assignPegs();
