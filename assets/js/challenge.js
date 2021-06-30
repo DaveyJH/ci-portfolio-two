@@ -35,6 +35,7 @@ for (let i = 0; i < numOfBalls; i++) {
   solution.push(newColor); //add new color to solution
 }
 
+// apply solution to balls
 // get array of solution color balls
 let solutionInsert = document.getElementById("solution").children;
 // set color of solution balls
@@ -88,8 +89,14 @@ function deactivateRow() {
  * selection
  */
 function colorSelector(event) {
+  // check if activeSelection border is already in place
+  if (activeSelection !== undefined||null){
+    activeSelection.style.border = "none"; // remove border from previous selected ball
+    activeSelection = null; // ?may not be necessary - removes activeSelection from previous selected ball?
+  }
   colorSelectBox.style.visibility = "visible";
   activeSelection = event.target;
+  activeSelection.style.border = ".2rem solid white";
 }
 
 /** set color of originally selected ball and then close selector box
@@ -100,6 +107,7 @@ function colorSelect(event) {
   activeSelection.classList.remove("empty");
   colorSelected = null;
   colorSelectBox.style.visibility = "hidden";
+  activeSelection.style.border = "none";
 }
 
 /** assign colors to pegs based on result */
@@ -108,6 +116,19 @@ function assignPegs() {
     activePegs[i].style.backgroundColor = pegColors[i];
   }
 }
+
+/** check if color and position are correct */
+function checkBlack() {
+  for (i = 0; i < solution.length; i++) {
+    if (solution[i] === activeBalls[i].style.backgroundColor) {
+      // ?add "black" value to an array?
+      console.log("black");
+      pegColors.push("black");
+    }
+  }
+}
+
+
 
 /** check result of input colors */
 function checkResult(){
@@ -125,13 +146,7 @@ function checkResult(){
     // if not, return white, if true, return black
     // repeat for all balls
     // test for white and black peg results
-    for (i = 0; i < solution.length; i++) {
-      if (solution[i] === activeBalls[i].style.backgroundColor) {
-        // ?add "black" value to an array?
-        console.log("black");
-        pegColors.push("black");
-      }
-    }
+    checkBlack();
     // !white pegs repeat in situation [solution: r, r, g, b][guess: b, b, b, b]=[result: b, w, w, w]
     for (i = 0; i < solution.length; i++) {
       if (solution[i] !== activeBalls[i].style.backgroundColor
@@ -146,8 +161,6 @@ function checkResult(){
     assignPegs();
     // delete values from pegColors
     pegColors = [];
-    console.log(pegColors);
-
     deactivateRow();
     aR++;
     activateRow();
