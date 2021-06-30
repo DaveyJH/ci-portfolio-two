@@ -159,6 +159,7 @@ function checkResult(){
     assignPegs();
     checkPegs();
     if (win) {
+      deactivateRow();
       ballReveal();
       message.innerHTML = "Well done!";
       setTimeout(winner, 100); // delay popup to allow 4 black pegs to be displayed
@@ -247,6 +248,7 @@ function reset() {
   pegColors = [];
   deactivateRow();
   solutionCover.style.zIndex = "1"; // hide solution
+  message.innerHTML = "Good luck!";
   runChallenge();
 }
 
