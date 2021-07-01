@@ -15,15 +15,19 @@
   <title>Mastermind - Challenge</title>
 </head>
 <body>
+  <!-- header section containing nav -->
   <header>
       <img src="./assets/images/color-brain-split.png" alt="brain">
       <h1 class="text-center">Mastermind</h1>
     <nav>
+      <!-- todo add aria labels -->
       <ul>
         <li>
           <a href="index.html">Play</a>
         </li>
         <li>
+          <!-- todo change from anchor to pop up to allow easy setting changes
+               todo through javascript without the use of url string references -->
           <a href="#">Settings</a>
         </li>
         <li>
@@ -33,181 +37,193 @@
           <a href="rules.html">Rules</a>
         </li>
         <li>
+          <!-- todo href value -->
           <a href="#">About</a>
         </li>
       </ul>
     </nav>
   </header>
-  <div id="game-board">
-    <div id="scores-and-times" class="text-center">
-      <div class="best score">
-        --
+  <!-- section containing game and message -->
+  <section id="game">
+  <!-- gameboard  -->
+    <div id="game-board">
+      <div id="scores-and-times" class="text-center">
+        <div class="best score">
+          --
+        </div>
+        <div class="current time">
+          <span id="minutes">--</span>:<span id="seconds">--</span>
+        </div>
+        <div class="best time">
+          <span>--</span>:<span>--</span>
+        </div>
       </div>
-      <div class="current time">
-        <span id="minutes">--</span>:<span id="seconds">--</span>
+      <div class="row top">
+        <div id="give-up" class="text-center">
+          <!-- <i class="fas fa-skull-crossbones"></i> -->
+        </div>
+        <div id="solution" class="ball-spacing">
+          <div class="color-ball"></div>
+          <div class="color-ball"></div>
+          <div class="color-ball"></div>
+          <div class="color-ball"></div>
+        </div>
+        <div id="solution-cover">
+        </div>
+        <div id="hint" class="text-center">
+          <!-- <i class="fas fa-question-circle"></i> -->
+        </div>
       </div>
-      <div class="best time">
-        <span>--</span>:<span>--</span>
+      <div class="row guess">
+          <div class="number text-center">
+            1
+          </div>
+          <div class="selection ball-spacing">
+            <div class="color-ball"></div>
+            <div class="color-ball"></div>
+            <div class="color-ball"></div>
+            <div class="color-ball"></div>
+          </div>
+          <div class="result">
+            <div class="peg">
+            </div>
+            <div class="peg">
+            </div>
+            <div class="peg">
+            </div>
+            <div class="peg">
+            </div>
+          </div>
+      </div>
+      <div class="row guess">
+          <div class="number text-center">
+            2
+          </div>
+          <div class="selection ball-spacing">
+            <div class="color-ball"></div>
+            <div class="color-ball"></div>
+            <div class="color-ball"></div>
+            <div class="color-ball"></div>
+          </div>
+          <div class="result">
+            <div class="peg">
+            </div>
+            <div class="peg">
+            </div>
+            <div class="peg">
+            </div>
+            <div class="peg">
+            </div>
+          </div>
+      </div>
+      <div class="row guess">
+          <div class="number text-center">
+            3
+          </div>
+          <div class="selection ball-spacing">
+            <div class="color-ball"></div>
+            <div class="color-ball"></div>
+            <div class="color-ball"></div>
+            <div class="color-ball"></div>
+          </div>
+          <div class="result">
+            <div class="peg">
+            </div>
+            <div class="peg">
+            </div>
+            <div class="peg">
+            </div>
+            <div class="peg">
+            </div>
+          </div>
+      </div>      
+      <div class="row guess">
+          <div class="number text-center">
+            4
+          </div>
+          <div class="selection ball-spacing">
+            <div class="color-ball"></div>
+            <div class="color-ball"></div>
+            <div class="color-ball"></div>
+            <div class="color-ball"></div>
+          </div>
+          <div class="result">
+            <div class="peg">
+            </div>
+            <div class="peg">
+            </div>
+            <div class="peg">
+            </div>
+            <div class="peg">
+            </div>
+          </div>
+      </div>      
+      <div class="row guess">
+          <div class="number text-center">
+            5
+          </div>
+          <div class="selection ball-spacing">
+            <div class="color-ball"></div>
+            <div class="color-ball"></div>
+            <div class="color-ball"></div>
+            <div class="color-ball"></div>
+          </div>
+          <div class="result">
+            <div class="peg">
+            </div>
+            <div class="peg">
+            </div>
+            <div class="peg">
+            </div>
+            <div class="peg">
+            </div>
+          </div>
+      </div>      
+      <div class="row guess">
+          <div class="number text-center">
+            6
+          </div>
+          <div class="selection ball-spacing">
+            <div class="color-ball"></div>
+            <div class="color-ball"></div>
+            <div class="color-ball"></div>
+            <div class="color-ball"></div>
+          </div>
+          <div class="result">
+            <div class="peg">
+            </div>
+            <div class="peg">
+            </div>
+            <div class="peg">
+            </div>
+            <div class="peg">
+            </div>
+          </div>
+      </div>  
+    </div>
+    <p id="message">Good Luck!</p>
+    <div id="selector-box">
+      <div class="color-ball selector">
+      </div>
+      <div class="color-ball selector">
+      </div>
+      <div class="color-ball selector">
+      </div>
+      <div class="color-ball selector">
+      </div>
+      <div class="color-ball selector">
+      </div>
+      <div class="color-ball selector">
       </div>
     </div>
-    <div class="row top">
-      <div id="give-up" class="text-center">
-        <!-- <i class="fas fa-skull-crossbones"></i> -->
-      </div>
-      <div id="solution" class="ball-spacing">
-        <div class="color-ball"></div>
-        <div class="color-ball"></div>
-        <div class="color-ball"></div>
-        <div class="color-ball"></div>
-      </div>
-      <div id="solution-cover">
-      </div>
-      <div id="hint" class="text-center">
-        <!-- <i class="fas fa-question-circle"></i> -->
-      </div>
-    </div>
-    <div class="row guess">
-        <div class="number text-center">
-          1
-        </div>
-        <div class="selection ball-spacing">
-          <div class="color-ball"></div>
-          <div class="color-ball"></div>
-          <div class="color-ball"></div>
-          <div class="color-ball"></div>
-        </div>
-        <div class="result">
-          <div class="peg">
-          </div>
-          <div class="peg">
-          </div>
-          <div class="peg">
-          </div>
-          <div class="peg">
-          </div>
-        </div>
-    </div>
-    <div class="row guess">
-        <div class="number text-center">
-          2
-        </div>
-        <div class="selection ball-spacing">
-          <div class="color-ball"></div>
-          <div class="color-ball"></div>
-          <div class="color-ball"></div>
-          <div class="color-ball"></div>
-        </div>
-        <div class="result">
-          <div class="peg">
-          </div>
-          <div class="peg">
-          </div>
-          <div class="peg">
-          </div>
-          <div class="peg">
-          </div>
-        </div>
-    </div>
-    <div class="row guess">
-        <div class="number text-center">
-          3
-        </div>
-        <div class="selection ball-spacing">
-          <div class="color-ball"></div>
-          <div class="color-ball"></div>
-          <div class="color-ball"></div>
-          <div class="color-ball"></div>
-        </div>
-        <div class="result">
-          <div class="peg">
-          </div>
-          <div class="peg">
-          </div>
-          <div class="peg">
-          </div>
-          <div class="peg">
-          </div>
-        </div>
-    </div>      
-    <div class="row guess">
-        <div class="number text-center">
-          4
-        </div>
-        <div class="selection ball-spacing">
-          <div class="color-ball"></div>
-          <div class="color-ball"></div>
-          <div class="color-ball"></div>
-          <div class="color-ball"></div>
-        </div>
-        <div class="result">
-          <div class="peg">
-          </div>
-          <div class="peg">
-          </div>
-          <div class="peg">
-          </div>
-          <div class="peg">
-          </div>
-        </div>
-    </div>      
-    <div class="row guess">
-        <div class="number text-center">
-          5
-        </div>
-        <div class="selection ball-spacing">
-          <div class="color-ball"></div>
-          <div class="color-ball"></div>
-          <div class="color-ball"></div>
-          <div class="color-ball"></div>
-        </div>
-        <div class="result">
-          <div class="peg">
-          </div>
-          <div class="peg">
-          </div>
-          <div class="peg">
-          </div>
-          <div class="peg">
-          </div>
-        </div>
-    </div>      
-    <div class="row guess">
-        <div class="number text-center">
-          6
-        </div>
-        <div class="selection ball-spacing">
-          <div class="color-ball"></div>
-          <div class="color-ball"></div>
-          <div class="color-ball"></div>
-          <div class="color-ball"></div>
-        </div>
-        <div class="result">
-          <div class="peg">
-          </div>
-          <div class="peg">
-          </div>
-          <div class="peg">
-          </div>
-          <div class="peg">
-          </div>
-        </div>
-    </div>  
-  </div>
-  <p id="message">Good Luck!</p>
-  <div id="selector-box">
-    <div class="color-ball selector">
-    </div>
-    <div class="color-ball selector">
-    </div>
-    <div class="color-ball selector">
-    </div>
-    <div class="color-ball selector">
-    </div>
-    <div class="color-ball selector">
-    </div>
-    <div class="color-ball selector">
-    </div>
-  </div>
+  </section>
+  <section>
+  <p id="learn-more">
+    <!-- todo add link to about page with id of knuth algorithm section -->
+    <a href="#">Want to know about the algorithm that makes this challenge possible <strong><em>everytime</em></strong>?<br>Click this paragraph to learn more!</a>
+  </p>
+  </section>
+  
   <script src="assets/js/challenge.js"></script>
 </body>
 </html>
