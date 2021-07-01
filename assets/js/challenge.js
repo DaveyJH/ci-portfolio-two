@@ -1,24 +1,38 @@
+// ! remove commented out solutions before submission!!!
+
+// ? ask mentor/slack if it is worth re-writing document.getElement*.children as querySelector*?
+// ? main difference appears to be live/static response and would need to be checked if modified
+// ? if html is changed, I may need to modify .children index values - means querySelector would be better
+// ? if I use JS to update html in main game, querySelector may not be the best option
+
 //? change values to hex codes? 
 let colors = ["red", "green", "blue", "yellow", "pink", "purple"]; // create the colors available for the challenge
 let solution = []; // create a blank array for the solution
 let numOfBalls = 4; // create a variable for the number of balls in the solution
 let numOfPegs = numOfBalls; // number of pegs === number of balls
 let pegColors = []; // create array to store peg results
+
 let aR = 0; // active row index number
 let activeRow; // create variable to store activeRow
 let activeBalls; // create variable to store activeBalls
 let activeSelection; // create a variable to store which color-ball has been chosen for color change
 let activePegs; // create result pegs
+
 let colorSelectors = document.getElementsByClassName("selector"); // color selectors in selector-box
 let colorSelectBox = document.getElementById("selector-box"); // color select box element
 let colorSelected; // create a variable to store the color selected from the selector box
+
 let solutionBalls = document.getElementById("solution").children ; // get array of solution color balls
+let solutionCover = document.getElementById("solution-cover"); // solution cover panel
+let solutionHolder; // none modified solution array
+
 let colorBalls = document.getElementsByClassName("color-ball"); // all color balls
 let pegs = document.getElementsByClassName("peg"); // all pegs
-let solutionCover = document.getElementById("solution-cover"); // solution cover panel
+
 let message = document.getElementById("message"); // message paragraph
+
 let win = false; // set win to false
-let solutionHolder; // none modified solution array
+
 let bestScoreHTML = document.getElementsByClassName("best score")[0]; // bestScore to be filled in on win condition
 let bestScore = 0; // keep a record of the best score without having to get from DOM
 let score = 0; // score count
@@ -34,12 +48,14 @@ let score = 0; // score count
 // to strings and numbers where necessary
 
 let intervalCount; // accessible variable
-let seconds = document.getElementById("seconds"); // seconds span // ? which method is preferred? l.42
+let seconds = document.getElementById("seconds"); // seconds span
 let minutes = document.getElementById("minutes"); // minutes span
 let secondsTime = 0; // start value
 let minutesTime = 0; // start value
-let bestSeconds = document.getElementsByClassName("best time")[0].children[1]; // best seconds span // ? which method is preferred? l.36
-let bestMinutes = document.getElementsByClassName("best time")[0].children[0]; // best minutes span
+let bestSeconds = document.getElementById("best-seconds"); // best seconds span
+let bestMinutes = document.getElementById("best-minutes"); // best minutes span
+
+/** runs a second and minute time that stops at 59:59 */
 function timer() {
   intervalCount = setInterval(function() {
     secondsTime++; // increment seconds by 1
@@ -92,8 +108,8 @@ function setSolution () {
     solution.push(newColor); // add new color to solution
   }
   // solution = ["red","red","yellow","red"]; // !test solutionA
-// solution = ["red","blue","yellow","green"]; // !test solutionB
-// solution = ["red","blue","red","yellow"]; // !test solutionC
+  // solution = ["red","blue","yellow","green"]; // !test solutionB
+  // solution = ["red","blue","red","yellow"]; // !test solutionC
 }
 
 /** set color of solution balls to solution array values */
@@ -104,8 +120,8 @@ function setSolutionBalls() {
 }
 
 // add click listener to selectors
-document.querySelectorAll('.selector').forEach(item => {
-  item.addEventListener('click', colorSelect);
+document.querySelectorAll(".selector").forEach(item => {
+  item.addEventListener("click", colorSelect);
 });
 
 // ! gameplay functions
@@ -125,8 +141,8 @@ function activateRow() {
   }
 
   // add click listener to active-balls
-  document.querySelectorAll('.active-balls').forEach(item => {
-    item.addEventListener('click', colorSelector);
+  document.querySelectorAll(".active-balls").forEach(item => {
+    item.addEventListener("click", colorSelector);
   });
 
   activeRow.children[0].style.borderColor = "#165764"; // active row number border shows active row
@@ -139,8 +155,8 @@ function activateRow() {
 function deactivateRow() {  
   activeRow.children[0].style.borderColor = "#fffce8"; // border color of previous row number back to normal
   activeRow.classList.remove("active-row");
-  document.querySelectorAll('.active-balls').forEach(item => {
-    item.removeEventListener('click', colorSelector);
+  document.querySelectorAll(".active-balls").forEach(item => {
+    item.removeEventListener("click", colorSelector);
   });
   for (let i = 0; i < activeBalls.length; i++) {
     activeBalls[i].classList.remove("active-balls");
@@ -173,7 +189,7 @@ function nextRow() {
  */
 function colorSelector(event) {
   // check if activeSelection border is already in place
-  if (activeSelection !== undefined){
+  if (activeSelection !== undefined) {
     activeSelection.style.border = "none"; // remove border from previous selected ball
   }
   colorSelectBox.style.visibility = "visible"; // make selector box visibile
@@ -190,7 +206,7 @@ function colorSelect(event) {
   colorSelectBox.style.visibility = "hidden"; // hide selector box
   activeSelection.style.border = "none"; // remove border from color ball in guess row
   
-  // change border color if all four balls selected
+  // change border color of number if all four balls selected
   if (!activeBalls[0].classList.contains("empty")
   && !activeBalls[1].classList.contains("empty")
   && !activeBalls[2].classList.contains("empty")
@@ -220,7 +236,7 @@ function checkBlack() {
 
 /** check if ball color is correct but in wrong position */
 function checkWhite() {
-   for (let i = 0; i < solution.length; i++) {
+  for (let i = 0; i < solution.length; i++) {
     if (solution[i] !== "checked" // check if index is already a black peg
     && solution.includes(activeBalls[i].style.backgroundColor)) { // check solution array contains guess
       let removal = solution.indexOf(activeBalls[i].style.backgroundColor);
@@ -231,7 +247,7 @@ function checkWhite() {
 }
 
 /** check result of input colors */
-function checkResult(){
+function checkResult() {
   solutionHolder = solution.slice(); // make a copy of the solution which is not modified
   
   if (activeBalls[0].classList.contains("empty") // check if any balls have not had colors selected
