@@ -3,6 +3,9 @@
   margin: 0;
   padding: 0;
 }
+html {
+  min-height: 100%;
+}
 .text-center {
   text-align: center;
 }
@@ -11,9 +14,12 @@ a {
   color: inherit;
 }
 body {
+  /* fallback background color */
   background-color: #fffce8;
+  background: linear-gradient(#fffce8 70%, #fffce899), url("../../wip/color-balls.jpg") repeat-x center bottom / auto 50%;
   color: #fffce8;
   font-family: "Rajdhani", sans-serif;
+  min-height: 100%;
 }
 /* header */
 header {
@@ -33,6 +39,7 @@ h1 {
 }
 header ul {
   font-size: .9rem;
+  font-weight: 600;
   display: flex;
   justify-content: space-between;
   padding: .5rem .4rem;
