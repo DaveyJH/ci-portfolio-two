@@ -245,7 +245,7 @@ function checkBlack() {
   for (let i = 0; i < solution.length; i++) {
     if (solution[i] === activeBalls[i].style.backgroundColor) {
       solution[i] = "checked"; // assign none color value to correct index
-      pegColors.push("black");  // add black to peg results array
+      pegColors.push("black"); // add black to peg results array
     }
   }
 }
