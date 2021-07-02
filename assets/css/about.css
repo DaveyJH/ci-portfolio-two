@@ -6,10 +6,21 @@ main, aside {
   font-size: 1.2rem;
 }
 aside h1 {
-  margin: 0;
+  font-size: 1.5em;
+  margin: 0 0 1rem;
 }
-img {
-  height: 50%;
-  width: 50%;
+aside h2 {
+  font-size: 1.2em;;
+}
+#profile-img-holder {
+  overflow: hidden;
   border-radius: 5%;
+  width: 47vw;
+  margin: 0 auto;
+  height: 47vw;
+}
+#profile-img {
+  width: 100%;
+  margin-top: 50%;
+  transform: translateY(-50%);
 }
