@@ -79,8 +79,9 @@ function timer() {
 function checkTime() {
   let testSeconds = Number(bestSeconds.innerHTML); // convert seconds string to number
   let testMinutes = Number(bestMinutes.innerHTML); // convert minutes string to number
-  if ((secondsTime <= testSeconds||bestSeconds.innerHTML === "--") // check values of bestSeconds
-  && (minutesTime <= testMinutes||bestMinutes.innerHTML === "--")) { //check values of bestMinutes
+  let calculatedCurrentTime = minutesTime * 60 + secondsTime; // current time in seconds
+  let calculatedBestTime = testMinutes * 60 + testSeconds; // best time in seconds
+  if ((calculatedCurrentTime < calculatedBestTime)||(bestSeconds.innerHTML === "--")) { // check current time against best OR best is unset
     bestSeconds.innerHTML = (("0" + secondsTime).slice(-2)).toString(); // write bestSeconds
     bestMinutes.innerHTML = (("0" + minutesTime).slice(-2)).toString(); // write bestMinutes
   }
@@ -107,7 +108,7 @@ function setSolution () {
     let newColor = colors[Math.floor(Math.random()*colors.length)]; //select a random color
     solution.push(newColor); // add new color to solution
   }
-  // solution = ["red","red","yellow","red"]; // !test solutionA
+  solution = ["red","red","yellow","red"]; // !test solutionA
   // solution = ["red","blue","yellow","green"]; // !test solutionB
   // solution = ["red","blue","red","yellow"]; // !test solutionC
 }
