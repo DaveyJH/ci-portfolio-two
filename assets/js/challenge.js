@@ -31,7 +31,7 @@ let pegs = document.getElementsByClassName("peg"); // all pegs
 
 let message = document.getElementById("message"); // message paragraph
 
-let win = false; // set win to false
+let win = false; // create win = false
 
 let bestScoreHTML = document.getElementsByClassName("best score")[0]; // bestScore to be filled in on win condition
 let bestScore = 0; // keep a record of the best score without having to get from DOM
@@ -202,20 +202,31 @@ function colorSelector(event) {
   activeSelection.style.border = ".2rem solid white"; // add border for visual aid to player
 }
 
+let emptyBalls; // boolean for any activeBalls containing .empty
+/** return emptyBalls = true; if any activeBalls have .empty, meaning they have not had a colour selected.
+ * else return emptyBalls = false;
+ */
+function activeBallsEmpty() {
+  if (activeBalls[0].classList.contains("empty")
+    || activeBalls[1].classList.contains("empty")
+    || activeBalls[2].classList.contains("empty")
+    || activeBalls[3].classList.contains("empty")) {
+    emptyBalls = true;
+  } else {
+    emptyBalls = false;
+  }
+}
+
 /** set color of selected ball and then close selector box
-*/
+ */
 function colorSelect(event) {
   colorSelected = event.target.style.backgroundColor; // set colorSelected to color of clicked selector ball
   activeSelection.style.backgroundColor = colorSelected; // apply color to active ball in guess row
   activeSelection.classList.remove("empty"); // .empty removed to prevent alert when checking row
   colorSelectBox.style.visibility = "hidden"; // hide selector box
   activeSelection.style.border = "none"; // remove border from color ball in guess row
-  
-  // change border color of number if all four balls selected
-  if (!activeBalls[0].classList.contains("empty")
-    && !activeBalls[1].classList.contains("empty")
-    && !activeBalls[2].classList.contains("empty")
-    && !activeBalls[3].classList.contains("empty")) {
+  activeBallsEmpty();
+  if (!emptyBalls) {
     activeRow.children[0].style.borderColor = "#36b9d3"; // active row number border shows active row
   }
 }
@@ -254,14 +265,10 @@ function checkWhite() {
 /** check result of input colors */
 function checkResult() {
   solutionHolder = solution.slice(); // make a copy of the solution which is not modified
-  
-  if (activeBalls[0].classList.contains("empty") // check if any balls have not had colors selected
-    || activeBalls[1].classList.contains("empty") // ?can this be changed to for or switch statement?
-    || activeBalls[2].classList.contains("empty")
-    || activeBalls[3].classList.contains("empty")) {
+  activeBallsEmpty();
+  if (emptyBalls) {
     alert("Please complete selection!"); // prevent wasted guess
-  }
-  else {
+  } else {
     // section added to prevent user confusion if guess ball selected
     // after four ball colors entered and no new color is chosen
     colorSelectBox.style.visibility = "hidden"; // hide selector box
