@@ -22,7 +22,7 @@ let colorSelectors = document.getElementsByClassName("selector"); // color selec
 let colorSelectBox = document.getElementById("selector-box"); // color select box element
 let colorSelected; // create a variable to store the color selected from the selector box
 
-let solutionBalls = document.getElementById("solution").children ; // get array of solution color balls
+let solutionBalls = document.getElementById("solution").children; // get array of solution color balls
 let solutionCover = document.getElementById("solution-cover"); // solution cover panel
 let solutionHolder; // none modified solution array
 
