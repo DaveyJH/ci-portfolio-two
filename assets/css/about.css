@@ -16,11 +16,17 @@ aside h2 {
   overflow: hidden;
   border-radius: 5%;
   width: 47vw;
-  margin: 0 auto;
+  margin: 1.5rem auto;
   height: 47vw;
+  color: #165764;
+  box-shadow: .2rem .2rem 1rem;
 }
 #profile-img {
   width: 100%;
   margin-top: 50%;
   transform: translateY(-50%);
+}
+.about-me a {
+  display: inline-block;
+  margin: 1rem .5rem 0;
 }
