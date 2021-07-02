@@ -99,6 +99,11 @@ function resetTime() {
 function setSelectorBalls() {
   for (let i = 0; i < colorSelectors.length; i++) {
     colorSelectors[i].style.backgroundColor = (colors[i]);
+    
+    // colorSelectors[i].style.background = `radial-gradient(circle at 33% 33%, ${colors[i]}, #000)`;
+    // credit: https://cssanimation.rocks/spheres/
+    // ? this doesn't allow fallback colors?
+    // ! would need to modify other code lines from backgroundColor to background
   }
 }
 
