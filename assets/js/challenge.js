@@ -113,7 +113,7 @@ function setSolution() {
     let newColor = colors[Math.floor(Math.random() * colors.length)]; //select a random color
     solution.push(newColor); // add new color to solution
   }
-  solution = ["red","red","yellow","red"]; // !test solutionA
+  // solution = ["red","red","yellow","red"]; // !test solutionA
   // solution = ["red","blue","yellow","green"]; // !test solutionB
   // solution = ["red","blue","red","yellow"]; // !test solutionC
 }
