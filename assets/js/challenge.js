@@ -81,7 +81,7 @@ function checkTime() {
   let testMinutes = Number(bestMinutes.innerHTML); // convert minutes string to number
   let calculatedCurrentTime = minutesTime * 60 + secondsTime; // current time in seconds
   let calculatedBestTime = testMinutes * 60 + testSeconds; // best time in seconds
-  if ((calculatedCurrentTime < calculatedBestTime)||(bestSeconds.innerHTML === "--")) { // check current time against best OR best is unset
+  if ((calculatedCurrentTime < calculatedBestTime) || (bestSeconds.innerHTML === "--")) { // check current time against best OR best is unset
     bestSeconds.innerHTML = (("0" + secondsTime).slice(-2)).toString(); // write bestSeconds
     bestMinutes.innerHTML = (("0" + minutesTime).slice(-2)).toString(); // write bestMinutes
   }
@@ -108,9 +108,9 @@ function setSelectorBalls() {
 }
 
 /** set solution to random array of available colors */
-function setSolution () {
+function setSolution() {
   for (let i = 0; i < numOfBalls; i++) {
-    let newColor = colors[Math.floor(Math.random()*colors.length)]; //select a random color
+    let newColor = colors[Math.floor(Math.random() * colors.length)]; //select a random color
     solution.push(newColor); // add new color to solution
   }
   solution = ["red","red","yellow","red"]; // !test solutionA
@@ -158,7 +158,7 @@ function activateRow() {
 }
 
 /** deactivate row by removing classes and click listeners */
-function deactivateRow() {  
+function deactivateRow() {
   activeRow.children[0].style.borderColor = "#fffce8"; // border color of previous row number back to normal
   activeRow.classList.remove("active-row");
   document.querySelectorAll(".active-balls").forEach(item => {
@@ -179,8 +179,7 @@ function nextRow() {
   aR++; // increment active row number
   if (aR < 6) {
     activateRow();
-  }
-  else { // if no rows remain for guesses
+  } else { // if no rows remain for guesses
     ballReveal();
     message.innerHTML = "Oh dear!";
     clearInterval(intervalCount);
@@ -214,9 +213,9 @@ function colorSelect(event) {
   
   // change border color of number if all four balls selected
   if (!activeBalls[0].classList.contains("empty")
-  && !activeBalls[1].classList.contains("empty")
-  && !activeBalls[2].classList.contains("empty")
-  && !activeBalls[3].classList.contains("empty")) {
+    && !activeBalls[1].classList.contains("empty")
+    && !activeBalls[2].classList.contains("empty")
+    && !activeBalls[3].classList.contains("empty")) {
     activeRow.children[0].style.borderColor = "#36b9d3"; // active row number border shows active row
   }
 }
@@ -244,7 +243,7 @@ function checkBlack() {
 function checkWhite() {
   for (let i = 0; i < solution.length; i++) {
     if (solution[i] !== "checked" // check if index is already a black peg
-    && solution.includes(activeBalls[i].style.backgroundColor)) { // check solution array contains guess
+      && solution.includes(activeBalls[i].style.backgroundColor)) { // check solution array contains guess
       let removal = solution.indexOf(activeBalls[i].style.backgroundColor);
       solution[removal] = "pegged"; // stop duplication of white pegs if color repeated in guess
       pegColors.push("white"); // add white to peg results array
@@ -257,9 +256,9 @@ function checkResult() {
   solutionHolder = solution.slice(); // make a copy of the solution which is not modified
   
   if (activeBalls[0].classList.contains("empty") // check if any balls have not had colors selected
-  || activeBalls[1].classList.contains("empty") // ?can this be changed to for or switch statement?
-  || activeBalls[2].classList.contains("empty")
-  || activeBalls[3].classList.contains("empty")) {
+    || activeBalls[1].classList.contains("empty") // ?can this be changed to for or switch statement?
+    || activeBalls[2].classList.contains("empty")
+    || activeBalls[3].classList.contains("empty")) {
     alert("Please complete selection!"); // prevent wasted guess
   }
   else {
@@ -282,8 +281,7 @@ function checkResult() {
       checkScore();
       message.innerHTML = "Well done!";
       setTimeout(winner, 100); // delay popup to allow 4 black pegs to be displayed
-    }
-    else{
+    } else {
       nextRow(); // continue with game
     }
   }
@@ -299,8 +297,7 @@ function checkPegs() {
   for (let i = 0; i < activePegs.length; i++) {
     if (activePegs[i].style.backgroundColor === "black") { // check all four pegs are black
       win = true;
-    }
-    else {
+    } else {
       win = false;
     }
   }
@@ -311,7 +308,7 @@ function checkPegs() {
  * score. if so, change the displayed number to the best score
  */
 function checkScore() {
-  if (bestScore > score||bestScore === 0) {
+  if (bestScore > score || bestScore === 0) {
     bestScore = score.toString();
     bestScoreHTML.innerHTML = `${bestScore}`;
   }
