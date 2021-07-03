@@ -1,17 +1,13 @@
 main, aside {
-  
   margin: 1.5rem .8rem 0;
   padding: 1rem .8rem;
   background-color: #a0622c;
   font-size: 1.2rem;
 }
-aside h1 {
-  font-size: 1.5em;
-  margin: 0 0 1rem;
+p {
+  margin: .8rem auto;
 }
-aside h2 {
-  font-size: 1.2em;;
-}
+/* image  */
 #profile-img-holder {
   overflow: hidden;
   border-radius: 5%;
@@ -26,7 +22,32 @@ aside h2 {
   margin-top: 50%;
   transform: translateY(-50%);
 }
+/* end of image */
+
+/* about me section */
 .about-me a {
   display: inline-block;
   margin: 1rem .5rem 0;
 }
+/* end of about me section */
+
+/* algorithm article */
+aside{
+  margin-bottom: 1.5rem;
+}
+aside h1 {
+  font-size: 1.5em;
+  margin: 0 0 1rem;
+}
+aside h2 {
+  font-size: 1.2em;
+}
+#text-left-list {
+  margin: .5rem 1rem;
+  list-style-type :circle;
+  text-align: left;
+}
+.internal {
+  font-style: italic;
+}
+/* end of article */
