@@ -1,5 +1,5 @@
 main {
-  margin: 1.5rem .8rem 0;
+  margin: 1.5rem .8rem;
   padding: 1rem .8rem;
   background-color: #a0622c;
   font-size: 1.2rem;
@@ -20,6 +20,6 @@ h2 {
   margin-bottom: .8rem;
   text-align: center;
 }
-img {
+main img {
   margin: 1.5rem auto .3rem;
 }
