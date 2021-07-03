@@ -42,7 +42,7 @@
     </nav>
   </header>
   <main class="text-center about-me">
-    <h2>About The Developer</h2>
+    <h2 id="daveyjh">About The Developer</h2>
     <div id="profile-img-holder">
       <img src="./assets/images/profile.jpg" alt="profile picture of the developer" id="profile-img">
     </div>
@@ -64,14 +64,25 @@
       <h1>About The Mastermind Five-Guess Algorithm</h1>
       <section>
         <h2>Donald E. Knuth</h2>
-      <p class="first">
-        some explanation of what the algorithm is
+      <p>
+        An algorithm was devised in the late 1970s which allows a player to decipher the code within five guesses, as long as the following conditions are set:
+        <ul id="text-left-list">
+          <li>There are four balls in the solution</li>
+          <li>The number of colours available is six</li>
+          <li>Colours are repeatable within the solution</li>
+        </ul>
       </p>
       <p>
-        how it works
+        The first step is to guess a sequence of <span>1122</span>, where each integer 1-6 represents a colour. The algorithm continues by choosing a sequence that could eliminate the highest number of possible solutions each time. The number of possible solutions to this particular set-up is 6<sup>4</sup> = <strong>1296!</strong>
       </p>
-      <p class="last">
-        some more info
+      <p>
+        That would take you quite a while to work through on paper. It would be almost impossible to calculate and keep track of in your head. Therefore, this algorithm is done far quicker by machines - if coded correctly to do so!
+      </p>
+      <p>
+        To find out more about the steps involved, and for the original document written by Donald E. Knuth, please consult the links below.
+      </p>
+      <p>
+        If you still can't get your head around it, contact <a href="#daveyjh" class="internal">Dave J. Horrocks</a> via one of the links above and he will do his best to explain each step in the algorithm.
       </p>
       </section>
       <section>
