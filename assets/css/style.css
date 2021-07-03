@@ -49,3 +49,12 @@ header li {
   padding: 0 .2rem .2rem;
 }
 /* header end */
+/* footer */
+footer {
+  margin-bottom: .2rem;
+  text-align: center;
+  color: #a0622c;
+  font-size: 1rem;
+  font-family: "Orbitron", sans-serif;
+  font-variant: small-caps;
+}
