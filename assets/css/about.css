@@ -7,6 +7,9 @@ main, aside {
 p {
   margin: .8rem auto;
 }
+a {
+  font-style: italic;
+}
 /* image  */
 #profile-img-holder {
   overflow: hidden;
@@ -46,8 +49,5 @@ aside h2 {
   margin: .5rem 1rem;
   list-style-type :circle;
   text-align: left;
-}
-.internal {
-  font-style: italic;
 }
 /* end of article */
