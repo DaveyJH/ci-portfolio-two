@@ -80,10 +80,6 @@
 .top {
   margin-bottom: 1rem;
 }
-#give-up, #hint {
-  font-size: 1.8rem;
-  line-height: 3rem;
-}
 #solution-cover {
   position: absolute;
   left: 15%;
