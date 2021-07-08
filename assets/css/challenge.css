@@ -1,6 +1,6 @@
-#game {
+/* #game {
   position: relative;
-}
+} */
 
 /* game board start */
 #game-board {
@@ -131,22 +131,23 @@
 
 /* selector box */
 #selector-box {
- position: absolute;
- left: -.8rem;
- bottom: -.6rem;
- /* width: calc(100% - 1.6rem); */
- width: 100%;
- margin: 0 .8rem;
- border-top-left-radius: .2rem;
- border-top-right-radius: .2rem;
- display: flex;
- flex-wrap: wrap;
- flex-direction: column;
- justify-content: space-around;
- align-items: center;
- background-color: #3e363f;
- height: 7rem;
- visibility: hidden;
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  /* width: calc(100% - 1.6rem); */
+  /* left: -.8rem; */
+  /* margin: 0 .8rem; */
+  border-top-left-radius: .2rem;
+  border-top-right-radius: .2rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #3e363f;
+  height: 7rem;
+  visibility: hidden;
 }
 #selector-box .color-ball {
   border: .2rem solid #fffce8;
@@ -161,7 +162,8 @@ p {
 #learn-more {
   padding: 0 1.5rem;
   font-size: 1.7rem;
-  margin: 1.6rem 0 1rem;
+  /* margin: 1.6rem 0 1rem; */
+  margin: -6.6rem 0 1rem;
 }
 #message {
   text-transform: capitalize;
