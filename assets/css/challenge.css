@@ -131,7 +131,7 @@
   position: -webkit-sticky;
   position: sticky;
   bottom: 0;
-  width: 100%;
+  /* width: 100%; */
   /* width: calc(100% - 1.6rem); */
   /* left: -.8rem; */
   /* margin: 0 .8rem; */
