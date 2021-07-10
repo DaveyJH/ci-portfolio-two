@@ -95,6 +95,7 @@ function resetTime() {
 
 // ! setting up the game functions
 
+/** add div.color-ball.selector for each color in colors array */
 function addColorSelectors() {
   while (colorSelectors.length < colors.length) {
     let newColorSelector = document.createElement("div");
@@ -107,7 +108,6 @@ function addColorSelectors() {
 function setSelectorBalls() {
   addColorSelectors();
   selectorListener();
-
 
   for (let i = 0; i < colorSelectors.length; i++) {
     colorSelectors[i].style.backgroundColor = (colors[i]);
@@ -137,7 +137,7 @@ function setSolutionBalls() {
   }
 }
 
-// add click listener to selectors
+/** add click listener to color selectors */
 function selectorListener() {
   document.querySelectorAll(".selector").forEach(item => {
     item.addEventListener("click", colorSelect);
@@ -162,7 +162,7 @@ function activateRow() {
 
   // add click listener to active-balls
   document.querySelectorAll(".active-balls").forEach(item => {
-    item.addEventListener("click", colorSelector);
+    item.addEventListener("click", currentColorSelector);
   });
 
   activeRow.children[0].style.borderColor = "#165764"; // active row number border shows active row
@@ -176,7 +176,7 @@ function deactivateRow() {
   activeRow.children[0].style.borderColor = "#fffce8"; // border color of previous row number back to normal
   activeRow.classList.remove("active-row");
   document.querySelectorAll(".active-balls").forEach(item => {
-    item.removeEventListener("click", colorSelector);
+    item.removeEventListener("click", currentColorSelector);
   });
   for (let i = 0; i < activeBalls.length; i++) {
     activeBalls[i].classList.remove("active-balls");
@@ -206,7 +206,7 @@ function nextRow() {
  * activeSelection and enables color
  * selection
  */
-function colorSelector(event) {
+function currentColorSelector(event) {
   // check if activeSelection border is already in place
   if (activeSelection !== undefined) {
     activeSelection.style.border = "none"; // remove border from previous selected ball
