@@ -8,7 +8,7 @@
 //? change values to hex codes? 
 let colors = ["red", "green", "blue", "yellow", "pink", "purple", "aqua", "lime", "black", "white", "silver", "orange"]; // create the colors available for the challenge
 let solution = []; // create a blank array for the solution
-let numOfBalls; // create a variable for the number of balls in the solution
+let numOfBalls = 4; // create a variable for the number of balls in the solution
 let numOfPegs = numOfBalls; // number of pegs === number of balls
 let pegColors = []; // create array to store peg results
 
@@ -95,8 +95,19 @@ function resetTime() {
 
 // ! setting up the game functions
 
+function addColorSelectors() {
+  while (colorSelectors.length < colors.length) {
+    let newColorSelector = document.createElement("div");
+    newColorSelector.classList.add("color-ball", "selector");
+    colorSelectBox.appendChild(newColorSelector);
+  }
+}
+
 /** set color of selector-box color balls to available colors */
 function setSelectorBalls() {
+  addColorSelectors();
+
+
   for (let i = 0; i < colorSelectors.length; i++) {
     colorSelectors[i].style.backgroundColor = (colors[i]);
     
