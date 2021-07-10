@@ -38,6 +38,33 @@
       </ul>
     </nav>
   </header>
+  <section id="settings" class="text-center">
+    <h1>Settings</h1>
+    <!-- todo - hide URL values?? -->
+    <form>
+      <div id="gameplay">
+        <h2>Gameplay</h2>
+        <label for="number-of-colors">Number of different colours</label>
+        <input type="number" name="number-of-colors" id="number-of-colors" step="1" value="4" min="4" max="12" required>
+        <label for="number-in-solution">Number of balls in solution</label>
+        <input type="number" name="number-in-solution" id="number-in-solution" step="1" value="4" min="4" max="7" required>
+        <label for="repeat-in-solution">Colours may repeat in solution</label>
+        <input type="checkbox" name="repeat-in-solution" id="repeat-in-solution" checked>
+        <label for="repeat-in-guess">Colours may repeat in guess</label>
+        <input type="checkbox" name="repeat-in-guess" id="repeat-in-guess" checked disabled>
+      </div>
+      <div id="timer-score">
+        <h2>Timer/Score</h2>
+        <label for="current-time">Display current time</label>
+        <input type="checkbox" name="current-time" id="current-time" checked>
+        <label for="best-time">Display best time</label>
+        <input type="checkbox" name="best-time" id="best-time" checked>
+        <label for="best-score">Diplay best score</label>
+        <input type="checkbox" name="best-score" id="best-score" checked>
+      </div>
+      <input type="submit" value="Play!">
+    </form>
+  </section>
   <div id="game-board">
     <div id="scores-and-times" class="text-center">
       <div class="best score">
