@@ -67,6 +67,9 @@
   width: 2rem;
   background-color: #854e1e;
 }
+.color-ball:not(#selector-box *)  {
+  box-sizing: border-box;
+}
 
 /* top row */
 .top {
