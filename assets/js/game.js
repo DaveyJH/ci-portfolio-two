@@ -106,6 +106,7 @@ function addColorSelectors() {
 /** set color of selector-box color balls to available colors */
 function setSelectorBalls() {
   addColorSelectors();
+  selectorListener();
 
 
   for (let i = 0; i < colorSelectors.length; i++) {
@@ -137,9 +138,11 @@ function setSolutionBalls() {
 }
 
 // add click listener to selectors
-document.querySelectorAll(".selector").forEach(item => {
-  item.addEventListener("click", colorSelect);
-});
+function selectorListener() {
+  document.querySelectorAll(".selector").forEach(item => {
+    item.addEventListener("click", colorSelect);
+  });
+}
 
 // ! gameplay functions
 
@@ -360,6 +363,7 @@ function runGame() {
   setSelectorBalls();
   activateRow();
   timer();
+  console.log(solution);
 }
 
 /** reset solution to blank,
