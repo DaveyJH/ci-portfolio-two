@@ -47,7 +47,7 @@
         <label for="number-of-colors">Number of different colours</label>
         <input type="number" name="number-of-colors" id="number-of-colors" step="1" value="4" min="4" max="12" required>
         <label for="number-in-solution">Number of balls in solution</label>
-        <input type="number" name="number-in-solution" id="number-in-solution" step="1" value="4" min="4" max="6" required>
+        <input type="number" name="number-in-solution" id="number-in-solution" step="1" value="3" min="3" max="6" required>
         <label for="repeat-in-solution">Colours may repeat in solution</label>
         <input type="checkbox" name="repeat-in-solution" id="repeat-in-solution" checked>
         <label for="repeat-in-guess">Colours may repeat in guess</label>
@@ -62,7 +62,7 @@
         <label for="best-score">Diplay best score</label>
         <input type="checkbox" name="best-score" id="best-score" checked>
       </div>
-      <input type="submit" value="Play!">
+      <input type="submit" value="Play!" id="play-button">
     </form>
   </section>
   <div id="game-board">
@@ -84,8 +84,6 @@
       <div id="solution" class="ball-spacing">
         <div class="color-ball"></div>
         <div class="color-ball"></div>
-        <div class="color-ball"></div>
-        <div class="color-ball"></div>
       </div>
       <div id="solution-cover">
       </div>
@@ -100,14 +98,8 @@
       <div class="selection ball-spacing">
         <div class="color-ball"></div>
         <div class="color-ball"></div>
-        <div class="color-ball"></div>
-        <div class="color-ball"></div>
       </div>
       <div class="result">
-        <div class="peg">
-        </div>
-        <div class="peg">
-        </div>
         <div class="peg">
         </div>
         <div class="peg">
@@ -121,14 +113,8 @@
       <div class="selection ball-spacing">
         <div class="color-ball"></div>
         <div class="color-ball"></div>
-        <div class="color-ball"></div>
-        <div class="color-ball"></div>
       </div>
       <div class="result">
-        <div class="peg">
-        </div>
-        <div class="peg">
-        </div>
         <div class="peg">
         </div>
         <div class="peg">
@@ -142,14 +128,8 @@
       <div class="selection ball-spacing">
         <div class="color-ball"></div>
         <div class="color-ball"></div>
-        <div class="color-ball"></div>
-        <div class="color-ball"></div>
       </div>
       <div class="result">
-        <div class="peg">
-        </div>
-        <div class="peg">
-        </div>
         <div class="peg">
         </div>
         <div class="peg">
@@ -163,14 +143,8 @@
       <div class="selection ball-spacing">
         <div class="color-ball"></div>
         <div class="color-ball"></div>
-        <div class="color-ball"></div>
-        <div class="color-ball"></div>
       </div>
       <div class="result">
-        <div class="peg">
-        </div>
-        <div class="peg">
-        </div>
         <div class="peg">
         </div>
         <div class="peg">
@@ -184,14 +158,8 @@
       <div class="selection ball-spacing">
         <div class="color-ball"></div>
         <div class="color-ball"></div>
-        <div class="color-ball"></div>
-        <div class="color-ball"></div>
       </div>
       <div class="result">
-        <div class="peg">
-        </div>
-        <div class="peg">
-        </div>
         <div class="peg">
         </div>
         <div class="peg">
@@ -205,14 +173,8 @@
       <div class="selection ball-spacing">
         <div class="color-ball"></div>
         <div class="color-ball"></div>
-        <div class="color-ball"></div>
-        <div class="color-ball"></div>
       </div>
       <div class="result">
-        <div class="peg">
-        </div>
-        <div class="peg">
-        </div>
         <div class="peg">
         </div>
         <div class="peg">
@@ -226,14 +188,8 @@
       <div class="selection ball-spacing">
         <div class="color-ball"></div>
         <div class="color-ball"></div>
-        <div class="color-ball"></div>
-        <div class="color-ball"></div>
       </div>
       <div class="result">
-        <div class="peg">
-        </div>
-        <div class="peg">
-        </div>
         <div class="peg">
         </div>
         <div class="peg">
@@ -241,20 +197,20 @@
       </div>
     </div>
   </div>
-  <div id="selector-box-spacer"></div>
+  <!-- <div id="selector-box-spacer"></div> -->
   <div id="selector-box">
     <div class="color-ball selector">
     </div>
     <div class="color-ball selector">
     </div>
-    <div class="color-ball selector">
+    <!-- <div class="color-ball selector">
     </div>
     <div class="color-ball selector">
     </div>
     <div class="color-ball selector">
     </div>
     <div class="color-ball selector">
-    </div>
+    </div> -->
   </div>
   <p id="message" class="text-center">
     Good Luck!
