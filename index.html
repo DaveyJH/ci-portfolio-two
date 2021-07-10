@@ -39,11 +39,11 @@
     </nav>
   </header>
   <section id="settings" class="text-center">
-    <h1>Settings</h1>
+    <h2>Settings</h2>
     <!-- todo - hide URL values?? -->
-    <form>
+    <form method="POST">
       <div id="gameplay">
-        <h2>Gameplay</h2>
+        <h3>Gameplay</h3>
         <label for="number-of-colors">Number of different colours</label>
         <input type="number" name="number-of-colors" id="number-of-colors" step="1" value="4" min="4" max="12" required>
         <label for="number-in-solution">Number of balls in solution</label>
@@ -54,7 +54,7 @@
         <input type="checkbox" name="repeat-in-guess" id="repeat-in-guess" checked disabled>
       </div>
       <div id="timer-score">
-        <h2>Timer/Score</h2>
+        <h3>Timer/Score</h3>
         <label for="current-time">Display current time</label>
         <input type="checkbox" name="current-time" id="current-time" checked>
         <label for="best-time">Display best time</label>

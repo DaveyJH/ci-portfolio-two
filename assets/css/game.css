@@ -172,12 +172,11 @@
   color: #3e363f;
   background-color: #fffce8;
 }
-#settings h1 {
+#settings h2 {
   text-decoration: underline;
 }
-#settings h2 {
+#settings h3 {
   margin: 1.2rem auto .6rem;
-  font-size: 1.2rem;
 }
 
 label {
