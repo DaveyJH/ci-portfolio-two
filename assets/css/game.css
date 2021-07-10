@@ -166,11 +166,12 @@
 #settings {
   /* make sticky in javascript?? */
   position: absolute;
-  z-index: -3;
+  z-index: 3;
   top: 5.4rem;
   padding: 2rem 2rem;
   color: #3e363f;
   background-color: #fffce8;
+  visibility: hidden;
 }
 #settings h2 {
   text-decoration: underline;
