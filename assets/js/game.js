@@ -1,9 +1,16 @@
 let settingsActivator = document.getElementById("settings-activator");
 settingsActivator.addEventListener("click", showSettings);
 
-let numOfBalls;
-let numOfColors;
 
+// default game settings
+let numOfBalls = 4;
+let numOfColors = 6;
+let solutionRepeat = true;
+let guessRepeat = true;
+// default timer/score settings
+let displayCurrentTime = true;
+let displayBestTime = true;
+let displayBestScore = true;
 
 /** show settings overlay */
 function showSettings() {
