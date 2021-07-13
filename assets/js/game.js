@@ -27,7 +27,7 @@ let intervalCount;
 
 /** runs a second and minute time that stops at 59:59 */
 function timer() {
-  intervalCount = setInterval(function() {
+  intervalCount = setInterval(function () {
     secondsTime++; // increment seconds by 1
     seconds.innerHTML = (("0" + secondsTime).slice(-2)).toString(); // display seconds as 2 digit string
     minutes.innerHTML = (("0" + minutesTime).slice(-2)).toString(); // display minutes as 2 digit string
@@ -54,8 +54,7 @@ function settings() {
     if (seconds.innerHTML !== "--") {
       timer();
     }
-  }
-  else {
+  } else {
     showSettings();
   }
 }
@@ -68,6 +67,61 @@ function showSettings() {
   playButton.addEventListener("click", gameOn);
 }
 
+/** prevent clicking on label or number to prevent manual input.
+ * tab index also disabled in HTML
+ */
+function disableClickNumberInputs() {
+  document.querySelectorAll("input[type=number]").forEach(item => {
+    item.addEventListener("mousedown", preventAll);
+  });
+  document.querySelectorAll(".prevent-click").forEach(item => {
+    item.addEventListener("click", preventAll)
+  });
+
+  function preventAll(event) {
+    event.preventDefault();
+  }
+}
+
+/** allow +/- buttons to change numeric values */
+function plusminus() {
+  let minusButtons = document.getElementsByClassName("minus");
+  let plusButtons = document.getElementsByClassName("plus");
+
+  for (let i = 0; i < plusButtons.length; i++) {
+    plusButtons[i].addEventListener("click", plusValue);
+  }
+
+  /** increase value if below maximum value */
+  function plusValue(event) {
+    event.preventDefault();
+    let num = event.target.previousElementSibling;
+    let numericValue = Number(num.value);
+    if (numericValue < Number(num.max)) {
+      numericValue++;
+      num.value = numericValue;
+    } else {
+      alert("Sorry, you can't go any higher!");
+    }
+  }
+
+  for (let i = 0; i < minusButtons.length; i++) {
+    minusButtons[i].addEventListener("click", minusValue);
+  }
+
+  /** decrease value if above minimum */
+  function minusValue(event) {
+    event.preventDefault();
+    let num = event.target.nextElementSibling;
+    let numericValue = Number(num.value);
+    if (numericValue > Number(num.min)) {
+      numericValue--;
+      num.value = numericValue;
+    } else {
+      alert("Sorry, you can't go any lower!");
+    }
+  }
+}
 
 function gameOn(event) {
   event.preventDefault();
@@ -75,9 +129,7 @@ function gameOn(event) {
   runMainScript();
 }
 
-
 function runMainScript() {
- 
 
   /** check current completion time against best time,
    * if quicker => replace best time
@@ -98,6 +150,10 @@ function runMainScript() {
     secondsTime = 0;
     minutesTime = 0;
   }
+  
   resetTime();
   timer();
 }
+
+plusminus();
+disableClickNumberInputs();

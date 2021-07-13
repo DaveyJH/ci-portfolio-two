@@ -168,7 +168,7 @@
   position: absolute;
   z-index: 3;
   top: 5.4rem;
-  padding: 2rem 2rem;
+  padding: 1rem 2rem 1.6rem;
   color: #3e363f;
   background-color: #fffce8;
   visibility: hidden;
@@ -182,15 +182,64 @@
 
 label {
   display: inline-block;
-  margin: .3rem .2rem;
+  margin: 0 .5rem;
+  font-size: 1.1rem;
 }
 input:not([type="submit"]) {
-  clear: right;
-  text-align: end;
-  width: 1rem;
+  /* clear: right; */
+  text-align: center;
+  /* width: 1rem; */
 }
 input[type="submit"] {
   width: 33%;
   font-size: 1.3rem;
-  margin-top: 2rem;
+  margin-top: 1.4rem;
+}
+button, input[type="submit"] {
+  background-color: #165764;
+  border-radius: .3rem;
+  color: #fffce8;
+}
+
+/* remove spinner from numbers */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.plusminus {
+  width: 6rem;
+}
+.plusminus * {
+  display: inline;
+  box-sizing: border-box;
+  width: 33%;
+  height: 1.9rem;
+  font: 600 1.1rem "Rajdhani";
+}
+.plusminus input {
+  border: none;
+  background-color: #fffce8;
+}
+.plusminus button {
+  height: 80%;
+  width: 26.4%;
+}
+.plusminus button:hover, input[type="submit"]:hover {
+  background-color: #36b9d3;
+}
+hr {
+  border-color: #022b3a;
+  margin: .4rem;
 }

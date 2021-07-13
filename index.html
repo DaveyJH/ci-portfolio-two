@@ -44,12 +44,27 @@
     <form method="POST">
       <div id="gameplay">
         <h3>Gameplay</h3>
-        <label for="number-of-colors">Number of different colours</label>
-        <input type="number" name="number-of-colors" id="number-of-colors" step="1" value="4" min="4" max="12" required>
-        <label for="number-in-solution">Number of balls in solution</label>
-        <input type="number" name="number-in-solution" id="number-in-solution" step="1" value="3" min="3" max="6" required>
+        <div class="flex-container">
+          <label for="number-of-colors" class="prevent-click">No. of colours</label>
+          <div class="plusminus flex-container">
+            <button class="minus">-</button>
+            <input type="number" name="number-of-colors" id="number-of-colors" step="1" value="4" min="4" max="12" tabindex="-1">
+            <button class="plus">+</button> 
+          </div>
+        </div>
+        <hr>
+        <div class="flex-container">
+          <label for="number-in-solution">Number of balls in solution</label>
+          <div class="plusminus flex-container">
+            <button class="minus">-</button>
+            <input type="number" name="number-in-solution" id="number-in-solution" step="1" value="3" min="3" max="6" tabindex="-1">
+            <button class="plus">+</button> 
+          </div>
+        </div>
+        <hr>
         <label for="repeat-in-solution">Colours may repeat in solution</label>
         <input type="checkbox" name="repeat-in-solution" id="repeat-in-solution" checked>
+        <hr>
         <label for="repeat-in-guess">Colours may repeat in guess</label>
         <input type="checkbox" name="repeat-in-guess" id="repeat-in-guess" checked disabled>
       </div>
@@ -57,9 +72,11 @@
         <h3>Timer/Score</h3>
         <label for="current-time">Display current time</label>
         <input type="checkbox" name="current-time" id="current-time" checked>
+        <hr>
         <label for="best-time">Display best time</label>
         <input type="checkbox" name="best-time" id="best-time" checked>
-        <label for="best-score">Diplay best score</label>
+        <hr>
+        <label for="best-score">Display best score</label>
         <input type="checkbox" name="best-score" id="best-score" checked>
       </div>
       <input type="submit" value="Play!" id="play-button">
