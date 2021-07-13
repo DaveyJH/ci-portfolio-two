@@ -171,6 +171,8 @@
   padding: 1rem 2rem 1.6rem;
   color: #3e363f;
   background-color: #fffce8;
+  width: 100%;
+  box-sizing: border-box;
   visibility: hidden;
 }
 #settings h2 {
