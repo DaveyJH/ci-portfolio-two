@@ -199,7 +199,7 @@ function colorSelector(event) {
   }
   colorSelectBox.style.visibility = "visible"; // make selector box visibile
   activeSelection = event.target; // set activeSelection to ball that created event
-  activeSelection.style.border = ".2rem solid white"; // add border for visual aid to player
+  activeSelection.style.border = ".2rem solid #fffce8"; // add border for visual aid to player
 }
 
 let emptyBalls; // boolean for any activeBalls containing .empty
