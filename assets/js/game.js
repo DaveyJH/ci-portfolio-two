@@ -21,6 +21,17 @@ let displayCurrentTime = true;
 let displayBestTime = true;
 let displayBestScore = true;
 
+let disableCheck = document.getElementById("repeat-in-solution");
+disableCheck.addEventListener("click", checkState);
+function checkState() {
+  if (!disableCheck.checked) {
+    document.getElementById("repeat-in-guess").disabled = false;
+  } else {
+    document.getElementById("repeat-in-guess").disabled = true;
+    document.getElementById("repeat-in-guess").checked = true;
+  }
+}
+
 // ! timer variables and functions
 
 // credit to Code Institute course content for basic timer function
