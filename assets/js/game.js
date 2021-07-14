@@ -1,5 +1,3 @@
-// settings to sit below header
-
 window.addEventListener("resize", handleChange);
 /** ensure settings overlay sits below header */
 function handleChange() {
@@ -44,8 +42,8 @@ function checkState() {
 
 let seconds = document.getElementById("seconds");
 let minutes = document.getElementById("minutes");
-let secondsTime = 0; // start value
-let minutesTime = 0; // start value
+let secondsTime = 0;
+let minutesTime = 0;
 let bestSeconds = document.getElementById("best-seconds");
 let bestMinutes = document.getElementById("best-minutes");
 let intervalCount;
@@ -53,19 +51,19 @@ let intervalCount;
 /** runs a second and minute time that stops at 59:59 */
 function timer() {
   intervalCount = setInterval(function () {
-    secondsTime++; // increment seconds by 1
-    seconds.innerHTML = (("0" + secondsTime).slice(-2)).toString(); // display seconds as 2 digit string
-    minutes.innerHTML = (("0" + minutesTime).slice(-2)).toString(); // display minutes as 2 digit string
-    if (secondsTime === 60) { // do not display 60
-      secondsTime = 0; // reset second count
-      seconds.innerHTML = (("0" + secondsTime).slice(-2)).toString(); // display 00 seconds
-      minutesTime++; // increment minutes by 1
-      minutes.innerHTML = (("0" + minutesTime).slice(-2)).toString(); // display minutes as 2 digit string
+    secondsTime++;
+    seconds.innerHTML = (("0" + secondsTime).slice(-2)).toString();
+    minutes.innerHTML = (("0" + minutesTime).slice(-2)).toString();
+    if (secondsTime === 60) {
+      secondsTime = 0;
+      seconds.innerHTML = (("0" + secondsTime).slice(-2)).toString();
+      minutesTime++;
+      minutes.innerHTML = (("0" + minutesTime).slice(-2)).toString();
     }
-    if ((secondsTime === 59) && (minutesTime === 59)) { // stop timer at maximum time of 59:59
+    if ((secondsTime === 59) && (minutesTime === 59)) {
       clearInterval(intervalCount);
     }
-  }, 1000); // 1000ms = 1 second
+  }, 1000);
 }
 
 /* settings overlay */
