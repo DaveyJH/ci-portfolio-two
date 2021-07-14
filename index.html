@@ -40,7 +40,6 @@
   </header>
   <section id="settings" class="text-center">
     <h2>Settings</h2>
-    <!-- todo - hide URL values?? -->
     <form method="POST">
       <div id="gameplay">
         <h3>Gameplay</h3>
@@ -54,7 +53,7 @@
         </div>
         <hr>
         <div class="flex-container">
-          <label for="number-in-solution">Number of balls in solution</label>
+          <label for="number-in-solution" class="prevent-click">No. of balls in solution</label>
           <div class="plusminus flex-container">
             <button class="minus">-</button>
             <input type="number" name="number-in-solution" id="number-in-solution" step="1" value="3" min="3" max="6" tabindex="-1">
@@ -62,22 +61,32 @@
           </div>
         </div>
         <hr>
-        <label for="repeat-in-solution">Colours may repeat in solution</label>
-        <input type="checkbox" name="repeat-in-solution" id="repeat-in-solution" checked>
+        <label for="repeat-in-solution" class="checkbox-hack">Colours may repeat in solution
+          <input type="checkbox" name="repeat-in-solution" id="repeat-in-solution" checked>
+          <span class="checkmark"></span>
+        </label>
         <hr>
-        <label for="repeat-in-guess">Colours may repeat in guess</label>
-        <input type="checkbox" name="repeat-in-guess" id="repeat-in-guess" checked disabled>
+        <label for="repeat-in-guess" class="checkbox-hack">Colours may repeat in guess
+          <input type="checkbox" name="repeat-in-guess" id="repeat-in-guess" checked disabled>
+          <span class="checkmark"></span>
+        </label>
       </div>
       <div id="timer-score">
         <h3>Timer/Score</h3>
-        <label for="current-time">Display current time</label>
-        <input type="checkbox" name="current-time" id="current-time" checked>
+        <label for="current-time" class="checkbox-hack">Display current time
+          <input type="checkbox" name="current-time" id="current-time" checked>
+          <span class="checkmark"></span>
+        </label>
         <hr>
-        <label for="best-time">Display best time</label>
-        <input type="checkbox" name="best-time" id="best-time" checked>
+        <label for="best-time" class="checkbox-hack">Display best time
+          <input type="checkbox" name="best-time" id="best-time" checked>
+          <span class="checkmark"></span>
+        </label>
         <hr>
-        <label for="best-score">Display best score</label>
-        <input type="checkbox" name="best-score" id="best-score" checked>
+        <label for="best-score" class="checkbox-hack">Display best score
+          <input type="checkbox" name="best-score" id="best-score" checked>
+          <span class="checkmark"></span>
+        </label>
       </div>
       <input type="submit" value="Play!" id="play-button">
     </form>
