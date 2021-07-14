@@ -23,6 +23,7 @@ let displayBestScore = true;
 
 let disableCheck = document.getElementById("repeat-in-solution");
 disableCheck.addEventListener("click", checkState);
+
 function checkState() {
   if (!disableCheck.checked) {
     document.getElementById("repeat-in-guess").disabled = false;
@@ -183,7 +184,9 @@ function runMainScript() {
   let colors = ["red", "green", "blue", "yellow", "pink", "purple", "aqua", "lime", "black", "white", "silver", "orange"];
   let colorSelectors = document.getElementsByClassName("selector");
   let colorSelectBox = document.getElementById("selector-box");
+  let guessRows = document.getElementsByClassName("selection ball-spacing");
   let solution = [];
+  let solutionRow = document.getElementById("solution");
 
   numOfColors = document.getElementById("number-of-colors").value;
   numOfBalls = document.getElementById("number-in-solution").value;
@@ -195,6 +198,28 @@ function runMainScript() {
   let bestScoreCheck = document.getElementById("best-score").checked;
 
   console.log(`solRep:${solutionRepeatCheck}\n` + `guRep:${guessRepeatCheck}\n` + `cTime:${currentTimeCheck}\n` + `bTime:${bestTimeCheck}\n` + `bScore:${bestScoreCheck}`);
+
+  setBallCount()
+  /** set number of balls in guess rows to equal settings value */
+  function setBallCount() {
+    for (let i = 0; i < guessRows.length; i++){
+      while (guessRows[i].children.length < numOfBalls) {
+        let newBall = document.createElement("div");
+        newBall.classList.add("color-ball");
+        guessRows[i].appendChild(newBall);
+      }
+    }
+  }
+
+  /** set number of balls in solution row to equal settings value */
+  setSolutionBallCount();
+  function setSolutionBallCount() {
+    while (solutionRow.children.length < numOfBalls) {
+      let newBall = document.createElement("div");
+      newBall.classList.add("color-ball");
+      solutionRow.appendChild(newBall);
+    }
+  }
 
   /** add div.color-ball.selector for each color in colors array */
   function addColorSelectors() {
@@ -211,6 +236,14 @@ function runMainScript() {
   function removeChildren() {
     while (colorSelectors.length > numOfColors) {
       colorSelectBox.removeChild(colorSelectBox.lastChild);
+    }
+    for (let i = 0; i < guessRows.length; i++) {
+      while (guessRows[i].children.length > numOfBalls) {
+        guessRows[i].removeChild(guessRows[i].lastChild);
+      }
+    }
+    while (solutionRow.children.length > numOfBalls) {
+      solutionRow.removeChild(solutionRow.lastChild);
     }
   }
 
