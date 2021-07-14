@@ -198,28 +198,31 @@ function runMainScript() {
   let bestTimeCheck = document.getElementById("best-time").checked;
   let bestScoreCheck = document.getElementById("best-score").checked;
 
-  if (!currentTimeCheck) {
-    document.getElementsByClassName("current time")[0].style.visibility = "hidden";
-  } else {
-    document.getElementsByClassName("current time")[0].style.visibility = "visible";
-  }
 
-  if (!bestTimeCheck) {
-    document.getElementsByClassName("best time")[0].style.visibility = "hidden";
-  } else {
-    document.getElementsByClassName("best time")[0].style.visibility = "visible";
-  }
+  function checkboxCheck() {
+    if (!currentTimeCheck) {
+      document.getElementsByClassName("current time")[0].style.visibility = "hidden";
+    } else {
+      document.getElementsByClassName("current time")[0].style.visibility = "visible";
+    }
 
-  if (!bestScoreCheck) {
-    document.getElementsByClassName("best score")[0].style.visibility = "hidden";
-  } else {
-    document.getElementsByClassName("best score")[0].style.visibility = "visible";
+    if (!bestTimeCheck) {
+      document.getElementsByClassName("best time")[0].style.visibility = "hidden";
+    } else {
+      document.getElementsByClassName("best time")[0].style.visibility = "visible";
+    }
+
+    if (!bestScoreCheck) {
+      document.getElementsByClassName("best score")[0].style.visibility = "hidden";
+    } else {
+      document.getElementsByClassName("best score")[0].style.visibility = "visible";
+    }
   }
 
   setBallCount()
   /** set number of balls in guess rows to equal settings value */
   function setBallCount() {
-    for (let i = 0; i < guessRows.length; i++){
+    for (let i = 0; i < guessRows.length; i++) {
       while (guessRows[i].children.length < numOfBalls) {
         let newBall = document.createElement("div");
         newBall.classList.add("color-ball");
@@ -230,6 +233,7 @@ function runMainScript() {
 
   /** set number of balls in solution row to equal settings value */
   setSolutionBallCount();
+
   function setSolutionBallCount() {
     while (solutionRow.children.length < numOfBalls) {
       let newBall = document.createElement("div");
@@ -240,8 +244,9 @@ function runMainScript() {
 
   /** set number of pegs displayed to equal number of balls */
   setPegCount();
+
   function setPegCount() {
-    for (let i = 0; i < resultPegs.length; i++){
+    for (let i = 0; i < resultPegs.length; i++) {
       while (resultPegs[i].children.length < numOfBalls) {
         let newPeg = document.createElement("div");
         newPeg.classList.add("peg");
@@ -327,6 +332,7 @@ function runMainScript() {
   }
 
   function runGame() {
+    checkboxCheck();
     removeChildren();
     setSelectorBalls();
     setSolution();
