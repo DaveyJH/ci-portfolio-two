@@ -243,5 +243,6 @@ input[type=number] {
 }
 hr {
   border-color: #022b3a;
-  margin: .4rem;
+  margin: .4rem auto;
+  max-width: 30rem;
 }

@@ -1,3 +1,16 @@
+// settings to sit below header
+
+window.addEventListener("resize", handleChange);
+/** ensure settings overlay sits below header */
+function handleChange() {
+  let headerHeight = document.getElementsByTagName("header")[0].offsetHeight;
+  let settingsSpacerHeight = headerHeight / 15.185185;
+  settingsSpacer = (settingsSpacerHeight + "rem");
+  document.getElementById("settings").style.top = settingsSpacer;
+}
+
+handleChange();
+
 // default game settings
 let numOfBalls = 4;
 let numOfColors = 6;
