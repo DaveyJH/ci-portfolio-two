@@ -75,6 +75,8 @@ settingsActivator.addEventListener("click", settings);
 function settings() {
   if (document.getElementById("settings").style.visibility === "visible") {
     document.getElementById("settings").style.visibility = "hidden";
+    // ! if settings closed without play clicked, reset values??
+    // ? store current values and return to them on close??
     if (seconds.innerHTML !== "--") {
       timer();
     }
