@@ -187,6 +187,7 @@ function runMainScript() {
   let guessRows = document.getElementsByClassName("selection ball-spacing");
   let solution = [];
   let solutionRow = document.getElementById("solution");
+  let resultPegs = document.getElementsByClassName("result");
 
   numOfColors = document.getElementById("number-of-colors").value;
   numOfBalls = document.getElementById("number-in-solution").value;
@@ -196,8 +197,6 @@ function runMainScript() {
   let currentTimeCheck = document.getElementById("current-time").checked;
   let bestTimeCheck = document.getElementById("best-time").checked;
   let bestScoreCheck = document.getElementById("best-score").checked;
-
-  console.log(`solRep:${solutionRepeatCheck}\n` + `guRep:${guessRepeatCheck}\n` + `cTime:${currentTimeCheck}\n` + `bTime:${bestTimeCheck}\n` + `bScore:${bestScoreCheck}`);
 
   setBallCount()
   /** set number of balls in guess rows to equal settings value */
@@ -220,6 +219,19 @@ function runMainScript() {
       solutionRow.appendChild(newBall);
     }
   }
+
+  /** set number of pegs displayed to equal number of balls */
+  setPegCount();
+  function setPegCount() {
+    for (let i = 0; i < resultPegs.length; i++){
+      while (resultPegs[i].children.length < numOfBalls) {
+        let newPeg = document.createElement("div");
+        newPeg.classList.add("peg");
+        resultPegs[i].appendChild(newPeg);
+      }
+    }
+  }
+
 
   /** add div.color-ball.selector for each color in colors array */
   function addColorSelectors() {
@@ -244,6 +256,11 @@ function runMainScript() {
     }
     while (solutionRow.children.length > numOfBalls) {
       solutionRow.removeChild(solutionRow.lastChild);
+    }
+    for (let i = 0; i < resultPegs.length; i++) {
+      while (resultPegs[i].children.length > numOfBalls) {
+        resultPegs[i].removeChild(resultPegs[i].lastChild);
+      }
     }
   }
 
