@@ -198,6 +198,24 @@ function runMainScript() {
   let bestTimeCheck = document.getElementById("best-time").checked;
   let bestScoreCheck = document.getElementById("best-score").checked;
 
+  if (!currentTimeCheck) {
+    document.getElementsByClassName("current time")[0].style.visibility = "hidden";
+  } else {
+    document.getElementsByClassName("current time")[0].style.visibility = "visible";
+  }
+
+  if (!bestTimeCheck) {
+    document.getElementsByClassName("best time")[0].style.visibility = "hidden";
+  } else {
+    document.getElementsByClassName("best time")[0].style.visibility = "visible";
+  }
+
+  if (!bestScoreCheck) {
+    document.getElementsByClassName("best score")[0].style.visibility = "hidden";
+  } else {
+    document.getElementsByClassName("best score")[0].style.visibility = "visible";
+  }
+
   setBallCount()
   /** set number of balls in guess rows to equal settings value */
   function setBallCount() {
