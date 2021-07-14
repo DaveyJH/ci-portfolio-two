@@ -60,7 +60,7 @@ function timer() {
 let settingsActivator = document.getElementById("settings-activator");
 settingsActivator.addEventListener("click", settings);
 
-/** show or hide settings depending in current state */
+/** show or hide settings depending on current state */
 function settings() {
   if (document.getElementById("settings").style.visibility === "visible") {
     document.getElementById("settings").style.visibility = "hidden";
@@ -77,7 +77,7 @@ function showSettings() {
   document.getElementById("settings").style.visibility = "visible";
   clearInterval(intervalCount);
   let playButton = document.getElementById("play-button");
-  playButton.addEventListener("click", gameOn);
+  playButton.addEventListener("click", playGame);
 }
 
 /** prevent clicking on label or number to prevent manual input.
@@ -136,7 +136,8 @@ function plusminus() {
   }
 }
 
-function gameOn(event) {
+/** hide settings overlay and run the main game script */
+function playGame(event) {
   event.preventDefault();
   document.getElementById("settings").style.visibility = "hidden";
   runMainScript();
