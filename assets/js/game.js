@@ -12,8 +12,8 @@ function handleChange() {
 handleChange();
 
 // default game settings
-let numOfBalls = 4;
 let numOfColors = 6;
+let numOfBalls = 4;
 let solutionRepeat = true;
 let guessRepeat = true;
 // default timer/score settings
@@ -177,10 +177,98 @@ function runMainScript() {
     secondsTime = 0;
     minutesTime = 0;
   }
-  
+
   resetTime();
-  timer();
+
+  let colors = ["red", "green", "blue", "yellow", "pink", "purple", "aqua", "lime", "black", "white", "silver", "orange"];
+  let colorSelectors = document.getElementsByClassName("selector");
+  let colorSelectBox = document.getElementById("selector-box");
+  let solution = [];
+
+  numOfColors = document.getElementById("number-of-colors").value;
+  numOfBalls = document.getElementById("number-in-solution").value;
+
+  let solutionRepeatCheck = document.getElementById("repeat-in-solution").checked;
+  let guessRepeatCheck = document.getElementById("repeat-in-guess").checked;
+  let currentTimeCheck = document.getElementById("current-time").checked;
+  let bestTimeCheck = document.getElementById("best-time").checked;
+  let bestScoreCheck = document.getElementById("best-score").checked;
+
+  console.log(`solRep:${solutionRepeatCheck}\n` + `guRep:${guessRepeatCheck}\n` + `cTime:${currentTimeCheck}\n` + `bTime:${bestTimeCheck}\n` + `bScore:${bestScoreCheck}`);
+
+  /** add div.color-ball.selector for each color in colors array */
+  function addColorSelectors() {
+    while (colorSelectors.length < numOfColors) {
+      let newColorSelector = document.createElement("div");
+      newColorSelector.classList.add("color-ball", "selector");
+      colorSelectBox.appendChild(newColorSelector);
+    }
+  }
+
+  /** remove child elements to ensure layout and gameplay
+   * matches settings selections
+   */
+  function removeChildren() {
+    while (colorSelectors.length > numOfColors) {
+      colorSelectBox.removeChild(colorSelectBox.lastChild);
+    }
+  }
+
+  let availableColors = colors.slice(0, numOfColors);
+  console.log(`Available: ${availableColors}`);
+
+  /** set solution to random array of availableColors */
+  function setSolution() {
+    for (let i = 0; i < numOfBalls; i++) {
+      let newColor = availableColors[Math.floor(Math.random() * availableColors.length)]; //select a random color
+      solution.push(newColor); // add new color to solution
+    }
+    // solution = ["red","red","yellow","red"]; // !test solutionA
+    // solution = ["red","blue","yellow","green"]; // !test solutionB
+    // solution = ["red","blue","red","yellow"]; // !test solutionC
+  }
+
+  /** add click listener to color selectors */
+  function selectorListener() {
+    document.querySelectorAll(".selector").forEach(item => {
+      item.addEventListener("click", colorSelect);
+    });
+  }
+
+  /** set color of selector-box color balls to available colors */
+  function setSelectorBalls() {
+    addColorSelectors();
+    selectorListener();
+    for (let i = 0; i < colorSelectors.length; i++) {
+      colorSelectors[i].style.backgroundColor = (colors[i]);
+    }
+  }
+
+  /** set color of selected ball and then close selector box
+   */
+  function colorSelect(event) {
+    colorSelected = event.target.style.backgroundColor;
+    activeSelection.style.backgroundColor = colorSelected;
+    activeSelection.classList.remove("empty");
+    colorSelectBox.style.visibility = "hidden";
+    activeSelection.style.border = "none";
+    activeBallsEmpty();
+    if (!emptyBalls) {
+      activeRow.children[0].style.borderColor = "#36b9d3";
+    }
+  }
+
+  function runGame() {
+    removeChildren();
+    setSelectorBalls();
+    setSolution();
+    timer();
+    console.log(`Solution: ${solution}`);
+    console.log(colorSelectBox);
+  }
+  runGame();
 }
 
 plusminus();
 disableClickNumberInputs();
+runMainScript();
