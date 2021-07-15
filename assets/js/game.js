@@ -177,15 +177,20 @@ function runMainScript() {
     minutesTime = 0;
   }
 
+  // ? move to reset() ??
   resetTime();
 
   let colors = ["red", "green", "blue", "yellow", "pink", "purple", "aqua", "lime", "black", "white", "silver", "orange"];
   let colorSelectors = document.getElementsByClassName("selector");
   let colorSelectBox = document.getElementById("selector-box");
   let guessRows = document.getElementsByClassName("selection ball-spacing");
-  let solution = [];
   let solutionRow = document.getElementById("solution");
   let resultPegs = document.getElementsByClassName("result");
+  let solution = [];
+  let solutionHolder;
+
+  let colorBalls = document.getElementsByClassName("color-ball");
+  let pegs = document.getElementsByClassName("peg");
 
   numOfColors = document.getElementById("number-of-colors").value;
   numOfBalls = document.getElementById("number-in-solution").value;
@@ -196,7 +201,8 @@ function runMainScript() {
   let bestTimeCheck = document.getElementById("best-time").checked;
   let bestScoreCheck = document.getElementById("best-score").checked;
 
-
+  // ! settings functions
+  /** check status of check boxes in settings overlay */
   function checkboxCheck() {
     if (!currentTimeCheck) {
       document.getElementsByClassName("current time")[0].style.visibility = "hidden";
@@ -217,7 +223,7 @@ function runMainScript() {
     }
   }
 
-  setBallCount()
+  // ! setup functions
   /** set number of balls in guess rows to equal settings value */
   function setBallCount() {
     for (let i = 0; i < guessRows.length; i++) {
@@ -230,8 +236,6 @@ function runMainScript() {
   }
 
   /** set number of balls in solution row to equal settings value */
-  setSolutionBallCount();
-
   function setSolutionBallCount() {
     while (solutionRow.children.length < numOfBalls) {
       let newBall = document.createElement("div");
@@ -241,8 +245,6 @@ function runMainScript() {
   }
 
   /** set number of pegs displayed to equal number of balls */
-  setPegCount();
-
   function setPegCount() {
     for (let i = 0; i < resultPegs.length; i++) {
       while (resultPegs[i].children.length < numOfBalls) {
@@ -252,7 +254,6 @@ function runMainScript() {
       }
     }
   }
-
 
   /** add div.color-ball.selector for each color in colors array */
   function addColorSelectors() {
@@ -291,12 +292,9 @@ function runMainScript() {
   /** set solution to random array of availableColors */
   function setSolution() {
     for (let i = 0; i < numOfBalls; i++) {
-      let newColor = availableColors[Math.floor(Math.random() * availableColors.length)]; //select a random color
-      solution.push(newColor); // add new color to solution
+      let newColor = availableColors[Math.floor(Math.random() * availableColors.length)];
+      solution.push(newColor);
     }
-    // solution = ["red","red","yellow","red"]; // !test solutionA
-    // solution = ["red","blue","yellow","green"]; // !test solutionB
-    // solution = ["red","blue","red","yellow"]; // !test solutionC
   }
 
   /** add click listener to color selectors */
@@ -315,6 +313,46 @@ function runMainScript() {
     }
   }
 
+  // ! gameplay functions
+
+  let aR;
+  let activeRow;
+  let activeBalls;
+  let activeSelection;
+  let activePegs;
+  let score;
+  let emptyBalls;
+
+  /** set row as active to allow interaction */
+  function activateRow() {
+    activeRow = document.getElementsByClassName("guess")[aR];
+    activeRow.classList.add("active-row");
+
+    activeBalls = activeRow.children[1].children;
+    for (let i = 0; i < activeBalls.length; i++) {
+      activeBalls[i].classList.add("active-balls", "empty");
+      activeBalls[i].addEventListener("click", colorSelector);
+    }
+
+    activeRow.children[0].style.borderColor = "#165764";
+    // activeRow.children[0].addEventListener("click", checkResult);
+    activePegs = activeRow.children[2].children;
+    score++;
+  }
+
+  /** allows selected color-ball to be set as
+   * activeSelection and enables color
+   * selection. applies border to activeSelection
+   */
+  function colorSelector(event) {
+    if (activeSelection !== undefined) {
+      activeSelection.style.border = "none";
+    }
+    colorSelectBox.style.visibility = "visible";
+    activeSelection = event.target;
+    activeSelection.style.border = ".2rem solid #fffce8";
+  }
+
   /** set color of selected ball and then close selector box
    */
   function colorSelect(event) {
@@ -329,16 +367,53 @@ function runMainScript() {
     }
   }
 
+  /** check for .empty in any ball in activeRow */
+  function activeBallsEmpty() {
+    let emptyHolder = [];
+    for (let i = 0; i < activeBalls.length; i++) {
+      if (activeBalls[i].classList.contains("empty")) {
+        emptyHolder.push("empty");
+      }
+    }
+    if (emptyHolder.includes("empty")) {
+      emptyBalls = true;
+    } else {
+      emptyBalls = false;
+    }
+  }
+
   function runGame() {
     checkboxCheck();
     removeChildren();
+    setBallCount();
     setSelectorBalls();
+    setPegCount();
+    setSolutionBallCount();
     setSolution();
+    activateRow();
     timer();
     console.log(`Solution: ${solution}`);
     console.log(colorSelectBox);
   }
-  runGame();
+
+  function reset() {
+    clearInterval(intervalCount);
+    solution = [];
+    for (let i = 0; i < colorBalls.length; i++) {
+      colorBalls[i].style.backgroundColor = "#854e1e";
+    }
+    for (let i = 0; i < pegs.length; i++) {
+      pegs[i].style.backgroundColor = "#a0622c";
+    }
+    aR = 0;
+    // pegColors = [];
+    // solutionCover.style.zIndex = "1";
+    score = 0;
+    message.innerHTML = "Good luck!";
+    runGame();
+  }
+
+  reset();
 }
 
 plusminus();
