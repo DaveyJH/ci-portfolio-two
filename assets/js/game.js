@@ -1,4 +1,8 @@
+// for functions/code that is not commented, see ./challenge.js
+// many functions are similar and so duplicate comments have been removed for readability
+
 window.addEventListener("resize", handleChange);
+let settingsOverlay = document.getElementById("settings");
 /** ensure settings overlay sits below header */
 function handleChange() {
   let headerHeight = document.getElementsByTagName("header")[0].offsetHeight;
@@ -21,6 +25,10 @@ let solutionRepeat = true;
 let guessRepeat = true;
 
 // default timer/score settings
+
+let currentTimeCheck = document.getElementById("current-time");
+let bestTimeCheck = document.getElementById("best-time");
+let bestScoreCheck = document.getElementById("best-score");
 let displayCurrentTime = true;
 let displayBestTime = true;
 let displayBestScore = true;
@@ -51,13 +59,6 @@ function checkState() {
 
 // ! timer variables and functions
 
-// credit to Code Institute course content for basic timer function
-// modified with basic solution credit to https://stackoverflow.com/users/854246/joseph-marikle
-// https://stackoverflow.com/questions/8043026/how-to-format-numbers-by-prepending-0-to-single-digit-numbers/8043061#8043061
-// first answer, which applies for positive integers only, works for this situation
-// the answer combines a string with a number so extra steps have
-// been taken to convert to strings and numbers where necessary
-
 let seconds = document.getElementById("seconds");
 let minutes = document.getElementById("minutes");
 let secondsTime = 0;
@@ -65,6 +66,12 @@ let minutesTime = 0;
 let bestSeconds = document.getElementById("best-seconds");
 let bestMinutes = document.getElementById("best-minutes");
 let intervalCount;
+
+let settingsHolder = [calculatedColors.value,
+  calculatedBalls.value,
+  solutionRepeatCheck.checked,
+  guessRepeatCheck.checked
+];
 
 /** runs a second and minute time that stops at 59:59 */
 function timer() {
@@ -84,14 +91,24 @@ function timer() {
   }, 1000);
 }
 
-/* settings overlay */
+// ! settings overlay
+
 let settingsActivator = document.getElementById("settings-activator");
 settingsActivator.addEventListener("click", settingsState);
 
-/** show or hide settings depending on current state */
+/** show or hide settings depending on current state.
+ * if settings overlay closed without new game starting:
+ * return gameplay settings to stored values
+ */
 function settingsState() {
-  if (document.getElementById("settings").style.visibility === "visible") {
-    document.getElementById("settings").style.visibility = "hidden";
+  if (settingsOverlay.style.visibility === "visible") {
+    calculatedColors.value = settingsHolder[0];
+    calculatedBalls.value = settingsHolder[1];
+    solutionRepeatCheck.checked = settingsHolder[2];
+    guessRepeatCheck.checked = [3];
+    checkState();
+    scoreTimerCheck();
+    settingsOverlay.style.visibility = "hidden";
     // ! if settings closed without play clicked, reset values??
     // ? store current values and return to them on close??
     if (seconds.innerHTML !== "--") {
@@ -102,9 +119,35 @@ function settingsState() {
   }
 }
 
+/** check status of score/timer check boxes in settings overlay */
+function scoreTimerCheck() {
+  if (!currentTimeCheck.checked) {
+    document.getElementsByClassName("current time")[0].style.visibility = "hidden";
+  } else {
+    document.getElementsByClassName("current time")[0].style.visibility = "visible";
+  }
+
+  if (!bestTimeCheck.checked) {
+    document.getElementsByClassName("best time")[0].style.visibility = "hidden";
+  } else {
+    document.getElementsByClassName("best time")[0].style.visibility = "visible";
+  }
+
+  if (!bestScoreCheck.checked) {
+    document.getElementsByClassName("best score")[0].style.visibility = "hidden";
+  } else {
+    document.getElementsByClassName("best score")[0].style.visibility = "visible";
+  }
+}
+
+/** store gameplay setting values to update settings overlay */
+function storeNewSettings() {
+  settingsHolder = [calculatedColors.value, calculatedBalls.value, solutionRepeatCheck.checked, guessRepeatCheck.checked];
+}
+
 /** show settings overlay and enable functionality */
 function showSettings() {
-  document.getElementById("settings").style.visibility = "visible";
+  settingsOverlay.style.visibility = "visible";
   clearInterval(intervalCount);
   let playButton = document.getElementById("play-button");
   playButton.addEventListener("click", playGame);
@@ -148,8 +191,7 @@ function plusminus() {
     }
     checkState();
   }
-    
-
+  
   for (let i = 0; i < minusButtons.length; i++) {
     minusButtons[i].addEventListener("click", minusValue);
   }
@@ -172,7 +214,8 @@ function plusminus() {
 /** hide settings overlay and run the main game script */
 function playGame(event) {
   event.preventDefault();
-  document.getElementById("settings").style.visibility = "hidden";
+  storeNewSettings();
+  settingsOverlay.style.visibility = "hidden";
   runMainScript();
 }
 
@@ -182,13 +225,13 @@ function runMainScript() {
    * if quicker => replace best time
    */
   function checkTime() {
-    let testSeconds = Number(bestSeconds.innerHTML); // convert seconds string to number
-    let testMinutes = Number(bestMinutes.innerHTML); // convert minutes string to number
-    let calculatedCurrentTime = minutesTime * 60 + secondsTime; // current time in seconds
-    let calculatedBestTime = testMinutes * 60 + testSeconds; // best time in seconds
-    if ((calculatedCurrentTime < calculatedBestTime) || (bestSeconds.innerHTML === "--")) { // check current time against best OR best is unset
-      bestSeconds.innerHTML = (("0" + secondsTime).slice(-2)).toString(); // write bestSeconds
-      bestMinutes.innerHTML = (("0" + minutesTime).slice(-2)).toString(); // write bestMinutes
+    let testSeconds = Number(bestSeconds.innerHTML);
+    let testMinutes = Number(bestMinutes.innerHTML);
+    let calculatedCurrentTime = minutesTime * 60 + secondsTime;
+    let calculatedBestTime = testMinutes * 60 + testSeconds;
+    if ((calculatedCurrentTime < calculatedBestTime) || (bestSeconds.innerHTML === "--")) {
+      bestSeconds.innerHTML = (("0" + secondsTime).slice(-2)).toString();
+      bestMinutes.innerHTML = (("0" + minutesTime).slice(-2)).toString();
     }
   }
 
@@ -216,31 +259,31 @@ function runMainScript() {
   numOfColors = document.getElementById("number-of-colors").value;
   numOfBalls = document.getElementById("number-in-solution").value;
 
-  let currentTimeCheck = document.getElementById("current-time").checked;
-  let bestTimeCheck = document.getElementById("best-time").checked;
-  let bestScoreCheck = document.getElementById("best-score").checked;
+  // let currentTimeCheck = document.getElementById("current-time").checked;
+  // let bestTimeCheck = document.getElementById("best-time").checked;
+  // let bestScoreCheck = document.getElementById("best-score").checked;
 
   // ! settings functions
-  /** check status of check boxes in settings overlay */
-  function checkboxCheck() {
-    if (!currentTimeCheck) {
-      document.getElementsByClassName("current time")[0].style.visibility = "hidden";
-    } else {
-      document.getElementsByClassName("current time")[0].style.visibility = "visible";
-    }
+  // /** check status of check boxes in settings overlay */
+  // function checkboxCheck() {
+  //   if (!currentTimeCheck) {
+  //     document.getElementsByClassName("current time")[0].style.visibility = "hidden";
+  //   } else {
+  //     document.getElementsByClassName("current time")[0].style.visibility = "visible";
+  //   }
 
-    if (!bestTimeCheck) {
-      document.getElementsByClassName("best time")[0].style.visibility = "hidden";
-    } else {
-      document.getElementsByClassName("best time")[0].style.visibility = "visible";
-    }
+  //   if (!bestTimeCheck) {
+  //     document.getElementsByClassName("best time")[0].style.visibility = "hidden";
+  //   } else {
+  //     document.getElementsByClassName("best time")[0].style.visibility = "visible";
+  //   }
 
-    if (!bestScoreCheck) {
-      document.getElementsByClassName("best score")[0].style.visibility = "hidden";
-    } else {
-      document.getElementsByClassName("best score")[0].style.visibility = "visible";
-    }
-  }
+  //   if (!bestScoreCheck) {
+  //     document.getElementsByClassName("best score")[0].style.visibility = "hidden";
+  //   } else {
+  //     document.getElementsByClassName("best score")[0].style.visibility = "visible";
+  //   }
+  // }
 
   // ! setup functions
   /** set number of balls in guess rows to equal settings value */
@@ -402,7 +445,7 @@ function runMainScript() {
   }
 
   function runGame() {
-    checkboxCheck();
+    scoreTimerCheck();
     removeChildren();
     setBallCount();
     setSelectorBalls();
