@@ -7,16 +7,43 @@ let settingsOverlay = document.getElementById("settings");
 function handleChange() {
   let headerHeight = document.getElementsByTagName("header")[0].offsetHeight;
   let settingsSpacerHeight = headerHeight / 15.185185;
-  settingsSpacer = (settingsSpacerHeight + "rem");
+  let settingsSpacer = (settingsSpacerHeight + "rem");
   document.getElementById("settings").style.top = settingsSpacer;
 }
 
 handleChange();
 
-let solutionRepeatCheck = document.getElementById("repeat-in-solution");
-let guessRepeatCheck = document.getElementById("repeat-in-guess");
+// ! timer variables and functions
 
-// default game settings
+let seconds = document.getElementById("seconds");
+let minutes = document.getElementById("minutes");
+let secondsTime = 0;
+let minutesTime = 0;
+let bestSeconds = document.getElementById("best-seconds");
+let bestMinutes = document.getElementById("best-minutes");
+let intervalCount;
+
+/** runs a second and minute time that stops at 59:59 */
+function timer() {
+  intervalCount = setInterval(function () {
+    secondsTime++;
+    seconds.innerHTML = (("0" + secondsTime).slice(-2)).toString();
+    minutes.innerHTML = (("0" + minutesTime).slice(-2)).toString();
+    if (secondsTime === 60) {
+      secondsTime = 0;
+      seconds.innerHTML = (("0" + secondsTime).slice(-2)).toString();
+      minutesTime++;
+      minutes.innerHTML = (("0" + minutesTime).slice(-2)).toString();
+    }
+    if ((secondsTime === 59) && (minutesTime === 59)) {
+      clearInterval(intervalCount);
+    }
+  }, 1000);
+}
+
+// ! settings
+
+// gameplay settings
 let numOfColors = 6;
 let calculatedColors = document.getElementById("number-of-colors");
 let numOfBalls = 4;
@@ -24,14 +51,20 @@ let calculatedBalls = document.getElementById("number-in-solution");
 let solutionRepeat = true;
 let guessRepeat = true;
 
-// default timer/score settings
+// gameplay checkboxes
+let solutionRepeatCheck = document.getElementById("repeat-in-solution");
+let guessRepeatCheck = document.getElementById("repeat-in-guess");
 
+// timer/score checkbox settings
 let currentTimeCheck = document.getElementById("current-time");
 let bestTimeCheck = document.getElementById("best-time");
 let bestScoreCheck = document.getElementById("best-score");
-let displayCurrentTime = true;
-let displayBestTime = true;
-let displayBestScore = true;
+
+let settingsHolder = [calculatedColors.value,
+  calculatedBalls.value,
+  solutionRepeatCheck.checked,
+  guessRepeatCheck.checked
+];
 
 solutionRepeatCheck.addEventListener("click", checkState);
 /** - check values of colors and balls, disable/check checkboxes as needed.
@@ -57,40 +90,6 @@ function checkState() {
   }
 }
 
-// ! timer variables and functions
-
-let seconds = document.getElementById("seconds");
-let minutes = document.getElementById("minutes");
-let secondsTime = 0;
-let minutesTime = 0;
-let bestSeconds = document.getElementById("best-seconds");
-let bestMinutes = document.getElementById("best-minutes");
-let intervalCount;
-
-let settingsHolder = [calculatedColors.value,
-  calculatedBalls.value,
-  solutionRepeatCheck.checked,
-  guessRepeatCheck.checked
-];
-
-/** runs a second and minute time that stops at 59:59 */
-function timer() {
-  intervalCount = setInterval(function () {
-    secondsTime++;
-    seconds.innerHTML = (("0" + secondsTime).slice(-2)).toString();
-    minutes.innerHTML = (("0" + minutesTime).slice(-2)).toString();
-    if (secondsTime === 60) {
-      secondsTime = 0;
-      seconds.innerHTML = (("0" + secondsTime).slice(-2)).toString();
-      minutesTime++;
-      minutes.innerHTML = (("0" + minutesTime).slice(-2)).toString();
-    }
-    if ((secondsTime === 59) && (minutesTime === 59)) {
-      clearInterval(intervalCount);
-    }
-  }, 1000);
-}
-
 // ! settings overlay
 
 let settingsActivator = document.getElementById("settings-activator");
@@ -107,10 +106,8 @@ function settingsState() {
     solutionRepeatCheck.checked = settingsHolder[2];
     guessRepeatCheck.checked = [3];
     checkState();
-    scoreTimerCheck();
+    scoreTimerOptionsCheck();
     settingsOverlay.style.visibility = "hidden";
-    // ! if settings closed without play clicked, reset values??
-    // ? store current values and return to them on close??
     if (seconds.innerHTML !== "--") {
       timer();
     }
@@ -120,7 +117,7 @@ function settingsState() {
 }
 
 /** check status of score/timer check boxes in settings overlay */
-function scoreTimerCheck() {
+function scoreTimerOptionsCheck() {
   if (!currentTimeCheck.checked) {
     document.getElementsByClassName("current time")[0].style.visibility = "hidden";
   } else {
@@ -161,7 +158,7 @@ function disableClickNumberInputs() {
     item.addEventListener("mousedown", preventAll);
   });
   document.querySelectorAll(".prevent-click").forEach(item => {
-    item.addEventListener("click", preventAll)
+    item.addEventListener("click", preventAll);
   });
 
   function preventAll(event) {
@@ -182,16 +179,14 @@ function plusminus() {
   function plusValue(event) {
     event.preventDefault();
     let num = event.target.previousElementSibling;
-    let numericValue = Number(num.value);
-    if (numericValue < Number(num.max)) {
-      numericValue++;
-      num.value = numericValue;
+    if (num.value < Number(num.max)) {
+      num.value++;
     } else {
       alert("Sorry, you can't go any higher!");
     }
     checkState();
   }
-  
+
   for (let i = 0; i < minusButtons.length; i++) {
     minusButtons[i].addEventListener("click", minusValue);
   }
@@ -200,10 +195,8 @@ function plusminus() {
   function minusValue(event) {
     event.preventDefault();
     let num = event.target.nextElementSibling;
-    let numericValue = Number(num.value);
-    if (numericValue > Number(num.min)) {
-      numericValue--;
-      num.value = numericValue;
+    if (num.value > Number(num.min)) {
+      num.value--;
     } else {
       alert("Sorry, you can't go any lower!");
     }
@@ -220,6 +213,8 @@ function playGame(event) {
 }
 
 function runMainScript() {
+
+  let message = document.getElementById("message");
 
   /** check current completion time against best time,
    * if quicker => replace best time
@@ -244,10 +239,11 @@ function runMainScript() {
   // ? move to reset() ??
   resetTime();
 
+  // parameters
   let colors = ["red", "green", "blue", "yellow", "pink", "purple", "aqua", "lime", "black", "white", "silver", "orange"];
   let colorSelectors = document.getElementsByClassName("selector");
   let colorSelectBox = document.getElementById("selector-box");
-  let guessRows = document.getElementsByClassName("selection ball-spacing");
+  let guessRowBalls = document.getElementsByClassName("selection ball-spacing");
   let solutionRow = document.getElementById("solution");
   let resultPegs = document.getElementsByClassName("result");
   let solution = [];
@@ -256,8 +252,8 @@ function runMainScript() {
   let colorBalls = document.getElementsByClassName("color-ball");
   let pegs = document.getElementsByClassName("peg");
 
-  numOfColors = document.getElementById("number-of-colors").value;
-  numOfBalls = document.getElementById("number-in-solution").value;
+  numOfColors = calculatedColors.value;
+  numOfBalls = calculatedBalls.value;
 
   // let currentTimeCheck = document.getElementById("current-time").checked;
   // let bestTimeCheck = document.getElementById("best-time").checked;
@@ -288,11 +284,11 @@ function runMainScript() {
   // ! setup functions
   /** set number of balls in guess rows to equal settings value */
   function setBallCount() {
-    for (let i = 0; i < guessRows.length; i++) {
-      while (guessRows[i].children.length < numOfBalls) {
+    for (let i = 0; i < guessRowBalls.length; i++) {
+      while (guessRowBalls[i].children.length < numOfBalls) {
         let newBall = document.createElement("div");
         newBall.classList.add("color-ball");
-        guessRows[i].appendChild(newBall);
+        guessRowBalls[i].appendChild(newBall);
       }
     }
   }
@@ -333,9 +329,9 @@ function runMainScript() {
     while (colorSelectors.length > numOfColors) {
       colorSelectBox.removeChild(colorSelectBox.lastChild);
     }
-    for (let i = 0; i < guessRows.length; i++) {
-      while (guessRows[i].children.length > numOfBalls) {
-        guessRows[i].removeChild(guessRows[i].lastChild);
+    for (let i = 0; i < guessRowBalls.length; i++) {
+      while (guessRowBalls[i].children.length > numOfBalls) {
+        guessRowBalls[i].removeChild(guessRowBalls[i].lastChild);
       }
     }
     while (solutionRow.children.length > numOfBalls) {
@@ -349,7 +345,7 @@ function runMainScript() {
   }
 
   let availableColors = colors.slice(0, numOfColors);
-  console.log(`Available: ${availableColors}`);
+  console.log(`Available: ${availableColors}`); // ! delete before deployment
 
   /** set solution to random array of availableColors */
   function setSolution() {
@@ -360,16 +356,18 @@ function runMainScript() {
   }
 
   /** add click listener to color selectors */
-  function selectorListener() {
+  function selectorsListeners() {
     document.querySelectorAll(".selector").forEach(item => {
       item.addEventListener("click", colorSelect);
     });
   }
 
-  /** set color of selector-box color balls to available colors */
+  /** setup selector box to contain correct count of color balls and
+   * for each color ball to be colored and have a listener
+   */
   function setSelectorBalls() {
     addColorSelectors();
-    selectorListener();
+    selectorsListeners();
     for (let i = 0; i < colorSelectors.length; i++) {
       colorSelectors[i].style.backgroundColor = (colors[i]);
     }
@@ -393,7 +391,7 @@ function runMainScript() {
     activeBalls = activeRow.children[1].children;
     for (let i = 0; i < activeBalls.length; i++) {
       activeBalls[i].classList.add("active-balls", "empty");
-      activeBalls[i].addEventListener("click", colorSelector);
+      activeBalls[i].addEventListener("click", rowColorSelector);
     }
 
     activeRow.children[0].style.borderColor = "#165764";
@@ -406,7 +404,7 @@ function runMainScript() {
    * activeSelection and enables color
    * selection. applies border to activeSelection
    */
-  function colorSelector(event) {
+  function rowColorSelector(event) {
     if (activeSelection !== undefined) {
       activeSelection.style.border = "none";
     }
@@ -418,7 +416,7 @@ function runMainScript() {
   /** set color of selected ball and then close selector box
    */
   function colorSelect(event) {
-    colorSelected = event.target.style.backgroundColor;
+    let colorSelected = event.target.style.backgroundColor;
     activeSelection.style.backgroundColor = colorSelected;
     activeSelection.classList.remove("empty");
     colorSelectBox.style.visibility = "hidden";
@@ -437,6 +435,7 @@ function runMainScript() {
         emptyHolder.push("empty");
       }
     }
+    console.log(emptyHolder); // ! delete before deployment
     if (emptyHolder.includes("empty")) {
       emptyBalls = true;
     } else {
@@ -445,7 +444,7 @@ function runMainScript() {
   }
 
   function runGame() {
-    scoreTimerCheck();
+    scoreTimerOptionsCheck();
     removeChildren();
     setBallCount();
     setSelectorBalls();
