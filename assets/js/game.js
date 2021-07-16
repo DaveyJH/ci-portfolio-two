@@ -9,25 +9,43 @@ function handleChange() {
 
 handleChange();
 
+let solutionRepeatCheck = document.getElementById("repeat-in-solution");
+let guessRepeatCheck = document.getElementById("repeat-in-guess");
+
 // default game settings
 let numOfColors = 6;
+let calculatedColors = document.getElementById("number-of-colors");
 let numOfBalls = 4;
+let calculatedBalls = document.getElementById("number-in-solution");
 let solutionRepeat = true;
 let guessRepeat = true;
+
 // default timer/score settings
 let displayCurrentTime = true;
 let displayBestTime = true;
 let displayBestScore = true;
 
-let disableCheck = document.getElementById("repeat-in-solution");
-disableCheck.addEventListener("click", checkState);
-
+solutionRepeatCheck.addEventListener("click", checkState);
+/** - check values of colors and balls, disable/check checkboxes as needed.
+ *  - check state of checkboxes and disable/check guessRepeatCheck as needed.
+ */
 function checkState() {
-  if (!disableCheck.checked) {
-    document.getElementById("repeat-in-guess").disabled = false;
+  numOfColors = calculatedColors.value;
+  numOfBalls = calculatedBalls.value;
+  if (numOfBalls > numOfColors) {
+    solutionRepeatCheck.checked = true;
+    solutionRepeatCheck.disabled = true;
+    guessRepeatCheck.checked = true;
+    guessRepeatCheck.disabled = true;
   } else {
-    document.getElementById("repeat-in-guess").disabled = true;
-    document.getElementById("repeat-in-guess").checked = true;
+    solutionRepeatCheck.disabled = false;
+  }
+
+  if (!solutionRepeatCheck.checked) {
+    guessRepeatCheck.disabled = false;
+  } else {
+    guessRepeatCheck.disabled = true;
+    guessRepeatCheck.checked = true;
   }
 }
 
@@ -68,10 +86,10 @@ function timer() {
 
 /* settings overlay */
 let settingsActivator = document.getElementById("settings-activator");
-settingsActivator.addEventListener("click", settings);
+settingsActivator.addEventListener("click", settingsState);
 
 /** show or hide settings depending on current state */
-function settings() {
+function settingsState() {
   if (document.getElementById("settings").style.visibility === "visible") {
     document.getElementById("settings").style.visibility = "hidden";
     // ! if settings closed without play clicked, reset values??
@@ -84,7 +102,7 @@ function settings() {
   }
 }
 
-/** show settings overlay */
+/** show settings overlay and enable functionality */
 function showSettings() {
   document.getElementById("settings").style.visibility = "visible";
   clearInterval(intervalCount);
@@ -128,7 +146,9 @@ function plusminus() {
     } else {
       alert("Sorry, you can't go any higher!");
     }
+    checkState();
   }
+    
 
   for (let i = 0; i < minusButtons.length; i++) {
     minusButtons[i].addEventListener("click", minusValue);
@@ -145,6 +165,7 @@ function plusminus() {
     } else {
       alert("Sorry, you can't go any lower!");
     }
+    checkState();
   }
 }
 
@@ -195,8 +216,6 @@ function runMainScript() {
   numOfColors = document.getElementById("number-of-colors").value;
   numOfBalls = document.getElementById("number-in-solution").value;
 
-  let solutionRepeatCheck = document.getElementById("repeat-in-solution").checked;
-  let guessRepeatCheck = document.getElementById("repeat-in-guess").checked;
   let currentTimeCheck = document.getElementById("current-time").checked;
   let bestTimeCheck = document.getElementById("best-time").checked;
   let bestScoreCheck = document.getElementById("best-score").checked;
