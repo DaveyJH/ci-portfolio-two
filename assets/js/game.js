@@ -401,9 +401,10 @@ function deactivateRow() {
  * on lose, pause and then reset timer
  */
 function nextRow() {
-  pegColors = []; // delete values from pegColors
+  pegColors = [];
+  currentGuessColors = [];
   deactivateRow();
-  aR++; // increment active row number
+  aR++;
   if (aR < guessRows.length) {
     activateRow();
   } else {
@@ -432,20 +433,47 @@ function nextRow() {
 function rowColorSelector(event) {
   if (activeSelection !== "inactive") {
     activeSelection.style.border = "none";
+    activeSelection.classList.remove("active-row-selector");
   }
   colorSelectBox.style.visibility = "visible";
   activeSelection = event.target;
   activeSelection.style.border = ".2rem solid #fffce8";
+  activeSelection.classList.add("active-row-selector");
 }
 
+let currentGuessColors = ["", "", "", ""];
 /** set color of selected ball and then close selector box
  */
 function colorSelect(event) {
+  /* reference index value to maintain position of colors
+  from active row in currentGuessColors array*/
+  let activeIndex;
+  for (let i = 0; i < activeBalls.length; i++) {
+    if (activeBalls[i].classList.contains("active-row-selector")) {
+      activeIndex = i;
+    }
+  }
   let colorSelected = event.target.style.backgroundColor;
-  activeSelection.style.backgroundColor = colorSelected;
-  activeSelection.classList.remove("empty");
-  colorSelectBox.style.visibility = "hidden";
-  activeSelection.style.border = "none";
+  if (!guessRepeatCheck.checked) {
+    /* check color has not already been selected and 
+    the activeSelection ball is not already the intended color */
+    if ((currentGuessColors.includes(colorSelected)) &&
+      (activeIndex !== currentGuessColors.indexOf(colorSelected))) {
+      alert("Your chosen settings do not allow you to repeat colours, please pick another.");
+    } else {
+      currentGuessColors[activeIndex] = colorSelected; // replace array value to prevent repeat color
+      activeSelection.style.backgroundColor = colorSelected;
+      activeSelection.classList.remove("empty", "active-row-selector");
+      colorSelectBox.style.visibility = "hidden";
+      activeSelection.style.border = "none";
+    }
+  } else {
+    activeSelection.style.backgroundColor = colorSelected;
+    activeSelection.classList.remove("empty", "active-row-selector");
+    colorSelectBox.style.visibility = "hidden";
+    activeSelection.style.border = "none";
+  }
+  console.log(currentGuessColors); // ! delete before deployment
   activeBallsEmpty();
   if (!emptyBalls) {
     activeRow.children[0].style.borderColor = "#36b9d3";
