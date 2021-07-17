@@ -34,8 +34,7 @@
   position: absolute;
   top: 1.2rem;
   right: .8rem;
-  border-top: .2rem solid #3e363f;
-  border-bottom: .2rem solid #3e363f;
+  width: 3rem;
 }
 /* scores and times end */
 
