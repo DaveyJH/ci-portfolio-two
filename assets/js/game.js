@@ -106,9 +106,7 @@ function settingsState() {
     checkState();
     scoreTimerOptionsCheck();
     settingsOverlay.style.visibility = "hidden";
-    if (seconds.innerHTML !== "--") {
-      timer();
-    }
+    timer();
   } else {
     showSettings();
   }
