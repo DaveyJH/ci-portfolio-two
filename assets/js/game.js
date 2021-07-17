@@ -200,9 +200,21 @@ function plusminus() {
   }
 }
 
-/** hide settings overlay and run the main game script */
+/** - hide settings overlay and run the main game script 
+ * - if settings changed, reset best score and time to "--"
+*/
 function playGame(event) {
   event.preventDefault();
+  // reset best score and best time if settings changed for game
+  if ((settingsHolder[0] !== calculatedColors.value) ||
+    (settingsHolder[1] !== calculatedBalls.value) ||
+    (settingsHolder[2] !== solutionRepeatCheck.checked) ||
+    (settingsHolder[3] !== guessRepeatCheck.checked)) {
+    bestScoreHTML.innerHTML = "--";
+    bestScore = 0;
+    bestSeconds.innerHTML = "--";
+    bestMinutes.innerHTML = "--";
+  }
   storeNewSettings();
   settingsOverlay.style.visibility = "hidden";
   reset();
