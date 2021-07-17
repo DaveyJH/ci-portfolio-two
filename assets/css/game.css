@@ -130,7 +130,7 @@
   position: -webkit-sticky;
   position: sticky;
   bottom: 0;
-  margin: 1rem 0;
+  margin: 4rem 0;
   border-top-left-radius: .2rem;
   border-top-right-radius: .2rem;
   display: flex;
@@ -170,7 +170,7 @@
   text-transform: capitalize;
   font-weight: 600;
   font-size: 2.4rem;
-  margin: -5.6rem 0 2.6rem;
+  margin: -10.6rem 0 2.6rem;
 }
 
 /* settings */
