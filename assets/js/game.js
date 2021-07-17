@@ -559,6 +559,7 @@ function checkResult() {
       message.innerHTML = "Well done!";
       setTimeout(winner, 100);
       document.getElementById("give-up").removeEventListener("click", giveUp);
+      document.getElementById("hint").removeEventListener("click", hint);
     } else {
       nextRow();
     }
@@ -654,10 +655,18 @@ function checkTime() {
 function winner() {
   console.log(score);
   let winnerMessage;
+  let hintWord;
+  if (hintCount === 1) {
+    hintWord = "hint";
+  } else {
+    hintWord = "hints";
+  }
   if (score > 1) {
-    winnerMessage = `You took ${(score)} attempts and were successful in a time of ${minutes.innerHTML}:${seconds.innerHTML}`;
+    winnerMessage = `You took ${score} attempts and used ${hintCount} ${hintWord}.
+You were successful in a time of ${minutes.innerHTML}:${seconds.innerHTML}`;
   } else if (score === 1) {
-    winnerMessage = `You took ${(score)} attempt and were successful in a time of ${minutes.innerHTML}:${seconds.innerHTML}`;
+    winnerMessage = `You took ${score} attempt and used ${hintCount} ${hintWord}.
+You were successful in a time of ${minutes.innerHTML}:${seconds.innerHTML}`;
   }
   console.log(winnerMessage);
   if (confirm (`Congratulations, you won!
@@ -670,9 +679,6 @@ Would you like to play again?`)) {
 let message = document.getElementById("message");
 
 // ! giveup and hint functions
-
-document.getElementById("give-up").addEventListener("click", giveUp);
-document.getElementById("hint").addEventListener("click", hint);
 
 /** confirm popup to  give up. if true: lose the game */
 function giveUp() {
@@ -689,6 +695,7 @@ function giveUp() {
 /** popup about losing. confirm with option to replay */
 function loser() {
   document.getElementById("give-up").removeEventListener("click", giveUp);
+  document.getElementById("hint").removeEventListener("click", hint);
   let loserMessage;
   if (score - 1 > 1) {
     loserMessage = `Unlucky, you lost!
@@ -733,14 +740,16 @@ function calculateWidthReducer() {
 
 /** reveal one color if possible */
 function hint() {
-  solutionHolder = solution.slice();
-  if (currentWidth !== widthReducer) {
-    hintCount++;
-    addOneSolutionColor();
-    solutionCover.style.width = ((currentWidth - widthReducer) + "%");
-    currentWidth = currentWidth - widthReducer;
-  } else {
-    alert("You cannot reveal the last ball. Maybe you should just give up!");
+  if (confirm("Would you like to reveal a ball?")) {
+    solutionHolder = solution.slice();
+    if (currentWidth !== widthReducer) {
+      hintCount++;
+      addOneSolutionColor();
+      solutionCover.style.width = ((currentWidth - widthReducer) + "%");
+      currentWidth = currentWidth - widthReducer;
+    } else {
+      alert("You cannot reveal the last ball. Maybe you should just give up!");
+    }
   }
 }
 
@@ -763,6 +772,8 @@ function runGame() {
   calculateWidthReducer();
   timer();
   activateRow();
+  document.getElementById("give-up").addEventListener("click", giveUp);
+  document.getElementById("hint").addEventListener("click", hint);
   console.log(`Solution: ${solution}`); // ! delete before deployment
 }
 
