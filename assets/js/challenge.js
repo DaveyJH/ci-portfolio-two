@@ -130,6 +130,10 @@ document.querySelectorAll(".selector").forEach(item => {
   item.addEventListener("click", colorSelect);
 });
 
+// add clearSelection to top selector ball (separate from colors)
+document.getElementById("clear-selector").children[0].addEventListener("click", clearSelection);
+document.getElementById("clear-selector").children[1].addEventListener("click", clearSelection);
+
 // ! gameplay functions
 
 /** activates the next row by applying classes
@@ -200,6 +204,15 @@ function colorSelector(event) {
   colorSelectBox.style.visibility = "visible"; // make selector box visibile
   activeSelection = event.target; // set activeSelection to ball that created event
   activeSelection.style.border = ".2rem solid #fffce8"; // add border for visual aid to player
+}
+
+/** clear color from active selection, add .empty, close selectBox and remove border */
+function clearSelection() {
+  activeSelection.style.backgroundColor = "rgb(133, 78, 30)";
+  activeSelection.classList.remove("active-row-selector");
+  activeSelection.classList.add("empty");
+  colorSelectBox.style.visibility = "hidden";
+  activeSelection.style.border = "none";
 }
 
 let emptyBalls; // boolean for any activeBalls containing .empty
