@@ -237,6 +237,7 @@ function resetTime() {
 let gameBoard = document.getElementById("game-board");
 
 let colors = ["red", "green", "blue", "yellow", "pink", "purple", "aqua", "lime", "black", "white", "silver", "orange"];
+let availableColors;
 let colorSelectors = document.getElementsByClassName("selector");
 let colorSelectBox = document.getElementById("selector-box");
 let guessRowBalls = document.getElementsByClassName("selection ball-spacing");
@@ -318,8 +319,11 @@ function removeChildren() {
   }
 }
 
-let availableColors = colors.slice(0, numOfColors);
-// console.log(`Available: ${availableColors}`); // ! delete before deployment
+/** set available colors to equal number of colors chosen in settings */
+function setAvailableColors() {
+  availableColors = colors.slice(0, numOfColors);
+  console.log(`Available: ${availableColors}`); // ! delete before deployment
+}
 
 /** set solution to random array of availableColors */
 function setSolution() {
@@ -533,6 +537,7 @@ let message = document.getElementById("message");
 function runGame() {
   scoreTimerOptionsCheck();
   removeChildren();
+  setAvailableColors();
   setBallCount();
   setSelectorBalls();
   setPegCount();
