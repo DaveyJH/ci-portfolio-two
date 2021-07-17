@@ -352,12 +352,13 @@ function setSelectorBalls() {
 let aR;
 let activeRow;
 let activeBalls;
-let activeSelection;
 let activePegs;
+let activeSelection = "inactive";
 let score;
 let emptyBalls;
+let pegColors = [];
+let bestScore = 0;
 
-// ! comment in result check
 /** set row as active to allow interaction */
 function activateRow() {
   activeRow = document.getElementsByClassName("guess")[aR];
@@ -370,7 +371,7 @@ function activateRow() {
   }
 
   activeRow.children[0].style.borderColor = "#165764";
-  // activeRow.children[0].addEventListener("click", checkResult);
+  activeRow.children[0].addEventListener("click", checkResult);
   activePegs = activeRow.children[2].children;
   score++;
 }
@@ -422,7 +423,7 @@ function nextRow() {
  * selection. applies border to activeSelection
  */
 function rowColorSelector(event) {
-  if (activeSelection !== undefined) {
+  if (activeSelection !== "inactive") {
     activeSelection.style.border = "none";
   }
   colorSelectBox.style.visibility = "visible";
@@ -461,6 +462,72 @@ function activeBallsEmpty() {
   console.log(emptyBalls); // ! delete before deployment
 }
 
+// ! result functions
+
+/** check result of input colors */
+function checkResult() {
+  solutionHolder = solution.slice();
+  activeBallsEmpty();
+  if (emptyBalls) {
+    alert("Please complete selection!");
+  } else {
+    colorSelectBox.style.visibility = "hidden";
+    if (activeSelection !== "inactive") {
+      activeSelection.style.border = "none";
+      activeSelection = "inactive";
+    }
+
+    checkBlack();
+    checkWhite();
+    assignPegs();
+    // checkPegs();
+
+    // if (win) {
+    //   clearInterval(intervalCount); // stop timer
+    //   checkTime();
+    //   resetTime();
+    //   deactivateRow();
+    //   ballReveal();
+    //   checkScore();
+    //   message.innerHTML = "Well done!";
+    //   setTimeout(winner, 100);
+    // } else {
+      nextRow();
+    // }
+  }
+  solution = solutionHolder.slice(); // set solution array back to correct values
+}
+
+/** check if ball color and position are correct */
+function checkBlack() {
+  for (let i = 0; i < solution.length; i++) {
+    if (solution[i] === activeBalls[i].style.backgroundColor) {
+      solution[i] = "checked";
+      pegColors.push("black");
+    }
+  }
+}
+
+/** check if ball color is correct but in wrong position */
+function checkWhite() {
+  for (let i = 0; i < solution.length; i++) {
+    if (solution[i] !== "checked"
+      &&
+      solution.includes(activeBalls[i].style.backgroundColor)) {
+      let removal = solution.indexOf(activeBalls[i].style.backgroundColor);
+      solution[removal] = "pegged";
+      pegColors.push("white");
+    }
+  }
+}
+
+/** assign colors to pegs based on result */
+function assignPegs() {
+  for (let i = 0; i < numOfBalls; i++) {
+    activePegs[i].style.backgroundColor = pegColors[i];
+  }
+}
+
 let message = document.getElementById("message");
 
 function runGame() {
@@ -479,12 +546,21 @@ function runGame() {
 
 function reset() {
   clearInterval(intervalCount);
+  colorSelectBox.style.visibility = "hidden";
+  if (activeSelection !== "inactive") {
+    activeSelection.style.border = "none";
+    activeSelection = "inactive";
+  }
   solution = [];
   for (let i = 0; i < colorBalls.length; i++) {
     colorBalls[i].style.backgroundColor = "#854e1e";
   }
   for (let i = 0; i < pegs.length; i++) {
     pegs[i].style.backgroundColor = "#a0622c";
+  }
+  console.log(aR);
+  if (aR !== (0 || undefined)) {
+    deactivateRow();
   }
   aR = 0;
   // pegColors = [];
