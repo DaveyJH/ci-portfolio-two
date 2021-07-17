@@ -33,6 +33,9 @@ p {
 aside a {
   font-style: italic;
 }
+#link-to-top {
+  color: #9bdce9;
+}
 /* end of about me section */
 
 /* algorithm article */
