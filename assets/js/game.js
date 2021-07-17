@@ -484,20 +484,20 @@ function checkResult() {
     checkBlack();
     checkWhite();
     assignPegs();
-    // checkPegs();
+    checkPegs();
 
-    // if (win) {
-    //   clearInterval(intervalCount); // stop timer
-    //   checkTime();
-    //   resetTime();
-    //   deactivateRow();
-    //   ballReveal();
-    //   checkScore();
-    //   message.innerHTML = "Well done!";
-    //   setTimeout(winner, 100);
-    // } else {
+    if (win) {
+      clearInterval(intervalCount); // stop timer
+      checkTime();
+      resetTime();
+      deactivateRow();
+      ballReveal();
+      checkScore();
+      message.innerHTML = "Well done!";
+      setTimeout(winner, 100);
+    } else {
       nextRow();
-    // }
+    }
   }
   solution = solutionHolder.slice(); // set solution array back to correct values
 }
@@ -515,8 +515,7 @@ function checkBlack() {
 /** check if ball color is correct but in wrong position */
 function checkWhite() {
   for (let i = 0; i < solution.length; i++) {
-    if (solution[i] !== "checked"
-      &&
+    if (solution[i] !== "checked" &&
       solution.includes(activeBalls[i].style.backgroundColor)) {
       let removal = solution.indexOf(activeBalls[i].style.backgroundColor);
       solution[removal] = "pegged";
@@ -529,6 +528,55 @@ function checkWhite() {
 function assignPegs() {
   for (let i = 0; i < numOfBalls; i++) {
     activePegs[i].style.backgroundColor = pegColors[i];
+  }
+}
+
+// ! win/lose checks
+
+let win;
+let bestScoreHTML = document.getElementsByClassName("best score")[0];
+
+/** check for four black pegs,
+ * pop up win message with option to reset
+ */
+function checkPegs() {
+  for (let i = 0; i < activePegs.length; i++) {
+    if (activePegs[i].style.backgroundColor === "black") {
+      win = true;
+    } else {
+      win = false;
+    }
+  }
+}
+
+/** set ball color and reveal answer */
+function ballReveal() {
+  setSolutionBalls();
+  setTimeout(solutionCover.style.zIndex = "-1", 50);
+}
+
+/** set color of solution balls to solution array values */
+function setSolutionBalls() {
+  for (let i = 0; i < solutionHolder.length; i++) {
+    solutionBalls[i].style.backgroundColor = (solutionHolder[i]);
+  }
+}
+
+/** check if best score has been set
+ * and if it is larger than the current winning
+ * score. if so, change the displayed number to the best score
+ */
+function checkScore() {
+  if (bestScore > score || bestScore === 0) {
+    bestScore = score.toString();
+    bestScoreHTML.innerHTML = `${bestScore}`;
+  }
+}
+
+/** confirm with option to replay */
+function winner() {
+  if (confirm(`Congratulations, you won!\nWould you like to play again?`)) {
+    reset();
   }
 }
 
@@ -550,6 +598,7 @@ function runGame() {
 }
 
 function reset() {
+  win = false;
   clearInterval(intervalCount);
   colorSelectBox.style.visibility = "hidden";
   if (activeSelection !== "inactive") {
@@ -563,13 +612,12 @@ function reset() {
   for (let i = 0; i < pegs.length; i++) {
     pegs[i].style.backgroundColor = "#a0622c";
   }
-  console.log(aR);
   if (aR !== (0 || undefined)) {
     deactivateRow();
   }
   aR = 0;
-  // pegColors = [];
-  // solutionCover.style.zIndex = "1";
+  pegColors = [];
+  solutionCover.style.zIndex = "1";
   score = 0;
   message.innerHTML = "Good luck!";
   runGame();
