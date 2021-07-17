@@ -234,11 +234,16 @@ function resetTime() {
 
 // ! gameplay variables
 
+let gameBoard = document.getElementById("game-board");
+
 let colors = ["red", "green", "blue", "yellow", "pink", "purple", "aqua", "lime", "black", "white", "silver", "orange"];
 let colorSelectors = document.getElementsByClassName("selector");
 let colorSelectBox = document.getElementById("selector-box");
 let guessRowBalls = document.getElementsByClassName("selection ball-spacing");
 let solutionRow = document.getElementById("solution");
+let guessRows = document.getElementsByClassName("guess");
+let solutionBalls = solutionRow.children;
+let solutionCover = document.getElementById("solution-cover");
 let resultPegs = document.getElementsByClassName("result");
 let solution = [];
 let solutionHolder;
@@ -314,7 +319,7 @@ function removeChildren() {
 }
 
 let availableColors = colors.slice(0, numOfColors);
-console.log(`Available: ${availableColors}`); // ! delete before deployment
+// console.log(`Available: ${availableColors}`); // ! delete before deployment
 
 /** set solution to random array of availableColors */
 function setSolution() {
@@ -352,6 +357,7 @@ let activePegs;
 let score;
 let emptyBalls;
 
+// ! comment in result check
 /** set row as active to allow interaction */
 function activateRow() {
   activeRow = document.getElementsByClassName("guess")[aR];
@@ -368,6 +374,48 @@ function activateRow() {
   activePegs = activeRow.children[2].children;
   score++;
 }
+
+/** deactivate row by removing classes and click listeners */
+function deactivateRow() {
+  activeRow = document.getElementsByClassName("guess")[aR];
+  activeRow.children[0].style.borderColor = "#fffce8";
+  activeRow.classList.remove("active-row");
+  document.querySelectorAll(".active-balls").forEach(item => {
+    item.removeEventListener("click", rowColorSelector);
+  });
+  for (let i = 0; i < activeBalls.length; i++) {
+    activeBalls[i].classList.remove("active-balls");
+  }
+  activeRow.children[0].removeEventListener("click", checkResult);
+}
+
+/** continue with next row or report lose.
+ * on lose, pause and then reset timer
+ */
+function nextRow() {
+  pegColors = []; // delete values from pegColors
+  deactivateRow();
+  aR++; // increment active row number
+  if (aR < guessRows.length) {
+    activateRow();
+  } else {
+    let newRowNumber = guessRows.length + 1;
+    let newRow = document.createElement("div");
+    newRow.classList.add("row", "guess");
+    newRow.innerHTML = `<div class="number text-center">
+                          ${newRowNumber}
+                        </div>
+                        <div class="selection ball-spacing">
+                        </div>
+                        <div class="result">
+                        </div>`;
+    gameBoard.appendChild(newRow);
+    setBallCount();
+    setPegCount();
+    activateRow();
+  }
+}
+
 
 /** allows selected color-ball to be set as
  * activeSelection and enables color
