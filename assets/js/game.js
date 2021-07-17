@@ -46,8 +46,6 @@ let numOfColors = 6;
 let calculatedColors = document.getElementById("number-of-colors");
 let numOfBalls = 4;
 let calculatedBalls = document.getElementById("number-in-solution");
-let solutionRepeat = true;
-let guessRepeat = true;
 
 // gameplay checkboxes
 let solutionRepeatCheck = document.getElementById("repeat-in-solution");
