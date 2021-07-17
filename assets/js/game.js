@@ -295,6 +295,12 @@ function addColorSelectors() {
   }
 }
 
+/** add clearSelection to top selector ball (separate from colors) */
+function addClearSelection() {
+  document.getElementById("clear-selector").children[0].addEventListener("click", clearSelection);
+  document.getElementById("clear-selector").children[1].addEventListener("click", clearSelection);
+}
+
 /** remove child elements to ensure layout and gameplay
  * matches settings selections
  */
@@ -347,6 +353,7 @@ function selectorsListeners() {
 function setSelectorBalls() {
   addColorSelectors();
   selectorsListeners();
+  addClearSelection();
   for (let i = 0; i < colorSelectors.length; i++) {
     colorSelectors[i].style.backgroundColor = (colors[i]);
   }
@@ -484,6 +491,15 @@ function colorSelect(event) {
   if (!emptyBalls) {
     activeRow.children[0].style.borderColor = "#36b9d3";
   }
+}
+
+/** clear color from active selection, add .empty, close selectBox and remove border */
+function clearSelection() {
+  activeSelection.style.backgroundColor = "rgb(133, 78, 30)";
+  activeSelection.classList.remove("active-row-selector");
+  activeSelection.classList.add("empty");
+  colorSelectBox.style.visibility = "hidden";
+  activeSelection.style.border = "none";
 }
 
 /** check for .empty in any ball in activeRow */

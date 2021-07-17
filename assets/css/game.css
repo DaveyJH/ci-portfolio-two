@@ -142,6 +142,22 @@
   height: 7rem;
   visibility: hidden;
 }
+#clear-selector {
+  position: absolute;
+  margin: 0 auto;
+  top: -5rem;
+  background-color: #3e363f;
+  height: 4.45rem;
+  width: 8rem;
+  padding: .275rem;
+  border-top-left-radius: .2rem;
+  border-top-right-radius: .2rem;
+  font-variant: small-caps;
+  font-size: 1.6rem;
+}
+#clear-selector .color-ball {
+  margin: .2rem auto;
+}
 #selector-box .color-ball {
   border: .2rem solid #fffce8;
 }
