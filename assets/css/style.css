@@ -30,7 +30,7 @@ header {
   position: relative;
 }
 #header-img-background {
-  background: linear-gradient(to right, #fffce8 15%,  #3e363f00 55%);
+  background: linear-gradient(to right, #fffce8 10%,  #3e363f00 55%);
   position: absolute;
   z-index: 1;
   width: 3rem;
