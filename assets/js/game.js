@@ -368,6 +368,7 @@ let bestScore = 0;
 
 /** set row as active to allow interaction */
 function activateRow() {
+  currentGuessColors = ["", "", "", ""];
   activeRow = document.getElementsByClassName("guess")[aR];
   activeRow.classList.add("active-row");
 
@@ -402,7 +403,6 @@ function deactivateRow() {
  */
 function nextRow() {
   pegColors = [];
-  currentGuessColors = [];
   deactivateRow();
   aR++;
   if (aR < guessRows.length) {
