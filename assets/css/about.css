@@ -34,7 +34,7 @@ aside a {
   font-style: italic;
 }
 #link-to-top {
-  color: #9bdce9;
+  text-decoration: underline;
 }
 /* end of about me section */
 
