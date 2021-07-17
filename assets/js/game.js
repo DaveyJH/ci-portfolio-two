@@ -620,7 +620,15 @@ function reset() {
   solutionCover.style.zIndex = "1";
   score = 0;
   message.innerHTML = "Good luck!";
+  removeRows();
   runGame();
+}
+
+/** delete guess rows>7 that have been created by multiple guesses */
+function removeRows() {
+  while (guessRows.length > 7) {
+    gameBoard.removeChild(gameBoard.lastChild);
+  }
 }
 
 handleChange();
