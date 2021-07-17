@@ -84,7 +84,9 @@
   width: 70%;
   background: URL("../images/horizontal-wood.jpg") no-repeat center / 100% 100%;
   border: .2rem solid #854e1e;
-  /* z-index: -1; */
+  width: 67.5%;
+  height: 2.2rem;
+  box-sizing: content-box;
 }
 /* top row end */
 

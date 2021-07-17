@@ -662,7 +662,7 @@ function winner() {
     winnerMessage = `You took ${(score)} attempt and were successful in a time of ${minutes.innerHTML}:${seconds.innerHTML}`;
   }
   console.log(winnerMessage);
-  if (confirm(`Congratulations, you won!
+  if (confirm (`Congratulations, you won!
 ${winnerMessage}
 Would you like to play again?`)) {
     reset();
@@ -674,6 +674,7 @@ let message = document.getElementById("message");
 // ! giveup and hint functions
 
 document.getElementById("give-up").addEventListener("click", giveUp);
+document.getElementById("hint").addEventListener("click", hint);
 
 /** confirm popup to  give up. if true: lose the game */
 function giveUp() {
@@ -709,7 +710,49 @@ Would you like to play again?`;
   }
 }
 
+let widthReducer;
+let currentWidth;
+let hintCount;
+/** use numOfBalls to calculate width reduction size */
+function calculateWidthReducer() {
+  switch(numOfBalls) {
+    case "3":
+      widthReducer = 22.5;
+      break;
+    case "4":
+      widthReducer = 16.875;
+      break;
+    case "5":
+      widthReducer = 13.5;
+      break;
+    case "6":
+      widthReducer = 11.25;
+      break;
+    default:
+      alert("Are you cheating?");
+  }
+}
 
+/** reveal one color if possible */
+function hint() {
+  solutionHolder = solution.slice();
+  if (currentWidth !== widthReducer) {
+    hintCount++;
+    addOneSolutionColor();
+    solutionCover.style.width = ((currentWidth - widthReducer) + "%");
+    currentWidth = currentWidth - widthReducer;
+  } else {
+    alert("You cannot reveal the last ball. Maybe you should just give up!");
+  }
+}
+
+/** set the background color of the next ball to be revealed */
+function addOneSolutionColor() {
+  let solutionIndex = solutionBalls.length - hintCount;
+  solutionBalls[solutionIndex].style.backgroundColor = solutionHolder[solutionIndex];
+}
+
+/** set gameboard according to settings and run game */
 function runGame() {
   scoreTimerOptionsCheck();
   removeChildren();
@@ -719,8 +762,9 @@ function runGame() {
   setPegCount();
   setSolutionBallCount();
   setSolution();
-  activateRow();
+  calculateWidthReducer();
   timer();
+  activateRow();
   console.log(`Solution: ${solution}`); // ! delete before deployment
 }
 
@@ -746,6 +790,9 @@ function reset() {
   aR = 0;
   pegColors = [];
   solutionCover.style.zIndex = "1";
+  solutionCover.style.width = "67.5%";
+  currentWidth = 67.5;
+  hintCount = 0;
   score = 0;
   message.innerHTML = "Good luck!";
   resetTime();
