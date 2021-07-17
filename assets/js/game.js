@@ -660,6 +660,44 @@ function winner() {
 
 let message = document.getElementById("message");
 
+// ! giveup and hint functions
+
+document.getElementById("give-up").addEventListener("click", giveUp);
+
+/** confirm popup to  give up. if true: lose the game */
+function giveUp() {
+  if (confirm("Do you really want to give up?")) {
+    solutionHolder = solution.slice();
+    ballReveal();
+    message.innerHTML = "Oh dear!";
+    clearInterval(intervalCount);
+    setTimeout(loser, 100);
+    deactivateRow();
+  }
+}
+
+/** popup about losing. confirm with option to replay */
+function loser() {
+  let loserMessage;
+  if (score - 1 > 1) {
+    loserMessage = `Unlucky, you lost!
+You had ${(score -1)} attempts in ${minutes.innerHTML}:${seconds.innerHTML}
+Would you like to play again?`;
+  } else if (score - 1 === 1) {
+    loserMessage = `Unlucky, you lost!
+You had ${(score -1)} attempt in ${minutes.innerHTML}:${seconds.innerHTML}
+Would you like to play again?`;
+  } else {
+    loserMessage = `Unlucky, you lost!
+You didn't even have a go!
+Would you like to play again?`;
+  }
+  if (confirm (`${loserMessage}`)) {
+    reset();
+  }
+}
+
+
 function runGame() {
   scoreTimerOptionsCheck();
   removeChildren();
