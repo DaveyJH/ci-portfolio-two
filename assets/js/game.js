@@ -368,7 +368,7 @@ let bestScore = 0;
 
 /** set row as active to allow interaction */
 function activateRow() {
-  currentGuessColors = ["", "", "", ""];
+  setCurrentColorArrayBlank();
   activeRow = document.getElementsByClassName("guess")[aR];
   activeRow.classList.add("active-row");
 
@@ -441,7 +441,15 @@ function rowColorSelector(event) {
   activeSelection.classList.add("active-row-selector");
 }
 
-let currentGuessColors = ["", "", "", ""];
+let currentGuessColors;
+/** delete array values and create blank values to equal number of balls */
+function setCurrentColorArrayBlank() {
+  currentGuessColors = [];
+  for (let i = 0; i < calculatedBalls.value; i++) {
+    currentGuessColors.push("");
+  }
+}
+
 /** set color of selected ball and then close selector box
  */
 function colorSelect(event) {
