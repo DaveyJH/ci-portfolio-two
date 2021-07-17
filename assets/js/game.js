@@ -1,5 +1,6 @@
-// for functions/code that is not commented, see ./challenge.js
+// for functions/code with no comments, see ./challenge.js
 // many functions are similar and so duplicate comments have been removed for readability
+// game.js has been refined from challenge.js and should have better readability
 
 window.addEventListener("resize", handleChange);
 let settingsOverlay = document.getElementById("settings");
@@ -73,6 +74,7 @@ solutionRepeatCheck.addEventListener("click", checkState);
 function checkState() {
   numOfColors = calculatedColors.value;
   numOfBalls = calculatedBalls.value;
+
   if ((numOfBalls > numOfColors) && (numOfColors < 7)) {
     solutionRepeatCheck.checked = true;
     solutionRepeatCheck.disabled = true;
@@ -100,7 +102,7 @@ function settingsState() {
     calculatedColors.value = settingsHolder[0];
     calculatedBalls.value = settingsHolder[1];
     solutionRepeatCheck.checked = settingsHolder[2];
-    guessRepeatCheck.checked = [3];
+    guessRepeatCheck.checked = settingsHolder[3];
     checkState();
     scoreTimerOptionsCheck();
     settingsOverlay.style.visibility = "hidden";
@@ -171,7 +173,9 @@ function plusminus() {
     plusButtons[i].addEventListener("click", plusValue);
   }
 
-  /** increase value if below maximum value */
+  /** - increase value if below maximum value
+   * - check number values and alter check boxes if necessary
+  */
   function plusValue(event) {
     event.preventDefault();
     let num = event.target.previousElementSibling;
@@ -187,7 +191,9 @@ function plusminus() {
     minusButtons[i].addEventListener("click", minusValue);
   }
 
-  /** decrease value if above minimum */
+  /** - decrease value if above minimum
+   * - check number values and alter check boxes if necessary
+  */
   function minusValue(event) {
     event.preventDefault();
     let num = event.target.nextElementSibling;
@@ -221,20 +227,6 @@ function playGame(event) {
 }
 
 // ! main game functions
-
-/** check current completion time against best time,
- * if quicker => replace best time
- */
-function checkTime() {
-  let testSeconds = Number(bestSeconds.innerHTML);
-  let testMinutes = Number(bestMinutes.innerHTML);
-  let calculatedCurrentTime = minutesTime * 60 + secondsTime;
-  let calculatedBestTime = testMinutes * 60 + testSeconds;
-  if ((calculatedCurrentTime < calculatedBestTime) || (bestSeconds.innerHTML === "--")) {
-    bestSeconds.innerHTML = (("0" + secondsTime).slice(-2)).toString();
-    bestMinutes.innerHTML = (("0" + minutesTime).slice(-2)).toString();
-  }
-}
 
 /** reset timer to 0 */
 function resetTime() {
@@ -298,7 +290,7 @@ function setPegCount() {
   }
 }
 
-/** add div.color-ball.selector for each color in colors array */
+/** add new div.color-ball.selector for each color in colors array */
 function addColorSelectors() {
   while (colorSelectors.length < numOfColors) {
     let newColorSelector = document.createElement("div");
@@ -307,11 +299,15 @@ function addColorSelectors() {
   }
 }
 
-/** add clearSelection to top selector ball (separate from colors) */
+/** add clearSelection to top selector ball/text (separate from colors) */
 function addClearSelection() {
   document.getElementById("clear-selector").children[0].addEventListener("click", clearSelection);
   document.getElementById("clear-selector").children[1].addEventListener("click", clearSelection);
 }
+
+
+// ! add rowDelete function!
+
 
 /** remove child elements to ensure layout and gameplay
  * matches settings selections
@@ -382,10 +378,12 @@ let score;
 let emptyBalls;
 let pegColors = [];
 let bestScore = 0;
+let currentGuessColors;
 
-/** set row as active to allow interaction */
+/** - set row as active to allow interaction */
 function activateRow() {
   setCurrentColorArrayBlank();
+
   activeRow = document.getElementsByClassName("guess")[aR];
   activeRow.classList.add("active-row");
 
@@ -401,22 +399,26 @@ function activateRow() {
   score++;
 }
 
-/** deactivate row by removing classes and click listeners */
+/** deactivate row by removing classes and click listeners and reverting colors */
 function deactivateRow() {
   activeRow = document.getElementsByClassName("guess")[aR];
   activeRow.children[0].style.borderColor = "#fffce8";
   activeRow.classList.remove("active-row");
   document.querySelectorAll(".active-balls").forEach(item => {
     item.removeEventListener("click", rowColorSelector);
+    item.classList.remove("active-balls");
   });
-  for (let i = 0; i < activeBalls.length; i++) {
-    activeBalls[i].classList.remove("active-balls");
-  }
+
+  // ? check requirements for backward compatibility for project
+  // ? if required, remove query selectors and replace with below
+
+  // for (let i = 0; i < activeBalls.length; i++) {
+  //   activeBalls[i].classList.remove("active-balls");
+  // }
   activeRow.children[0].removeEventListener("click", checkResult);
 }
 
-/** continue with next row or report lose.
- * on lose, pause and then reset timer
+/** continue with next row. if no row exists, create one.
  */
 function nextRow() {
   pegColors = [];
@@ -442,7 +444,6 @@ function nextRow() {
   }
 }
 
-
 /** allows selected color-ball to be set as
  * activeSelection and enables color
  * selection. applies border to activeSelection
@@ -458,7 +459,6 @@ function rowColorSelector(event) {
   activeSelection.classList.add("active-row-selector");
 }
 
-let currentGuessColors;
 /** delete array values and create blank values to equal number of balls */
 function setCurrentColorArrayBlank() {
   currentGuessColors = [];
@@ -498,7 +498,6 @@ function colorSelect(event) {
     colorSelectBox.style.visibility = "hidden";
     activeSelection.style.border = "none";
   }
-  console.log(currentGuessColors); // ! delete before deployment
   activeBallsEmpty();
   if (!emptyBalls) {
     activeRow.children[0].style.borderColor = "#36b9d3";
@@ -514,7 +513,7 @@ function clearSelection() {
   activeSelection.style.border = "none";
 }
 
-/** check for .empty in any ball in activeRow */
+/** check for .empty in any ball in activeRow. return emptyBalls */
 function activeBallsEmpty() {
   let emptyHolder = [];
   for (let i = 0; i < activeBalls.length; i++) {
@@ -599,8 +598,7 @@ function assignPegs() {
 let win;
 let bestScoreHTML = document.getElementsByClassName("best score")[0];
 
-/** check for four black pegs,
- * pop up win message with option to reset
+/** check for four black pegs, return win
  */
 function checkPegs() {
   for (let i = 0; i < activePegs.length; i++) {
@@ -636,7 +634,21 @@ function checkScore() {
   }
 }
 
-/** confirm with option to replay */
+/** check current completion time against best time,
+ * if quicker => replace best time
+ */
+function checkTime() {
+  let testSeconds = Number(bestSeconds.innerHTML);
+  let testMinutes = Number(bestMinutes.innerHTML);
+  let calculatedCurrentTime = minutesTime * 60 + secondsTime;
+  let calculatedBestTime = testMinutes * 60 + testSeconds;
+  if ((calculatedCurrentTime < calculatedBestTime) || (bestSeconds.innerHTML === "--")) {
+    bestSeconds.innerHTML = (("0" + secondsTime).slice(-2)).toString();
+    bestMinutes.innerHTML = (("0" + minutesTime).slice(-2)).toString();
+  }
+}
+
+/** pop up win message. confirm with option to replay */
 function winner() {
   if (confirm(`Congratulations, you won!\nWould you like to play again?`)) {
     reset();
