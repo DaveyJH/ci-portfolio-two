@@ -7,9 +7,6 @@ main, aside {
 p {
   margin: .8rem auto;
 }
-a {
-  font-style: italic;
-}
 /* image  */
 #profile-img-holder {
   overflow: hidden;
@@ -29,8 +26,12 @@ a {
 
 /* about me section */
 .about-me a {
+  font-style: italic;
   display: inline-block;
   margin: 1rem .5rem 0;
+}
+aside a {
+  font-style: italic;
 }
 /* end of about me section */
 
