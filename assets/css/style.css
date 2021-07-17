@@ -29,11 +29,30 @@ header {
   font-variant: small-caps;
   position: relative;
 }
-header img {
-  padding: .5rem .5rem 0;
-  width: 12.5%;
-  height: 12.5%;
+#header-img-background {
+  background: linear-gradient(to right, #fffce8 15%,  #3e363f00 55%);
+  position: absolute;
+  z-index: 1;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 1.5rem;
+  margin: .5rem;
 }
+#header-img {
+  padding: .5rem .5rem 0;
+  width: 3rem;
+  height: 3rem;
+  position: relative;
+  z-index: 2;
+  background: url(../images/color-brain-split.png) no-repeat center bottom / 3rem 3rem;
+}
+/* header img {
+  padding: .5rem .5rem 0;
+  width: 3rem;
+  height: 3rem;
+  position: relative;
+  z-index: 2;
+} */
 header h1 {
   margin-top: -2.8rem;
 }
