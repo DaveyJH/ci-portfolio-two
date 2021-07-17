@@ -305,10 +305,6 @@ function addClearSelection() {
   document.getElementById("clear-selector").children[1].addEventListener("click", clearSelection);
 }
 
-
-// ! add rowDelete function!
-
-
 /** remove child elements to ensure layout and gameplay
  * matches settings selections
  */
@@ -328,6 +324,13 @@ function removeChildren() {
     while (resultPegs[i].children.length > numOfBalls) {
       resultPegs[i].removeChild(resultPegs[i].lastChild);
     }
+  }
+}
+
+/** delete guess rows>7 that have been created by multiple guesses */
+function removeRows() {
+  while (guessRows.length > 7) {
+    gameBoard.removeChild(gameBoard.lastChild);
   }
 }
 
@@ -696,13 +699,6 @@ function reset() {
   message.innerHTML = "Good luck!";
   removeRows();
   runGame();
-}
-
-/** delete guess rows>7 that have been created by multiple guesses */
-function removeRows() {
-  while (guessRows.length > 7) {
-    gameBoard.removeChild(gameBoard.lastChild);
-  }
 }
 
 handleChange();
