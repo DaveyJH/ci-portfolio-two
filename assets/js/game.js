@@ -75,7 +75,7 @@ solutionRepeatCheck.addEventListener("click", checkState);
 function checkState() {
   numOfColors = calculatedColors.value;
   numOfBalls = calculatedBalls.value;
-  if (numOfBalls > numOfColors) {
+  if ((numOfBalls > numOfColors) && (numOfColors < 7)) {
     solutionRepeatCheck.checked = true;
     solutionRepeatCheck.disabled = true;
     guessRepeatCheck.checked = true;
@@ -322,7 +322,6 @@ function removeChildren() {
 /** set available colors to equal number of colors chosen in settings */
 function setAvailableColors() {
   availableColors = colors.slice(0, numOfColors);
-  console.log(`Available: ${availableColors}`); // ! delete before deployment
 }
 
 /** set solution to random array of availableColors */
@@ -330,6 +329,10 @@ function setSolution() {
   for (let i = 0; i < numOfBalls; i++) {
     let newColor = availableColors[Math.floor(Math.random() * availableColors.length)];
     solution.push(newColor);
+    if (!solutionRepeatCheck.checked) {
+      let colorDelete = availableColors.indexOf(newColor);
+      availableColors.splice(colorDelete, 1);
+    }
   }
 }
 
@@ -457,13 +460,11 @@ function activeBallsEmpty() {
       emptyHolder.push("empty");
     }
   }
-  console.log(emptyHolder); // ! delete before deployment
   if (emptyHolder.includes("empty")) {
     emptyBalls = true;
   } else {
     emptyBalls = false;
   }
-  console.log(emptyBalls); // ! delete before deployment
 }
 
 // ! result functions
@@ -487,7 +488,7 @@ function checkResult() {
     checkPegs();
 
     if (win) {
-      clearInterval(intervalCount); // stop timer
+      clearInterval(intervalCount);
       checkTime();
       resetTime();
       deactivateRow();
@@ -499,7 +500,7 @@ function checkResult() {
       nextRow();
     }
   }
-  solution = solutionHolder.slice(); // set solution array back to correct values
+  solution = solutionHolder.slice();
 }
 
 /** check if ball color and position are correct */
@@ -594,7 +595,6 @@ function runGame() {
   activateRow();
   timer();
   console.log(`Solution: ${solution}`); // ! delete before deployment
-  console.log(colorSelectBox); // ! delete before deployment
 }
 
 function reset() {
