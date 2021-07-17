@@ -560,6 +560,7 @@ function checkResult() {
       checkScore();
       message.innerHTML = "Well done!";
       setTimeout(winner, 100);
+      document.getElementById("give-up").removeEventListener("click", giveUp);
     } else {
       nextRow();
     }
@@ -688,6 +689,7 @@ function giveUp() {
 
 /** popup about losing. confirm with option to replay */
 function loser() {
+  document.getElementById("give-up").removeEventListener("click", giveUp);
   let loserMessage;
   if (score - 1 > 1) {
     loserMessage = `Unlucky, you lost!
