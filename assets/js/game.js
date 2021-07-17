@@ -653,7 +653,17 @@ function checkTime() {
 
 /** pop up win message. confirm with option to replay */
 function winner() {
-  if (confirm(`Congratulations, you won!\nWould you like to play again?`)) {
+  console.log(score);
+  let winnerMessage;
+  if (score > 1) {
+    winnerMessage = `You took ${(score)} attempts and were successful in a time of ${minutes.innerHTML}:${seconds.innerHTML}`;
+  } else if (score === 1) {
+    winnerMessage = `You took ${(score)} attempt and were successful in a time of ${minutes.innerHTML}:${seconds.innerHTML}`;
+  }
+  console.log(winnerMessage);
+  if (confirm(`Congratulations, you won!
+${winnerMessage}
+Would you like to play again?`)) {
     reset();
   }
 }
@@ -712,6 +722,7 @@ function runGame() {
   console.log(`Solution: ${solution}`); // ! delete before deployment
 }
 
+/** reset game board and values and run game */
 function reset() {
   win = false;
   clearInterval(intervalCount);
@@ -735,6 +746,7 @@ function reset() {
   solutionCover.style.zIndex = "1";
   score = 0;
   message.innerHTML = "Good luck!";
+  resetTime();
   removeRows();
   runGame();
 }
