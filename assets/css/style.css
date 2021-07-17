@@ -29,6 +29,9 @@ header {
   font-variant: small-caps;
   position: relative;
 }
+nav {
+  margin-top: .5rem;
+}
 #header-img-background {
   background: linear-gradient(to right, #fffce8 10%,  #3e363f00 55%);
   position: absolute;
