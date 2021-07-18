@@ -1,4 +1,4 @@
-main, aside {
+#main-about, #knuth {
   margin: 1.5rem .8rem 0;
   padding: 1rem .8rem;
   background-color: #a0622c;
@@ -7,6 +7,10 @@ main, aside {
 p {
   margin: .8rem auto;
 }
+.last {
+  margin-bottom: 0;
+}
+
 /* image  */
 #profile-img-holder {
   overflow: hidden;
@@ -26,16 +30,10 @@ p {
 
 /* about me section */
 .about-me a {
-  font-style: italic;
   display: inline-block;
-  margin: 1rem .5rem 0;
+  margin:  0 .5rem;
 }
-aside a {
-  font-style: italic;
-}
-#link-to-top {
-  text-decoration: underline;
-}
+/* * link styles at bottom of CSS file */
 /* end of about me section */
 
 /* algorithm article */
@@ -54,4 +52,26 @@ aside h2 {
   list-style-type :circle;
   text-align: left;
 }
+aside a {
+  font-style: italic;
+}
+#link-to-top {
+  text-decoration: underline;
+}
 /* end of article */
+
+/* link divs */
+#contact-links, #algorithm-links {
+  font-style: italic;
+  background-color: #3e363f;
+  margin: 0 .8rem;
+  font-size: 1.2rem;
+  padding: 1rem 0;
+}
+#algorithm-links a {
+  display: block;
+}
+#algorithm-links a:first-of-type {
+  margin-bottom: .5rem;
+}
+/* end of link divs */
