@@ -379,6 +379,7 @@ let score;
 let emptyBalls;
 let pegColors = [];
 let bestScore = 0;
+let activeIndex;
 let currentGuessColors;
 
 /** - set row as active to allow interaction */
@@ -473,12 +474,7 @@ function setCurrentColorArrayBlank() {
 function colorSelect(event) {
   /* reference index value to maintain position of colors
   from active row in currentGuessColors array*/
-  let activeIndex;
-  for (let i = 0; i < activeBalls.length; i++) {
-    if (activeBalls[i].classList.contains("active-row-selector")) {
-      activeIndex = i;
-    }
-  }
+  getActiveIndex();
   let colorSelected = event.target.style.backgroundColor;
   if (!guessRepeatCheck.checked) {
     /* check color has not already been selected and 
@@ -507,11 +503,24 @@ function colorSelect(event) {
 
 /** clear color from active selection, add .empty, close selectBox and remove border */
 function clearSelection() {
+  if (!guessRepeatCheck.checked) {
+    getActiveIndex();
+    currentGuessColors[activeIndex] = "";
+  }
   activeSelection.style.backgroundColor = "rgb(133, 78, 30)";
   activeSelection.classList.remove("active-row-selector");
   activeSelection.classList.add("empty");
   colorSelectBox.style.visibility = "hidden";
   activeSelection.style.border = "none";
+}
+
+/** get index number of activeSelection ball */
+function getActiveIndex() {
+  for (let i = 0; i < activeBalls.length; i++) {
+    if (activeBalls[i].classList.contains("active-row-selector")) {
+      activeIndex = i;
+    }
+  }
 }
 
 /** check for .empty in any ball in activeRow. return emptyBalls */
