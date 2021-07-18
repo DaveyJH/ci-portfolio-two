@@ -523,6 +523,10 @@ function clearSelection() {
   colorSelectBox.style.visibility = "hidden";
   clearSelector.style.visibility = "hidden";
   activeSelection.style.border = "none";
+  activeBallsEmpty();
+  if (emptyBalls) {
+    activeRow.children[0].style.borderColor = "#165764";
+  }
 }
 
 /** get index number of activeSelection ball */
