@@ -430,10 +430,20 @@ function nextRow() {
   pegColors = [];
   deactivateRow();
   aR++;
+  if (guessRows.length > 98) {
+    extremeLoss();
+  }
   if (aR < guessRows.length) {
     activateRow();
   } else {
-    let newRowNumber = guessRows.length + 1;
+    addRow();
+    activateRow();
+  }
+}
+
+/** create new guess row with current settings */
+function addRow() {
+  let newRowNumber = guessRows.length + 1;
     let newRow = document.createElement("div");
     newRow.classList.add("row", "guess");
     newRow.innerHTML = `<div class="number text-center">
@@ -446,8 +456,6 @@ function nextRow() {
     gameBoard.appendChild(newRow);
     setBallCount();
     setPegCount();
-    activateRow();
-  }
 }
 
 /** allows selected color-ball to be set as
