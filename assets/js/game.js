@@ -427,10 +427,20 @@ function nextRow() {
   pegColors = [];
   deactivateRow();
   aR++;
+  if (guessRows.length > 98) {
+    extremeLoss();
+  }
   if (aR < guessRows.length) {
     activateRow();
   } else {
-    let newRowNumber = guessRows.length + 1;
+    addRow();
+    activateRow();
+  }
+}
+
+/** create new guess row with current settings */
+function addRow() {
+  let newRowNumber = guessRows.length + 1;
     let newRow = document.createElement("div");
     newRow.classList.add("row", "guess");
     newRow.innerHTML = `<div class="number text-center">
@@ -443,8 +453,6 @@ function nextRow() {
     gameBoard.appendChild(newRow);
     setBallCount();
     setPegCount();
-    activateRow();
-  }
 }
 
 /** allows selected color-ball to be set as
@@ -737,6 +745,17 @@ Would you like to play again?`;
   }
   if (confirm (`${loserMessage}`)) {
     reset();
+  }
+}
+
+function extremeLoss() {
+  document.getElementById("give-up").removeEventListener("click", giveUp);
+  document.getElementById("hint").removeEventListener("click", hint);
+  let extremeMessage = `Wow, that is serious dedication!
+I'm afraid you can't have any more guesses,
+perhaps you should try again?`;
+  if (confirm (`${extremeMessage}`)) {
+  reset();
   }
 }
 
