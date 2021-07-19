@@ -751,6 +751,17 @@ Would you like to play again?`;
   }
 }
 
+function extremeLoss() {
+  document.getElementById("give-up").removeEventListener("click", giveUp);
+  document.getElementById("hint").removeEventListener("click", hint);
+  let extremeMessage = `Wow, that is serious dedication!
+I'm afraid you can't have any more guesses,
+perhaps you should try again?`;
+  if (confirm (`${extremeMessage}`)) {
+  reset();
+  }
+}
+
 let widthReducer;
 let currentWidth;
 let hintCount;
