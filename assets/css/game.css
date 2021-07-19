@@ -74,19 +74,19 @@
 .top {
   margin-bottom: 1rem;
 }
-#give-up, #hint {
+/* #give-up, #hint {
   font-size: 1.8rem;
   line-height: 3rem;
-}
+} */
 #solution-cover {
   position: absolute;
   left: 15%;
   width: 70%;
   background: URL("../images/horizontal-wood.jpg") no-repeat center / 100% 100%;
   border: .2rem solid #854e1e;
-  width: 67.5%;
+  /* width: 67.5%;
   height: 2.2rem;
-  box-sizing: content-box;
+  box-sizing: content-box; */
 }
 /* top row end */
 
@@ -132,7 +132,7 @@
   position: -webkit-sticky;
   position: sticky;
   bottom: 0;
-  margin: 4rem 0;
+  /* margin: 4rem 0; */
   border-top-left-radius: .2rem;
   border-top-right-radius: .2rem;
   display: flex;
@@ -163,156 +163,11 @@
 #selector-box .color-ball {
   border: .2rem solid #fffce8;
 }
-/* #selector-box-spacer {
-  height: 1rem;
-} */
 /* selector box end */
 #message {
   color: #3e363f;
   text-transform: capitalize;
   font-weight: 600;
   font-size: 2.4rem;
-  margin: -10.6rem 0 2.6rem;
-}
-
-/* settings */
-
-/* todo make into overlay using javascript */
-/* todo grey out background when setting active */
-
-#settings {
-  /* make sticky in javascript?? */
-  position: absolute;
-  z-index: 3;
-  top: 5.4rem;
-  padding: 1rem 2rem 1.6rem;
-  color: #3e363f;
-  background-color: #fffce8;
-  width: 100%;
-  box-sizing: border-box;
-  visibility: hidden;
-}
-#settings h2 {
-  text-decoration: underline;
-}
-#settings h3 {
-  margin: 1.2rem auto .6rem;
-}
-
-label {
-  display: inline-block;
-  margin: 0 .5rem;
-  font-size: 1.1rem;
-}
-input:not([type="submit"]) {
-  /* clear: right; */
-  text-align: center;
-}
-input[type="submit"] {
-  width: 33%;
-  font-size: 1.3rem;
-  margin-top: 1.4rem;
-}
-button, input[type="submit"] {
-  background-color: #165764;
-  border-radius: .3rem;
-  color: #fffce8;
-}
-
-/* remove spinner from numbers */
-/* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-/* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
-}
-
-.flex-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.plusminus {
-  width: 6rem;
-}
-.plusminus * {
-  display: inline;
-  box-sizing: border-box;
-  width: 33%;
-  height: 1.9rem;
-  font: 600 1.1rem "Rajdhani";
-}
-.plusminus input {
-  border: none;
-  background-color: #fffce8;
-}
-.plusminus button {
-  height: 80%;
-  width: 26.4%;
-}
-.plusminus button:hover, input[type="submit"]:hover {
-  background-color: #218397;
-}
-.plusminus button:focus, input[type="submit"]:focus {
-  background-color: #28a0b8;
-}
-
-hr {
-  border-color: #022b3a;
-  margin: .4rem auto;
-  max-width: 30rem;
-}
-
-
-
-/* credit https://www.w3schools.com/howto/howto_css_custom_checkbox.asp */
-.checkbox-hack {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 18rem;
-  margin: .5rem auto;
-  line-height: 1.1rem;
-}
-.checkbox-hack input {
-  opacity: 0;
-  height: 0;
-  width: 0;
-}
-.checkmark {
-  height: 1rem;
-  width: 1rem;
-  background-color: #165764;
-  border: solid .1rem #022b3a;
-  border-radius: .2rem;
-  position: relative;
-  top: -.1rem;
-}
-.checkbox-hack:hover input ~ .checkmark {
-  background-color: #218397;
-}
-.checkbox-hack input:checked ~ .checkmark {
-  background-color: #28a0b8;
-}
-.checkbox-hack input:checked ~ .checkmark:after {
-  content:"";
-  position: absolute;
-  display: block;
-  left: .28rem;
-  height: .6rem;
-  width: .3rem;
-  border: solid #fffce8;
-  border-width: 0 .2rem .2rem 0;
-  border-radius: .1rem;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-.checkbox-hack input:disabled ~ .checkmark {
-  background-color: #aaaaaa;
+  /* margin: -10.6rem 0 2.6rem; */
 }

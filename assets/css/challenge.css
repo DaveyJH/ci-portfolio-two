@@ -1,190 +1,20 @@
-/* #game {
-  position: relative;
-} */
-
-/* game board start */
-#game-board {
-  margin: 1.5rem .8rem 0;
-  padding: 0 .4rem;
-  background-color: #a0622c;
-  background: linear-gradient(#fffce822, #fffce822), URL("../images/wood-effect.jpg") no-repeat center center / 100% auto;
-  border: .2rem solid #854e1e;
-  border-radius: .2rem;
-}
-
-/* scores and times */
-#scores-and-times {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: .5rem;
-  font-size: 1.2rem;
-  font-weight: 700;
-}
-.best {
-  border-radius: .2rem;
-  border: .2rem solid #3e363f;
-  background-color: #854e1e;
-  width: 4rem;
-  position: relative;
-  top: -.5rem;
-}
-.best.score {
-  left: -.3rem;
-}
-.best.time {
-  left: .3rem;
-}
-.current {
-  position: absolute;
-  /* top: -5.8rem; */
-  top: 1.2rem;
-  right: .8rem;
-  border-top: .2rem solid #3e363f;
-  border-bottom: .2rem solid #3e363f;
-}
-/* scores and times end */
-
-/* rows */
-.row {
-  position: relative;
-  display: grid;
-  grid-template-columns: 15% 70% 15%;
-  height: 2.6rem;
-  margin-bottom: .3rem;
-}
-.row>* {
-  height: 2.6rem;
-  border-radius: .2rem;
-  box-sizing: border-box;
-}
-.row>div:nth-of-type(2) {
-  background-color: #a0622c;
-  border: .2rem solid #854e1e;
-}
-.ball-spacing {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-.color-ball {
-  border-radius: 50%;
-  height: 2rem;
-  width: 2rem;
-  background-color: #854e1e;
-}
-.color-ball:not(#selector-box *)  {
-  box-sizing: border-box;
-}
-
-/* top row */
-.top {
-  margin-bottom: 1rem;
-}
-#solution-cover {
-  position: absolute;
-  left: 15%;
-  width: 70%;
-  background: URL("../images/horizontal-wood.jpg") no-repeat center / 100% 100%;
-  border: .2rem solid #854e1e;
-}
-/* top row end */
-
-/* guess rows */
-.row:last-of-type {
-  margin-bottom: 1rem;
-}
-.number {
-  background-color: #854e1e;
-  font-size: 1.8rem;
-  justify-self: center;
-  border: .2rem solid;
-  position: relative;
-  width: 2.5rem;
-}
-.result {
-  background-color: #854e1e;
-  width: 3rem;
-  justify-self: center;
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: space-around;
-  align-content: space-around;
-  padding: .3rem 0;
-}
-.result>div {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.peg {
-  background-color: #a0622c;
-  width: .8rem;
-  height: .8rem;
-  border-radius: 50%;
-}
-/* guess rows end */
-/* rows end */
-/* game-board end */
-
-/* selector box */
-#selector-box {
-  position: -webkit-sticky;
-  position: sticky;
-  bottom: 0;
-  /* width: 100%; */
-  /* width: calc(100% - 1.6rem); */
-  /* left: -.8rem; */
-  /* margin: 0 .8rem; */
-  border-top-left-radius: .2rem;
-  border-top-right-radius: .2rem;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  background-color: #3e363f;
-  height: 7rem;
-  visibility: hidden;
-}
-#clear-selector {
-  position: absolute;
-  margin: 0 auto;
-  top: -5rem;
-  background-color: #3e363f;
-  height: 4.45rem;
-  width: 8rem;
-  padding: .275rem;
-  border-top-left-radius: .2rem;
-  border-top-right-radius: .2rem;
-  font-variant: small-caps;
-  font-size: 1.6rem;
-}
-#clear-selector .color-ball {
-  margin: .2rem auto;
-}
-#selector-box .color-ball {
-  border: .2rem solid #fffce8;
-}
-/* selector box end */
-#message, #learn-more {
+/* content below game board */
+#message, #learn-more, #learn-more-link {
   margin-top: .5rem;
   font-variant: small-caps;
+}
+section.text-center {
+  background-color: #a0622c;
 }
 #learn-more {
   padding: 0 1.5rem;
   font-size: 1.7rem;
-  /* margin: 1.6rem 0 1rem; */
-  margin: -6.6rem 0 1rem;
+  margin: -6.6rem 0 .5rem;
 }
-#learn-more a {
+#learn-more-link {
+  font-size: 1.7rem;
   font-style: italic;
-}
-#message {
-  color: #3e363f;
-  text-transform: capitalize;
-  font-weight: 600;
-  font-size: 2.4rem;
-}
-section.text-center {
-  background-color: #a0622c;
+  background-color: #3e363f;
+  padding: .5rem 0;
+  margin-bottom: 1.5rem;
 }

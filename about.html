@@ -23,8 +23,9 @@
 <body>
   <header>
     <span id="header-img-background"></span>
-    <div id="header-img"></div>
-    <!-- <img src="./assets/images/color-brain-split.png" alt="brain"> -->
+    <div id="header-img">
+      <!-- header image applied as background image via CSS -->
+    </div>
     <h1 class="text-center">Mastermind</h1>
     <nav>
       <ul>
@@ -44,30 +45,37 @@
     </nav>
   </header>
   <main class="text-center about-me">
-    <h2 id="daveyjh">About The Developer</h2>
-    <div id="profile-img-holder">
-      <img src="./assets/images/profile.jpg" alt="profile picture of the developer" id="profile-img">
+    <div id="main-about">
+      <h2 id="daveyjh">About The Developer</h2>
+      <div id="profile-img-holder">
+        <img src="./assets/images/profile.jpg" alt="profile picture of the developer" id="profile-img">
+      </div>
+      <p class="first">
+        Dave J. Horrocks is a junior software developer with a passion for problem solving and logical processes.
+        This playable version of Mastermind is his second-ever JavaScript creation.
+      </p>
+      <p>
+        The parameters of the game and the simple styling allowed a deep dive into the world of JavaScript.
+        Hopefully, the result provides an enjoyable experience for all users.
+      </p>
+      <p class="last">
+        Learning many things along the way and always eager to learn more, feel free to find out more about him.
+        If you found a bug...definitely get in touch!
+      </p>
     </div>
-    <p class="first">
-      Dave J. Horrocks is a junior software developer with a passion for problem solving and logical processes. This playable version of Mastermind is his second-ever JavaScript creation.
-    </p>
-    <p>
-      The parameters of the game and the simple styling allowed a deep dive into the world of JavaScript. Hopefully, the result provides an enjoyable experience for all users.
-    </p>
-    <p class="last">
-      Learning many things along the way and always eager to learn more, feel free to find out more about him. If you found a bug...definitely get in touch!
-      <br id="social-links">
+    <div id="contact-links">
       <a href="https://github.com/daveyjh" target="_blank"><i class="fab fa-github-alt"></i> @DaveyJH</a>
       <a href="https://linkedin.com/in/davejhorrocks" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-    </p>
+    </div>
   </main>
   <aside class="text-center">
-    <article id="knuth">
+    <article>
+      <div id="knuth">
       <h1>About The Mastermind Five-Guess Algorithm</h1>
-      <section>
         <h2>Donald E. Knuth</h2>
       <p>
-        An algorithm was devised in the late 1970s which allows a player to decipher the code within five guesses, as long as the following conditions are set:
+        An algorithm was devised in the late 1970s which allows a player to decipher the code within five guesses,
+        as long as the following conditions are set:
         <ul id="text-left-list">
           <li>There are four balls in the solution</li>
           <li>The number of colours available is six</li>
@@ -75,24 +83,31 @@
         </ul>
       </p>
       <p>
-        The first step is to guess a sequence of <span>1122</span>, where each integer 1-6 represents a colour. The algorithm continues by choosing a sequence that could eliminate the highest number of possible solutions each time. The number of possible solutions to this particular set-up is 6<sup>4</sup> = <strong>1296!</strong>
+        The first step is to guess a sequence of <span>1122</span>, where each integer 1-6 represents a colour.
+        The algorithm continues by choosing a sequence that could eliminate the highest number of possible
+        solutions each time. The number of possible solutions to this particular set-up is
+        6<sup>4</sup> = <strong>1296!</strong>
       </p>
       <p>
-        That would take you quite a while to work through on paper. It would be almost impossible to calculate and keep track of in your head. Therefore, this algorithm is done far quicker by machines - if coded correctly to do so!
+        That would take you quite a while to work through on paper. It would be almost impossible to calculate
+        and keep track of in your head. Therefore, this algorithm is done far quicker by machines - if coded
+        correctly to do so!
       </p>
       <p>
-        To find out more about the steps involved, and for the original document written by Donald E. Knuth, please consult the links below.
+        To find out more about the steps involved, and for the original document written by Donald E. Knuth,
+        please consult the links below.
       </p>
-      <p>
-        If you still can't get your head around it, contact <a href="#daveyjh" id="link-to-top">Dave J. Horrocks</a> via one of the links above and he will do his best to explain each step in the algorithm.
+      <p class="last">
+        If you still can't get your head around it, contact <a href="#daveyjh" id="link-to-top">Dave J. Horrocks</a>
+        via one of the links above and he will do his best to explain each step in the algorithm.
       </p>
-      </section>
-      <section id=links>
-        <h2>Links</h2>
-        <a href="https://www.cs.uni.edu/~wallingf/teaching/cs3530/resources/knuth-mastermind.pdf" target="_blank">Knuth's Paper</a>
-        <br>
-        <a href="https://en.wikipedia.org/wiki/Mastermind_(board_game)#Best_strategies_with_four_pegs_and_six_colors" target="_blank">Wikipedia Explanation</a>
-      </section>
+    </div>
+      <div id="algorithm-links">
+        <a href="https://www.cs.uni.edu/~wallingf/teaching/cs3530/resources/knuth-mastermind.pdf"
+        target="_blank">Knuth's Paper&#0160;&#0160;<i class="far fa-file-pdf"></i></a>
+        <a href="https://en.wikipedia.org/wiki/Mastermind_(board_game)#Best_strategies_with_four_pegs_and_six_colors"
+        target="_blank">Wikipedia Explanation</a>
+      </div>
     </article>
   </aside>
   <footer>&#169;DaveyJH</footer>
