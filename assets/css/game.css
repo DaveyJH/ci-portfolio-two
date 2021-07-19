@@ -2,8 +2,8 @@
 #game-board {
   margin: 1.5rem .8rem 0;
   padding: 0 .4rem;
-  background-color: #a0622c;
-  background: linear-gradient(#fffce822, #fffce822), URL("../images/wood-effect.jpg") no-repeat center center / 100% auto;
+  background-color: #c58e48;
+  background: linear-gradient(#fffce822, #fffce822), URL("../images/wood-effect.jpg") no-repeat center center / cover;
   border: .2rem solid #854e1e;
   border-radius: .2rem;
 }
@@ -42,7 +42,7 @@
 .row {
   position: relative;
   display: grid;
-  grid-template-columns: 15% 70% 15%;
+  grid-template-columns: 16.25% 67.5% 16.25%;
   height: 2.6rem;
   margin-bottom: .3rem;
 }
@@ -74,19 +74,13 @@
 .top {
   margin-bottom: 1rem;
 }
-/* #give-up, #hint {
-  font-size: 1.8rem;
-  line-height: 3rem;
-} */
 #solution-cover {
   position: absolute;
-  left: 15%;
-  width: 70%;
+  left: 16.25%;
+  width: 67.5%;
+  background-color: #a0622c;
   background: URL("../images/horizontal-wood.jpg") no-repeat center / 100% 100%;
   border: .2rem solid #854e1e;
-  /* width: 67.5%;
-  height: 2.2rem;
-  box-sizing: content-box; */
 }
 /* top row end */
 
@@ -169,5 +163,4 @@
   text-transform: capitalize;
   font-weight: 600;
   font-size: 2.4rem;
-  /* margin: -10.6rem 0 2.6rem; */
 }
