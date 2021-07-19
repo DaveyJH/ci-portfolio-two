@@ -22,6 +22,40 @@ h2 {
 /* end of general */
 
 /* main rules at top */
+
+/* internal nav links */
+
+.internal-nav {
+  background-color: #3e363f;
+  width: calc(100vw - 1.6rem);
+  margin: 0 -1.8rem;
+  padding: 1rem 1.8rem;
+  box-sizing: border-box;
+}
+.internal-nav ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.internal-nav li {
+  font-weight: 600;
+  list-style-type: none;
+  text-align: center;
+  line-height: 2.2rem;
+  /* flex-basis: 100%; */
+  width: 100%;
+}
+.internal-nav li:first-of-type {
+  text-align: left;
+}
+.internal-nav li:last-of-type {
+  text-align: right;
+}
+.internal-nav a {
+  text-decoration: underline;
+}
+/* end of internal nav links */
+
 .main-rules {
   margin: .5rem 0;
 }
