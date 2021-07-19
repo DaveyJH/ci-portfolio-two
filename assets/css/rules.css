@@ -1,3 +1,7 @@
+
+body {
+  background: linear-gradient(#fffce8 95.5%, #fffce899), url("../images/color-balls.jpg") repeat-x center bottom / 100% auto;
+}
 main {
   margin: 1.5rem .8rem;
   font-size: 1.2rem;
@@ -5,7 +9,6 @@ main {
 section {
   background-color: #a0622c;
   padding: 1rem 1.8rem;
-  margin-bottom: 1.5rem;
 }
 h2 {
   margin: .8rem 0;
@@ -24,18 +27,50 @@ h2 {
   text-decoration-thickness: .1rem;
 }
 main img {
-  margin: .5rem auto .3rem;
+  margin: 1.8rem auto .3rem;
   box-shadow: .2rem .2rem 1rem #165764;
   border-radius: .2rem;
   width: 100%;
 }
-#gameplay p {
-  margin-bottom: 1.5rem;
+main img:first-of-type {
+  margin-top: 1.2rem;
 }
-#gameplay p:last-of-type {
-  margin-bottom: .8rem;
+.gameplay {
+  margin-top: 1.5rem;
+}
+.gameplay p {
+  margin-top: .5rem;
+}
+.text-left-list {
+  margin: .5rem 1rem;
+  list-style-type :circle;
+  text-align: left;
 }
 #challenge-link {
   text-decoration: underline;
   font-style: italic;
+}
+.return-link {
+  font-style: italic;
+  background-color: #3e363f;
+  padding: 1rem 0;
+  margin-bottom: 1.5rem;
+}
+.small-caps {
+  font-variant: small-caps;
+}
+.bold {
+  font-weight: 900;
+}
+.ends-rule {
+  margin-bottom: 0;
+}
+.ends-rule + p {
+  margin-top: 0;
+}
+img.icon, img.icon:first-of-type {
+  margin: 0 .2rem;
+  width: 1.6rem;
+  vertical-align: bottom;
+  box-shadow: none;
 }

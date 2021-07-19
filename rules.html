@@ -60,19 +60,152 @@
         A correct guess will result in all black pegs.
       </p>
     </section>
-    <section id="gameplay">
+    <section class="gameplay">
       <h2>Gameplay</h2>
-        <img src="assets/images/rules/game-board-top.png" alt="">
-        <p>explanation of image</p>
-        <img src="https://dummyimage.com/250x100/ff0000.png" alt="">
-        <p>explanation of image</p>
-        <img src="https://dummyimage.com/250x100/ff0000.png" alt="">
-        <p>explanation of image</p>
-        <img src="#" alt="">
-        <p>explanation of image</p>
+      <img src="assets/images/rules/game-board-top.png" alt="top of game board">
+      <p>
+        Depending on your chosen settings, the top of the game board <span class="bold">may</span> have:
+        <ul class="text-left-list">
+          <li>The best score (top left)</li>
+          <li>The best time (top right)</li>
+        </ul>
+        It will <span class="bold">always</span> have:
+        <ul class="text-left-list ends-rule">
+          <li>The hidden solution row</li>
+          <li>A skull and bones which allows the user to give up</li>
+          <li>A question mark which allows the user to reveal a ball</li>
+        </ul>
+      </p>
+      <img src="assets/images/rules/current-timer.png" alt="a timer shown in the header">
+      <p>
+        If your settings allow it, the current time will be displayed in the header next to the game name
+      </p>
+      <img src="assets/images/rules/active-row.png" alt="the active row">
+      <p>
+        A dark bluish border indicates the currently active row. Shown here around row 1. Each row consists of:
+        <ul class="text-left-list ends-rule">
+          <li>A number: to indicate the score if you correctly guess on this row</li>
+          <li>A row of balls: equal to the number of balls selected via the settings tab</li>
+          <li>A set of pegs: equal to the number of balls</li>
+        </ul>
+      </p>
+      <img src="assets/images/rules/ball-selected.png" alt="first ball selected with a border">
+      <p>
+        To select a colour, first tap (or click) the ball you wish to change. This will give the selected ball a border
+      </p>
+      <img src="assets/images/rules/selector-balls-no-clear.png" alt="colour selection panel">
+      <p>
+        The colour selection panel will appear. It will contain colours equal to the number
+        of colours selected in the settings tab. Simply tap (or click) the colour you wish the selected ball to be
+      </p>
+      <img src="assets/images/rules/selector-balls-with-clear.png" alt="colour selection panel with clear option">
+      <p>
+        If you make a mistake, simply re-select the ball you wish to change. The colour selection panel will now
+        have a <span class="small-caps">'Clear'</span> option. You may clear the colour, or select the new colour you
+        wish to use
+      </p>
+      <img src="assets/images/rules/row-full.png"
+        alt="row with all colours selected and a lighter border around the numer">
+      <p>
+        Once all colours have been selected, the border around the row number will become lighter. Tap (or click) the
+        number to confirm your guess and see the result
+      </p>
+      <img src="assets/images/rules/result-one-b-one-w.png"
+        alt="completed row with one black result peg and one white result peg">
+      <p>Once you have confirmed your guess, the result pegs will be displayed in that row:
+        <ul class="text-left-list">
+          <li>A black peg indicates you have a colour correct and in the <span class="bold">correct</span> position</li>
+          <li>A white peg indicates you have a colour correct but it is in the <span class="bold">wrong</span> position
+          </li>
+          <li>No peg indicates an incorrect colour</li>
+        </ul>
+        Peg positions do not relate to ball positions. Tthe example shown means 1 of the 4 colours is correctly
+        positioned, and 1 of the 4 colours is incorrectly positioned. 2 of the colours are incorrect
+        <br>
+        The next row will now be active
+      </p>
+      <img src="assets/images/rules/revealed-blue.png" alt="the last colour, blue, has been revealed in the solution">
+      <p>
+        If you are struggling, tap (or click) the question mark <i class="fas fa-question-circle"></i> icon. A prompt
+        will ask if you are sure you wish to reveal a colour. If you select 'OK', the hidden colour furthest to the
+        right will be revealed. If you have opted for a hint and change your mind, simply select 'Cancel'.
+        <span class="bold">You may not reveal the final colour this way</span> but you may reveal more than one, one at
+        a time
+      </p>
+      <img src="assets/images/rules/solution-revealed.png" alt="the solution: red, pink, pink, blue; has been revealed">
+      <p>If you really don't want to continue, or you just want to know the answer, tap (or click) the skull and bones
+        <i class="fas fa-skull-crossbones"></i> icon. A prompt will appear allowing you to confirm your choice to give
+        up. If you are certain, select 'OK' and the game will end. The solution will be revealed and you will be given
+        the option to play again. If you decline that option, the game board will remain so you can review the game. If
+        you change your mind about giving up, simply select 'Cancel' on the first prompt</p>
+      <img src="assets/images/rules/winning-solution.png"
+        alt="the solution has been correctly guessed in the second row">
+      <p>
+        If you are successful in guessing the correct solution, <span class="bold">you win!</span> A prompt will appear
+        with the details of your game and you will have an option to play again. To do so, select 'OK'. If you wish to
+        bask in your glory, select 'Cancel' and the guesses and solution will remain for you to view
+      </p>
+      <img src="assets/images/rules/best-score-time.png" alt="updated best score and time">
+      <p>
+        If you were clever (or lucky!) enough to beat your previous best score or best time without having changed any
+        settings, the values will be updated and displayed. They are independent of each other. If you guess in fewer
+        guesses but take a longer time, the score will update and the time will remain the same and vice versa
+      </p>
     </section>
-    <section id="challenge">
+    <p class="return-link">
+      <a href="#header-img">Return to top</a>
+    </p>
+    <section class="settings">
+      <h2>Settings</h2>
+      <img src="assets/images/rules/navbar.png"
+        alt="the navbar consists of 'settings', 'challange', 'rules' and 'about'. Settings is the first word on the left">
+      <p>
+        To bring up the settings tab, tap (or click) settings in the navbar
+      </p>
+      <img src="assets/images/rules/settings-active.png"
+        alt="the settings options appears and 'settings' in the navbar turns blue">
+      <p>
+        The settings options will appear, the colour of 'settings' will change and a number of selections can be made
+      </p>
+      <img src="assets/images/rules/colours.png" alt="No. of colours - 6 +">
+      <p>
+        Tap (or click) the <img src="assets/images/rules/minus.png" alt="minus" class="icon"> or <img
+          src="assets/images/rules/plus.png" alt="plus" class="icon"> icons to change the number of colours allowed
+        in the game
+      </p>
+      <img src="assets/images/rules/balls.png" alt="No. of balls in solution - 4 +">
+      <p>
+        Tap (or click) the <img src="assets/images/rules/minus.png" alt="minus" class="icon"> or <img
+          src="assets/images/rules/plus.png" alt="plus" class="icon"> icons to change the number of balls in the
+        solution of the game
+      </p>
+      <img src="assets/images/rules/active-checkbox.png" alt="text followed by a checkbox with a tick inside">
+      <p>
+        Tap (or click) the checkbox or text to enable/disable a check box
+      </p>
+      <img src="assets/images/rules/disabled-checkbox.png" alt="text with a checkbox, both greyed out">
+      <p>
+        Depending on the settings, some checkboxes may be disabled
+      </p>
+      <img src="assets/images/rules/play-button.png" alt="a button with 'Play!' text">
+      <p>
+        Once you are happy with your settings, tap (or click) the play button.
+      </p>
+      <img src="assets/images/rules/score-timer-options.png" alt="three checkboxes for score and timer controls">
+        If you are checking the settings of the current game, or changing the score and timer options in the middle
+        of a game, you can tap (or click) settings while they are still displayed. This will return you to your 
+        current game
+      </p>
+    </section>
+    <p class="return-link">
+      <a href="#header-img">Return to top</a>
+    </p>
+    <section class="challenge">
       <h2>Challenge Rules</h2>
+      <img src="#" alt="">
+      <p>explanation of image</p>
+      <img src="#" alt="">
+      <p>explanation of image</p>
     </section>
   </main>
   <footer>&#169;DaveyJH</footer>
