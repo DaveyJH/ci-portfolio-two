@@ -101,7 +101,7 @@ The design process is detailed in more depth in the [design-notes](./readme-cont
 <!-- colour scheme, remember to contrast check!!! -->
 
 With the game board of the site designed with a wood style background, I used [instant eyedropper](#technologies-used) to obtain a couple of colours from the wood photographs.  I then used [coolors.co](https://coolors.co) to generate a colour scheme.  
-![wood colour scheme](wip/wood-scheme.png)  
+![wood colour scheme](readme-content/images/wood-scheme.png)  
 The header uses the darkest colour from the scheme to contrast with the game board and allow a high contrast with the text colour. The main text content displayed in the rest of the site is set on a wood colour to maintain the style throughout. There are a few more sections with the dark colour background within the main site, these are highlighting calls-to-action, and the higher contrast helps to identify this.
 
 Contrast checks have been carried out with the WebAIM [contrast checker](https://webaim.org/resources/contrastchecker/) with regards to all main text content. I suspect the footer element is less likely to give a good result but I do not wish to detract from the site content and am happy to leave it this way.
