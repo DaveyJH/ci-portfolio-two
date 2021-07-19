@@ -1,15 +1,17 @@
 main {
   margin: 1.5rem .8rem;
-  padding: 1rem .8rem;
-  background-color: #a0622c;
   font-size: 1.2rem;
 }
+section {
+  background-color: #a0622c;
+  padding: 1rem 1.8rem;
+  margin-bottom: 1.5rem;
+}
 h2 {
-  margin-bottom: .8rem;
+  margin: .8rem 0;
 }
 .main-rules {
   margin: .5rem 0;
-  text-align: justify;
 }
 .main-rules.first {
   margin-top: 1.2rem;
@@ -18,8 +20,22 @@ h2 {
   font-size: larger;
   margin-top: 1rem;
   margin-bottom: .8rem;
-  text-align: center;
+  text-decoration: underline;
+  text-decoration-thickness: .1rem;
 }
 main img {
-  margin: 1.5rem auto .3rem;
+  margin: .5rem auto .3rem;
+  box-shadow: .2rem .2rem 1rem #165764;
+  border-radius: .2rem;
+  width: 100%;
+}
+#gameplay p {
+  margin-bottom: 1.5rem;
+}
+#gameplay p:last-of-type {
+  margin-bottom: .8rem;
+}
+#challenge-link {
+  text-decoration: underline;
+  font-style: italic;
 }
