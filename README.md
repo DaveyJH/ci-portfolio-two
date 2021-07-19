@@ -71,7 +71,7 @@ The goal of this website is to provide an interactive version of the classic Mas
 
 ### User Requirements
 
-Some example user stories which will affect the design
+Some example user stories which will affect the design:
 
 > *"As a person who enjoys Mastermind, I want to get straight into playing the game. I have played other versions and find them a little aesthetically dull"*
 >
@@ -85,9 +85,9 @@ Some example user stories which will affect the design
 
 ### Initial Concept
 
-I hope to provide a fully functioning version of the Mastermind game using JavaScript, HTML and CSS. I anticipate using a wooden colour scheme, perhaps with photographic textures, to add a little more style than some versions I have researched. The site should be simple to navigate, not allow errors during use and encourage users to play at increasing difficulty levels. The application is to be designed with 'mobile first' in mind
+I hope to provide a fully functioning version of the Mastermind game using JavaScript, HTML and CSS. I anticipate using a wooden colour scheme, perhaps with photographic textures, to add a little more style than some versions I have researched. The site should be simple to navigate, not allow errors during use and encourage users to play at increasing difficulty levels. The application is to be designed with 'mobile first' in mind.
 
-The design process is detailed in more depth in the [design-notes](./readme-content/design-notes.md) document
+The design process is detailed in more depth in the [design-notes](./readme-content/design-notes.md) document.
 
 #### Wireframes
 
@@ -100,12 +100,20 @@ The design process is detailed in more depth in the [design-notes](./readme-cont
 
 <!-- colour scheme, remember to contrast check!!! -->
 
+With the game board of the site designed with a wood style background, I used [instant eyedropper](#technologies-used) to obtain a couple of colours from the wood photographs.  I then used [coolors.co](https://coolors.co) to generate a colour scheme.  
+![wood colour scheme](wip/wood-scheme.png)  
+The header uses the darkest colour from the scheme to contrast with the game board and allow a high contrast with the text colour. The main text content displayed in the rest of the site is set on a wood colour to maintain the style throughout. There are a few more sections with the dark colour background within the main site, these are highlighting calls-to-action, and the higher contrast helps to identify this.
+
+Contrast checks have been carried out with the WebAIM [contrast checker](https://webaim.org/resources/contrastchecker/) with regards to all main text content. I suspect the footer element is less likely to give a good result but I do not wish to detract from the site content and am happy to leave it this way.
 ***
 
 #### Typography
 
 <!-- typography -->
 
+The font used for the site are [Orbitron](https://fonts.google.com/specimen/Orbitron) and [Rajdhani](https://fonts.google.com/specimen/Rajdhani) from google fonts.  
+Orbitron has been chosen as it has a geometric look which lends itself well to the content and feel of the site. It has been used for the main heading and the nav elements, all utilising the small-caps font variant.  
+Rajdhani has been chosen for the main text content of the site. The squared styling fits well with the Orbitron font and allows for a pleasant visual appearance with its slightly rounded corners.
 ***
 
 #### Imagery
@@ -155,6 +163,11 @@ F2
        - Description -->
 <!-- - *[techNameTwo](techURL)*
        - Description -->
+
+- *[Instant Eyedropper](http://instant-eyedropper.com/)*
+  - A quick and simple application to obtain hex values from any colour on my display. I downloaded this while playing around with my laptop layout/display settings. I have the app set to run on startup and remain minimized in my system tray. This allows quick access and if I click the colour, it automatically copies the value to my clipboard.
+- *[WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/)
+  - A basic contrast checking service for conformity to the Web Content Accessibility Guidelines. The service allows input of a foreground and background colour and displays the resulting contrast ratio, including a quick reference to meeting WCAG AA / AAA standards.
 
 ## Testing
 
