@@ -51,7 +51,7 @@ h2 {
 .internal-nav li:last-of-type {
   text-align: right;
 }
-.internal-nav a {
+.internal-nav a span {
   text-decoration: underline;
 }
 /* end of internal nav links */
