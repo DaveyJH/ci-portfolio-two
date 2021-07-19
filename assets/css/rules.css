@@ -1,4 +1,4 @@
-
+/* general */
 body {
   background: linear-gradient(#fffce8 95.5%, #fffce899), url("../images/color-balls.jpg") repeat-x center bottom / 100% auto;
 }
@@ -13,6 +13,15 @@ section {
 h2 {
   margin: .8rem 0;
 }
+.small-caps {
+  font-variant: small-caps;
+}
+.bold {
+  font-weight: 900;
+}
+/* end of general */
+
+/* main rules at top */
 .main-rules {
   margin: .5rem 0;
 }
@@ -26,6 +35,9 @@ h2 {
   text-decoration: underline;
   text-decoration-thickness: .1rem;
 }
+/* end of main rules */
+
+/* images within rules */
 main img {
   margin: 1.8rem auto .3rem;
   box-shadow: .2rem .2rem 1rem #165764;
@@ -35,16 +47,34 @@ main img {
 main img:first-of-type {
   margin-top: 1.2rem;
 }
+/* end if images */
+
+/* gameplay section */
 .gameplay {
   margin-top: 1.5rem;
 }
 .gameplay p {
   margin-top: .5rem;
 }
+/* end of gameplay section */
+
+/* specific items */
+.ends-rule {
+  margin-bottom: 0;
+}
+.ends-rule + p {
+  margin-top: 0;
+}
 .text-left-list {
   margin: .5rem 1rem;
   list-style-type :circle;
   text-align: left;
+}
+img.icon, img.icon:first-of-type {
+  margin: 0 .2rem;
+  width: 1.6rem;
+  vertical-align: bottom;
+  box-shadow: none;
 }
 #challenge-link {
   text-decoration: underline;
@@ -55,22 +85,4 @@ main img:first-of-type {
   background-color: #3e363f;
   padding: 1rem 0;
   margin-bottom: 1.5rem;
-}
-.small-caps {
-  font-variant: small-caps;
-}
-.bold {
-  font-weight: 900;
-}
-.ends-rule {
-  margin-bottom: 0;
-}
-.ends-rule + p {
-  margin-top: 0;
-}
-img.icon, img.icon:first-of-type {
-  margin: 0 .2rem;
-  width: 1.6rem;
-  vertical-align: bottom;
-  box-shadow: none;
 }
