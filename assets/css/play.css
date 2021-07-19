@@ -3,11 +3,6 @@
   font-size: 1.8rem;
   line-height: 3rem;
 }
-#solution-cover {
-  width: 67.5%;
-  height: 2.2rem;
-  box-sizing: content-box;
-}
 
 /* selector box */
 #selector-box {
@@ -16,7 +11,7 @@
 
 /* message */
 #message {
-  margin: -10.6rem 0 2.6rem;
+  margin: -10.6rem 0 3rem;
 }
 
 /* settings */
