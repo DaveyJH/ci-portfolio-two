@@ -221,5 +221,7 @@ The game is logic based and so does not require any very fancy typography. I wil
 <!-- Imagery/design -->
 With the game being of logic design, the image I intend to use as a logo should reference the human brain. Most other images will be generated through the development process via screenshots or snips. The design of the colour selections/positions should be maintained throughout and be kept simple and functional. The result pegs should also follow the simple and functional design aspects.  
 I intend to use the Rubik's cube as a 'logo' for myself as a developer but need to look into the legality of this. If needed, I can use my own profile image on the 'about' page.
+
+*Having worked on the site, I have decided not to use the Rubik's cube image as it may cause user confusion. I have used a profile image picture of myself as is customary with a brief 'about-me' section.*
 <!-- The identity of the site -->
 The identity of the site will be made through the design considerations listed above. One of the key aspects for the design is to make a more visually appealing and emotively rewarding game than I have found available from other developers.
