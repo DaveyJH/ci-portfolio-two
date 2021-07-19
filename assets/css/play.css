@@ -44,8 +44,8 @@ input:not([type="submit"]) {
 }
 input[type="submit"] {
   width: 33%;
-  font-size: 1.3rem;
   margin-top: 1.4rem;
+  font: small-caps bold 1.3rem / 1.3rem "Rajdhani", sans-serif;
 }
 button, input[type="submit"] {
   background-color: #165764;
