@@ -64,6 +64,9 @@ header li {
   list-style-type: none;
   padding: 0 .2rem .2rem;
 }
+.nav-active {
+  color: #6bdce9;
+}
 /* header end */
 
 /* footer */

@@ -103,12 +103,14 @@ function settingsState() {
     calculatedBalls.value = settingsHolder[1];
     solutionRepeatCheck.checked = settingsHolder[2];
     guessRepeatCheck.checked = settingsHolder[3];
+    settingsActivator.style.color = "#fffce8";
     checkState();
     scoreTimerOptionsCheck();
     settingsOverlay.style.visibility = "hidden";
     timer();
   } else {
     showSettings();
+    settingsActivator.style.color = "#6bdce9";
   }
 }
 
@@ -221,6 +223,7 @@ function playGame(event) {
   }
   storeNewSettings();
   settingsOverlay.style.visibility = "hidden";
+  settingsActivator.style.color = "#fffce8";
   reset();
 }
 
