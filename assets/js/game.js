@@ -240,6 +240,7 @@ let colors = ["red", "green", "blue", "yellow", "pink", "purple", "aqua", "lime"
 let availableColors;
 let colorSelectors = document.getElementsByClassName("selector");
 let colorSelectBox = document.getElementById("selector-box");
+let clearSelector = document.getElementById("clear-selector");
 let guessRowBalls = document.getElementsByClassName("selection ball-spacing");
 let solutionRow = document.getElementById("solution");
 let guessRows = document.getElementsByClassName("guess");
@@ -457,6 +458,13 @@ function rowColorSelector(event) {
   }
   colorSelectBox.style.visibility = "visible";
   activeSelection = event.target;
+  console.log(activeSelection.style.backgroundColor);
+  if ((activeSelection.style.backgroundColor === "rgb(133, 78, 30)") ||
+    (activeSelection.style.backgroundColor === "")) {
+    clearSelector.style.visibility = "hidden";
+  } else {
+    clearSelector.style.visibility = "visible";    
+  }
   activeSelection.style.border = ".2rem solid #fffce8";
   activeSelection.classList.add("active-row-selector");
 }
@@ -487,12 +495,14 @@ function colorSelect(event) {
       activeSelection.style.backgroundColor = colorSelected;
       activeSelection.classList.remove("empty", "active-row-selector");
       colorSelectBox.style.visibility = "hidden";
+      clearSelector.style.visibility = "hidden";
       activeSelection.style.border = "none";
     }
   } else {
     activeSelection.style.backgroundColor = colorSelected;
     activeSelection.classList.remove("empty", "active-row-selector");
     colorSelectBox.style.visibility = "hidden";
+    clearSelector.style.visibility = "hidden";
     activeSelection.style.border = "none";
   }
   activeBallsEmpty();
@@ -511,7 +521,12 @@ function clearSelection() {
   activeSelection.classList.remove("active-row-selector");
   activeSelection.classList.add("empty");
   colorSelectBox.style.visibility = "hidden";
+  clearSelector.style.visibility = "hidden";
   activeSelection.style.border = "none";
+  activeBallsEmpty();
+  if (emptyBalls) {
+    activeRow.children[0].style.borderColor = "#165764";
+  }
 }
 
 /** get index number of activeSelection ball */
@@ -548,6 +563,7 @@ function checkResult() {
     alert("Please complete selection!");
   } else {
     colorSelectBox.style.visibility = "hidden";
+    clearSelector.style.visibility = "hidden";
     if (activeSelection !== "inactive") {
       activeSelection.style.border = "none";
       activeSelection = "inactive";
@@ -791,6 +807,7 @@ function reset() {
   win = false;
   clearInterval(intervalCount);
   colorSelectBox.style.visibility = "hidden";
+  clearSelector.style.visibility = "hidden";
   if (activeSelection !== "inactive") {
     activeSelection.style.border = "none";
     activeSelection = "inactive";
