@@ -407,6 +407,12 @@ function activateRow() {
 
 /** deactivate row by removing classes and click listeners and reverting colors */
 function deactivateRow() {
+  colorSelectBox.style.visibility = "hidden";
+  clearSelector.style.visibility = "hidden";
+  if (activeSelection !== "inactive") {
+  activeSelection.style.border = "none";
+  activeSelection = "inactive";
+  }
   activeRow = document.getElementsByClassName("guess")[aR];
   activeRow.children[0].style.borderColor = "#fffce8";
   activeRow.classList.remove("active-row");
@@ -505,16 +511,12 @@ function colorSelect(event) {
       currentGuessColors[activeIndex] = colorSelected; // replace array value to prevent repeat color
       activeSelection.style.backgroundColor = colorSelected;
       activeSelection.classList.remove("empty", "active-row-selector");
-      colorSelectBox.style.visibility = "hidden";
-      clearSelector.style.visibility = "hidden";
-      activeSelection.style.border = "none";
+      clearActiveSelect();
     }
   } else {
     activeSelection.style.backgroundColor = colorSelected;
     activeSelection.classList.remove("empty", "active-row-selector");
-    colorSelectBox.style.visibility = "hidden";
-    clearSelector.style.visibility = "hidden";
-    activeSelection.style.border = "none";
+    clearActiveSelect();
   }
   activeBallsEmpty();
   if (!emptyBalls) {
@@ -531,12 +533,22 @@ function clearSelection() {
   activeSelection.style.backgroundColor = "rgb(133, 78, 30)";
   activeSelection.classList.remove("active-row-selector");
   activeSelection.classList.add("empty");
-  colorSelectBox.style.visibility = "hidden";
-  clearSelector.style.visibility = "hidden";
-  activeSelection.style.border = "none";
+  clearActiveSelect();
   activeBallsEmpty();
   if (emptyBalls) {
     activeRow.children[0].style.borderColor = "#165764";
+  }
+}
+
+/** - remove border from active selection
+ * - hide selector box
+*/
+function clearActiveSelect() {
+  colorSelectBox.style.visibility = "hidden";
+  clearSelector.style.visibility = "hidden";
+  if (activeSelection !== "inactive") {
+    activeSelection.style.border = "none";
+    activeSelection = "inactive";
   }
 }
 
@@ -573,12 +585,7 @@ function checkResult() {
   if (emptyBalls) {
     alert("Please complete selection!");
   } else {
-    colorSelectBox.style.visibility = "hidden";
-    clearSelector.style.visibility = "hidden";
-    if (activeSelection !== "inactive") {
-      activeSelection.style.border = "none";
-      activeSelection = "inactive";
-    }
+    clearActiveSelect();
 
     checkBlack();
     checkWhite();
@@ -723,8 +730,8 @@ function giveUp() {
     ballReveal();
     message.innerHTML = "Oh dear!";
     clearInterval(intervalCount);
-    setTimeout(loser, 100);
     deactivateRow();
+    setTimeout(loser, 500);
   }
 }
 
@@ -828,12 +835,7 @@ function runGame() {
 function reset() {
   win = false;
   clearInterval(intervalCount);
-  colorSelectBox.style.visibility = "hidden";
-  clearSelector.style.visibility = "hidden";
-  if (activeSelection !== "inactive") {
-    activeSelection.style.border = "none";
-    activeSelection = "inactive";
-  }
+  clearActiveSelect();
   solution = [];
   for (let i = 0; i < colorBalls.length; i++) {
     colorBalls[i].style.backgroundColor = "#854e1e";
