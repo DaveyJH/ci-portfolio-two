@@ -385,6 +385,7 @@ let pegColors = [];
 let bestScore = 0;
 let activeIndex;
 let currentGuessColors;
+let activeTick;
 
 /** - set row as active to allow interaction */
 function activateRow() {
@@ -399,9 +400,10 @@ function activateRow() {
     activeBalls[i].addEventListener("click", rowColorSelector);
   }
 
-  activeRow.children[0].style.borderColor = "#165764";
-  activeRow.children[0].addEventListener("click", checkResult);
-  activePegs = activeRow.children[2].children;
+  activeRow.children[0].style.borderColor = "#36b9d3";
+  activeTick = activeRow.getElementsByClassName("check-result")[0];
+  activePegs = activeRow.getElementsByClassName("peg");
+  activeTick.addEventListener("click", checkResult);
   score++;
 }
 
@@ -422,7 +424,7 @@ function deactivateRow() {
   // for (let i = 0; i < activeBalls.length; i++) {
   //   activeBalls[i].classList.remove("active-balls");
   // }
-  activeRow.children[0].removeEventListener("click", checkResult);
+  hideTickResultCheck();
 }
 
 /** continue with next row. if no row exists, create one.
@@ -452,7 +454,12 @@ function addRow() {
                         </div>
                         <div class="selection ball-spacing">
                         </div>
-                        <div class="result">
+                        <div class="result-holder">
+                          <div class="result">
+                          </div>
+                          <div class="check-result">
+                            <i class="fas fa-check-square"></i>
+                          </div>
                         </div>`;
     gameBoard.appendChild(newRow);
     setBallCount();
@@ -517,7 +524,9 @@ function colorSelect(event) {
   }
   activeBallsEmpty();
   if (!emptyBalls) {
-    activeRow.children[0].style.borderColor = "#36b9d3";
+    showTickResultCheck();
+  } else {
+    hideTickResultCheck();
   }
 }
 
@@ -532,9 +541,7 @@ function clearSelection() {
   activeSelection.classList.add("empty");
   clearActiveSelect();
   activeBallsEmpty();
-  if (emptyBalls) {
-    activeRow.children[0].style.borderColor = "#165764";
-  }
+  hideTickResultCheck();
 }
 
 /** - remove border from active selection
@@ -559,6 +566,16 @@ function getActiveIndex() {
   }
 }
 
+/** display tick to allow continuing to next row */
+function showTickResultCheck() {
+  activeTick.style.transform = "translateX(-50%) scale(1)";
+}
+
+/** hide tick for next row functions */
+function hideTickResultCheck() {
+  activeTick.style.transform = "translateX(-50%) scale(0)";
+}
+
 /** check for .empty in any ball in activeRow. return emptyBalls */
 function activeBallsEmpty() {
   let emptyHolder = [];
@@ -579,31 +596,27 @@ function activeBallsEmpty() {
 /** check result of input colors */
 function checkResult() {
   solutionHolder = solution.slice();
-  activeBallsEmpty();
-  if (emptyBalls) {
-    alert("Please complete selection!");
+
+  clearActiveSelect();
+
+  checkBlack();
+  checkWhite();
+  assignPegs();
+  checkPegs();
+
+  if (win) {
+    clearInterval(intervalCount);
+    checkTime();
+    resetTime();
+    deactivateRow();
+    ballReveal();
+    checkScore();
+    message.innerHTML = "Well done!";
+    setTimeout(winner, 500);
+    document.getElementById("give-up").removeEventListener("click", giveUp);
+    document.getElementById("hint").removeEventListener("click", hint);
   } else {
-    clearActiveSelect();
-
-    checkBlack();
-    checkWhite();
-    assignPegs();
-    checkPegs();
-
-    if (win) {
-      clearInterval(intervalCount);
-      checkTime();
-      resetTime();
-      deactivateRow();
-      ballReveal();
-      checkScore();
-      message.innerHTML = "Well done!";
-      setTimeout(winner, 250);
-      document.getElementById("give-up").removeEventListener("click", giveUp);
-      document.getElementById("hint").removeEventListener("click", hint);
-    } else {
-      nextRow();
-    }
+    nextRow();
   }
   solution = solutionHolder.slice();
 }
@@ -729,7 +742,7 @@ function giveUp() {
     message.innerHTML = "Oh dear!";
     clearInterval(intervalCount);
     deactivateRow();
-    setTimeout(loser, 250);
+    setTimeout(loser, 750);
   }
 }
 
@@ -756,6 +769,7 @@ Would you like to play again?`;
   }
 }
 
+/** row limit of 99 reached, alert loss */
 function extremeLoss() {
   document.getElementById("give-up").removeEventListener("click", giveUp);
   document.getElementById("hint").removeEventListener("click", hint);
