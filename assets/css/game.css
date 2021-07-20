@@ -66,8 +66,11 @@
   width: 2rem;
   background-color: #854e1e;
 }
-.color-ball:not(#selector-box *)  {
+.color-ball:not(#selector-box *) {
   box-sizing: border-box;
+}
+.color-ball:not(#selector *, .top *) {
+  transition: background .4s ease-out, box-shadow .2s ease-in-out;
 }
 
 /* top row */

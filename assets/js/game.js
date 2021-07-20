@@ -407,12 +407,7 @@ function activateRow() {
 
 /** deactivate row by removing classes and click listeners and reverting colors */
 function deactivateRow() {
-  colorSelectBox.style.visibility = "hidden";
-  clearSelector.style.visibility = "hidden";
-  if (activeSelection !== "inactive") {
-  activeSelection.style.border = "none";
-  activeSelection = "inactive";
-  }
+  clearActiveSelect();
   activeRow = document.getElementsByClassName("guess")[aR];
   activeRow.children[0].style.borderColor = "#fffce8";
   activeRow.classList.remove("active-row");
@@ -470,6 +465,7 @@ function addRow() {
  */
 function rowColorSelector(event) {
   if (activeSelection !== "inactive") {
+    activeSelection.style.boxShadow = "none";
     activeSelection.style.border = "none";
     activeSelection.classList.remove("active-row-selector");
   }
@@ -483,6 +479,7 @@ function rowColorSelector(event) {
     clearSelector.style.visibility = "visible";    
   }
   activeSelection.style.border = ".2rem solid #fffce8";
+  activeSelection.style.boxShadow = ".1rem .1rem .2rem #022b3a, .2rem 0 .2rem #022b3a, 0 .05rem .2rem #022b3a";
   activeSelection.classList.add("active-row-selector");
 }
 
@@ -548,6 +545,7 @@ function clearActiveSelect() {
   clearSelector.style.visibility = "hidden";
   if (activeSelection !== "inactive") {
     activeSelection.style.border = "none";
+    activeSelection.style.boxShadow = "none";
     activeSelection = "inactive";
   }
 }
@@ -600,7 +598,7 @@ function checkResult() {
       ballReveal();
       checkScore();
       message.innerHTML = "Well done!";
-      setTimeout(winner, 100);
+      setTimeout(winner, 250);
       document.getElementById("give-up").removeEventListener("click", giveUp);
       document.getElementById("hint").removeEventListener("click", hint);
     } else {
@@ -731,7 +729,7 @@ function giveUp() {
     message.innerHTML = "Oh dear!";
     clearInterval(intervalCount);
     deactivateRow();
-    setTimeout(loser, 500);
+    setTimeout(loser, 250);
   }
 }
 
