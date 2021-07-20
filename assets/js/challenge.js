@@ -16,7 +16,8 @@ let aR = 0; // active row index number
 let activeRow; // create variable to store activeRow
 let activeBalls; // create variable to store activeBalls
 let activeSelection; // create a variable to store which color-ball has been chosen for color change
-let activePegs; // create result pegs
+let activePegs; // create variable for activeRow result pegs
+let activeNumber; // create variable for activeRow number
 
 let colorSelectors = document.getElementsByClassName("selector"); // color selectors in selector-box
 let colorSelectBox = document.getElementById("selector-box"); // color select box element
@@ -96,14 +97,9 @@ function resetTime() {
 // ! setting up the game functions
 
 /** set color of selector-box color balls to available colors */
-function setSelectorBalls() {
+function setSelectorBallsC() {
   for (let i = 0; i < colorSelectors.length; i++) {
     colorSelectors[i].style.backgroundColor = (colors[i]);
-    
-    // colorSelectors[i].style.background = `radial-gradient(circle at 33% 33%, ${colors[i]}, #000)`;
-    // credit: https://cssanimation.rocks/spheres/
-    // ? this doesn't allow fallback colors?
-    // ! would need to modify other code lines from backgroundColor to background
   }
 }
 
@@ -113,9 +109,6 @@ function setSolution() {
     let newColor = colors[Math.floor(Math.random() * colors.length)]; //select a random color
     solution.push(newColor); // add new color to solution
   }
-  // solution = ["red","red","yellow","red"]; // !test solutionA
-  // solution = ["red","blue","yellow","green"]; // !test solutionB
-  // solution = ["red","blue","red","yellow"]; // !test solutionC
 }
 
 /** set color of solution balls to solution array values */
@@ -145,33 +138,28 @@ function activateRow() {
   activeRow.classList.add("active-row");
 
   // set .active-balls and .empty to color-balls in active-row
-  activeBalls = activeRow.children[1].children;
+  activeBalls = activeRow.getElementsByClassName("color-ball");
   for (let i = 0; i < activeBalls.length; i++) {
     activeBalls[i].classList.add("active-balls", "empty");
+    // add click for selecting color
+    activeBalls[i].addEventListener("click", colorSelector);
   }
-
-  // add click listener to active-balls
-  document.querySelectorAll(".active-balls").forEach(item => {
-    item.addEventListener("click", colorSelector);
-  });
-
-  activeRow.children[0].style.borderColor = "#165764"; // active row number border shows active row
-  activeRow.children[0].addEventListener("click", checkResult); // add click listener to row number
-  activePegs = activeRow.children[2].children; // active pegs in active row
+  activeNumber = activeRow.getElementsByClassName("number")[0];
+  activeNumber.style.borderColor = "#165764"; // active row number border shows active row
+  activeNumber.addEventListener("click", checkResult); // add click listener to row number
+  activePegs = activeRow.getElementsByClassName("peg"); // active pegs in active row
   score++;
 }
 
 /** deactivate row by removing classes and click listeners */
 function deactivateRow() {
-  activeRow.children[0].style.borderColor = "#fffce8"; // border color of previous row number back to normal
+  activeNumber.style.borderColor = "#fffce8"; // border color of previous row number back to normal
   activeRow.classList.remove("active-row");
-  document.querySelectorAll(".active-balls").forEach(item => {
-    item.removeEventListener("click", colorSelector);
-  });
   for (let i = 0; i < activeBalls.length; i++) {
     activeBalls[i].classList.remove("active-balls");
+    activeBalls[i].removeEventListener("click", colorSelector);
   }
-  activeRow.children[0].removeEventListener("click", checkResult);
+  activeNumber.removeEventListener("click", checkResult);
 }
 
 /** continue with next row or report lose.
@@ -216,9 +204,7 @@ function clearSelection() {
 }
 
 let emptyBalls; // boolean for any activeBalls containing .empty
-/** return emptyBalls = true; if any activeBalls have .empty, meaning they have not had a colour selected.
- * else return emptyBalls = false;
- */
+/** check for .empty in any ball in activeRow. return emptyBalls */
 function activeBallsEmpty() {
   if (activeBalls[0].classList.contains("empty")
     || activeBalls[1].classList.contains("empty")
@@ -240,7 +226,7 @@ function colorSelect(event) {
   activeSelection.style.border = "none"; // remove border from color ball in guess row
   activeBallsEmpty();
   if (!emptyBalls) {
-    activeRow.children[0].style.borderColor = "#36b9d3"; // active row number border shows active row
+    activeNumber.style.borderColor = "#36b9d3"; // active row number border shows active row
   }
 }
 
@@ -359,7 +345,7 @@ function loser() {
 /** initiate challenge with new solution */
 function runChallenge() {
   setSolution();
-  setSelectorBalls();
+  setSelectorBallsC();
   activateRow();
   timer();
 }
