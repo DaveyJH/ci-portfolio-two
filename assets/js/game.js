@@ -305,7 +305,7 @@ function addColorSelectors() {
   }
 }
 
-/** add clearSelection to top selector ball/text (separate from colors) */
+/** add clearSelection() to top selector ball/text (separate from colors) */
 function addClearSelection() {
   document.getElementById("clear-selector").children[0].addEventListener("click", clearSelection);
   document.getElementById("clear-selector").children[1].addEventListener("click", clearSelection);
