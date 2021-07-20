@@ -137,7 +137,11 @@ function scoreTimerOptionsCheck() {
 
 /** store gameplay setting values to update settings overlay */
 function storeNewSettings() {
-  settingsHolder = [calculatedColors.value, calculatedBalls.value, solutionRepeatCheck.checked, guessRepeatCheck.checked];
+  settingsHolder = [calculatedColors.value,
+    calculatedBalls.value,
+    solutionRepeatCheck.checked,
+    guessRepeatCheck.checked
+  ];
 }
 
 /** show settings overlay and enable functionality */
@@ -175,7 +179,7 @@ function plusminus() {
 
   /** - increase value if below maximum value
    * - check number values and alter check boxes if necessary
-  */
+   */
   function plusValue(event) {
     event.preventDefault();
     let num = event.target.previousElementSibling;
@@ -193,7 +197,7 @@ function plusminus() {
 
   /** - decrease value if above minimum
    * - check number values and alter check boxes if necessary
-  */
+   */
   function minusValue(event) {
     event.preventDefault();
     let num = event.target.nextElementSibling;
@@ -208,7 +212,7 @@ function plusminus() {
 
 /** - hide settings overlay and run the main game script 
  * - if settings changed, reset best score and time to "--"
-*/
+ */
 function playGame(event) {
   event.preventDefault();
   // reset best score and best time if settings changed for game
@@ -447,23 +451,23 @@ function nextRow() {
 /** create new guess row with current settings */
 function addRow() {
   let newRowNumber = guessRows.length + 1;
-    let newRow = document.createElement("div");
-    newRow.classList.add("row", "guess");
-    newRow.innerHTML = `<div class="number text-center">
-                          ${newRowNumber}
+  let newRow = document.createElement("div");
+  newRow.classList.add("row", "guess");
+  newRow.innerHTML = `<div class="number text-center">
+                        ${newRowNumber}
+                      </div>
+                      <div class="selection ball-spacing">
+                      </div>
+                      <div class="result-holder">
+                        <div class="result">
                         </div>
-                        <div class="selection ball-spacing">
+                        <div class="check-result">
+                          <i class="fas fa-check-square"></i>
                         </div>
-                        <div class="result-holder">
-                          <div class="result">
-                          </div>
-                          <div class="check-result">
-                            <i class="fas fa-check-square"></i>
-                          </div>
-                        </div>`;
-    gameBoard.appendChild(newRow);
-    setBallCount();
-    setPegCount();
+                      </div>`;
+  gameBoard.appendChild(newRow);
+  setBallCount();
+  setPegCount();
 }
 
 /** allows selected color-ball to be set as
@@ -483,7 +487,7 @@ function rowColorSelector(event) {
     (activeSelection.style.backgroundColor === "")) {
     clearSelector.style.visibility = "hidden";
   } else {
-    clearSelector.style.visibility = "visible";    
+    clearSelector.style.visibility = "visible";
   }
   activeSelection.style.border = ".2rem solid #fffce8";
   activeSelection.style.boxShadow = ".1rem .1rem .2rem #022b3a, .2rem 0 .2rem #022b3a, 0 .05rem .2rem #022b3a";
@@ -546,7 +550,7 @@ function clearSelection() {
 
 /** - remove border from active selection
  * - hide selector box
-*/
+ */
 function clearActiveSelect() {
   colorSelectBox.style.visibility = "hidden";
   clearSelector.style.visibility = "hidden";
@@ -723,7 +727,7 @@ You were successful in a time of ${minutes.innerHTML}:${seconds.innerHTML}`;
 You were successful in a time of ${minutes.innerHTML}:${seconds.innerHTML}`;
   }
   console.log(winnerMessage);
-  if (confirm (`Congratulations, you won!
+  if (confirm(`Congratulations, you won!
 ${winnerMessage}
 Would you like to play again?`)) {
     reset();
@@ -764,7 +768,7 @@ Would you like to play again?`;
 You didn't even have a go!
 Would you like to play again?`;
   }
-  if (confirm (`${loserMessage}`)) {
+  if (confirm(`${loserMessage}`)) {
     reset();
   }
 }
@@ -776,8 +780,8 @@ function extremeLoss() {
   let extremeMessage = `Wow, that is serious dedication!
 I'm afraid you can't have any more guesses,
 perhaps you should try again?`;
-  if (confirm (`${extremeMessage}`)) {
-  reset();
+  if (confirm(`${extremeMessage}`)) {
+    reset();
   }
 }
 
@@ -786,7 +790,7 @@ let currentWidth;
 let hintCount;
 /** use numOfBalls to calculate width reduction size */
 function calculateWidthReducer() {
-  switch(numOfBalls) {
+  switch (numOfBalls) {
     case "3":
       widthReducer = 22.5;
       break;
