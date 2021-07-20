@@ -84,6 +84,7 @@
   background-color: #a0622c;
   background: URL("../images/horizontal-wood.jpg") no-repeat center / 100% 100%;
   border: .2rem solid #854e1e;
+  transition: all .3s ease;
 }
 /* top row end */
 
