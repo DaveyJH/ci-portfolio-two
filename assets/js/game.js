@@ -657,7 +657,7 @@ function checkPegs() {
 /** set ball color and reveal answer */
 function ballReveal() {
   setSolutionBalls();
-  setTimeout(solutionCover.style.zIndex = "-1", 50);
+  setTimeout(solutionCover.style.width = "0", 50);
 }
 
 /** set color of solution balls to solution array values */
@@ -846,7 +846,6 @@ function reset() {
   }
   aR = 0;
   pegColors = [];
-  solutionCover.style.zIndex = "1";
   solutionCover.style.width = "67.5%";
   currentWidth = 67.5;
   hintCount = 0;
