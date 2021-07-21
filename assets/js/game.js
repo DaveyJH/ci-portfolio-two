@@ -376,6 +376,35 @@ function setSelectorBalls() {
   }
 }
 
+/** shrink balls if set to 6 in solution */
+function resizeBalls() {
+  for (let i = 0; i < guessRows.length; i++) {
+    individualBalls = guessRowBalls[i].getElementsByClassName("color-ball");
+    switch (numOfBalls) {
+      case "6":
+        for (let i = 0; i < individualBalls.length; i++) {
+          individualBalls[i].style.transform = "scale(.9)";
+        }
+        break;
+      default:
+        for (let i = 0; i < individualBalls.length; i++) {
+          individualBalls[i].style.transform = "scale(1)";
+        }
+    }
+  }
+  switch (numOfBalls) {
+    case "6":
+      for (let i = 0; i < solutionBalls.length; i++) {
+        solutionBalls[i].style.transform = "scale(.9)";
+      }
+      break;
+    default:
+      for (let i = 0; i < solutionBalls.length; i++) {
+        solutionBalls[i].style.transform = "scale(1)";
+      }
+  }
+}
+
 // ! gameplay functions
 
 let aR;
@@ -840,12 +869,17 @@ function runGame() {
   setSolutionBallCount();
   setSolution();
   calculateWidthReducer();
+  resizeBalls();
   timer();
   activateRow();
   document.getElementById("give-up").addEventListener("click", giveUp);
   document.getElementById("hint").addEventListener("click", hint);
   console.log(`Solution: ${solution}`); // ! delete before deployment
 }
+
+let individualBalls;
+
+console.log(individualBalls);
 
 /** reset game board and values and run game */
 function reset() {
