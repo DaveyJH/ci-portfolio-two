@@ -256,6 +256,7 @@ let solutionCover = document.getElementById("solution-cover");
 let resultPegs = document.getElementsByClassName("result");
 let solution = [];
 let solutionHolder;
+let individualBalls;
 
 let colorBalls = document.getElementsByClassName("color-ball");
 let pegs = document.getElementsByClassName("peg");
@@ -511,7 +512,6 @@ function rowColorSelector(event) {
   }
   colorSelectBox.style.visibility = "visible";
   activeSelection = event.target;
-  console.log(activeSelection.style.backgroundColor);
   if ((activeSelection.style.backgroundColor === "rgb(133, 78, 30)") ||
     (activeSelection.style.backgroundColor === "")) {
     clearSelector.style.visibility = "hidden";
@@ -740,7 +740,6 @@ function checkTime() {
 
 /** pop up win message. confirm with option to replay */
 function winner() {
-  console.log(score);
   let winnerMessage;
   let hintWord;
   if (hintCount === 1) {
@@ -755,7 +754,6 @@ You were successful in a time of ${minutes.innerHTML}:${seconds.innerHTML}`;
     winnerMessage = `You took ${score} attempt and used ${hintCount} ${hintWord}.
 You were successful in a time of ${minutes.innerHTML}:${seconds.innerHTML}`;
   }
-  console.log(winnerMessage);
   if (confirm(`Congratulations, you won!
 ${winnerMessage}
 Would you like to play again?`)) {
@@ -874,12 +872,7 @@ function runGame() {
   activateRow();
   document.getElementById("give-up").addEventListener("click", giveUp);
   document.getElementById("hint").addEventListener("click", hint);
-  console.log(`Solution: ${solution}`); // ! delete before deployment
 }
-
-let individualBalls;
-
-console.log(individualBalls);
 
 /** reset game board and values and run game */
 function reset() {
