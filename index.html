@@ -31,7 +31,7 @@
     <nav>
       <ul>
         <li>
-          <span id="settings-activator">Settings</span>
+          <span id="settings-activator" tabindex="0">Settings</span>
         </li>
         <li>
           <a href="challenge.html">Challenge</a>
@@ -69,30 +69,30 @@
         </div>
         <hr>
         <label for="repeat-in-solution" class="checkbox-hack">Colours may repeat in solution
-          <input type="checkbox" name="repeat-in-solution" id="repeat-in-solution" checked>
-          <span class="checkmark"></span>
+          <input type="checkbox" name="repeat-in-solution" id="repeat-in-solution" checked tabindex="-1">
+          <span class="checkmark" tabindex="0" role="checkbox"></span>
         </label>
         <hr>
         <label for="repeat-in-guess" class="checkbox-hack">Colours may repeat in guess
-          <input type="checkbox" name="repeat-in-guess" id="repeat-in-guess" checked disabled>
-          <span class="checkmark"></span>
+          <input type="checkbox" name="repeat-in-guess" id="repeat-in-guess" checked disabled tabindex="-1">
+          <span class="checkmark" tabindex="0" role="checkbox"></span>
         </label>
       </div>
       <div id="timer-score">
         <h3>Timer/Score</h3>
         <label for="current-time" class="checkbox-hack text-center">Display current time
-          <input type="checkbox" name="current-time" id="current-time" checked>
-          <span class="checkmark"></span>
+          <input type="checkbox" name="current-time" id="current-time" checked tabindex="-1">
+          <span class="checkmark" tabindex="0" role="checkbox"></span>
         </label>
         <hr>
         <label for="best-time" class="checkbox-hack">Display best time
-          <input type="checkbox" name="best-time" id="best-time" checked>
-          <span class="checkmark"></span>
+          <input type="checkbox" name="best-time" id="best-time" checked tabindex="-1">
+          <span class="checkmark" tabindex="0" role="checkbox"></span>
         </label>
         <hr>
         <label for="best-score" class="checkbox-hack">Display best score
-          <input type="checkbox" name="best-score" id="best-score" checked>
-          <span class="checkmark"></span>
+          <input type="checkbox" name="best-score" id="best-score" checked tabindex="-1">
+          <span class="checkmark" tabindex="0" role="checkbox"></span>
         </label>
       </div>
       <input type="submit" value="Play!" id="play-button">

@@ -420,6 +420,8 @@ let bestScore = 0;
 let activeIndex;
 let currentGuessColors;
 let activeTick;
+let giveUpIcon = document.getElementById("give-up");
+let hintIcon = document.getElementById("hint");
 
 /** - set row as active to allow interaction */
 function activateRow() {
@@ -432,6 +434,7 @@ function activateRow() {
   for (let i = 0; i < activeBalls.length; i++) {
     activeBalls[i].classList.add("active-balls", "empty");
     activeBalls[i].addEventListener("click", rowColorSelector);
+    addTabIndex(activeBalls[i]);
   }
 
   activeRow.children[0].style.borderColor = "#36b9d3";
@@ -450,6 +453,7 @@ function deactivateRow() {
   document.querySelectorAll(".active-balls").forEach(item => {
     item.removeEventListener("click", rowColorSelector);
     item.classList.remove("active-balls");
+    removeTabIndex(item);
   });
 
   // ? check requirements for backward compatibility for project
@@ -511,12 +515,17 @@ function rowColorSelector(event) {
     activeSelection.classList.remove("active-row-selector");
   }
   colorSelectBox.style.visibility = "visible";
+  console.log(colorSelectors);
+  for (i = 0; i < colorSelectors.length; i++) {
+    addTabIndex(colorSelectors[i]);
+  }
   activeSelection = event.target;
   if ((activeSelection.style.backgroundColor === "rgb(133, 78, 30)") ||
     (activeSelection.style.backgroundColor === "")) {
     clearSelector.style.visibility = "hidden";
   } else {
     clearSelector.style.visibility = "visible";
+    addTabIndex(clearSelector.children[0]);
   }
   activeSelection.style.border = ".2rem solid #fffce8";
   activeSelection.style.boxShadow = ".1rem .1rem .2rem #022b3a, .2rem 0 .2rem #022b3a, 0 .05rem .2rem #022b3a";
@@ -602,11 +611,13 @@ function getActiveIndex() {
 /** display tick to allow continuing to next row */
 function showTickResultCheck() {
   activeTick.style.transform = "translateX(-50%) scale(1)";
+  addTabIndex(activeTick);
 }
 
 /** hide tick for next row functions */
 function hideTickResultCheck() {
   activeTick.style.transform = "translateX(-50%) scale(0)";
+  removeTabIndex(activeTick);
 }
 
 /** check for .empty in any ball in activeRow. return emptyBalls */
@@ -646,8 +657,8 @@ function checkResult() {
     checkScore();
     message.innerHTML = "Well done!";
     setTimeout(winner, 500);
-    document.getElementById("give-up").removeEventListener("click", giveUp);
-    document.getElementById("hint").removeEventListener("click", hint);
+    giveUpIcon.removeEventListener("click", giveUp);
+    hintIcon.removeEventListener("click", hint);
   } else {
     nextRow();
   }
@@ -779,8 +790,8 @@ function giveUp() {
 
 /** popup about losing. confirm with option to replay */
 function loser() {
-  document.getElementById("give-up").removeEventListener("click", giveUp);
-  document.getElementById("hint").removeEventListener("click", hint);
+  giveUpIcon.removeEventListener("click", giveUp);
+  hintIcon.removeEventListener("click", hint);
   let loserMessage;
   if (score - 1 > 1) {
     loserMessage = `Unlucky, you lost!
@@ -802,8 +813,8 @@ Would you like to play again?`;
 
 /** row limit of 99 reached, alert loss */
 function extremeLoss() {
-  document.getElementById("give-up").removeEventListener("click", giveUp);
-  document.getElementById("hint").removeEventListener("click", hint);
+  giveUpIcon.removeEventListener("click", giveUp);
+  hintIcon.getElementById("hint").removeEventListener("click", hint);
   let extremeMessage = `Wow, that is serious dedication!
 I'm afraid you can't have any more guesses,
 perhaps you should try again?`;
@@ -870,8 +881,10 @@ function runGame() {
   resizeBalls();
   timer();
   activateRow();
-  document.getElementById("give-up").addEventListener("click", giveUp);
-  document.getElementById("hint").addEventListener("click", hint);
+  giveUpIcon.addEventListener("click", giveUp);
+  hintIcon.addEventListener("click", hint);
+  addTabIndex(giveUpIcon);
+  addTabIndex(hintIcon);
 }
 
 /** reset game board and values and run game */
@@ -907,3 +920,38 @@ resetTime();
 plusminus();
 disableClickNumberInputs();
 reset();
+
+// keyboard
+
+
+settingsActivator.addEventListener("keydown", function(keyed) {
+  if (keyed.key === "Enter") {
+    settingsState();
+  }
+});
+
+
+function addTabIndex(elem) {
+  elem.setAttribute("tabindex", "0");
+}
+
+function removeTabIndex(elem) {
+  elem.removeAttribute("tabindex");
+}
+
+
+
+let checkmarks = document.getElementsByClassName("checkmark");
+for (let i = 0; i < checkmarks.length; i++) {
+  checkmarks[i].addEventListener("keydown", function(keyed) {
+    if  (!checkmarks[i].previousElementSibling.disabled){
+      if (keyed.key === "Enter") {
+        checkmarks[i].previousElementSibling.checked = !checkmarks[i].previousElementSibling.checked;
+        checkState();
+      } else if (keyed.key === " ") {
+        checkmarks[i].previousElementSibling.checked = !checkmarks[i].previousElementSibling.checked;
+        checkState();
+      }
+    }
+  });
+}
