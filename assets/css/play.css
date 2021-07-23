@@ -1,7 +1,9 @@
 /* top row */
-#give-up, #hint {
+.icon-holder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 1.8rem;
-  line-height: 3rem;
 }
 
 /* selector box */
