@@ -1010,6 +1010,7 @@ function removeTabIndex(elem) {
 settingsActivator.addEventListener("keydown", function (keyed) {
   if (keyed.key === "Enter") {
     settingsState();
+    document.getElementsByClassName("minus")[0].focus();
   }
 });
 
