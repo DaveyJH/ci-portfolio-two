@@ -254,6 +254,7 @@ let resultPegs = document.getElementsByClassName("result");
 let solution = [];
 let solutionHolder;
 let individualBalls;
+let resultTicks = document.getElementsByClassName("check-result");
 
 let colorBalls = document.getElementsByClassName("color-ball");
 let pegs = document.getElementsByClassName("peg");
@@ -318,11 +319,11 @@ function addClearSelection() {
  * matches settings selections
  */
 function removeChildren() {
-  while (colorSelectors.length > numOfColors) {
+  while (colorSelectors.length > 0) {
     colorSelectBox.removeChild(colorSelectBox.lastChild);
   }
   for (let i = 0; i < guessRowBallsArray.length; i++) {
-    while (guessRowBallsArray[i].children.length > numOfBalls) {
+    while (guessRowBallsArray[i].children.length > 0) {
       guessRowBallsArray[i].removeChild(guessRowBallsArray[i].lastChild);
     }
   }
