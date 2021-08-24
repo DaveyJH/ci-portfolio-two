@@ -310,7 +310,6 @@ function addClearSelection() {
     if (keyed.key === "Enter" || keyed.key === " ") {
       keyed.preventDefault();
       clearSelection(keyed);
-      activeBalls[0].focus();
     }
   });
 }
@@ -370,9 +369,7 @@ function selectorsListeners() {
         keyed.preventDefault();
         keyUser = true;
         colorSelect(keyed);
-        if (emptyBalls) {
-          activeBalls[0].focus();
-        } else {
+        if (!emptyBalls) {
           activeTick.focus();
         }
       }
@@ -498,7 +495,6 @@ function deactivateRow() {
     item.removeEventListener("click", rowColorSelector);
     item.classList.remove("active-balls");
     removeTabIndex(item);
-    //removeBallKeys(item);
   });
   hideTickResultCheck();
 }
@@ -617,11 +613,17 @@ function colorSelect(event) {
       currentGuessColors[activeIndex] = colorSelected; //replace array value to prevent repeat color
       activeSelection.style.backgroundColor = colorSelected;
       activeSelection.classList.remove("empty", "active-row-selector");
+      if (event instanceof KeyboardEvent) {
+        activeSelection.focus();
+      }
       clearActiveSelect();
     }
   } else {
     activeSelection.style.backgroundColor = colorSelected;
     activeSelection.classList.remove("empty", "active-row-selector");
+    if (event instanceof KeyboardEvent) {
+      activeSelection.focus();
+    }
     clearActiveSelect();
   }
   activeBallsEmpty();
@@ -633,7 +635,7 @@ function colorSelect(event) {
 }
 
 /** clear color from active selection, add .empty, close selectBox and remove border */
-function clearSelection() {
+function clearSelection(keyed) {
   if (!guessRepeatCheck.checked) {
     getActiveIndex();
     currentGuessColors[activeIndex] = "";
@@ -641,6 +643,9 @@ function clearSelection() {
   activeSelection.style.backgroundColor = "rgb(133, 78, 30)";
   activeSelection.classList.remove("active-row-selector");
   activeSelection.classList.add("empty");
+  if (keyed) {
+    activeSelection.focus();
+  }
   clearActiveSelect();
   activeBallsEmpty();
   hideTickResultCheck();
@@ -1028,3 +1033,27 @@ for (let i = 0; i < checkmarks.length; i++) {
     }
   });
 }
+
+window.addEventListener("keydown", function (keyed) {
+  if (keyed.key === "Escape") {
+    if (settingsOverlay.style.visibility === "visible") {
+      calculatedColors.value = settingsHolder[0];
+      calculatedBalls.value = settingsHolder[1];
+      solutionRepeatCheck.checked = settingsHolder[2];
+      guessRepeatCheck.checked = settingsHolder[3];
+      settingsActivator.style.color = "#fffce8";
+      checkState();
+      scoreTimerOptionsCheck();
+      settingsOverlay.style.visibility = "hidden";
+      timer();
+      settingsActivator.focus();
+    }
+  }
+})
+
+colorSelectBox.addEventListener("keydown", function (keyed) {
+  if (keyed.key === "Escape") {
+    activeSelection.focus();
+    clearActiveSelect();
+  }
+})
