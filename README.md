@@ -208,6 +208,9 @@ look at daisy's testing documentation and [webinar](https://us02web.zoom.us/rec/
 <!-- when resetting from extreme loss, error occurred
 resolved with extra check in reset -->
 
+<!-- when opening settings overlay with keyboard and having focus jump to minus button
+the value would decrease. Sven Lowry_5P  -->
+
 <!-- resolved bugs -->
 <!-- 1. bugOne
 
