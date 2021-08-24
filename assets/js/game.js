@@ -161,6 +161,7 @@ function disableClickNumberInputs() {
     item.addEventListener("click", preventAll);
   });
 
+//TODO move outside individual function?
   function preventAll(event) {
     event.preventDefault();
   }
@@ -918,7 +919,17 @@ function runGame() {
   timer();
   activateRow();
   giveUpIcon.addEventListener("click", giveUp);
+  giveUpIcon.addEventListener("keydown", function (keyed) {
+    if (keyed.key === "Enter" || keyed.key === " ") {
+      giveUp();
+    }
+  });
   hintIcon.addEventListener("click", hint);
+  hintIcon.addEventListener("keydown", function (keyed) {
+    if (keyed.key === "Enter" || keyed.key === " ") {
+      hint();
+    }
+  });
   addTabIndex(giveUpIcon);
   addTabIndex(hintIcon);
 }
