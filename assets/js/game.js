@@ -473,6 +473,12 @@ function activateRow() {
   activeTick = activeRow.getElementsByClassName("check-result")[0];
   activePegs = activeRow.getElementsByClassName("peg");
   activeTick.addEventListener("click", checkResult);
+  activeTick.addEventListener("keydown", function (keyed) {
+    if (keyed.key === "Enter" || keyed.key === " ") {
+      keyed.preventDefault();
+      checkResult();
+    }
+  });
   score++;
 }
 
