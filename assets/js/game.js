@@ -358,6 +358,18 @@ function setSolution() {
 function selectorsListeners() {
   document.querySelectorAll(".selector").forEach(item => {
     item.addEventListener("click", colorSelect);
+    item.addEventListener("keydown", function (keyed) {
+      if (keyed.key === "Enter" || keyed.key === " ") {
+        keyed.preventDefault();
+        keyUser = true;
+        colorSelect(keyed);
+        if (emptyBalls) {
+          activeBalls[0].focus();
+        } else {
+          activeTick.focus();
+        }
+      }
+    })
   });
 }
 
@@ -419,6 +431,7 @@ let currentGuessColors;
 let activeTick;
 let giveUpIcon = document.getElementById("give-up");
 let hintIcon = document.getElementById("hint");
+let colorSelected;
 
 /** activates the next row
  * - set current color array to blank values 
@@ -439,6 +452,19 @@ function activateRow() {
   for (let i = 0; i < activeBalls.length; i++) {
     activeBalls[i].classList.add("active-balls", "empty");
     activeBalls[i].addEventListener("click", rowColorSelector);
+    activeBalls[i].addEventListener("keydown", function (keyed) {
+      if (keyed.key === "Enter" || keyed.key === " ") {
+        keyed.preventDefault();
+        if (activeSelection !== "inactive") {
+          activeSelection.style.boxShadow = "none";
+          activeSelection.style.border = "none";
+          activeSelection.classList.remove("active-row-selector");
+        }
+        activeSelection = activeBalls[i];
+        rowColorSelector();
+        colorSelectors[0].focus();
+      }
+    });
     addTabIndex(activeBalls[i]);
     //addKeys(activeBalls[i], ballKeys);
   }
@@ -492,6 +518,7 @@ function nextRow() {
   }
 }
 
+//! delete before deployment
 /** for testing
  * * testAddRows();
  * * aR = 97;
@@ -542,9 +569,7 @@ function rowColorSelector(event) {
   for (i = 0; i < colorSelectors.length; i++) {
     addTabIndex(colorSelectors[i]);
   }
-  if (event.target === undefined) {
-    activeSelection = event;
-  } else {
+  if (event !== undefined) {
     activeSelection = event.target;
   }
   if ((activeSelection.style.backgroundColor === "rgb(133, 78, 30)") ||
@@ -577,7 +602,7 @@ function colorSelect(event) {
   /* reference index value to maintain position of colors
   from active row in currentGuessColors array*/
   getActiveIndex();
-  let colorSelected = event.target.style.backgroundColor;
+  colorSelected = event.target.style.backgroundColor;
   if (!guessRepeatCheck.checked) {
     /* check color has not already been selected and 
     the activeSelection ball is not already the intended color */
