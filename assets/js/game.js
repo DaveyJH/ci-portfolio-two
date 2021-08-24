@@ -306,6 +306,13 @@ function addColorSelectors() {
 function addClearSelection() {
   document.getElementById("clear-selector").children[0].addEventListener("click", clearSelection);
   document.getElementById("clear-selector").children[1].addEventListener("click", clearSelection);
+  document.getElementById("clear-selector").children[0].addEventListener("keydown", function (keyed) {
+    if (keyed.key === "Enter" || keyed.key === " ") {
+      keyed.preventDefault();
+      clearSelection(keyed);
+      activeBalls[0].focus();
+    }
+  });
 }
 
 /** remove child elements to ensure layout and gameplay
@@ -455,18 +462,11 @@ function activateRow() {
     activeBalls[i].addEventListener("keydown", function (keyed) {
       if (keyed.key === "Enter" || keyed.key === " ") {
         keyed.preventDefault();
-        if (activeSelection !== "inactive") {
-          activeSelection.style.boxShadow = "none";
-          activeSelection.style.border = "none";
-          activeSelection.classList.remove("active-row-selector");
-        }
-        activeSelection = activeBalls[i];
-        rowColorSelector();
+        rowColorSelector(keyed);
         colorSelectors[0].focus();
       }
     });
     addTabIndex(activeBalls[i]);
-    //addKeys(activeBalls[i], ballKeys);
   }
 
   activeRow.children[0].style.borderColor = "#36b9d3";
@@ -569,9 +569,7 @@ function rowColorSelector(event) {
   for (i = 0; i < colorSelectors.length; i++) {
     addTabIndex(colorSelectors[i]);
   }
-  if (event !== undefined) {
-    activeSelection = event.target;
-  }
+  activeSelection = event.target;
   if ((activeSelection.style.backgroundColor === "rgb(133, 78, 30)") ||
     (activeSelection.style.backgroundColor === "")) {
     clearSelector.style.visibility = "hidden";
@@ -1023,28 +1021,3 @@ for (let i = 0; i < checkmarks.length; i++) {
     }
   });
 }
-
-// function addKeys(elem, func) {
-  //  elem.addEventListener("keydown", function (keyed) {
-  //    if ((keyed.key === "Enter") ||
-  //      (keyed.key === " ")) {
-  //      keyed.preventDefault();
-  //      rowColorSelector(elem);
-  //    }
-  //  });
-  //}
-//   elem.addEventListener("keydown", func(elem));
-// }
-
-// function ballKeys(elem) {
-//   if ((elem.key === "Enter") ||
-//     (elem.key === " ")) {
-//     elem.preventDefault();
-//     rowColorSelector(elem);
-//   }
-// }
-
-
-// function removeBallKeys(elem) {
-//   elem.removeEventListener("keydown", );
-// }
