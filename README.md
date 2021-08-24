@@ -205,6 +205,9 @@ look at daisy's testing documentation and [webinar](https://us02web.zoom.us/rec/
 
 ### Resolved
 
+<!-- when resetting from extreme loss, error occurred
+resolved with extra check in reset -->
+
 <!-- resolved bugs -->
 <!-- 1. bugOne
 
