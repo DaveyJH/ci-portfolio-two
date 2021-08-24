@@ -1009,8 +1009,14 @@ function removeTabIndex(elem) {
 //! keyboard
 settingsActivator.addEventListener("keydown", function (keyed) {
   if (keyed.key === "Enter") {
+    function revertMinus() {
+      document.getElementsByClassName("minus")[0].focus();
+    }
     settingsState();
-    document.getElementsByClassName("minus")[0].focus();
+    //? Causes button 'click' - cannot find simple work around
+    // document.getElementsByClassName("minus")[0].focus();
+    //* this works, but I don't know why!!
+    setTimeout(revertMinus, 0);
   }
 });
 
