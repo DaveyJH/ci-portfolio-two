@@ -307,27 +307,29 @@ function addColorSelectors() {
 function addClearSelection() {
   document.getElementById("clear-selector").children[0].addEventListener("click", clearSelection);
   document.getElementById("clear-selector").children[1].addEventListener("click", clearSelection);
-  document.getElementById("clear-selector").children[0].addEventListener("keydown", function (keyed) {
-    if (keyed.key === "Enter" || keyed.key === " ") {
-      keyed.preventDefault();
-      clearSelection(keyed);
-    }
-  });
+  if (!document.getElementById("clear-selector").children[0].classList.contains("key-assigned")) {
+    document.getElementById("clear-selector").children[0].classList.add("key-assigned")
+    document.getElementById("clear-selector").children[0].addEventListener("keyup", function (keyed) {
+      if (keyed.key === "Enter" || keyed.key === " ") {
+        keyed.preventDefault();
+        clearSelection(keyed);
+      }
+    });
+  }
 }
 
 /** add result check icon to each row */
 function addResultChecks() {
   for (let i = 0; i < guessRows.length; i++) {
-  let resultChecker = document.createElement("div");
-  resultChecker.classList.add("check-result");
-  resultChecker.innerHTML = `<i class="fas fa-check-square"></i>`;
+    let resultChecker = document.createElement("div");
+    resultChecker.classList.add("check-result");
+    resultChecker.innerHTML = `<i class="fas fa-check-square"></i>`;
     guessRows[i].children[2].appendChild(resultChecker);
   }
 }
 
 /** remove child elements
  * - ensure layout and gameplay matches settings selections
- * - remove element that generate keydown events to prevent duplication
  */
 function removeChildren() {
   while (colorSelectors.length > 0) {
@@ -346,11 +348,11 @@ function removeChildren() {
       resultPegs[i].removeChild(resultPegs[i].lastChild);
     }
   }
-  for (let i = resultTicks.length; i > 0; i--) {
-    console.log("i = "+ i)
-    console.log(resultTicks.length);
-    guessRows[i - 1].children[2].children[1].remove();
-  }
+  // for (let i = resultTicks.length; i > 0; i--) {
+  //   console.log("i = " + i)
+  //   console.log(resultTicks.length);
+  //   guessRows[i - 1].children[2].children[1].remove();
+  // }
 }
 
 /** delete guess rows>7 that have been created by multiple guesses */
@@ -381,14 +383,14 @@ function setSolution() {
 function selectorsListeners() {
   document.querySelectorAll(".selector").forEach(item => {
     item.addEventListener("click", colorSelect);
-    item.addEventListener("keydown", function (keyed) {
+    item.addEventListener("keyup", function (keyed) {
       if (keyed.key === "Enter" || keyed.key === " ") {
         keyed.preventDefault();
         keyUser = true;
         colorSelect(keyed);
-        if (!emptyBalls) {
-          activeTick.focus();
-        }
+        // if (!emptyBalls) {
+        //   activeTick.focus();
+        // }
       }
     })
   });
@@ -473,7 +475,7 @@ function activateRow() {
   for (let i = 0; i < activeBalls.length; i++) {
     activeBalls[i].classList.add("active-balls", "empty");
     activeBalls[i].addEventListener("click", rowColorSelector);
-    activeBalls[i].addEventListener("keydown", function (keyed) {
+    activeBalls[i].addEventListener("keyup", function (keyed) {
       if (keyed.key === "Enter" || keyed.key === " ") {
         keyed.preventDefault();
         rowColorSelector(keyed);
@@ -487,12 +489,15 @@ function activateRow() {
   activeTick = activeRow.getElementsByClassName("check-result")[0];
   activePegs = activeRow.getElementsByClassName("peg");
   activeTick.addEventListener("click", checkResult);
-  activeTick.addEventListener("keydown", function (keyed) {
-    if (keyed.key === "Enter" || keyed.key === " ") {
-      keyed.preventDefault();
-      checkResult();
-    }
-  });
+  if (!activeTick.classList.contains("key-assigned")) {
+    activeTick.classList.add("key-assigned");
+    activeTick.addEventListener("keyup", function (keyed) {
+      if (keyed.key === "Enter" || keyed.key === " ") {
+        keyed.preventDefault();
+        checkResult();
+      }
+    });
+  }
   score++;
 }
 
@@ -965,23 +970,29 @@ function runGame() {
   setPegCount();
   setSolutionBallCount();
   setSolution();
-  addResultChecks();
+  // addResultChecks();
   calculateWidthReducer();
   resizeBalls();
   timer();
   activateRow();
   giveUpIcon.addEventListener("click", giveUp);
-  giveUpIcon.addEventListener("keydown", function (keyed) {
-    if (keyed.key === "Enter" || keyed.key === " ") {
-      giveUp();
-    }
-  });
+  if (!giveUpIcon.classList.contains("key-assigned")) {
+    giveUpIcon.classList.add("key-assigned");
+    giveUpIcon.addEventListener("keyup", function (keyed) {
+      if (keyed.key === "Enter" || keyed.key === " ") {
+        giveUp();
+      }
+    });
+  }
   hintIcon.addEventListener("click", hint);
-  hintIcon.addEventListener("keydown", function (keyed) {
-    if (keyed.key === "Enter" || keyed.key === " ") {
-      hint();
-    }
-  });
+  if (!hintIcon.classList.contains("key-assigned")) {
+    hintIcon.classList.add("key-assigned");
+    hintIcon.addEventListener("keyup", function (keyed) {
+      if (keyed.key === "Enter" || keyed.key === " ") {
+        hint();
+      }
+    });
+  }
   addTabIndex(giveUpIcon);
   addTabIndex(hintIcon);
 }
@@ -1039,7 +1050,7 @@ settingsActivator.addEventListener("keyup", function (keyed) {
 
 let checkmarks = document.getElementsByClassName("checkmark");
 for (let i = 0; i < checkmarks.length; i++) {
-  checkmarks[i].addEventListener("keydown", function (keyed) {
+  checkmarks[i].addEventListener("keyup", function (keyed) {
     if (!checkmarks[i].previousElementSibling.disabled) {
       if (keyed.key === "Enter") {
         checkmarks[i].previousElementSibling.checked = !checkmarks[i].previousElementSibling.checked;
@@ -1052,7 +1063,7 @@ for (let i = 0; i < checkmarks.length; i++) {
   });
 }
 
-window.addEventListener("keydown", function (keyed) {
+window.addEventListener("keyup", function (keyed) {
   if (keyed.key === "Escape") {
     if (settingsOverlay.style.visibility === "visible") {
       calculatedColors.value = settingsHolder[0];
@@ -1069,7 +1080,7 @@ window.addEventListener("keydown", function (keyed) {
   }
 })
 
-colorSelectBox.addEventListener("keydown", function (keyed) {
+colorSelectBox.addEventListener("keyup", function (keyed) {
   if (keyed.key === "Escape") {
     activeSelection.focus();
     clearActiveSelect();
