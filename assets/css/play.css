@@ -89,6 +89,8 @@ input[type=number] {
 .plusminus button {
   height: 80%;
   width: 26.4%;
+  /* z-index to prevent overlap from nuumber on focus border */
+  z-index: 2;
 }
 .plusminus button:hover, input[type="submit"]:hover {
   background-color: #218397;

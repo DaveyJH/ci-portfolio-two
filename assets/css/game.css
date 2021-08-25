@@ -134,7 +134,13 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%) scale(0);
-  transition: all .3s ease-out;
+  transition-property: all, outline;
+  transition-duration: .3s, 0s;
+  transition-timing-function: ease-out;
+}
+.check-result:focus-visible {
+  outline: solid .3rem #00ff00;
+  z-index: 2;
 }
 .check-result i {
   position: relative;
