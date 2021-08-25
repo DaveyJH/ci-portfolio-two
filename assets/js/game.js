@@ -315,8 +315,19 @@ function addClearSelection() {
   });
 }
 
-/** remove child elements to ensure layout and gameplay
- * matches settings selections
+/** add result check icon to each row */
+function addResultChecks() {
+  for (let i = 0; i < guessRows.length; i++) {
+  let resultChecker = document.createElement("div");
+  resultChecker.classList.add("check-result");
+  resultChecker.innerHTML = `<i class="fas fa-check-square"></i>`;
+    guessRows[i].children[2].appendChild(resultChecker);
+  }
+}
+
+/** remove child elements
+ * - ensure layout and gameplay matches settings selections
+ * - remove element that generate keydown events to prevent duplication
  */
 function removeChildren() {
   while (colorSelectors.length > 0) {
@@ -334,6 +345,11 @@ function removeChildren() {
     while (resultPegs[i].children.length > numOfBalls) {
       resultPegs[i].removeChild(resultPegs[i].lastChild);
     }
+  }
+  for (let i = resultTicks.length; i > 0; i--) {
+    console.log("i = "+ i)
+    console.log(resultTicks.length);
+    guessRows[i - 1].children[2].children[1].remove();
   }
 }
 
@@ -949,6 +965,7 @@ function runGame() {
   setPegCount();
   setSolutionBallCount();
   setSolution();
+  addResultChecks();
   calculateWidthReducer();
   resizeBalls();
   timer();
