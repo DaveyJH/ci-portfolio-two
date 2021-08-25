@@ -133,6 +133,8 @@ function scoreTimerOptionsCheck() {
   }
 }
 
+//?is it preferable to change the values inside the array and have the array as a const?
+//* eg. settingsHolder[0] = calculatedColors.value
 /** store gameplay setting values to update settings overlay */
 function storeNewSettings() {
   settingsHolder = [calculatedColors.value,
@@ -254,7 +256,6 @@ const resultPegs = document.getElementsByClassName("result");
 let solution = [];
 let solutionHolder;
 let individualBalls;
-const resultTicks = document.getElementsByClassName("check-result");
 
 const colorBalls = document.getElementsByClassName("color-ball");
 const pegs = document.getElementsByClassName("peg");
@@ -349,11 +350,6 @@ function removeChildren() {
       resultPegs[i].removeChild(resultPegs[i].lastChild);
     }
   }
-  // for (let i = resultTicks.length; i > 0; i--) {
-  //   console.log("i = " + i)
-  //   console.log(resultTicks.length);
-  //   guessRows[i - 1].children[2].children[1].remove();
-  // }
 }
 
 /** delete guess rows>7 that have been created by multiple guesses */
@@ -448,7 +444,7 @@ let pegColors = [];
 let bestScore = 0;
 let activeIndex;
 let currentGuessColors;
-let activeTick;
+let activeResultIcon;
 const giveUpIcon = document.getElementById("give-up");
 const hintIcon = document.getElementById("hint");
 let colorSelected;
@@ -482,12 +478,12 @@ function activateRow() {
   }
 
   activeRow.children[0].style.borderColor = "#36b9d3";
-  activeTick = activeRow.getElementsByClassName("check-result")[0];
+  activeResultIcon = activeRow.getElementsByClassName("check-result")[0];
   activePegs = activeRow.getElementsByClassName("peg");
-  activeTick.addEventListener("click", checkResult);
-  if (!activeTick.classList.contains("key-assigned")) {
-    activeTick.classList.add("key-assigned");
-    activeTick.addEventListener("keyup", function (keyed) {
+  activeResultIcon.addEventListener("click", checkResult);
+  if (!activeResultIcon.classList.contains("key-assigned")) {
+    activeResultIcon.classList.add("key-assigned");
+    activeResultIcon.addEventListener("keyup", function (keyed) {
       if (keyed.key === "Enter" || keyed.key === " ") {
         checkResult();
       }
@@ -513,7 +509,7 @@ function deactivateRow() {
     item.classList.remove("active-balls");
     removeTabIndex(item);
   });
-  hideTickResultCheck();
+  hideResultCheck();
 }
 
 /** continue with next row. if no row exists, create one.
@@ -645,9 +641,9 @@ function colorSelect(event) {
   }
   activeBallsEmpty();
   if (!emptyBalls) {
-    showTickResultCheck();
+    showResultCheck();
   } else {
-    hideTickResultCheck();
+    hideResultCheck();
   }
 }
 
@@ -665,7 +661,7 @@ function clearSelection(keyed) {
   }
   clearActiveSelect();
   activeBallsEmpty();
-  hideTickResultCheck();
+  hideResultCheck();
 }
 
 /** - remove border from active selection
@@ -690,16 +686,16 @@ function getActiveIndex() {
   }
 }
 
-/** display tick to allow continuing to next row */
-function showTickResultCheck() {
-  activeTick.style.transform = "translateX(-50%) scale(1)";
-  addTabIndex(activeTick);
+/** display result icon to allow continuing to next row */
+function showResultCheck() {
+  activeResultIcon.style.transform = "translateX(-50%) scale(1)";
+  addTabIndex(activeResultIcon);
 }
 
-/** hide tick for next row functions */
-function hideTickResultCheck() {
-  activeTick.style.transform = "translateX(-50%) scale(0)";
-  removeTabIndex(activeTick);
+/** hide result icon for next row functions */
+function hideResultCheck() {
+  activeResultIcon.style.transform = "translateX(-50%) scale(0)";
+  removeTabIndex(activeResultIcon);
 }
 
 /** check for .empty in any ball in activeRow. return 
