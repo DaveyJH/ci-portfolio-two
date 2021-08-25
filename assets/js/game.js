@@ -560,7 +560,7 @@ function addRow() {
                         <div class="result">
                         </div>
                         <div class="check-result">
-                          <i class="fas fa-check-square"></i>
+                          <img src="assets/images/search-tick.png" alt="check result">
                         </div>
                       </div>`;
   gameBoard.appendChild(newRow);

@@ -142,10 +142,12 @@
   outline: solid .3rem #00ff00;
   z-index: 2;
 }
-.check-result i {
+.check-result img {
+  height: 2.4rem;
+  width: 2.4rem;
   position: relative;
-  left: .2rem;
-  top: -.05rem;
+  left: .1rem;
+  top: .1rem;
 }
 /* guess rows end */
 /* rows end */
