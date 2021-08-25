@@ -1,6 +1,6 @@
 //* maintain settings overlay layout below header
 window.addEventListener("resize", handleChange);
-let settingsOverlay = document.getElementById("settings");
+const settingsOverlay = document.getElementById("settings");
 /** ensure settings overlay sits below header */
 function handleChange() {
   let headerHeight = document.getElementsByTagName("header")[0].offsetHeight;
@@ -10,12 +10,12 @@ function handleChange() {
 }
 
 //! timer variables and functions
-let seconds = document.getElementById("seconds");
-let minutes = document.getElementById("minutes");
+const seconds = document.getElementById("seconds");
+const minutes = document.getElementById("minutes");
 let secondsTime = 0;
 let minutesTime = 0;
-let bestSeconds = document.getElementById("best-seconds");
-let bestMinutes = document.getElementById("best-minutes");
+const bestSeconds = document.getElementById("best-seconds");
+const bestMinutes = document.getElementById("best-minutes");
 let intervalCount;
 
 /** runs a second and minute time that stops at 59:59 */
@@ -39,18 +39,18 @@ function timer() {
 //! settings
 //gameplay settings
 let numOfColors = 6;
-let calculatedColors = document.getElementById("number-of-colors");
+const calculatedColors = document.getElementById("number-of-colors");
 let numOfBalls = 4;
-let calculatedBalls = document.getElementById("number-in-solution");
+const calculatedBalls = document.getElementById("number-in-solution");
 
 //gameplay checkboxes
-let solutionRepeatCheck = document.getElementById("repeat-in-solution");
-let guessRepeatCheck = document.getElementById("repeat-in-guess");
+const solutionRepeatCheck = document.getElementById("repeat-in-solution");
+const guessRepeatCheck = document.getElementById("repeat-in-guess");
 
 //timer/score checkbox settings
-let currentTimeCheck = document.getElementById("current-time");
-let bestTimeCheck = document.getElementById("best-time");
-let bestScoreCheck = document.getElementById("best-score");
+const currentTimeCheck = document.getElementById("current-time");
+const bestTimeCheck = document.getElementById("best-time");
+const bestScoreCheck = document.getElementById("best-score");
 
 //array to hold current gameplay setting values
 let settingsHolder = [calculatedColors.value,
@@ -59,7 +59,7 @@ let settingsHolder = [calculatedColors.value,
   guessRepeatCheck.checked
 ];
 
-let settingsActivator = document.getElementById("settings-activator");
+const settingsActivator = document.getElementById("settings-activator");
 
 //! settings overlay
 solutionRepeatCheck.addEventListener("click", checkState);
@@ -146,7 +146,7 @@ function storeNewSettings() {
 function showSettings() {
   settingsOverlay.style.visibility = "visible";
   clearInterval(intervalCount);
-  let playButton = document.getElementById("play-button");
+  const playButton = document.getElementById("play-button");
   playButton.addEventListener("click", playGame);
 }
 
@@ -155,22 +155,22 @@ function showSettings() {
  */
 function disableClickNumberInputs() {
   document.querySelectorAll("input[type=number]").forEach(item => {
-    item.addEventListener("mousedown", preventAll);
+    item.addEventListener("mousedown", preventNorm);
   });
   document.querySelectorAll(".prevent-click").forEach(item => {
-    item.addEventListener("click", preventAll);
+    item.addEventListener("click", preventNorm);
   });
 
 //TODO move outside individual function?
-  function preventAll(event) {
+  function preventNorm(event) {
     event.preventDefault();
   }
 }
 
 /** allow +/- buttons to change numeric values */
 function plusminus() {
-  let minusButtons = document.getElementsByClassName("minus");
-  let plusButtons = document.getElementsByClassName("plus");
+  const minusButtons = document.getElementsByClassName("minus");
+  const plusButtons = document.getElementsByClassName("plus");
 
   for (let i = 0; i < plusButtons.length; i++) {
     plusButtons[i].addEventListener("click", plusValue);
@@ -238,36 +238,38 @@ function resetTime() {
 }
 
 //! gameplay variables
-let gameBoard = document.getElementById("game-board");
+const gameBoard = document.getElementById("game-board");
 
 let colors = ["red", "green", "blue", "yellow", "pink", "purple", "aqua", "lime", "black", "white", "silver", "orange"];
 let availableColors;
-let colorSelectors = document.getElementsByClassName("selector");
-let colorSelectBox = document.getElementById("selector-box");
-let clearSelector = document.getElementById("clear-selector");
-let guessRowBallsArray = document.getElementsByClassName("selection ball-spacing");
-let solutionRow = document.getElementById("solution");
-let guessRows = document.getElementsByClassName("guess");
+const colorSelectors = document.getElementsByClassName("selector");
+const colorSelectBox = document.getElementById("selector-box");
+const clearSelector = document.getElementById("clear-selector");
+const guessRowBallsArray = document.getElementsByClassName("selection ball-spacing");
+const solutionRow = document.getElementById("solution");
+const guessRows = document.getElementsByClassName("guess");
 let solutionBalls = solutionRow.children;
-let solutionCover = document.getElementById("solution-cover");
-let resultPegs = document.getElementsByClassName("result");
+const solutionCover = document.getElementById("solution-cover");
+const resultPegs = document.getElementsByClassName("result");
 let solution = [];
 let solutionHolder;
 let individualBalls;
-let resultTicks = document.getElementsByClassName("check-result");
+const resultTicks = document.getElementsByClassName("check-result");
 
-let colorBalls = document.getElementsByClassName("color-ball");
-let pegs = document.getElementsByClassName("peg");
+const colorBalls = document.getElementsByClassName("color-ball");
+const pegs = document.getElementsByClassName("peg");
 
 numOfColors = calculatedColors.value;
 numOfBalls = calculatedBalls.value;
+
+let gameEnd = false;
 
 //! setup functions
 /** set number of balls in guess rows to equal settings value */
 function setBallCount() {
   for (let i = 0; i < guessRowBallsArray.length; i++) {
     while (guessRowBallsArray[i].children.length < numOfBalls) {
-      let newBall = document.createElement("div");
+      const newBall = document.createElement("div");
       newBall.classList.add("color-ball");
       guessRowBallsArray[i].appendChild(newBall);
     }
@@ -277,7 +279,7 @@ function setBallCount() {
 /** set number of balls in solution row to equal settings value */
 function setSolutionBallCount() {
   while (solutionRow.children.length < numOfBalls) {
-    let newBall = document.createElement("div");
+    const newBall = document.createElement("div");
     newBall.classList.add("color-ball");
     solutionRow.appendChild(newBall);
   }
@@ -287,7 +289,7 @@ function setSolutionBallCount() {
 function setPegCount() {
   for (let i = 0; i < resultPegs.length; i++) {
     while (resultPegs[i].children.length < numOfBalls) {
-      let newPeg = document.createElement("div");
+      const newPeg = document.createElement("div");
       newPeg.classList.add("peg");
       resultPegs[i].appendChild(newPeg);
     }
@@ -297,7 +299,7 @@ function setPegCount() {
 /** add new div.color-ball.selector for each color in colors array */
 function addColorSelectors() {
   while (colorSelectors.length < numOfColors) {
-    let newColorSelector = document.createElement("div");
+    const newColorSelector = document.createElement("div");
     newColorSelector.classList.add("color-ball", "selector");
     colorSelectBox.appendChild(newColorSelector);
   }
@@ -311,7 +313,6 @@ function addClearSelection() {
     document.getElementById("clear-selector").children[0].classList.add("key-assigned")
     document.getElementById("clear-selector").children[0].addEventListener("keyup", function (keyed) {
       if (keyed.key === "Enter" || keyed.key === " ") {
-        keyed.preventDefault();
         clearSelection(keyed);
       }
     });
@@ -321,7 +322,7 @@ function addClearSelection() {
 /** add result check icon to each row */
 function addResultChecks() {
   for (let i = 0; i < guessRows.length; i++) {
-    let resultChecker = document.createElement("div");
+    const resultChecker = document.createElement("div");
     resultChecker.classList.add("check-result");
     resultChecker.innerHTML = `<i class="fas fa-check-square"></i>`;
     guessRows[i].children[2].appendChild(resultChecker);
@@ -370,10 +371,10 @@ function setAvailableColors() {
 /** set solution to random array of availableColors */
 function setSolution() {
   for (let i = 0; i < numOfBalls; i++) {
-    let newColor = availableColors[Math.floor(Math.random() * availableColors.length)];
+    const newColor = availableColors[Math.floor(Math.random() * availableColors.length)];
     solution.push(newColor);
     if (!solutionRepeatCheck.checked) {
-      let colorDelete = availableColors.indexOf(newColor);
+      const colorDelete = availableColors.indexOf(newColor);
       availableColors.splice(colorDelete, 1);
     }
   }
@@ -385,12 +386,8 @@ function selectorsListeners() {
     item.addEventListener("click", colorSelect);
     item.addEventListener("keyup", function (keyed) {
       if (keyed.key === "Enter" || keyed.key === " ") {
-        keyed.preventDefault();
         keyUser = true;
         colorSelect(keyed);
-        // if (!emptyBalls) {
-        //   activeTick.focus();
-        // }
       }
     })
   });
@@ -452,8 +449,8 @@ let bestScore = 0;
 let activeIndex;
 let currentGuessColors;
 let activeTick;
-let giveUpIcon = document.getElementById("give-up");
-let hintIcon = document.getElementById("hint");
+const giveUpIcon = document.getElementById("give-up");
+const hintIcon = document.getElementById("hint");
 let colorSelected;
 
 /** activates the next row
@@ -477,7 +474,6 @@ function activateRow() {
     activeBalls[i].addEventListener("click", rowColorSelector);
     activeBalls[i].addEventListener("keyup", function (keyed) {
       if (keyed.key === "Enter" || keyed.key === " ") {
-        keyed.preventDefault();
         rowColorSelector(keyed);
         colorSelectors[0].focus();
       }
@@ -493,7 +489,6 @@ function activateRow() {
     activeTick.classList.add("key-assigned");
     activeTick.addEventListener("keyup", function (keyed) {
       if (keyed.key === "Enter" || keyed.key === " ") {
-        keyed.preventDefault();
         checkResult();
       }
     });
@@ -557,8 +552,8 @@ function testAddRows() {
 
 /** create new guess row with current settings */
 function addRow() {
-  let newRowNumber = guessRows.length + 1;
-  let newRow = document.createElement("div");
+  const newRowNumber = guessRows.length + 1;
+  const newRow = document.createElement("div");
   newRow.classList.add("row", "guess");
   newRow.innerHTML = `<div class="number text-center">
                         ${newRowNumber}
@@ -711,7 +706,7 @@ function hideTickResultCheck() {
  * @boolean **emptyBalls**
  */
 function activeBallsEmpty() {
-  let emptyHolder = [];
+  const emptyHolder = [];
   for (let i = 0; i < activeBalls.length; i++) {
     if (activeBalls[i].classList.contains("empty")) {
       emptyHolder.push("empty");
@@ -768,7 +763,7 @@ function checkWhite() {
   for (let i = 0; i < solution.length; i++) {
     if (solution[i] !== "checked" &&
       solution.includes(activeBalls[i].style.backgroundColor)) {
-      let removal = solution.indexOf(activeBalls[i].style.backgroundColor);
+      const removal = solution.indexOf(activeBalls[i].style.backgroundColor);
       solution[removal] = "pegged";
       pegColors.push("white");
     }
@@ -784,7 +779,7 @@ function assignPegs() {
 
 //! win/lose checks
 let win;
-let bestScoreHTML = document.getElementsByClassName("best score")[0];
+const bestScoreHTML = document.getElementsByClassName("best score")[0];
 
 /** check for four black pegs, return 
  * @boolean **win**
@@ -827,10 +822,10 @@ function checkScore() {
  * - if quicker : replace best time
  */
 function checkTime() {
-  let testSeconds = Number(bestSeconds.innerHTML);
-  let testMinutes = Number(bestMinutes.innerHTML);
-  let calculatedCurrentTime = minutesTime * 60 + secondsTime;
-  let calculatedBestTime = testMinutes * 60 + testSeconds;
+  const testSeconds = Number(bestSeconds.innerHTML);
+  const testMinutes = Number(bestMinutes.innerHTML);
+  const calculatedCurrentTime = minutesTime * 60 + secondsTime;
+  const calculatedBestTime = testMinutes * 60 + testSeconds;
   if ((calculatedCurrentTime < calculatedBestTime) || (bestSeconds.innerHTML === "--")) {
     bestSeconds.innerHTML = (("0" + secondsTime).slice(-2)).toString();
     bestMinutes.innerHTML = (("0" + minutesTime).slice(-2)).toString();
@@ -862,7 +857,7 @@ Would you like to play again?`)) {
   }
 }
 
-let message = document.getElementById("message");
+const message = document.getElementById("message");
 
 //! giveup and hint functions
 /** confirm popup to  give up
@@ -908,7 +903,7 @@ Would you like to play again?`;
 function extremeLoss() {
   giveUpIcon.removeEventListener("click", giveUp);
   hintIcon.removeEventListener("click", hint);
-  let extremeMessage = `Wow, that is serious dedication!
+  const extremeMessage = `Wow, that is serious dedication!
 I'm afraid you can't have any more guesses,
 perhaps you should try again?`;
   if (confirm(`${extremeMessage}`)) {
@@ -956,7 +951,7 @@ function hint() {
 
 /** set the background color of the next ball to be revealed */
 function addOneSolutionColor() {
-  let solutionIndex = solutionBalls.length - hintCount;
+  const solutionIndex = solutionBalls.length - hintCount;
   solutionBalls[solutionIndex].style.backgroundColor = solutionHolder[solutionIndex];
 }
 
@@ -1084,5 +1079,13 @@ colorSelectBox.addEventListener("keyup", function (keyed) {
   if (keyed.key === "Escape") {
     activeSelection.focus();
     clearActiveSelect();
+  }
+})
+
+//?put this in a function and add it to elements to maintain accessibility?
+//stops default scroll behaviour. arrow keys still function for scroll
+window.addEventListener("keydown", function (space) {
+  if (space.key === " ") {
+    space.preventDefault();
   }
 })
