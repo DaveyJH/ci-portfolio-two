@@ -1,62 +1,54 @@
 // ! remove commented out solutions before submission!!!
 
-// ? ask mentor/slack if it is worth re-writing document.getElement*.children as querySelector*?
-// ? main difference appears to be live/static response and would need to be checked if modified
-// ? if html is changed, I may need to modify .children index values - means querySelector would be better
-// ? if I use JS to update html in main game, querySelector may not be the best option
-
-//? change values to hex codes? 
-let colors = ["red", "green", "blue", "yellow", "pink", "purple"]; // create the colors available for the challenge
-let solution = []; // create a blank array for the solution
-let numOfBalls = 4; // create a variable for the number of balls in the solution
-let numOfPegs = numOfBalls; // number of pegs === number of balls
-let pegColors = []; // create array to store peg results
+let colors = ["red", "green", "blue", "yellow", "pink", "purple"]; // colors available for the challenge
+let solution = []; // blank array for the solution
+const numOfBalls = 4; // number of balls in the solution
+const numOfPegs = numOfBalls; // number of pegs === number of balls
+let pegColors = []; // array to store peg results
 
 let aR = 0; // active row index number
-let activeRow; // create variable to store activeRow
-let activeBalls; // create variable to store activeBalls
-let activeSelection = "inactive"; // create a variable to store which color-ball has been chosen for color change
-let activePegs; // create variable for activeRow result pegs
-let activeNumber; // create variable for activeRow number
-let activeTick; // create variable for tick result checker
+let activeRow; // variable to store activeRow
+let activeBalls; // variable to store activeBalls
+let activeSelection = "inactive"; // color-ball chosen for color change
+let activePegs; // activeRow result pegs
+let activeNumber; // activeRow number
+let activeResultIcon; // result checker
 
-let colorSelectors = document.getElementsByClassName("selector"); // color selectors in selector-box
-let colorSelectBox = document.getElementById("selector-box"); // color select box element
-let clearSelector = document.getElementById("clear-selector"); // clear selection within select box
-let colorSelected; // create a variable to store the color selected from the selector box
+const colorSelectors = document.getElementsByClassName("selector"); // color selectors in selector-box
+const colorSelectBox = document.getElementById("selector-box"); // color select box element
+const clearSelector = document.getElementById("clear-selector"); // clear selection within select box
+let colorSelected; // color selected from the selector box
 
-let solutionBalls = document.getElementById("solution").children; // get array of solution color balls
-let solutionCover = document.getElementById("solution-cover"); // solution cover panel
+const solutionBalls = document.getElementById("solution").children; // solution balls
+const solutionCover = document.getElementById("solution-cover"); // solution cover panel
 let solutionHolder; // none modified solution array
 
-let colorBalls = document.getElementsByClassName("color-ball"); // all color balls
-let pegs = document.getElementsByClassName("peg"); // all pegs
+const colorBalls = document.getElementsByClassName("color-ball"); // all color balls
+const pegs = document.getElementsByClassName("peg"); // all pegs
+const message = document.getElementById("message"); // message paragraph
 
-let message = document.getElementById("message"); // message paragraph
+let win = false;
 
-let win = false; // create win = false
-
-let bestScoreHTML = document.getElementsByClassName("best score")[0]; // bestScore to be filled in on win condition
-let bestScore = 0; // keep a record of the best score without having to get from DOM
+const bestScoreHTML = document.getElementsByClassName("best score")[0]; // bestScore to be filled in on win condition
+let bestScore = 0; // record of the best score without having to get from DOM
 let score = 0; // score count
 
 
 // ! timer variables and functions
-
-// credit to Code Institute course content for basic timer function
-// modified with basic solution credit to https://stackoverflow.com/users/854246/joseph-marikle
-// https://stackoverflow.com/questions/8043026/how-to-format-numbers-by-prepending-0-to-single-digit-numbers/8043061#8043061
-// first answer which applies for positive integers only which works for this situation
-// the answer combines a string with a number so extra steps have been taken to convert
-// to strings and numbers where necessary
+/* credit to Code Institute course content for basic timer function
+modified with basic solution credit to https://stackoverflow.com/users/854246/joseph-marikle
+https://stackoverflow.com/questions/8043026/how-to-format-numbers-by-prepending-0-to-single-digit-numbers/8043061#8043061
+first answer which applies for positive integers only which works for this situation
+the answer combines a string with a number so extra steps have been taken to convert
+to strings and numbers where necessary */
 
 let intervalCount; // accessible variable
-let seconds = document.getElementById("seconds"); // seconds span
-let minutes = document.getElementById("minutes"); // minutes span
+const seconds = document.getElementById("seconds"); // seconds span
+const minutes = document.getElementById("minutes"); // minutes span
 let secondsTime = 0; // start value
 let minutesTime = 0; // start value
-let bestSeconds = document.getElementById("best-seconds"); // best seconds span
-let bestMinutes = document.getElementById("best-minutes"); // best minutes span
+const bestSeconds = document.getElementById("best-seconds"); // best seconds span
+const bestMinutes = document.getElementById("best-minutes"); // best minutes span
 
 /** runs a second and minute time that stops at 59:59 */
 function timerC() {
@@ -66,9 +58,9 @@ function timerC() {
     minutes.innerHTML = (("0" + minutesTime).slice(-2)).toString(); // display minutes as 2 digit string
     if (secondsTime === 60) { // do not display 60
       secondsTime = 0; // reset second count
-      seconds.innerHTML = (("0" + secondsTime).slice(-2)).toString(); // display 00 seconds
+      seconds.innerHTML = (("0" + secondsTime).slice(-2)).toString();
       minutesTime++; // increment minutes by 1
-      minutes.innerHTML = (("0" + minutesTime).slice(-2)).toString(); // display minutes as 2 digit string
+      minutes.innerHTML = (("0" + minutesTime).slice(-2)).toString();
     }
     if ((secondsTime === 59) && (minutesTime === 59)) { // stop timer at maximum time of 59:59
       clearInterval(intervalCount);
@@ -76,14 +68,14 @@ function timerC() {
   }, 1000); // 1000ms = 1 second
 }
 
-/** check current completion time against best time,
- * if quicker => replace best time
+/** check current completion time against best time
+ * - if quicker : replace best time
  */
 function checkTimeC() {
-  let testSeconds = Number(bestSeconds.innerHTML); // convert seconds string to number
-  let testMinutes = Number(bestMinutes.innerHTML); // convert minutes string to number
-  let calculatedCurrentTime = minutesTime * 60 + secondsTime; // current time in seconds
-  let calculatedBestTime = testMinutes * 60 + testSeconds; // best time in seconds
+  const testSeconds = Number(bestSeconds.innerHTML); // convert seconds string to number
+  const testMinutes = Number(bestMinutes.innerHTML); // convert minutes string to number
+  const calculatedCurrentTime = minutesTime * 60 + secondsTime; // current time in seconds
+  const calculatedBestTime = testMinutes * 60 + testSeconds; // best time in seconds
   if ((calculatedCurrentTime < calculatedBestTime) || (bestSeconds.innerHTML === "--")) { // check current time against best OR best is unset
     bestSeconds.innerHTML = (("0" + secondsTime).slice(-2)).toString(); // write bestSeconds
     bestMinutes.innerHTML = (("0" + minutesTime).slice(-2)).toString(); // write bestMinutes
@@ -97,7 +89,6 @@ function resetTimeC() {
 }
 
 // ! setting up the game functions
-
 /** set color of selector-box color balls to available colors */
 function setSelectorBallsC() {
   for (let i = 0; i < colorSelectors.length; i++) {
@@ -149,8 +140,8 @@ function activateRowC() {
   }
   activeNumber = activeRow.getElementsByClassName("number")[0];
   activeNumber.style.borderColor = "#36b9d3"; // active row number border shows active row
-  activeTick = activeRow.getElementsByClassName("check-result")[0];
-  activeTick.addEventListener("click", checkResultC);
+  activeResultIcon = activeRow.getElementsByClassName("check-result")[0];
+  activeResultIcon.addEventListener("click", checkResultC);
   activePegs = activeRow.getElementsByClassName("peg"); // active pegs in active row
   score++;
 }
@@ -164,7 +155,7 @@ function deactivateRowC() {
     activeBalls[i].removeEventListener("click", colorSelectorC);
   }
   // activeNumber.removeEventListener("click", checkResultC);
-  activeTick.removeEventListener("click", checkResultC);
+  activeResultIcon.removeEventListener("click", checkResultC);
   hideTickResultCheckC();
   clearSelectionC();
 }
@@ -225,12 +216,12 @@ function clearSelectionC() {
 
 /** display tick to allow continuing to next row */
 function showTickResultCheckC() {
-  activeTick.style.transform = "translateX(-50%) scale(1)";
+  activeResultIcon.style.transform = "translateX(-50%) scale(1)";
 }
 
 /** hide tick for next row functions */
 function hideTickResultCheckC() {
-  activeTick.style.transform = "translateX(-50%) scale(0)";
+  activeResultIcon.style.transform = "translateX(-50%) scale(0)";
 }
 
 let emptyBalls; // boolean for any activeBalls containing .empty
@@ -253,19 +244,18 @@ function colorSelectC(event) {
   activeSelection.style.backgroundColor = colorSelected; // apply color to active ball in guess row
   activeSelection.classList.remove("empty"); // .empty removed to prevent alert when checking row
   colorSelectBox.style.visibility = "hidden"; // hide selector box
-  clearSelector.style.visibility = "hidden";
+  clearSelector.style.visibility = "hidden"; // hide clear selection
   activeSelection.style.border = "none"; // remove border from color ball in guess row
   activeSelection.style.boxShadow = "none";
   activeBallsEmptyC();
   if (!emptyBalls) {
-    showTickResultCheckC(); // activeTick appears for result checking
+    showTickResultCheckC(); // activeResultIcon appears for result checking
   } else {
     hideTickResultCheckC();
   }
 }
 
 // ! result functions
-
 /** assign colors to pegs based on result */
 function assignPegsC() {
   for (let i = 0; i < numOfPegs; i++) {
@@ -288,7 +278,7 @@ function checkWhiteC() {
   for (let i = 0; i < solution.length; i++) {
     if (solution[i] !== "checked" // check if index is already a black peg
       && solution.includes(activeBalls[i].style.backgroundColor)) { // check solution array contains guess
-      let removal = solution.indexOf(activeBalls[i].style.backgroundColor);
+      const removal = solution.indexOf(activeBalls[i].style.backgroundColor);
       solution[removal] = "pegged"; // stop duplication of white pegs if color repeated in guess
       pegColors.push("white"); // add white to peg results array
     }
@@ -299,11 +289,12 @@ function checkWhiteC() {
 function checkResultC() {
   solutionHolder = solution.slice(); // make a copy of the solution which is not modified
   activeBallsEmptyC();
-  if (emptyBalls) {
+  if (emptyBalls) { //!delete - not needed
     alert("Please complete selection!"); // prevent wasted guess
   } else {
-    // section added to prevent user confusion if guess ball selected
-    // after four ball colors entered and no new color is chosen
+    /* section added to prevent user confusion if guess ball selected
+    after four ball colors entered and no new color is chosen
+    */
     colorSelectBox.style.visibility = "hidden"; // hide selector box
     clearSelector.style.visibility = "hidden";
     activeSelection.style.border = "none"; // remove border from active ball
@@ -358,26 +349,25 @@ function checkScoreC() {
 
 /** set ball color and reveal answer */
 function ballRevealC() {
-  setSolutionBallsC(); // moved inside this funtion to prevent peeking before game
+  setSolutionBallsC(); // moved inside this function to prevent peeking before game
   setTimeout(solutionCover.style.zIndex = "-1", 50);
 }
 
 /** confirm with option to replay */
 function winnerC() {
-  if (confirm(`Congratulations, you won! \nWould you like to play again?`)) {
+  if (confirm(`Congratulations, you won!\nWould you like to play again?`)) {
     resetC();
   }
 }
 
 /** confirm with option to replay */
 function loserC() {
-  if (confirm(`Unlucky, you lost! \nWould you like to play again?`)) {
+  if (confirm(`Unlucky, you lost!\nWould you like to play again?`)) {
     resetC();
   }
 }
 
 // ! run and reset functions
-
 /** initiate challenge with new solution */
 function runChallenge() {
   setSolutionC();
