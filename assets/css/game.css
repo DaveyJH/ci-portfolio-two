@@ -30,12 +30,6 @@
 .best.time {
   left: .3rem;
 }
-.current {
-  position: absolute;
-  top: 1.2rem;
-  right: .8rem;
-  width: 3rem;
-}
 /* scores and times end */
 
 /* rows */

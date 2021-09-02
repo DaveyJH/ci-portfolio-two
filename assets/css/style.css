@@ -25,6 +25,18 @@ body {
   min-height: 100%;
 }
 
+/* classes */
+.flex-container {
+  display: flex;
+  align-items: center;
+}
+.lr-padding {
+  padding: 0 .5rem;
+}
+.j-space-between {
+  justify-content: space-between;
+}
+
 /* header */
 header {
   color: #fffce8;
@@ -32,9 +44,6 @@ header {
   font-family: "Orbitron", sans-serif;
   font-variant: small-caps;
   position: relative;
-}
-nav {
-  margin-top: .5rem;
 }
 #header-img-background {
   background: linear-gradient(to right, #fffce8 10%,  #3e363f00 55%);
@@ -54,7 +63,17 @@ nav {
   background: url(../images/color-brain-split.png) no-repeat center bottom / 3rem 3rem;
 }
 header h1 {
-  margin-top: -2.8rem;
+  margin-top: .5rem;
+}
+.current {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  /* width = image width to center h1 */
+  width: 4rem;
+  margin-top: 1rem;
+  position: relative;
+  left: .6rem;
 }
 header ul {
   font-size: .9rem;
