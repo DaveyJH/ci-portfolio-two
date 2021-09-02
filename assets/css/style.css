@@ -40,6 +40,36 @@ body {
   font-size: 0;
 }
 
+/* aria */
+.tooltip-text {
+  transform: scale(0);
+  position: absolute;
+  right: calc(100% + 5px);
+  top: -5px;
+  width: 120px;
+  background-color: black;
+  color: #fffce8;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  text-transform: capitalize;
+}
+
+.tooltip-text-left {
+  left: calc(4rem + 5px);
+}
+
+.tooltip-holder:hover .tooltip-text {
+  transform: scale(1);
+}
+
+.hidden-value {
+  position: absolute;
+  transform: scale(0);
+}
+/* end of aria */
+/* end of classes */
+
 /* header */
 header {
   color: #fffce8;

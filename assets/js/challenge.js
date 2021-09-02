@@ -49,6 +49,7 @@ let secondsTime = 0; // start value
 let minutesTime = 0; // start value
 const bestSeconds = document.getElementById("best-seconds"); // best seconds span
 const bestMinutes = document.getElementById("best-minutes"); // best minutes span
+const hiddenTime = document.getElementsByClassName("current")[0].getElementsByClassName("hidden-value")[0];
 
 /** runs a second and minute time that stops at 59:59 */
 function timerC() {
@@ -64,6 +65,19 @@ function timerC() {
     }
     if ((secondsTime === 59) && (minutesTime === 59)) { // stop timer at maximum time of 59:59
       clearInterval(intervalCount);
+    }
+    if (minutesTime === 1) {
+      if (secondsTime === 1) {
+        hiddenTime.innerHTML = `${minutesTime} minute and ${secondsTime} second`;
+      } else {
+        hiddenTime.innerHTML = `${minutesTime} minute and ${secondsTime} seconds`;
+      }
+    } else {
+      if (secondsTime === 1) {
+        hiddenTime.innerHTML = `${minutesTime} minutes and ${secondsTime} second`;
+      } else {
+        hiddenTime.innerHTML = `${minutesTime} minutes and ${secondsTime} seconds`;
+      }
     }
   }, 1000); // 1000ms = 1 second
 }
