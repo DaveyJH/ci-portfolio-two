@@ -65,7 +65,9 @@ body {
 
 .hidden-value {
   position: absolute;
-  transform: scale(0);
+  height: 1rem;
+  width: 2.7rem;
+  top: .2rem;
 }
 /* end of aria */
 /* end of classes */

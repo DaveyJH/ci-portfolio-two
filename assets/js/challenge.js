@@ -68,15 +68,15 @@ function timerC() {
     }
     if (minutesTime === 1) {
       if (secondsTime === 1) {
-        hiddenTime.innerHTML = `${minutesTime} minute and ${secondsTime} second`;
+        hiddenTime.innerHTML = `current time: ${minutesTime} minute and ${secondsTime} second`;
       } else {
-        hiddenTime.innerHTML = `${minutesTime} minute and ${secondsTime} seconds`;
+        hiddenTime.innerHTML = `current time: ${minutesTime} minute and ${secondsTime} seconds`;
       }
     } else {
       if (secondsTime === 1) {
-        hiddenTime.innerHTML = `${minutesTime} minutes and ${secondsTime} second`;
+        hiddenTime.innerHTML = `current time: ${minutesTime} minutes and ${secondsTime} second`;
       } else {
-        hiddenTime.innerHTML = `${minutesTime} minutes and ${secondsTime} seconds`;
+        hiddenTime.innerHTML = `current time: ${minutesTime} minutes and ${secondsTime} seconds`;
       }
     }
   }, 1000); // 1000ms = 1 second
