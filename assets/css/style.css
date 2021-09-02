@@ -36,6 +36,9 @@ body {
 .j-space-between {
   justify-content: space-between;
 }
+.hidden-aria-text {
+  font-size: 0;
+}
 
 /* header */
 header {
