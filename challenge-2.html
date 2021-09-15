@@ -33,10 +33,12 @@
         </div>
       </div>
       <h1 class="text-center">Mastermind</h1>
-      <div class="current time">
-        <span class="tooltip-text" role="timer">&#0160;</span>
-        <span class="hidden-value hidden-aria-text" tabindex="0"></span>
-        <span id="minutes" aria-hidden="true">--</span>:<span id="seconds" aria-hidden="true">--</span>
+      <div class="current time tooltip-holder">
+        <span class="tooltip-text" aria-hidden="true">current time</span>
+        <span class="hidden-value hidden-aria-text" role="timer"></span>
+        <p aria-hidden="true">
+          <span id="minutes" aria-hidden="true">--</span>:<span id="seconds" aria-hidden="true">--</span>
+        </p>  
       </div>
     </div>
     <nav>
@@ -65,8 +67,12 @@
         <div class="best score">
           --
         </div>
-        <div class="best time">
-          <span id="best-minutes">--</span>:<span id="best-seconds">--</span>
+        <div class="best time tooltip-holder">
+        <span class="tooltip-text" aria-hidden="true">best time</span>
+        <span class="hidden-value hidden-aria-text" id="best-time-value">best time: unset</span>
+          <p aria-hidden="true">
+            <span id="best-minutes">--</span>:<span id="best-seconds">--</span>
+          </p>
         </div>
       </div>
       <div class="row top">

@@ -50,10 +50,11 @@ let minutesTime = 0; // start value
 const bestSeconds = document.getElementById("best-seconds"); // best seconds span
 const bestMinutes = document.getElementById("best-minutes"); // best minutes span
 const hiddenTime = document.getElementsByClassName("current")[0].getElementsByClassName("hidden-value")[0];
+const hiddenBestTime = document.getElementsByClassName("best time")[0].getElementsByClassName("hidden-value")[0];
 
 /** runs a second and minute time that stops at 59:59 */
 function timerC() {
-  intervalCount = setInterval(function() {
+  intervalCount = setInterval(function () {
     secondsTime++; // increment seconds by 1
     seconds.innerHTML = (("0" + secondsTime).slice(-2)).toString(); // display seconds as 2 digit string
     minutes.innerHTML = (("0" + minutesTime).slice(-2)).toString(); // display minutes as 2 digit string
@@ -93,6 +94,21 @@ function checkTimeC() {
   if ((calculatedCurrentTime < calculatedBestTime) || (bestSeconds.innerHTML === "--")) { // check current time against best OR best is unset
     bestSeconds.innerHTML = (("0" + secondsTime).slice(-2)).toString(); // write bestSeconds
     bestMinutes.innerHTML = (("0" + minutesTime).slice(-2)).toString(); // write bestMinutes
+  }
+  if (bestSeconds.innerHTML === "--") {
+    hiddenBestTime.innerHTML = `best time: unset`
+  } else if (bestMinutes.innerHTML === "01") {
+    if (bestSeconds.innerHTML === "01") {
+      hiddenBestTime.innerHTML = `best time: ${Number(bestMinutes.innerHTML)} minute and ${Number(bestSeconds.innerHTML)} second`;
+    } else {
+      hiddenBestTime.innerHTML = `best time: ${Number(bestMinutes.innerHTML)} minute and ${Number(bestSeconds.innerHTML)} seconds`;
+    }
+  } else {
+    if (bestSeconds.innerHTML === "01") {
+      hiddenBestTime.innerHTML = `best time: ${Number(bestMinutes.innerHTML)} minutes and ${Number(bestSeconds.innerHTML)} second`;
+    } else {
+      hiddenBestTime.innerHTML = `best time: ${Number(bestMinutes.innerHTML)} minutes and ${Number(bestSeconds.innerHTML)} seconds`;
+    }
   }
 }
 
@@ -241,10 +257,10 @@ function hideTickResultCheckC() {
 let emptyBalls; // boolean for any activeBalls containing .empty
 /** check for .empty in any ball in activeRow. return emptyBalls */
 function activeBallsEmptyC() {
-  if (activeBalls[0].classList.contains("empty")
-    || activeBalls[1].classList.contains("empty")
-    || activeBalls[2].classList.contains("empty")
-    || activeBalls[3].classList.contains("empty")) {
+  if (activeBalls[0].classList.contains("empty") ||
+    activeBalls[1].classList.contains("empty") ||
+    activeBalls[2].classList.contains("empty") ||
+    activeBalls[3].classList.contains("empty")) {
     emptyBalls = true;
   } else {
     emptyBalls = false;
@@ -291,7 +307,8 @@ function checkBlackC() {
 function checkWhiteC() {
   for (let i = 0; i < solution.length; i++) {
     if (solution[i] !== "checked" // check if index is already a black peg
-      && solution.includes(activeBalls[i].style.backgroundColor)) { // check solution array contains guess
+      &&
+      solution.includes(activeBalls[i].style.backgroundColor)) { // check solution array contains guess
       const removal = solution.indexOf(activeBalls[i].style.backgroundColor);
       solution[removal] = "pegged"; // stop duplication of white pegs if color repeated in guess
       pegColors.push("white"); // add white to peg results array

@@ -2,6 +2,7 @@
 * {
   margin: 0;
   padding: 0;
+  cursor: default;
 }
 *:focus-visible{
   outline: solid .4rem #00ff00;
@@ -15,6 +16,7 @@ html {
 a {
   text-decoration: none;
   color: inherit;
+  cursor: pointer;
 }
 body {
   /* fallback background color */
@@ -104,11 +106,13 @@ header h1 {
   font-family: "Rajdhani", sans-serif;
   font-size: 1.2rem;
   font-weight: 700;
-  /* width = image width to center h1 */
-  width: 4rem;
+  /* width = image width - offset to center h1 without causing side scroll */
+  width: 3.4rem;
   margin-top: 1rem;
   position: relative;
-  left: .6rem;
+}
+.current p {
+  width: 3.5rem;
 }
 header ul {
   font-size: .9rem;
