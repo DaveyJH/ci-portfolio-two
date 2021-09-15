@@ -176,6 +176,15 @@ function activateRowC() {
   activeNumber.style.borderColor = "#36b9d3"; // active row number border shows active row
   activeResultIcon = activeRow.getElementsByClassName("check-result")[0];
   activeResultIcon.addEventListener("click", checkResultC);
+  if (!activeResultIcon.classList.contains("key-added")) {
+    activeResultIcon.addEventListener("keydown", (keyed) => {
+      if (keyed.key === "Enter" || keyed.key === " ") {
+        activeResultIcon.classList.add("key-added");
+        keyed.preventDefault();
+        checkResultC();
+      }
+    })
+  }
   activePegs = activeRow.getElementsByClassName("peg"); // active pegs in active row
   score++;
 }
@@ -252,12 +261,18 @@ function clearSelectionC() {
 
 /** display tick to allow continuing to next row */
 function showTickResultCheckC() {
+  activeResultIcon.children[0].setAttribute("aria-hidden", "false");
+  activeResultIcon.children[0].setAttribute("tabindex", "0");
+  activeResultIcon.children[0].removeAttribute("hidden");
   activeResultIcon.style.transform = "translateX(-50%) scale(1)";
 }
 
 /** hide tick for next row functions */
 function hideTickResultCheckC() {
+  activeResultIcon.children[0].setAttribute("tabindex", "-1");
   activeResultIcon.style.transform = "translateX(-50%) scale(0)";
+  activeResultIcon.children[0].setAttribute("aria-hidden", "true");
+  activeResultIcon.children[0].setAttribute("hidden", "true");
 }
 
 let emptyBalls; // boolean for any activeBalls containing .empty
