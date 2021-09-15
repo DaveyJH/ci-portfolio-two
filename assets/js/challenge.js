@@ -29,7 +29,7 @@ const message = document.getElementById("message"); // message paragraph
 
 let win = false;
 
-const bestScoreHTML = document.getElementsByClassName("best score")[0]; // bestScore to be filled in on win condition
+const bestScoreHTML = document.getElementsByClassName("best score")[0].getElementsByTagName("p")[0]; // bestScore to be filled in on win condition
 let bestScore = 0; // record of the best score without having to get from DOM
 let score = 0; // score count
 
@@ -367,6 +367,7 @@ function checkPegsC() {
   }
 }
 
+const hiddenScoreText = document.getElementById("best-score-value");
 /** check if best score has been set
  * and if it is larger than the current winning
  * score. if so, change the displayed number to the best score
@@ -375,6 +376,7 @@ function checkScoreC() {
   if (bestScore > score || bestScore === 0) {
     bestScore = score.toString();
     bestScoreHTML.innerHTML = `${bestScore}`;
+    hiddenScoreText.innerHTML = `best score: ${bestScore}`;
   }
 }
 

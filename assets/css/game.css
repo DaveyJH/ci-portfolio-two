@@ -30,6 +30,9 @@
 .best.time {
   left: .3rem;
 }
+#best-time-value, #best-score-value {
+  left: .6rem;
+}
 /* scores and times end */
 
 /* rows */

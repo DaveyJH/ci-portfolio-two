@@ -38,7 +38,7 @@
         <span class="hidden-value hidden-aria-text" role="timer"></span>
         <p aria-hidden="true">
           <span id="minutes" aria-hidden="true">--</span>:<span id="seconds" aria-hidden="true">--</span>
-        </p>  
+        </p>
       </div>
     </div>
     <nav>
@@ -48,7 +48,8 @@
           <a href="./index.html">Play</a>
         </li>
         <li>
-          <a href="./challenge.html" class="nav-active" aria-current="page">Challenge<span class="hidden-aria-text">current page</span></a>
+          <a href="./challenge.html" class="nav-active" aria-current="page">Challenge<span
+              class="hidden-aria-text">current page</span></a>
         </li>
         <li>
           <a href="./rules.html">Rules</a>
@@ -64,12 +65,16 @@
     <!-- gameboard  -->
     <div id="game-board">
       <div id="scores-and-times" class="text-center">
-        <div class="best score">
-          --
+        <div class="best score tooltip-holder">
+          <span class="tooltip-text-left" aria-hidden="true">best score</span>
+          <span class="hidden-value hidden-aria-text" id="best-score-value">best score: unset</span>
+          <p aria-hidden="true">
+            --
+          </p>
         </div>
         <div class="best time tooltip-holder">
-        <span class="tooltip-text" aria-hidden="true">best time</span>
-        <span class="hidden-value hidden-aria-text" id="best-time-value">best time: unset</span>
+          <span class="tooltip-text" aria-hidden="true">best time</span>
+          <span class="hidden-value hidden-aria-text" id="best-time-value">best time: unset</span>
           <p aria-hidden="true">
             <span id="best-minutes">--</span>:<span id="best-seconds">--</span>
           </p>
