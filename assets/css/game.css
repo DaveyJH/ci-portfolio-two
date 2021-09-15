@@ -74,6 +74,9 @@
 .top {
   margin-bottom: 1rem;
 }
+#solution span {
+  position: absolute;
+}
 #solution-cover {
   position: absolute;
   left: 16.25%;

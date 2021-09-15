@@ -19,7 +19,9 @@ const colorSelectBox = document.getElementById("selector-box"); // color select 
 const clearSelector = document.getElementById("clear-selector"); // clear selection within select box
 let colorSelected; // color selected from the selector box
 
-const solutionBalls = document.getElementById("solution").children; // solution balls
+const solutionRow = document.getElementById("solution");
+const solutionText = solutionRow.getElementsByTagName("span")[0];
+const solutionBalls = solutionRow.getElementsByClassName("color-ball"); // solution balls
 const solutionCover = document.getElementById("solution-cover"); // solution cover panel
 let solutionHolder; // none modified solution array
 
@@ -139,6 +141,7 @@ function setSolutionC() {
 function setSolutionBallsC() {
   for (let i = 0; i < solutionHolder.length; i++) {
     solutionBalls[i].style.backgroundColor = (solutionHolder[i]); // set color of solution balls
+    solutionText.innerHTML = `solution: ${solutionHolder}`;
   }
 }
 
