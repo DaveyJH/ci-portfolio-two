@@ -9,7 +9,6 @@
 }
 #game-board button {
   border: none;
-  position: relative;
 }
 
 /* scores and times */
@@ -60,6 +59,10 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+.ball-spacing .tooltip-text {
+  font-size: 1.2rem;
+  font-weight: 700;
 }
 .color-ball {
   border-radius: 50%;

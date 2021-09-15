@@ -43,6 +43,9 @@ body {
 }
 
 /* aria */
+.tooltip-holder {
+  position: relative;
+}
 .tooltip-text, .tooltip-text-left {
   transform: scale(0);
   position: absolute;

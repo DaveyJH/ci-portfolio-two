@@ -170,6 +170,7 @@ function activateRowC() {
     activeBalls[i].classList.add("active-balls", "empty");
     // add click for selecting color
     activeBalls[i].addEventListener("click", colorSelectorC);
+    activeBalls[i].removeAttribute("disabled");
   }
   activeNumber = activeRow.getElementsByClassName("number")[0];
   activeNumber.style.borderColor = "#36b9d3"; // active row number border shows active row
@@ -186,6 +187,7 @@ function deactivateRowC() {
   for (let i = 0; i < activeBalls.length; i++) {
     activeBalls[i].classList.remove("active-balls");
     activeBalls[i].removeEventListener("click", colorSelectorC);
+    activeBalls[i].setAttribute("disabled", "true");
   }
   // activeNumber.removeEventListener("click", checkResultC);
   activeResultIcon.removeEventListener("click", checkResultC);
@@ -237,8 +239,8 @@ function colorSelectorC(event) {
 function clearSelectionC() {
   if (activeSelection !== "inactive") {
     activeSelection.style.backgroundColor = "rgb(133, 78, 30)";
-    activeSelection.children[0].innerHTML = "empty";
-    activeSelection.children[1].innerHTML = "empty ball";
+    activeSelection.parentNode.children[0].innerHTML = "empty";
+    activeSelection.children[0].innerHTML = "empty ball";
     activeSelection.classList.add("empty");
     activeSelection.style.border = "none";
     activeSelection.style.boxShadow = "none";
@@ -277,8 +279,8 @@ function colorSelectC(event) {
   colorSelected = event.target.style.backgroundColor; // set colorSelected to color of clicked selector ball
   activeSelection.style.backgroundColor = colorSelected; // apply color to active ball in guess row
   activeSelection.classList.remove("empty"); // .empty removed to prevent alert when checking row
-  activeSelection.children[0].innerHTML = colorSelected;
-  activeSelection.children[1].innerHTML = colorSelected + " ball";
+  activeSelection.parentNode.children[0].innerHTML = colorSelected;
+  activeSelection.children[0].innerHTML = colorSelected + " ball";
   colorSelectBox.style.visibility = "hidden"; // hide selector box
   clearSelector.style.visibility = "hidden"; // hide clear selection
   activeSelection.style.border = "none"; // remove border from color ball in guess row
