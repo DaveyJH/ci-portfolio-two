@@ -60,7 +60,7 @@
   justify-content: space-around;
   align-items: center;
 }
-.ball-spacing .tooltip-text {
+.tooltip-text-button {
   font-size: 1.2rem;
   font-weight: 700;
 }
@@ -180,7 +180,7 @@
 #clear-selector {
   position: absolute;
   margin: 0 auto;
-  top: -5rem;
+  top: -4.7rem;
   background-color: #3e363f;
   height: 4.45rem;
   width: 8rem;

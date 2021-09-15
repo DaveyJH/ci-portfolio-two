@@ -46,7 +46,7 @@ body {
 .tooltip-holder {
   position: relative;
 }
-.tooltip-text, .tooltip-text-left {
+.tooltip-text, .tooltip-text-left, .tooltip-text-button {
   transform: scale(0);
   position: absolute;
   right: calc(100% + 5px);
@@ -63,8 +63,13 @@ body {
 .tooltip-text-left {
   left: calc(4rem + 5px);
 }
-.tooltip-holder:hover .tooltip-text, .tooltip-holder:hover .tooltip-text-left {
+.tooltip-text-button {
+  right: -2.8rem;
+  top: -2.2rem;
+}
+.tooltip-holder:hover .tooltip-text, .tooltip-holder:hover .tooltip-text-left, .tooltip-holder:hover .tooltip-text-button {
   transform: scale(1);
+  z-index: 5;
 }
 .hidden-value {
   position: absolute;
