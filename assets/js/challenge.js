@@ -225,7 +225,6 @@ function colorSelectorC(event) {
   activeSelection = event.target; // set activeSelection to ball that created event
   activeSelection.style.border = ".2rem solid #fffce8"; // add border for visual aid to player
   activeSelection.style.boxShadow = ".1rem .1rem .2rem #022b3a, .2rem 0 .2rem #022b3a, 0 .05rem .2rem #022b3a";
-  console.log(activeSelection.style.backgroundColor);
   if ((activeSelection.style.backgroundColor === "rgb(133, 78, 30)") ||
     (activeSelection.style.backgroundColor === "")) {
     clearSelector.style.visibility = "hidden";
@@ -238,6 +237,8 @@ function colorSelectorC(event) {
 function clearSelectionC() {
   if (activeSelection !== "inactive") {
     activeSelection.style.backgroundColor = "rgb(133, 78, 30)";
+    activeSelection.children[0].innerHTML = "empty";
+    activeSelection.children[1].innerHTML = "empty ball";
     activeSelection.classList.add("empty");
     activeSelection.style.border = "none";
     activeSelection.style.boxShadow = "none";
@@ -276,6 +277,8 @@ function colorSelectC(event) {
   colorSelected = event.target.style.backgroundColor; // set colorSelected to color of clicked selector ball
   activeSelection.style.backgroundColor = colorSelected; // apply color to active ball in guess row
   activeSelection.classList.remove("empty"); // .empty removed to prevent alert when checking row
+  activeSelection.children[0].innerHTML = colorSelected;
+  activeSelection.children[1].innerHTML = colorSelected + " ball";
   colorSelectBox.style.visibility = "hidden"; // hide selector box
   clearSelector.style.visibility = "hidden"; // hide clear selection
   activeSelection.style.border = "none"; // remove border from color ball in guess row

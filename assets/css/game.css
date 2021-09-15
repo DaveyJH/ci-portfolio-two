@@ -7,6 +7,10 @@
   border: .2rem solid #854e1e;
   border-radius: .2rem;
 }
+#game-board button {
+  border: none;
+  position: relative;
+}
 
 /* scores and times */
 #scores-and-times {
