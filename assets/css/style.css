@@ -49,25 +49,31 @@ body {
 .tooltip-text, .tooltip-text-left, .tooltip-text-button {
   transform: scale(0);
   position: absolute;
-  right: calc(100% + 5px);
-  top: -5px;
-  width: 120px;
+  right: calc(100% + .26rem);
+  top: -.2rem;
+  width: 7.5rem;
   background-color: black;
   color: #fffce8;
   text-align: center;
-  padding: 5px 0;
+  padding: .2rem 0;
   border-radius: 6px;
   text-transform: capitalize;
   font-variant: small-caps;
 }
 .tooltip-text-left {
-  left: calc(4rem + 5px);
+  left: calc(4rem + .26rem);
 }
 .tooltip-text-button {
-  right: -2.8rem;
-  top: -2.2rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  width: 5rem;
+  right: -1.5rem;
+  top: -2rem;
 }
-.tooltip-holder:hover .tooltip-text, .tooltip-holder:hover .tooltip-text-left, .tooltip-holder:hover .tooltip-text-button {
+#selector-box .tooltip-text-button {
+  right: -1.300625rem;
+}
+.tooltip-holder:hover .tooltip-text, .tooltip-holder:hover .tooltip-text-left, .active-row .tooltip-holder:hover .tooltip-text-button, #selector-box .tooltip-holder:hover .tooltip-text-button, .completed-row .tooltip-holder:hover .tooltip-text-button {
   transform: scale(1);
   z-index: 5;
 }
