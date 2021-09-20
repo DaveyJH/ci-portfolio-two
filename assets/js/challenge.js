@@ -126,6 +126,8 @@ function setSelectorBallsC() {
   for (let i = 0; i < colorSelectors.length; i++) {
     colorSelectors[i].style.backgroundColor = (colors[i]);
     colorSelectors[i].addEventListener("click", colorSelectC);
+    colorSelectors[i].children[0].textContent = colors[i] + " selector";
+    colorSelectors[i].previousElementSibling.textContent = colors[i];
   }
 }
 
@@ -192,6 +194,7 @@ function activateRowC() {
 /** deactivate row by removing classes and click listeners */
 function deactivateRowC() {
   activeNumber.style.borderColor = "#fffce8"; // border color of previous row number back to normal
+  activeRow.classList.add("completed-row");
   activeRow.classList.remove("active-row");
   for (let i = 0; i < activeBalls.length; i++) {
     activeBalls[i].classList.remove("active-balls");
