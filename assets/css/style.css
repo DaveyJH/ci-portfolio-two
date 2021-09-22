@@ -46,7 +46,7 @@ body {
 .tooltip-holder {
   position: relative;
 }
-.tooltip-text, .tooltip-text-left, .tooltip-text-button {
+.tooltip-text, .tooltip-text-left, .tooltip-text-ball {
   transform: scale(0);
   position: absolute;
   right: calc(100% + .26rem);
@@ -63,17 +63,21 @@ body {
 .tooltip-text-left {
   left: calc(4rem + .26rem);
 }
-.tooltip-text-button {
+.tooltip-text-ball {
   font-size: 1.2rem;
   font-weight: 700;
   width: 5rem;
   right: -1.5rem;
   top: -2rem;
 }
-#selector-box .tooltip-text-button {
+#selector-box .tooltip-text-ball {
   right: -1.300625rem;
 }
-.tooltip-holder:hover .tooltip-text, .tooltip-holder:hover .tooltip-text-left, .active-row .tooltip-holder:hover .tooltip-text-button, #selector-box .tooltip-holder:hover .tooltip-text-button, .completed-row .tooltip-holder:hover .tooltip-text-button {
+.tooltip-holder:hover .tooltip-text, .tooltip-holder:hover .tooltip-text-left, .active-row .tooltip-holder:hover .tooltip-text-ball, #selector-box .tooltip-holder:hover .tooltip-text-ball, .completed-row .tooltip-holder:hover .tooltip-text-ball {
+  transform: scale(1);
+  z-index: 5;
+}
+.tooltip-holder:focus-within .tooltip-text, .tooltip-holder:focus-within .tooltip-text-left, .active-row .tooltip-holder:focus-within .tooltip-text-ball, #selector-box .tooltip-holder:focus-within .tooltip-text-ball, .completed-row .tooltip-holder:focus-within .tooltip-text-ball {
   transform: scale(1);
   z-index: 5;
 }
