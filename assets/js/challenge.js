@@ -463,5 +463,29 @@ function resetC() {
   runChallenge();
 }
 
+
+
+
+
+// ! test bits
+// todo allow selection above game for colorblind option
+let colorBlind = false;
+
+if (colorBlind) {
+  document.querySelectorAll(".tooltip-text-ball").forEach(ball => {
+    ball.classList.add("vis-hidden");
+  });
+}
+
+
+
+
+
+
+// !end of test bits
+
+
+
+
 /** run the challenge */
 runChallenge();
