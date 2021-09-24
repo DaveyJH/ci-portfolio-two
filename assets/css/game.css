@@ -150,6 +150,9 @@
   left: .1rem;
   top: .1rem;
 }
+.active-balls, .check-result img {
+  cursor: pointer;
+}
 /* guess rows end */
 /* rows end */
 /* game-board end */
@@ -173,6 +176,7 @@
 }
 #selector-box button {
   box-sizing: content-box;
+  cursor: pointer;
 }
 #clear-selector {
   position: absolute;
