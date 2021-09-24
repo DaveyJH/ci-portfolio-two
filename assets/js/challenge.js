@@ -58,28 +58,28 @@ const hiddenBestTime = document.getElementsByClassName("best time")[0].getElemen
 function timerC() {
   intervalCount = setInterval(function () {
     secondsTime++; // increment seconds by 1
-    seconds.innerHTML = (("0" + secondsTime).slice(-2)).toString(); // display seconds as 2 digit string
-    minutes.innerHTML = (("0" + minutesTime).slice(-2)).toString(); // display minutes as 2 digit string
+    seconds.textContent = (("0" + secondsTime).slice(-2)).toString(); // display seconds as 2 digit string
+    minutes.textContent = (("0" + minutesTime).slice(-2)).toString(); // display minutes as 2 digit string
     if (secondsTime === 60) { // do not display 60
       secondsTime = 0; // reset second count
-      seconds.innerHTML = (("0" + secondsTime).slice(-2)).toString();
+      seconds.textContent = (("0" + secondsTime).slice(-2)).toString();
       minutesTime++; // increment minutes by 1
-      minutes.innerHTML = (("0" + minutesTime).slice(-2)).toString();
+      minutes.textContent = (("0" + minutesTime).slice(-2)).toString();
     }
     if ((secondsTime === 59) && (minutesTime === 59)) { // stop timer at maximum time of 59:59
       clearInterval(intervalCount);
     }
     if (minutesTime === 1) {
       if (secondsTime === 1) {
-        hiddenTime.innerHTML = `current time: ${minutesTime} minute and ${secondsTime} second`;
+        hiddenTime.textContent = `current time: ${minutesTime} minute and ${secondsTime} second`;
       } else {
-        hiddenTime.innerHTML = `current time: ${minutesTime} minute and ${secondsTime} seconds`;
+        hiddenTime.textContent = `current time: ${minutesTime} minute and ${secondsTime} seconds`;
       }
     } else {
       if (secondsTime === 1) {
-        hiddenTime.innerHTML = `current time: ${minutesTime} minutes and ${secondsTime} second`;
+        hiddenTime.textContent = `current time: ${minutesTime} minutes and ${secondsTime} second`;
       } else {
-        hiddenTime.innerHTML = `current time: ${minutesTime} minutes and ${secondsTime} seconds`;
+        hiddenTime.textContent = `current time: ${minutesTime} minutes and ${secondsTime} seconds`;
       }
     }
   }, 1000); // 1000ms = 1 second
@@ -89,27 +89,27 @@ function timerC() {
  * - if quicker : replace best time
  */
 function checkTimeC() {
-  const testSeconds = Number(bestSeconds.innerHTML); // convert seconds string to number
-  const testMinutes = Number(bestMinutes.innerHTML); // convert minutes string to number
+  const testSeconds = Number(bestSeconds.textContent); // convert seconds string to number
+  const testMinutes = Number(bestMinutes.textContent); // convert minutes string to number
   const calculatedCurrentTime = minutesTime * 60 + secondsTime; // current time in seconds
   const calculatedBestTime = testMinutes * 60 + testSeconds; // best time in seconds
-  if ((calculatedCurrentTime < calculatedBestTime) || (bestSeconds.innerHTML === "--")) { // check current time against best OR best is unset
-    bestSeconds.innerHTML = (("0" + secondsTime).slice(-2)).toString(); // write bestSeconds
-    bestMinutes.innerHTML = (("0" + minutesTime).slice(-2)).toString(); // write bestMinutes
+  if ((calculatedCurrentTime < calculatedBestTime) || (bestSeconds.textContent === "--")) { // check current time against best OR best is unset
+    bestSeconds.textContent = (("0" + secondsTime).slice(-2)).toString(); // write bestSeconds
+    bestMinutes.textContent = (("0" + minutesTime).slice(-2)).toString(); // write bestMinutes
   }
-  if (bestSeconds.innerHTML === "--") {
-    hiddenBestTime.innerHTML = `best time: unset`
-  } else if (bestMinutes.innerHTML === "01") {
-    if (bestSeconds.innerHTML === "01") {
-      hiddenBestTime.innerHTML = `best time: ${Number(bestMinutes.innerHTML)} minute and ${Number(bestSeconds.innerHTML)} second`;
+  if (bestSeconds.textContent === "--") {
+    hiddenBestTime.textContent = `best time: unset`
+  } else if (bestMinutes.textContent === "01") {
+    if (bestSeconds.textContent === "01") {
+      hiddenBestTime.textContent = `best time: ${Number(bestMinutes.textContent)} minute and ${Number(bestSeconds.textContent)} second`;
     } else {
-      hiddenBestTime.innerHTML = `best time: ${Number(bestMinutes.innerHTML)} minute and ${Number(bestSeconds.innerHTML)} seconds`;
+      hiddenBestTime.textContent = `best time: ${Number(bestMinutes.textContent)} minute and ${Number(bestSeconds.textContent)} seconds`;
     }
   } else {
-    if (bestSeconds.innerHTML === "01") {
-      hiddenBestTime.innerHTML = `best time: ${Number(bestMinutes.innerHTML)} minutes and ${Number(bestSeconds.innerHTML)} second`;
+    if (bestSeconds.textContent === "01") {
+      hiddenBestTime.textContent = `best time: ${Number(bestMinutes.textContent)} minutes and ${Number(bestSeconds.textContent)} second`;
     } else {
-      hiddenBestTime.innerHTML = `best time: ${Number(bestMinutes.innerHTML)} minutes and ${Number(bestSeconds.innerHTML)} seconds`;
+      hiddenBestTime.textContent = `best time: ${Number(bestMinutes.textContent)} minutes and ${Number(bestSeconds.textContent)} seconds`;
     }
   }
 }
@@ -143,7 +143,7 @@ function setSolutionC() {
 function setSolutionBallsC() {
   for (let i = 0; i < solutionHolder.length; i++) {
     solutionBalls[i].style.backgroundColor = (solutionHolder[i]); // set color of solution balls
-    solutionText.innerHTML = `solution: ${solutionHolder}`;
+    solutionText.innerHTML = `solution: ${solutionHolder}`; //! may change to row style naming
   }
 }
 
@@ -219,7 +219,7 @@ function nextRowC() {
     activateRowC();
   } else { // if no rows remain for guesses
     ballRevealC();
-    message.innerHTML = "Oh dear!";
+    message.textContent = "Oh dear!";
     clearInterval(intervalCount);
     resetTimeC();
     setTimeout(loserC, 750); // delay popup to allow result to be displayed
@@ -252,8 +252,8 @@ function colorSelectorC(event) {
 function clearSelectionC() {
   if (activeSelection !== "inactive") {
     activeSelection.style.backgroundColor = "rgb(133, 78, 30)";
-    activeSelection.parentNode.children[0].innerHTML = "empty";
-    activeSelection.children[0].innerHTML = "empty ball";
+    activeSelection.parentNode.children[0].textContent = "empty";
+    activeSelection.children[0].textContent = "empty ball";
     activeSelection.classList.add("empty");
     activeSelection.style.border = "none";
     activeSelection.style.boxShadow = "none";
@@ -298,8 +298,8 @@ function colorSelectC(event) {
   colorSelected = event.target.style.backgroundColor; // set colorSelected to color of clicked selector ball
   activeSelection.style.backgroundColor = colorSelected; // apply color to active ball in guess row
   activeSelection.classList.remove("empty"); // .empty removed to prevent alert when checking row
-  activeSelection.parentNode.children[0].innerHTML = colorSelected;
-  activeSelection.children[0].innerHTML = colorSelected + " ball";
+  activeSelection.parentNode.children[0].textContent = colorSelected;
+  activeSelection.children[0].textContent = colorSelected + " ball";
   colorSelectBox.style.visibility = "hidden"; // hide selector box
   clearSelector.style.visibility = "hidden"; // hide clear selection
   activeSelection.style.border = "none"; // remove border from color ball in guess row
@@ -399,7 +399,7 @@ function checkResultC() {
       deactivateRowC();
       ballRevealC();
       checkScoreC();
-      message.innerHTML = "Well done!";
+      message.textContent = "Well done!";
       setTimeout(winnerC, 100); // delay popup to allow 4 black pegs to be displayed
     } else {
       nextRowC(); // continue with game
@@ -431,8 +431,8 @@ const hiddenScoreText = document.getElementById("best-score-value");
 function checkScoreC() {
   if (bestScore > score || bestScore === 0) {
     bestScore = score.toString();
-    bestScoreHTML.innerHTML = `${bestScore}`;
-    hiddenScoreText.innerHTML = `best score: ${bestScore}`;
+    bestScoreHTML.textContent = `${bestScore}`;
+    hiddenScoreText.textContent = `best score: ${bestScore}`;
   }
 }
 
@@ -502,7 +502,7 @@ function resetC() {
   }
   rows[0].removeAttribute("aria-hidden");
   solutionCover.style.zIndex = "1"; // hide solution
-  message.innerHTML = "Good luck!";
+  message.textContent = "Good luck!";
   score = 0;
   runChallenge();
 }
