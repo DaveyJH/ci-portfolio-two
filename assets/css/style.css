@@ -76,11 +76,11 @@ body {
 #selector-box .tooltip-text-ball {
   right: -1.300625rem;
 }
-.tooltip-holder:hover .tooltip-text, .tooltip-holder:hover .tooltip-text-left, .active-row .tooltip-holder:hover .tooltip-text-ball, #selector-box .tooltip-holder:hover .tooltip-text-ball, .completed-row .tooltip-holder:hover .tooltip-text-ball {
+.tooltip-holder:hover .tooltip-text, .tooltip-holder:hover .tooltip-text-left, .active-row .tooltip-holder:hover .tooltip-text-ball, #selector-box .tooltip-holder:hover .tooltip-text-ball, .completed-row .tooltip-holder:hover .tooltip-text-ball, #solution .tooltip-holder:hover .tooltip-text-ball {
   transform: scale(1);
   z-index: 5;
 }
-.tooltip-holder:focus-within .tooltip-text, .tooltip-holder:focus-within .tooltip-text-left, .active-row .tooltip-holder:focus-within .tooltip-text-ball, #selector-box .tooltip-holder:focus-within .tooltip-text-ball, .completed-row .tooltip-holder:focus-within .tooltip-text-ball {
+.tooltip-holder:focus-within .tooltip-text, .tooltip-holder:focus-within .tooltip-text-left, .active-row .tooltip-holder:focus-within .tooltip-text-ball, #selector-box .tooltip-holder:focus-within .tooltip-text-ball, .completed-row .tooltip-holder:focus-within .tooltip-text-ball, #solution .tooltip-holder:focus-within .tooltip-text-ball {
   transform: scale(1);
   z-index: 5;
 }

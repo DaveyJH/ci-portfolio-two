@@ -143,7 +143,8 @@ function setSolutionC() {
 function setSolutionBallsC() {
   for (let i = 0; i < solutionHolder.length; i++) {
     solutionBalls[i].style.backgroundColor = (solutionHolder[i]); // set color of solution balls
-    solutionText.innerHTML = `solution: ${solutionHolder}`; //! may change to row style naming
+    solutionBalls[i].children[0].textContent = solutionHolder[i] + " ball";
+    solutionBalls[i].previousElementSibling.textContent = solutionHolder[i];
   }
 }
 
@@ -499,6 +500,10 @@ function resetC() {
   const resultText = document.getElementsByClassName("result-text");
   for (const text of resultText) {
     text.textContent = "result: empty";
+  }
+  for (const ball of solutionBalls) {
+    ball.children[0].textContent = "hidden ball";
+    ball.previousElementSibling.textContent = "hidden";
   }
   rows[0].removeAttribute("aria-hidden");
   solutionCover.style.zIndex = "1"; // hide solution
