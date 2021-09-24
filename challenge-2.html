@@ -42,14 +42,13 @@
       </div>
     </div>
     <nav>
-      <!-- todo add aria labels -->
       <ul>
         <li>
           <a href="./index.html">Play</a>
         </li>
         <li>
           <a href="./challenge.html" class="nav-active" aria-current="page">Challenge<span
-              class="hidden-aria-text">current page</span></a>
+              class="hidden-aria-text current-page-marker">current page</span></a>
         </li>
         <li>
           <a href="./rules.html">Rules</a>
@@ -135,7 +134,8 @@
             </button>
           </div>
         </div>
-        <div class="result-holder">
+        <div class="result-holder hidden-aria-text">
+          <span class="result-text">result: empty</span>
           <div class="result">
             <div class="peg">
             </div>
@@ -147,11 +147,11 @@
             </div>
           </div>
           <div class="check-result">
-            <img src="assets/images/search-tick.png" alt="check result" role="button" hidden>
+            <img src="assets/images/search-tick.png" alt="check result" role="button" class="vis-hidden">
           </div>
         </div>
       </div>
-      <div class="row guess">
+      <div class="row guess" aria-hidden="true">
         <div class="number text-center">
           2
         </div>
@@ -181,7 +181,8 @@
             </button>
           </div>
         </div>
-        <div class="result-holder">
+        <div class="result-holder hidden-aria-text">
+          <span class="result-text">result: empty</span>
           <div class="result">
             <div class="peg">
             </div>
@@ -193,11 +194,11 @@
             </div>
           </div>
           <div class="check-result">
-            <img src="assets/images/search-tick.png" alt="check result">
+            <img src="assets/images/search-tick.png" alt="check result" role="button" class="vis-hidden">
           </div>
         </div>
       </div>
-      <div class="row guess">
+      <div class="row guess" aria-hidden="true">
         <div class="number text-center">
           3
         </div>
@@ -227,7 +228,8 @@
             </button>
           </div>
         </div>
-        <div class="result-holder">
+        <div class="result-holder hidden-aria-text">
+          <span class="result-text">result: empty</span>
           <div class="result">
             <div class="peg">
             </div>
@@ -239,11 +241,11 @@
             </div>
           </div>
           <div class="check-result">
-            <img src="assets/images/search-tick.png" alt="check result">
+            <img src="assets/images/search-tick.png" alt="check result" role="button" class="vis-hidden">
           </div>
         </div>
       </div>
-      <div class="row guess">
+      <div class="row guess" aria-hidden="true">
         <div class="number text-center">
           4
         </div>
@@ -273,7 +275,8 @@
             </button>
           </div>
         </div>
-        <div class="result-holder">
+        <div class="result-holder hidden-aria-text">
+          <span class="result-text">result: empty</span>
           <div class="result">
             <div class="peg">
             </div>
@@ -285,11 +288,11 @@
             </div>
           </div>
           <div class="check-result">
-            <img src="assets/images/search-tick.png" alt="check result">
+            <img src="assets/images/search-tick.png" alt="check result" role="button" class="vis-hidden">
           </div>
         </div>
       </div>
-      <div class="row guess">
+      <div class="row guess" aria-hidden="true">
         <div class="number text-center">
           5
         </div>
@@ -319,7 +322,8 @@
             </button>
           </div>
         </div>
-        <div class="result-holder">
+        <div class="result-holder hidden-aria-text">
+          <span class="result-text">result: empty</span>
           <div class="result">
             <div class="peg">
             </div>
@@ -331,11 +335,11 @@
             </div>
           </div>
           <div class="check-result">
-            <img src="assets/images/search-tick.png" alt="check result">
+            <img src="assets/images/search-tick.png" alt="check result" role="button" class="vis-hidden">
           </div>
         </div>
       </div>
-      <div class="row guess">
+      <div class="row guess" aria-hidden="true">
         <div class="number text-center">
           6
         </div>
@@ -365,7 +369,8 @@
             </button>
           </div>
         </div>
-        <div class="result-holder">
+        <div class="result-holder hidden-aria-text">
+          <span class="result-text">result: empty</span>
           <div class="result">
             <div class="peg">
             </div>
@@ -377,7 +382,7 @@
             </div>
           </div>
           <div class="check-result">
-            <img src="assets/images/search-tick.png" alt="check result">
+            <img src="assets/images/search-tick.png" alt="check result" role="button" class="vis-hidden">
           </div>
         </div>
       </div>
@@ -431,7 +436,6 @@
   </section>
   <section class="text-center">
     <p id="learn-more">
-      <!-- todo add link to about page with id of knuth algorithm section -->
       Want to know about the algorithm that makes this challenge possible <strong><em>everytime</em></strong>?
     </p>
     <div id="learn-more-link">

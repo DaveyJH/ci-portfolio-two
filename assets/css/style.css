@@ -41,6 +41,9 @@ body {
 .hidden-aria-text {
   font-size: 0;
 }
+.vis-hidden {
+  visibility: hidden;
+}
 
 /* aria */
 .tooltip-holder {
@@ -86,6 +89,10 @@ body {
   height: 1rem;
   width: 2.7rem;
   top: .2rem;
+}
+.current-page-marker {
+  width: 0;
+  height: 0;
 }
 /* end of aria */
 /* end of classes */
@@ -144,7 +151,7 @@ header li {
 .nav-active {
   color: #6bdce9;
 }
-/* header end */
+/* end of header */
 
 /* footer */
 footer {

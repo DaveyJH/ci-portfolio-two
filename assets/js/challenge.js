@@ -164,6 +164,7 @@ document.getElementById("clear-selector").children[1].addEventListener("click", 
 function activateRowC() {
   // get and set .active-row
   activeRow = document.getElementsByClassName("guess")[aR];
+  activeRow.removeAttribute("aria-hidden");
   activeRow.classList.add("active-row");
 
   // set .active-balls and .empty to color-balls in active-row
@@ -266,7 +267,7 @@ function clearSelectionC() {
 function showTickResultCheckC() {
   activeResultIcon.children[0].setAttribute("aria-hidden", "false");
   activeResultIcon.children[0].setAttribute("tabindex", "0");
-  activeResultIcon.children[0].removeAttribute("hidden");
+  activeResultIcon.children[0].classList.remove("vis-hidden");
   activeResultIcon.style.transform = "translateX(-50%) scale(1)";
 }
 
@@ -275,7 +276,7 @@ function hideTickResultCheckC() {
   activeResultIcon.children[0].setAttribute("tabindex", "-1");
   activeResultIcon.style.transform = "translateX(-50%) scale(0)";
   activeResultIcon.children[0].setAttribute("aria-hidden", "true");
-  activeResultIcon.children[0].setAttribute("hidden", "true");
+  activeResultIcon.children[0].classList.add("vis-hidden");
 }
 
 let emptyBalls; // boolean for any activeBalls containing .empty
@@ -316,6 +317,35 @@ function colorSelectC(event) {
 function assignPegsC() {
   for (let i = 0; i < numOfPegs; i++) {
     activePegs[i].style.backgroundColor = pegColors[i];
+  }
+  const resultText = activeRow.getElementsByClassName("result-text")[0];
+  let blackPegs = 0;
+  let whitePegs = 0;
+  for (const peg of pegColors) {
+    console.log(peg);
+    switch (peg) {
+      case "black":
+        blackPegs++;
+        break;
+      case "white":
+        whitePegs++;
+        break;
+      default:
+        // do nothing
+    }
+  }
+
+  let blackPegsWord = blackPegs === 1 ? "peg" : "pegs";
+  let whitePegsWord = whitePegs === 1 ? "peg" : "pegs";
+
+  if (blackPegs !== 0 && whitePegs === 0) {
+    resultText.textContent = `result: ${blackPegs} black ${blackPegsWord}`;
+  } else if (blackPegs === 0 && whitePegs !== 0) {
+    resultText.textContent = `result: ${whitePegs} white ${whitePegsWord}`;
+  } else if (blackPegs !== 0 && whitePegs !== 0) {
+    resultText.textContent = `result: ${blackPegs} black ${blackPegsWord} and ${whitePegs} white ${whitePegsWord}`;
+  } else {
+    resultText.textContent = "result: no pegs";
   }
 }
 
@@ -457,6 +487,20 @@ function resetC() {
   aR = 0;
   pegColors = [];
   deactivateRowC();
+  const rows = document.getElementsByClassName("guess");
+  for (const row of rows) {
+    row.setAttribute("aria-hidden", "true");
+    row.classList.remove("completed-row");
+  }
+  const balls = document.querySelectorAll(".tooltip-text-ball");
+  for (const ball of balls) {
+    ball.textContent = "empty";
+  };
+  const resultText = document.getElementsByClassName("result-text");
+  for (const text of resultText) {
+    text.textContent = "result: empty";
+  }
+  rows[0].removeAttribute("aria-hidden");
   solutionCover.style.zIndex = "1"; // hide solution
   message.innerHTML = "Good luck!";
   score = 0;
