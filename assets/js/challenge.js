@@ -515,9 +515,18 @@ function resetC() {
 // !colorBlind setting
 let colorBlind = document.getElementById("color-blind");
 colorBlind.addEventListener("click", toggleColorBlind);
-
+colorBlind.nextElementSibling.addEventListener("keydown", (keyed) => {
+  if (keyed.key === "Enter") {
+    colorBlind.checked = !colorBlind.checked;
+    toggleColorBlind();
+  } else if (keyed.key === " ") {
+    keyed.preventDefault();
+    colorBlind.checked = !colorBlind.checked;
+    toggleColorBlind();
+  }
+});
 /**
- * toggles tooltips when hovering over color balls.
+ * toggles tooltip appearing when hovering over color balls.
  */
 function toggleColorBlind() {
   if (!colorBlind.checked) {
@@ -531,6 +540,7 @@ function toggleColorBlind() {
   }
 }
 document.onload = toggleColorBlind();
+// end of colorblind
 
 /** run the challenge */
 runChallenge();

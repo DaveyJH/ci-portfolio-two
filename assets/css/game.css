@@ -215,6 +215,7 @@
   max-width: 18rem;
   margin: .5rem auto;
   line-height: 1.1rem;
+  cursor: pointer;
 }
 .checkbox-hack input {
   opacity: 0;
@@ -229,6 +230,7 @@
   border-radius: .2rem;
   position: relative;
   top: -.1rem;
+  cursor: pointer;
 }
 .checkbox-hack:hover input ~ .checkmark {
   background-color: #218397;
