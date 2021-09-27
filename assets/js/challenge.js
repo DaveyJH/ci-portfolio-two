@@ -377,34 +377,34 @@ function checkWhiteC() {
 function checkResultC() {
   solutionHolder = solution.slice(); // make a copy of the solution which is not modified
   activeBallsEmptyC();
-  if (emptyBalls) { //!delete - not needed
-    alert("Please complete selection!"); // prevent wasted guess
-  } else {
-    /* section added to prevent user confusion if guess ball selected
-    after four ball colors entered and no new color is chosen
-    */
-    colorSelectBox.style.visibility = "hidden"; // hide selector box
-    clearSelector.style.visibility = "hidden";
-    activeSelection.style.border = "none"; // remove border from active ball
-    activeSelection.style.boxShadow = "none";
-    activeSelection = "inactive"; // set active ball to undefined
+  // if (emptyBalls) { //!delete - not needed
+  //   alert("Please complete selection!"); // prevent wasted guess
+  // } else {
+  /* section added to prevent user confusion if guess ball selected
+  after four ball colors entered and no new color is chosen
+  */
+  colorSelectBox.style.visibility = "hidden"; // hide selector box
+  clearSelector.style.visibility = "hidden";
+  activeSelection.style.border = "none"; // remove border from active ball
+  activeSelection.style.boxShadow = "none";
+  activeSelection = "inactive"; // set active ball to undefined
 
-    checkBlackC();
-    checkWhiteC();
-    assignPegsC();
-    checkPegsC();
-    if (win) {
-      clearInterval(intervalCount); // stop timer
-      checkTimeC();
-      resetTimeC();
-      deactivateRowC();
-      ballRevealC();
-      checkScoreC();
-      message.textContent = "Well done!";
-      setTimeout(winnerC, 100); // delay popup to allow 4 black pegs to be displayed
-    } else {
-      nextRowC(); // continue with game
-    }
+  checkBlackC();
+  checkWhiteC();
+  assignPegsC();
+  checkPegsC();
+  if (win) {
+    clearInterval(intervalCount); // stop timer
+    checkTimeC();
+    resetTimeC();
+    deactivateRowC();
+    ballRevealC();
+    checkScoreC();
+    message.textContent = "Well done!";
+    setTimeout(winnerC, 100); // delay popup to allow 4 black pegs to be displayed
+  } else {
+    nextRowC(); // continue with game
+    // }
   }
   solution = solutionHolder.slice(); // set solution array back to correct values
 }
@@ -512,29 +512,25 @@ function resetC() {
   runChallenge();
 }
 
+// !colorBlind setting
+let colorBlind = document.getElementById("color-blind");
+colorBlind.addEventListener("click", toggleColorBlind);
 
-
-
-
-// ! test bits
-// todo allow selection above game for colorblind option
-let colorBlind = false;
-
-if (colorBlind) {
-  document.querySelectorAll(".tooltip-text-ball").forEach(ball => {
-    ball.classList.add("vis-hidden");
-  });
+/**
+ * toggles tooltips when hovering over color balls.
+ */
+function toggleColorBlind() {
+  if (!colorBlind.checked) {
+    document.querySelectorAll(".tooltip-text-ball").forEach(ball => {
+      ball.classList.add("vis-hidden");
+    });
+  } else {
+    document.querySelectorAll(".tooltip-text-ball").forEach(ball => {
+      ball.classList.remove("vis-hidden");
+    });
+  }
 }
-
-
-
-
-
-
-// !end of test bits
-
-
-
+document.onload = toggleColorBlind();
 
 /** run the challenge */
 runChallenge();
