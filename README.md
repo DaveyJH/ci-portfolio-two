@@ -166,7 +166,7 @@ F2
 
 - *[Instant Eyedropper](http://instant-eyedropper.com/)*
   - A quick and simple application to obtain hex values from any colour on my display. I downloaded this while playing around with my laptop layout/display settings. I have the app set to run on startup and remain minimized in my system tray. This allows quick access and if I click the colour, it automatically copies the value to my clipboard.
-- *[WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/)
+- *[WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/)*
   - A basic contrast checking service for conformity to the Web Content Accessibility Guidelines. The service allows input of a foreground and background colour and displays the resulting contrast ratio, including a quick reference to meeting WCAG AA / AAA standards.
 
 ## Testing
