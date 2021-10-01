@@ -67,15 +67,10 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
-.flex-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 .plusminus {
   width: 6rem;
 }
-.plusminus * {
+.plusminus *:not(span) {
   display: inline;
   box-sizing: border-box;
   width: 33%;

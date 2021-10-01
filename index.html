@@ -23,16 +23,28 @@
 </head>
 
 <body>
+  <!--  -->
   <header>
-    <span id="header-img-background"></span>
-    <div id="header-img">
-      <!-- header image applied as background image via CSS -->
+    <div class="flex-container lr-padding j-space-between">
+      <div>
+        <span id="header-img-background"></span>
+        <div id="header-img">
+          <!-- header image applied as background image via CSS -->
+        </div>
+      </div>
+      <h1 class="text-center">Mastermind</h1>
+      <div class="current time tooltip-holder">
+        <span class="tooltip-text" aria-hidden="true">current time</span>
+        <span class="hidden-value hidden-aria-text" role="timer"></span>
+        <p aria-hidden="true">
+          <span id="minutes" aria-hidden="true">--</span>:<span id="seconds" aria-hidden="true">--</span>
+        </p>
+      </div>
     </div>
-    <h1 class="text-center">Mastermind</h1>
     <nav>
       <ul>
         <li>
-          <span id="settings-activator" tabindex="0">Settings</span>
+          <span id="settings-activator" tabindex="0" role="menu">Settings</span>
         </li>
         <li>
           <a href="challenge.html">Challenge</a>
@@ -51,19 +63,23 @@
     <form method="POST">
       <div id="gameplay">
         <h3>Gameplay</h3>
-        <div class="flex-container">
-          <label for="number-of-colors" class="prevent-click">No. of colours</label>
+        <div class="flex-container j-center">
+          <label for="number-of-colors" class="prevent-click"><span aria-hidden="true">No.</span><span
+            class="hidden-aria-text">number</span> of colours<span
+            class="hidden-aria-text">:control via buttons</span></label>
           <div class="plusminus flex-container">
-            <button class="minus">-</button>
+            <button class="minus">-<span class="hidden-aria-text">minus</span></button>
             <input type="number" name="number-of-colors" id="number-of-colors" step="1" value="6" min="4" max="12" tabindex="-1">
             <button class="plus">+</button> 
           </div>
         </div>
         <hr>
-        <div class="flex-container">
-          <label for="number-in-solution" class="prevent-click">No. of balls in solution</label>
+        <div class="flex-container j-center">
+          <label for="number-in-solution" class="prevent-click"><span aria-hidden="true">No.</span><span
+            class="hidden-aria-text">number</span> of balls in solution<span
+            class="hidden-aria-text">:control via buttons</span></label>
           <div class="plusminus flex-container">
-            <button class="minus">-</button>
+            <button class="minus">-<span class="hidden-aria-text">minus</span></button>
             <input type="number" name="number-in-solution" id="number-in-solution" step="1" value="4" min="3" max="6" tabindex="-1">
             <button class="plus">+</button> 
           </div>
@@ -71,7 +87,7 @@
         <hr>
         <label for="repeat-in-solution" class="checkbox-hack">Colours may repeat in solution
           <input type="checkbox" name="repeat-in-solution" id="repeat-in-solution" checked tabindex="-1">
-          <span class="checkmark" tabindex="0" role="checkbox"></span>
+          <span class="checkmark" tabindex="0" role="checkbox" aria-describedby="repeat-in-solution"></span>
         </label>
         <hr>
         <label for="repeat-in-guess" class="checkbox-hack">Colours may repeat in guess

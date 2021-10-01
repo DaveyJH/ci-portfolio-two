@@ -38,6 +38,9 @@ body {
 .j-space-between {
   justify-content: space-between;
 }
+.j-center {
+  justify-content: center;
+}
 .hidden-aria-text {
   font-size: 0;
 }

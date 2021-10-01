@@ -205,6 +205,13 @@
   font-size: 2.4rem;
 }
 
+
+
+
+
+
+
+
 /* checkboxes */
 /* credit https://www.w3schools.com/howto/howto_css_custom_checkbox.asp */
 .checkbox-hack {
@@ -255,7 +262,7 @@
 .checkbox-hack input:disabled ~ .checkmark {
   background-color: #aaaaaa;
 }
-#colorblind>* {
+#colorblind > * {
   max-width: 12rem;
   margin-top: 1.5rem;
   font-size: 1.75rem;
