@@ -69,10 +69,10 @@
     <img src="assets/images/js-sad.png" alt="a sad face">
   </noscript>
 
-  <div id="colorblind">
+  <div id="color-blind-holder">
     <label for="color-blind" class="checkbox-hack">Colour Blind?
       <input type="checkbox" name="color-blind" id="color-blind" tabindex="-1">
-      <span class="checkmark" tabindex="0" role="checkbox"></span>
+      <span class="checkmark" tabindex="0" id = "color-blind-hack" role="checkbox" aria-checked="false" aria-labelledby="color-blind"></span>
     </label>
   </div>
   <section id="game">
@@ -461,14 +461,14 @@
       </div>
     </div>
   </section>
-  <section class="text-center">
+  <aside class="text-center">
     <p id="learn-more">
       Want to know about the algorithm that makes this challenge possible <strong><em>everytime</em></strong>?
     </p>
     <div id="learn-more-link">
       <a href="./about.html#knuth">Click here to learn more!</a>
     </div>
-  </section>
+  </aside>
   <footer>&#169;DaveyJH</footer>
   <script src="assets/js/challenge.js"></script>
 </body>

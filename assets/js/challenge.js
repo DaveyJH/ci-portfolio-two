@@ -533,10 +533,12 @@ function toggleColorBlind() {
     document.querySelectorAll(".tooltip-text-ball").forEach(ball => {
       ball.classList.add("vis-hidden");
     });
+    colorBlind.nextElementSibling.setAttribute("aria-checked", "false");
   } else {
     document.querySelectorAll(".tooltip-text-ball").forEach(ball => {
       ball.classList.remove("vis-hidden");
     });
+    colorBlind.nextElementSibling.setAttribute("aria-checked", "true");
   }
 }
 document.onload = toggleColorBlind();
