@@ -63,8 +63,8 @@
     <form method="POST">
       <div id="gameplay">
         <h3>Gameplay</h3>
-        <div class="flex-container j-center">
-          <label for="number-of-colors" class="prevent-click"><span aria-hidden="true">No.</span><span
+        <div class="flex-container j-center m05">
+          <label for="number-of-colors" class="prevent-click rel"><span aria-hidden="true">No.</span><span
             class="hidden-aria-text">number</span> of colours<span
             class="hidden-aria-text">:control via buttons</span></label>
           <div class="plusminus flex-container">
@@ -74,43 +74,68 @@
           </div>
         </div>
         <hr>
-        <div class="flex-container j-center">
-          <label for="number-in-solution" class="prevent-click"><span aria-hidden="true">No.</span><span
+        <div class="flex-container j-center m05">
+          <label for="number-in-solution" class="prevent-click rel"><span aria-hidden="true">No.</span><span
             class="hidden-aria-text">number</span> of balls in solution<span
-            class="hidden-aria-text">:control via buttons</span></label>
+            class="hidden-aria-text right">:control via buttons</span></label>
           <div class="plusminus flex-container">
-            <button class="minus">-<span class="hidden-aria-text">minus</span></button>
+            <button class="minus">
+              <span class="hidden-aria-text">minus</span><span aria-hidden="true">-</span>
+            </button>
             <input type="number" name="number-in-solution" id="number-in-solution" step="1" value="4" min="3" max="6" tabindex="-1">
-            <button class="plus">+</button> 
+            <button class="plus">
+              <span class="hidden-aria-text">plus</span><span aria-hidden="true">+</span>
+            </button>
           </div>
         </div>
         <hr>
-        <label for="repeat-in-solution" class="checkbox-hack">Colours may repeat in solution
-          <input type="checkbox" name="repeat-in-solution" id="repeat-in-solution" checked tabindex="-1">
-          <span class="checkmark" tabindex="0" role="checkbox" aria-describedby="repeat-in-solution"></span>
-        </label>
-        <hr>
-        <label for="repeat-in-guess" class="checkbox-hack">Colours may repeat in guess
-          <input type="checkbox" name="repeat-in-guess" id="repeat-in-guess" checked disabled tabindex="-1">
-          <span class="checkmark" tabindex="0" role="checkbox"></span>
-        </label>
+        <fieldset>
+          <legend id="repeat-legend">Repeat ball option checkboxes</legend>
+          <div class="checkbox-hack">
+            <label for="repeat-in-solution">Colours may repeat in solution</label>
+            <div class="rel">
+              <input type="checkbox" name="repeat-in-solution" id="repeat-in-solution" checked tabindex="-1">
+              <span class="checkmark" tabindex="0" role="checkbox" aria-checked="true" aria-labelledby="repeat-in-solution"></span>
+            </div>
+          </div>
+          <hr>
+          <div class="checkbox-hack">
+            <label for="repeat-in-guess">Colours may repeat in guess</label>
+            <div class="rel">
+              <input type="checkbox" name="repeat-in-guess" id="repeat-in-guess" checked disabled tabindex="-1">
+              <span class="checkmark" tabindex="0" role="checkbox" aria-checked="true" aria-labelledby="repeat-in-guess" aria-disabled="true"></span>
+            </div>
+          </div>
+        </fieldset>
       </div>
       <div id="timer-score">
         <h3>Timer/Score</h3>
-        <label for="current-time" class="checkbox-hack text-center">Display current time
-          <input type="checkbox" name="current-time" id="current-time" checked tabindex="-1">
-          <span class="checkmark" tabindex="0" role="checkbox"></span>
-        </label>
-        <hr>
-        <label for="best-time" class="checkbox-hack">Display best time
-          <input type="checkbox" name="best-time" id="best-time" checked tabindex="-1">
-          <span class="checkmark" tabindex="0" role="checkbox"></span>
-        </label>
-        <hr>
-        <label for="best-score" class="checkbox-hack">Display best score
-          <input type="checkbox" name="best-score" id="best-score" checked tabindex="-1">
-          <span class="checkmark" tabindex="0" role="checkbox"></span>
-        </label>
+        <fieldset>
+          <legend id="timer-score-legend">timer and score option checkboxes</legend>
+          <div class="checkbox-hack">
+            <label for="current-time">Display current time</label>
+            <div class="rel">
+              <input type="checkbox" name="current-time" id="current-time" checked tabindex="-1">
+              <span class="checkmark" tabindex="0" aria-checked="true"  role="checkbox" aria-labelledby="current-time"></span>
+            </div>
+          </div>
+          <hr>
+          <div class="checkbox-hack">
+            <label for="best-time">Display best time</label>
+            <div class="rel">
+              <input type="checkbox" name="best-time" id="best-time" checked tabindex="-1">
+              <span class="checkmark" tabindex="0" role="checkbox" aria-checked="true" aria-labelledby="best-time"></span>
+            </div>
+          </div>
+          <hr>
+          <div class="checkbox-hack">
+            <label for="best-score">Display best score</label>
+            <div class="rel">
+              <input type="checkbox" name="best-score" id="best-score" checked tabindex="-1">
+              <span class="checkmark" tabindex="0" role="checkbox" aria-checked="true" aria-labelledby="best-score"></span>
+            </div>
+          </div>
+        </fieldset>
       </div>
       <input type="submit" value="Play!" id="play-button">
     </form>
@@ -119,9 +144,6 @@
     <div id="scores-and-times" class="text-center">
       <div class="best score">
         --
-      </div>
-      <div class="current time">
-        <span id="minutes">--</span>:<span id="seconds">--</span>
       </div>
       <div class="best time">
         <span id="best-minutes">--</span>:<span id="best-seconds">--</span>
