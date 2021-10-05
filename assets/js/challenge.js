@@ -514,17 +514,61 @@ function resetC() {
 
 // !colorBlind setting
 let colorBlind = document.getElementById("color-blind");
-colorBlind.addEventListener("click", toggleColorBlind);
-colorBlind.nextElementSibling.addEventListener("keydown", (keyed) => {
-  if (keyed.key === "Enter") {
-    colorBlind.checked = !colorBlind.checked;
+
+// checkmark controls
+let checkmarks = document.getElementsByClassName("checkmark");
+for (let i = 0; i < checkmarks.length; i++) {
+  // aria control for click
+  const checkbox = checkmarks[i].previousElementSibling;
+  checkbox.addEventListener("click", () => {
     toggleColorBlind();
-  } else if (keyed.key === " ") {
-    keyed.preventDefault();
-    colorBlind.checked = !colorBlind.checked;
+    ariaCheck(checkbox);
+  })
+  checkmarks[i].addEventListener("click", () => {
+    checkbox.checked = !checkbox.checked;
     toggleColorBlind();
+    ariaCheck(checkbox);
+  });
+  // prevent space scroll
+  checkmarks[i].addEventListener("keydown", (keyed) => {
+    if (keyed.key === " ") {
+      keyed.preventDefault();
+    }
+  });
+  // keyboard
+  checkmarks[i].addEventListener("keyup", (keyed) => {
+    if (!checkbox.disabled) {
+      if (keyed.key === "Enter") {
+        checkbox.checked = !checkbox.checked;
+        toggleColorBlind();
+        ariaCheck(checkbox);
+      } else if (keyed.key === " ") {
+        checkbox.checked = !checkbox.checked;
+        toggleColorBlind();
+        ariaCheck(checkbox);
+      }
+    }
+  });
+}
+
+/**
+ * checks the state of the checkbox and alters aria-checked
+ * and aria-disabled accordingly
+ * @param {*} checkbox checkbox element to have **.checked** tested for true/false
+ */
+function ariaCheck(checkbox) {
+  if (!checkbox.checked) {
+    checkbox.nextElementSibling.setAttribute("aria-checked", "false");
+  } else {
+    checkbox.nextElementSibling.setAttribute("aria-checked", "true");
   }
-});
+  if (checkbox.disabled) {
+    checkbox.nextElementSibling.setAttribute("aria-disabled", "true");
+  } else {
+    checkbox.nextElementSibling.setAttribute("aria-disabled", "false");
+  }
+}
+
 /**
  * toggles tooltip appearing when hovering over color balls.
  */
@@ -533,12 +577,12 @@ function toggleColorBlind() {
     document.querySelectorAll(".tooltip-text-ball").forEach(ball => {
       ball.classList.add("vis-hidden");
     });
-    colorBlind.nextElementSibling.setAttribute("aria-checked", "false");
+    // colorBlind.nextElementSibling.setAttribute("aria-checked", "false");
   } else {
     document.querySelectorAll(".tooltip-text-ball").forEach(ball => {
       ball.classList.remove("vis-hidden");
     });
-    colorBlind.nextElementSibling.setAttribute("aria-checked", "true");
+    // colorBlind.nextElementSibling.setAttribute("aria-checked", "true");
   }
 }
 document.onload = toggleColorBlind();
