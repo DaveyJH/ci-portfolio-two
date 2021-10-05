@@ -66,11 +66,15 @@
         <div class="flex-container j-center m05">
           <label for="number-of-colors" class="prevent-click rel"><span aria-hidden="true">No.</span><span
             class="hidden-aria-text">number</span> of colours<span
-            class="hidden-aria-text">:control via buttons</span></label>
+            class="hidden-aria-text right">:control via buttons</span></label>
           <div class="plusminus flex-container">
-            <button class="minus">-<span class="hidden-aria-text">minus</span></button>
+            <button class="minus">
+              <span class="hidden-aria-text">minus</span><span aria-hidden="true">-</span>
+            </button>
             <input type="number" name="number-of-colors" id="number-of-colors" step="1" value="6" min="4" max="12" tabindex="-1">
-            <button class="plus">+</button> 
+            <button class="plus">
+              <span class="hidden-aria-text">plus</span><span aria-hidden="true">+</span>
+            </button>
           </div>
         </div>
         <hr>
