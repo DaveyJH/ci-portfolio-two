@@ -59,7 +59,7 @@
       </ul>
     </nav>
   </header>
-  <!-- section containing game and message -->
+  
   <noscript>
     <p>
       Oh dear! JavaScript is required to play this game...
@@ -69,12 +69,18 @@
     <img src="assets/images/js-sad.png" alt="a sad face">
   </noscript>
 
-  <div id="color-blind-holder">
-    <label for="color-blind" class="checkbox-hack">Colour Blind?
-      <input type="checkbox" name="color-blind" id="color-blind" tabindex="-1">
-      <span class="checkmark" tabindex="0" id = "color-blind-hack" role="checkbox" aria-checked="false" aria-labelledby="color-blind"></span>
-    </label>
-  </div>
+  <fieldset id="global-settings">
+    <legend>Color blind and audio option checkboxes</legend>
+    <div class="checkbox-hack">
+      <label for="color-blind">Colour Blind?</label>
+      <div class="rel">
+        <input type="checkbox" name="color-blind" id="color-blind" tabindex="-1">
+        <span class="checkmark" tabindex="0" role="checkbox" aria-checked="false" aria-labelledby="color-blind"></span>
+      </div>
+    </div>
+  <!-- ?add audio control and audio? -->
+  </fieldset>
+  <!-- section containing game and message -->
   <section id="game">
     <!-- gameboard  -->
     <div id="game-board">
