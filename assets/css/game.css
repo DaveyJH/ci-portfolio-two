@@ -174,7 +174,7 @@
   height: 7rem;
   visibility: hidden;
 }
-#selector-box button {
+#selector-box button, form button * {
   box-sizing: content-box;
   cursor: pointer;
 }
@@ -197,6 +197,9 @@
 #selector-box .color-ball {
   border: .2rem solid #fffce8;
 }
+label {
+  user-select: none;
+}
 /* selector box end */
 #message {
   color: #3e363f;
@@ -205,15 +208,27 @@
   font-size: 2.4rem;
 }
 
-
-
-
-
-
-
-
 /* checkboxes */
 /* credit https://www.w3schools.com/howto/howto_css_custom_checkbox.asp */
+fieldset {
+  border: none;
+  position: relative;
+  padding: 0;
+}
+fieldset legend {    
+  font-size: 0;
+  position: absolute;
+  /* left: 50%; */
+  width: 20%;
+  right: 0;
+  /* !add media query for larger screens */
+}
+#repeat-legend {
+  height: 4.6rem;
+}
+#timer-score-legend {
+  height: 7.2rem
+}
 .checkbox-hack {
   position: relative;
   display: flex;
@@ -222,12 +237,14 @@
   max-width: 18rem;
   margin: .5rem auto;
   line-height: 1.1rem;
+}
+.checkbox-hack label {
   cursor: pointer;
 }
 .checkbox-hack input {
-  opacity: 0;
-  height: 0;
-  width: 0;
+  visibility: hidden;
+  height: 1rem;
+  width: 1rem;
 }
 .checkmark {
   height: 1rem;
@@ -235,8 +252,8 @@
   background-color: #165764;
   border: solid .1rem #022b3a;
   border-radius: .2rem;
-  position: relative;
-  top: -.1rem;
+  position: absolute;
+  left: -.2rem;
   cursor: pointer;
 }
 .checkbox-hack:hover input ~ .checkmark {
@@ -262,13 +279,17 @@
 .checkbox-hack input:disabled ~ .checkmark {
   background-color: #aaaaaa;
 }
-#colorblind > * {
+#global-settings > div {
   max-width: 12rem;
   margin-top: 1.5rem;
   font-size: 1.75rem;
+  line-height: 1.25rem;
   font-weight: bold;
   color: #3e363f;
-  justify-content: space-between;
+}
+#global-settings legend {
+  margin-top: 1rem;
+  height: 2.2rem;
 }
 /* end of checkboxes */
 /* end of settings */
