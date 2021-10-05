@@ -17,8 +17,10 @@
 }
 
 /* settings */
+nav span, button, input[type="submit"] {
+  cursor: pointer;
+}
 #settings {
-  /* make sticky in javascript?? */
   position: absolute;
   z-index: 3;
   top: 5.4rem;
@@ -35,13 +37,12 @@
 #settings h3 {
   margin: 1.2rem auto .6rem;
 }
-label {
+#settings label {
   display: inline-block;
   margin: 0 .5rem;
   font-size: 1.1rem;
 }
 input:not([type="submit"]) {
-  /* clear: right; */
   text-align: center;
 }
 input[type="submit"] {
@@ -95,7 +96,7 @@ input[type=number] {
 }
 hr {
   border-color: #022b3a;
-  margin: .4rem auto;
+  margin: 0 auto;
   max-width: 30rem;
 }
 /* end of settings */
