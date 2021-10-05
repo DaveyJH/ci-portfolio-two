@@ -28,6 +28,9 @@ body {
 }
 
 /* classes */
+.rel {
+  position: relative;
+}
 .flex-container {
   display: flex;
   align-items: center;
@@ -41,11 +44,21 @@ body {
 .j-center {
   justify-content: center;
 }
+.m05 {
+  margin: .5rem auto;
+}
 .hidden-aria-text {
   font-size: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 .vis-hidden {
   visibility: hidden;
+}
+.right {
+  left: initial;
+  right: 0;
 }
 
 /* aria */
