@@ -62,29 +62,33 @@ let settingsHolder = [calculatedColors.value,
 const settingsActivator = document.getElementById("settings-activator");
 
 //! settings overlay
-solutionRepeatCheck.addEventListener("click", checkState);
+solutionRepeatCheck.addEventListener("click", checkRepeatState);
 
 /** - check values of colors and balls, disable/check checkboxes as needed.
  *  - check state of checkboxes and disable/check guessRepeatCheck as needed.
  */
-function checkState() {
+function checkRepeatState() {
   numOfColors = calculatedColors.value;
   numOfBalls = calculatedBalls.value;
-
-  if ((numOfBalls > numOfColors) && (numOfColors < 7)) { //todo numOfColors check not needed?
+  if (numOfBalls > numOfColors) {
     solutionRepeatCheck.checked = true;
     solutionRepeatCheck.disabled = true;
     guessRepeatCheck.checked = true;
     guessRepeatCheck.disabled = true;
+    ariaCheck(solutionRepeatCheck);
+    ariaCheck(guessRepeatCheck);
   } else {
     solutionRepeatCheck.disabled = false;
+    ariaCheck(solutionRepeatCheck);
   }
 
   if (!solutionRepeatCheck.checked) {
     guessRepeatCheck.disabled = false;
+    ariaCheck(guessRepeatCheck);
   } else {
     guessRepeatCheck.disabled = true;
     guessRepeatCheck.checked = true;
+    ariaCheck(guessRepeatCheck);
   }
 }
 
@@ -100,11 +104,13 @@ function settingsState() {
     solutionRepeatCheck.checked = settingsHolder[2];
     guessRepeatCheck.checked = settingsHolder[3];
     settingsActivator.style.color = "#fffce8";
-    checkState();
+    checkRepeatState();
     scoreTimerOptionsCheck();
+    document.getElementById("game-board").style.visibility = "visible";
     settingsOverlay.style.visibility = "hidden";
     timer();
   } else {
+    clearActiveSelect();
     showSettings();
     settingsActivator.style.color = "#6bdce9";
   }
@@ -146,6 +152,7 @@ function storeNewSettings() {
 
 /** show settings overlay and enable functionality. pause timer */
 function showSettings() {
+  document.getElementById("game-board").style.visibility = "hidden";
   settingsOverlay.style.visibility = "visible";
   clearInterval(intervalCount);
   const playButton = document.getElementById("play-button");
@@ -163,7 +170,7 @@ function disableClickNumberInputs() {
     item.addEventListener("click", preventNorm);
   });
 
-//TODO move outside individual function?
+  //TODO move outside individual function?
   function preventNorm(event) {
     event.preventDefault();
   }
@@ -183,13 +190,13 @@ function plusminus() {
    */
   function plusValue(event) {
     event.preventDefault();
-    let num = event.target.previousElementSibling;
+    let num = event.currentTarget.previousElementSibling;
     if (num.value < Number(num.max)) {
       num.value++;
     } else {
       alert("Sorry, you can't go any higher!");
     }
-    checkState();
+    checkRepeatState();
   }
 
   for (let i = 0; i < minusButtons.length; i++) {
@@ -201,13 +208,13 @@ function plusminus() {
    */
   function minusValue(event) {
     event.preventDefault();
-    let num = event.target.nextElementSibling;
+    let num = event.currentTarget.nextElementSibling;
     if (num.value > Number(num.min)) {
       num.value--;
     } else {
       alert("Sorry, you can't go any lower!");
     }
-    checkState();
+    checkRepeatState();
   }
 }
 
@@ -227,6 +234,7 @@ function playGame(event) {
     bestMinutes.innerHTML = "--";
   }
   storeNewSettings();
+  document.getElementById("game-board").style.visibility = "visible";
   settingsOverlay.style.visibility = "hidden";
   settingsActivator.style.color = "#fffce8";
   reset();
@@ -242,7 +250,7 @@ function resetTime() {
 //! gameplay variables
 const gameBoard = document.getElementById("game-board");
 
-let colors = ["red", "green", "blue", "yellow", "pink", "purple", "aqua", "lime", "black", "white", "silver", "orange"];
+const colors = ["red", "green", "blue", "yellow", "pink", "purple", "aqua", "lime", "black", "white", "silver", "orange"];
 let availableColors;
 const colorSelectors = document.getElementsByClassName("selector");
 const colorSelectBox = document.getElementById("selector-box");
@@ -297,7 +305,8 @@ function setPegCount() {
   }
 }
 
-/** add new div.color-ball.selector for each color in colors array */
+/** add new div.color-ball.selector to selector
+ * box for each color in colors array */
 function addColorSelectors() {
   while (colorSelectors.length < numOfColors) {
     const newColorSelector = document.createElement("div");
@@ -306,7 +315,8 @@ function addColorSelectors() {
   }
 }
 
-/** add **clearSelection()** to top selector ball/text (separate from colors) */
+/** add **clearSelection()** eventlistener
+ * to top selector ball/text (separate from colors) */
 function addClearSelection() {
   document.getElementById("clear-selector").children[0].addEventListener("click", clearSelection);
   document.getElementById("clear-selector").children[1].addEventListener("click", clearSelection);
@@ -320,6 +330,7 @@ function addClearSelection() {
   }
 }
 
+// todo delete??
 /** add result check icon to each row */
 function addResultChecks() {
   for (let i = 0; i < guessRows.length; i++) {
@@ -359,7 +370,7 @@ function removeRows() {
   }
 }
 
-/** set available colors to equal number of colors chosen in settings */
+/** set available colors to array equal number of colors chosen in settings */
 function setAvailableColors() {
   availableColors = colors.slice(0, numOfColors);
 }
@@ -401,6 +412,7 @@ function setSelectorBalls() {
   }
 }
 
+// todo update when taptarget style done for 4 balls
 /** shrink balls if set to 6 in solution */
 function resizeBalls() {
   //guessRows
@@ -546,6 +558,7 @@ function testAddRows() {
   }
 }
 
+// todo update row html
 /** create new guess row with current settings */
 function addRow() {
   const newRowNumber = guessRows.length + 1;
@@ -572,7 +585,7 @@ function addRow() {
  * - remove border from previously selected ball
  * - display selector box and add tab index
  * - display *clear* option if ball is colored
- * - give slected ball a border and shadow
+ * - give selected ball a border and shadow
  */
 function rowColorSelector(event) {
   if (activeSelection !== "inactive") {
@@ -686,19 +699,19 @@ function getActiveIndex() {
   }
 }
 
-/** display result icon to allow continuing to next row */
+/** display result icon to allow checking result */
 function showResultCheck() {
   activeResultIcon.style.transform = "translateX(-50%) scale(1)";
   addTabIndex(activeResultIcon);
 }
 
-/** hide result icon for next row functions */
+/** hide result icon */
 function hideResultCheck() {
   activeResultIcon.style.transform = "translateX(-50%) scale(0)";
   removeTabIndex(activeResultIcon);
 }
 
-/** check for .empty in any ball in activeRow. return 
+/** check for .empty in any ball in activeRow.
  * @boolean **emptyBalls**
  */
 function activeBallsEmpty() {
@@ -777,8 +790,9 @@ function assignPegs() {
 let win;
 const bestScoreHTML = document.getElementsByClassName("best score")[0];
 
-/** check for four black pegs, return 
- * @boolean **win**
+/**
+ * checks for win condition
+ * - win = all black pegs? true : false
  */
 function checkPegs() {
   for (let i = 0; i < activePegs.length; i++) {
@@ -945,7 +959,7 @@ function hint() {
   }
 }
 
-/** set the background color of the next ball to be revealed */
+/** set the background color of the next ball to be revealed*/
 function addOneSolutionColor() {
   const solutionIndex = solutionBalls.length - hintCount;
   solutionBalls[solutionIndex].style.backgroundColor = solutionHolder[solutionIndex];
@@ -1016,7 +1030,6 @@ function reset() {
 }
 
 handleChange();
-
 resetTime();
 plusminus();
 disableClickNumberInputs();
@@ -1031,29 +1044,50 @@ function removeTabIndex(elem) {
   elem.removeAttribute("tabindex");
 }
 
-//! keyboard
-settingsActivator.addEventListener("keyup", function (keyed) {
+// display settings menu with "Enter" key
+settingsActivator.addEventListener("keyup", (keyed) => {
   if (keyed.key === "Enter") {
     settingsState();
     document.getElementsByClassName("minus")[0].focus();
   }
 });
 
-let checkmarks = document.getElementsByClassName("checkmark");
-for (let i = 0; i < checkmarks.length; i++) {
-  checkmarks[i].addEventListener("keyup", function (keyed) {
-    if (!checkmarks[i].previousElementSibling.disabled) {
+// checkmark controls
+let settingsCheckmarks = settingsOverlay.getElementsByClassName("checkmark");
+for (let i = 0; i < settingsCheckmarks.length; i++) {
+  const checkbox = settingsCheckmarks[i].previousElementSibling;
+  checkbox.addEventListener("click", () => {
+    ariaCheck(checkbox);
+  })
+  // aria control for click
+  settingsCheckmarks[i].addEventListener("click", () => {
+    settingsCheckmarks[i].previousElementSibling.checked = !checkbox.checked;
+    checkRepeatState();
+    ariaCheck(checkbox);
+  });
+  // prevent space scroll
+  settingsCheckmarks[i].addEventListener("keydown", (keyed) => {
+    if (keyed.key === " ") {
+      keyed.preventDefault();
+    }
+  });
+  // keyboard
+  settingsCheckmarks[i].addEventListener("keyup", (keyed) => {
+    if (!checkbox.disabled) {
       if (keyed.key === "Enter") {
-        checkmarks[i].previousElementSibling.checked = !checkmarks[i].previousElementSibling.checked;
-        checkState();
+        checkbox.checked = !checkbox.checked;
+        checkRepeatState();
+        ariaCheck(checkbox);
       } else if (keyed.key === " ") {
-        checkmarks[i].previousElementSibling.checked = !checkmarks[i].previousElementSibling.checked;
-        checkState();
+        settingsCheckmarks[i].previousElementSibling.checked = !checkbox.checked;
+        checkRepeatState();
+        ariaCheck(checkbox);
       }
     }
   });
 }
 
+// close setting with "Escape" key
 window.addEventListener("keyup", function (keyed) {
   if (keyed.key === "Escape") {
     if (settingsOverlay.style.visibility === "visible") {
@@ -1062,8 +1096,9 @@ window.addEventListener("keyup", function (keyed) {
       solutionRepeatCheck.checked = settingsHolder[2];
       guessRepeatCheck.checked = settingsHolder[3];
       settingsActivator.style.color = "#fffce8";
-      checkState();
+      checkRepeatState();
       scoreTimerOptionsCheck();
+      document.getElementById("game-board").style.visibility = "visible";
       settingsOverlay.style.visibility = "hidden";
       timer();
       settingsActivator.focus();
@@ -1071,6 +1106,7 @@ window.addEventListener("keyup", function (keyed) {
   }
 })
 
+// close colorSelectBox with "Escape" key
 colorSelectBox.addEventListener("keyup", function (keyed) {
   if (keyed.key === "Escape") {
     activeSelection.focus();
@@ -1078,10 +1114,22 @@ colorSelectBox.addEventListener("keyup", function (keyed) {
   }
 })
 
-//?put this in a function and add it to elements to maintain accessibility?
-//stops default scroll behaviour. arrow keys still function for scroll
-window.addEventListener("keydown", function (space) {
-  if (space.key === " ") {
-    space.preventDefault();
-  }
-})
+
+// ! aria state not changing if label clicked
+/**
+ * checks the state of the checkbox and alters aria-checked
+ * and aria-disabled accordingly
+ * @param {*} checkbox checkbox element to have **.checked** tested for true/false
+ */
+function ariaCheck(checkbox) {
+  if (checkbox.checked) {
+    checkbox.nextElementSibling.setAttribute("aria-checked", "true");
+  } else {
+    checkbox.nextElementSibling.setAttribute("aria-checked", "false");
+  };
+  if (checkbox.disabled) {
+    checkbox.nextElementSibling.setAttribute("aria-disabled", "true");
+  } else {
+    checkbox.nextElementSibling.setAttribute("aria-disabled", "false");
+  };
+}
