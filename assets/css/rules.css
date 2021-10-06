@@ -27,7 +27,6 @@ h2 {
 
 .internal-nav {
   background-color: #3e363f;
-  width: calc(100vw - 1.6rem);
   margin: 0 -1.8rem;
   padding: 1rem 1.8rem;
   box-sizing: border-box;
