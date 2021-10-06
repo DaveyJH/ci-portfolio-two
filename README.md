@@ -32,6 +32,7 @@
     - [Existing Features](#existing-features)
     - [Features Left to Implement](#features-left-to-implement)
   - [Technologies Used](#technologies-used)
+    - [VSCode Extensions](#vscode-extensions)
   - [Testing](#testing)
   - [Bugs](#bugs)
     - [Current](#current)
@@ -39,6 +40,9 @@
   - [Development](#development)
     - [GitHub](#github)
     - [VSCode](#vscode)
+      - [Cloning](#cloning)
+      - [Extensions](#extensions)
+      - [Editing](#editing)
   - [Deployment](#deployment)
     - [Github Pages](#github-pages)
   - [Credits](#credits)
@@ -173,6 +177,19 @@ F2
 - *[WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/)*
   - A basic contrast checking service for conformity to the Web Content Accessibility Guidelines. The service allows input of a foreground and background colour and displays the resulting contrast ratio, including a quick reference to meeting WCAG AA / AAA standards.
 
+### VSCode Extensions
+
+Links to website of each extension provided
+
+- [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
+- [Better Comments](https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments)
+- [Bracket Pair Colorizer 2](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2)
+- [GitHub Pull Request and Issue Provider](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github)
+- [Highlight Matching Tag](https://marketplace.visualstudio.com/items?itemName=vincaslt.highlight-matching-tag)
+- [Markdown All in One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)
+- [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
+- [Preview on Web Server](https://marketplace.visualstudio.com/items?itemName=yuichinukiyama.vscode-preview-server)
+
 ## Testing
 
 <!-- explain testing
@@ -254,17 +271,99 @@ The site was made utilising [GitHub](#GitHub) and [VSCode](#VSCode)
 
 - Select the template you wish to use
 
-![Select Template](readme-content/images/development/template.png)
+![Select Template](./readme-content/images/development/template.png)
 
 - Give the repository a name and description and then click **Create repository**
 
-![Create Repo](readme-content/images/development/create-repo.png)
+![Create Repo](./readme-content/images/development/create-repo.png)
 
 The repository has now been created and is ready for editing
 
 ### VSCode
 
 [VSCode Website](https://code.visualstudio.com/)
+
+For general information on using GitHub with VSCode see their documentation [here](https://code.visualstudio.com/docs/editor/github).  
+*This section assumes you have successfully linked your GitHub account to the application*
+
+#### Cloning
+
+- Open the command panel using your keyboard shortcut or **View** > **Command Palette...**
+
+![View>Command](./readme-content/images/development/view-command.png)
+
+- With the command palette open, type *clone* and click **Git: Clone** and then **![GitHub Icon](./readme-content/images/development/git-icon.png)Clone from GitHub**
+
+![Command Palette](./readme-content/images/development/commands.png)
+
+- Type the GitHub username followed by / and the repository you wish to work on
+
+![Repo Clone](./readme-content/images/development/repo-clone.png)
+
+- Click the repository from the drop down list and save in a local directory of your choosing
+
+The repository is now ready for development
+
+#### Extensions
+
+Once the repository is open within VSCode, there are many extensions and aids that can assist with your development process. This is a list of extensions I use with a brief description of the main functions I utilise
+
+- [Beautify](#VSCode-Extensions) -  Auto-formatting of files
+- [Better Comments](#VSCode-Extensions) - Colour comments for easier identification
+- [Bracket Pair Colorizer 2](#VSCode-Extensions) - Colours nested brackets and sequential brackets for more efficient workflow
+- [GitHub Pull Request and Issue Provider](#VSCode-Extensions) - Allows better integration with GitHub
+- [Highlight Matching Tag](#VSCode-Extensions) - Highlights paired tag for more efficient workflow
+- [Markdown All in One](#VSCode-Extensions) - Auto updates contents section and other efficiency features when writing markdown documents
+- [markdownlint](#VSCode-Extensions) - Highlights errors and best practices with markdown documents
+- [Preview on Web Server](#VSCode-Extensions) - Allows live webserver with keyboard shortcut
+
+#### Editing
+
+- The explorer tab enables viewing of the files within the repository
+
+![Explorer](./readme-content/images/development/explorer.png)
+
+- Open files from the explorer tab in the editor window and perform changes as necessary
+
+![Editor](./readme-content/images/development/editor-tab.png)
+
+- Save files as appropriate, add, commit and push them. There are multiple ways to do this
+  - VSCode Source Control
+    - Select the **Source Control** tab that looks like a repository fork
+
+    ![Source Control](./readme-content/images/development/source-control.png)
+
+    - Click the **+** sign next to files you wish to add them to staged changes (add)
+
+    ![SC Add](./readme-content/images/development/sc-add-commit.png)
+
+    - Type a commit message and click the tick icon to commmit
+
+    ![SC Commit](./readme-content/images/development/commit-tick.png)
+
+    - When ready to push your repository back to GitHub click the push/pull icon in the bar at the bottom of the application
+  
+    ![SC Push](./readme-content/images/development/sc-push.png)
+
+    - *I have many keyboard shortcuts set to speed up this process, they are configurable within the VSCode settings*
+
+  - Terminal  
+  *These steps assume you are in the root directory of your repository and typing in the terminal*
+    - Type `git add .` and press Enter to add all modified or untracked file
+
+    ![Terminal All](./readme-content/images/development/terminal-add-all.png)
+
+    - Type `git add fileNameHere.extension assets/anotherFileHere.extension` and press Enter to add specific files, remembering to include sub-directories where necessary
+  
+    ![Terminal Add](./readme-content/images/development/terminal-add.png)
+
+    - Type `git commit -m "meaningful message here"` to commit your staged files with the typed commit message
+
+    ![Terminal Commit](./readme-content/images/development/terminal-commit.png)
+
+    - Type `git push` to push your repository to the remote repository held at GitHub
+
+    ![Terminal Push](./readme-content/images/development/terminal-push.png)
 
 ## Deployment
 
