@@ -227,21 +227,30 @@ look at daisy's testing documentation and [webinar](https://us02web.zoom.us/rec/
 
 ### Resolved
 
-<!-- when resetting from extreme loss, error occurred
-resolved with extra check in reset -->
-
-<!-- when opening settings overlay with keyboard and having focus jump to minus button
-the value would decrease. Sven Lowry_5P  -->
+<!-- checkboxes!! -->
 
 <!-- resolved bugs -->
-<!-- 1. bugOne
+1. When playing the game an error was generated in the console once line 99 had been attempted. There were two errors causing this:
 
-![bugOneImg](bugOneImgURL)
+![99 Rows Error](./readme-content/images/bugs/99rows.png)
 
-*Commit - **[sha](commit link with highlighted lines)** - explanation of fix* -->
+*Commit - **[bd06f93](https://github.com/DaveyJH/ci-portfolio-two/commit/bd06f93#diff-ce75dc990f41e122d063d10b3068e250494e1ca2ac80fa8a3bf62a618de01277R853)** - Corrected second line in **extremeLoss()** to correctly target the **hintIcon***
+
+![99 Rows Reset Error](./readme-content/images/bugs/99rows-reset.png)
+
+*Commit - **[bd06f93](https://github.com/DaveyJH/ci-portfolio-two/commit/bd06f93#diff-ce75dc990f41e122d063d10b3068e250494e1ca2ac80fa8a3bf62a618de01277R938)** - Added to line in **reset()** to prevent **deactivateRow()** when **aR** was equal to or greater than **98***
 
 ***
 
+2. If the settings menu was opened with a keyboard and the focus jumped to the first button, the button would trigger. This revealed a number of other issues:
+
+![Minus Button Error](./readme-content/images/bugs/minus.png)
+
+*Commit - **[2e48239](https://github.com/DaveyJH/ci-portfolio-two/commit/2e48239#diff-ce75dc990f41e122d063d10b3068e250494e1ca2ac80fa8a3bf62a618de01277R1010)** - Changed **keydown** in addEventListener to **keyup**.
+I was made aware of this by @SiJiL82 after posing a question regarding the bug in the [Code Institute](https://codeinstitute.net/) Slack community. Thanks Sven  
+This made me realise many of my functions would be made better with **keyup** to try and prevent bad UX in the case of users with slower motor skills.
+
+***
 <!-- 1. bugTwo
 
 ![bugTwoImg](bugTwoImgURL)
