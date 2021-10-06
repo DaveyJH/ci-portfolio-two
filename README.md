@@ -37,7 +37,7 @@
     - [Current](#current)
     - [Resolved](#resolved)
   - [Development](#development)
-    - [Github](#github)
+    - [GitHub](#github)
     - [VSCode](#vscode)
   - [Deployment](#deployment)
     - [Github Pages](#github-pages)
@@ -239,7 +239,7 @@ the value would decrease. Sven Lowry_5P  -->
 
 The site was made utilising [GitHub](#GitHub) and [VSCode](#VSCode)
 
-### Github
+### GitHub
 
 [GitHub Website](https://github.com)
 
@@ -261,7 +261,6 @@ The site was made utilising [GitHub](#GitHub) and [VSCode](#VSCode)
 ![Create Repo](readme-content/images/development/create-repo.png)
 
 The repository has now been created and is ready for editing
-
 
 ### VSCode
 
