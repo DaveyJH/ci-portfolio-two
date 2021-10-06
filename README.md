@@ -247,7 +247,7 @@ look at daisy's testing documentation and [webinar](https://us02web.zoom.us/rec/
 ![Minus Button Error](./readme-content/images/bugs/minus.png)
 
 *Commit - **[2e48239](https://github.com/DaveyJH/ci-portfolio-two/commit/2e48239#diff-ce75dc990f41e122d063d10b3068e250494e1ca2ac80fa8a3bf62a618de01277R1010)** - Changed **keydown** in addEventListener to **keyup**.
-I was made aware of this by @SiJiL82 after posing a question regarding the bug in the [Code Institute](https://codeinstitute.net/) Slack community. Thanks Sven  
+I was made aware of this by [SiJiL82](https://github.com/sijil82) after posing a question regarding the bug in the [Code Institute](https://codeinstitute.net/) Slack community. Thanks Sven  
 This made me realise many of my functions would be made better with **keyup** to try and prevent bad UX in the case of users with slower motor skills.
 
 ***
