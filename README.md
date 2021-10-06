@@ -5,7 +5,8 @@
 
 ## Live Site
 
-<!-- [Mastermind - A Logic Game](https://daveyjh.github.io/ci-portfolio-two) -->
+[Mastermind - A Logic Game](https://daveyjh.github.io/ci-portfolio-two)
+
 ## Repository
 
 [https://github.com/daveyjh/ci-portfolio-two](https://github.com/daveyjh/ci-portfolio-two)
@@ -36,7 +37,10 @@
     - [Current](#current)
     - [Resolved](#resolved)
   - [Development](#development)
+    - [Github](#github)
+    - [VSCode](#vscode)
   - [Deployment](#deployment)
+    - [Github Pages](#github-pages)
   - [Credits](#credits)
     - [Content](#content)
     - [Media](#media)
@@ -231,37 +235,70 @@ the value would decrease. Sven Lowry_5P  -->
 ## Development
 
 <!-- section missed in first project. 
-!describe development process -->
+!describe development process (github/vscode) -->
+
+The site was made utilising [GitHub](#GitHub) and [VSCode](#VSCode)
+
+### Github
+
+[GitHub Website](https://github.com)
+
+- Sign in to GitHub
+- I use a template that contains a template of my README file which can be accessed [here](https://github.com/DaveyJH/template) and is available for public use via the **Use this template** button
+
+![Use Template](./readme-content/images/development/use-template.png)
+
+- Click ![GitHub Icon](./readme-content/images/development/github.png) and select **New** from the panel on the left, next to **Repositories**
+
+![New Repository](./readme-content/images/development/new-repo.png)
+
+- Select the template you wish to use
+
+![Select Template](readme-content/images/development/template.png)
+
+- Give the repository a name and description and then click **Create repository**
+
+![Create Repo](readme-content/images/development/create-repo.png)
+
+The repository has now been created and is ready for editing
+
+
+### VSCode
+
+[VSCode Website](https://code.visualstudio.com/)
 
 ## Deployment
 
-<!-- !check this section, may need adjusting as using additional languages -->
+### Github Pages
 
-<!-- **Github Pages**
-- Navigate to the relevant GitHub Repository [here](github repo URL)
-- Select "Settings" from the options below the name of the repository
+- Navigate to the relevant GitHub Repository [here](https://github.com/daveyjh/ci-portfolio-two)
+- Select **Settings** from the options below the name of the repository
 
-![Settings Snip](./readme-content/images/github-settings.png)
-- Select "Pages" from the left hand menu
+![Settings Snip](./readme-content/images/deployment/github-settings.png)
 
-![Pages Snip](./readme-content/images/pages-select.png)
-- Select "Branch: main" as the source and leave the directory as "/(root)"
+- Select **Pages** from the left hand menu
 
-![Source Snip](./readme-content/images/pages-source.png)
+![Pages Snip](./readme-content/images/deployment/pages-select.png)
 
-- Click the Save button
+- Select **Branch: main** as the source and leave the directory as **/(root)**
+
+![Source Snip](./readme-content/images/deployment/pages-source.png)
+
+- Click the **Save** button
 
 - Take note of the URL provided
 
-![URL Snip](./readme-content/images/pages-url.png)
+![URL Snip](./readme-content/images/deployment/pages-url.png)
 
 - GitHub takes a short while to publish the page. The bar turns green if you refresh the pages tab and the page has been deployed
 
-![Confirmed Deployment Snip](./readme-content/images/pages-deployed.png)
-- Click the link or copy the URL to a browser to reach the deployed page
-https://daveyjh.github.io/ci-portfolio-one-v4/
+![Confirmed Deployment Snip](./readme-content/images/deployment/pages-deployed.png)
 
-The site is now live and operational -->
+- Click the link or copy the URL to a browser to reach the deployed page
+
+**[https://daveyjh.github.io/ci-portfolio-two/](https://daveyjh.github.io/ci-portfolio-two/)**
+
+The site is now live and operational
 
 ***
 
@@ -287,3 +324,4 @@ The site is now live and operational -->
 ### Personal Development
 
 <!-- notes -->
+<!-- remember accessibility earlier in design process -->
