@@ -45,6 +45,7 @@
       - [Editing](#editing)
   - [Deployment](#deployment)
     - [Github Pages](#github-pages)
+    - [Forking](#forking)
   - [Credits](#credits)
     - [Content](#content)
     - [Media](#media)
@@ -261,7 +262,9 @@ The site was made utilising [GitHub](#GitHub) and [VSCode](#VSCode)
 [GitHub Website](https://github.com)
 
 - Sign in to GitHub
-- I use a template that contains a template of my README file which can be accessed [here](https://github.com/DaveyJH/template) and is available for public use via the **Use this template** button
+- I use a template that contains a template of my README file which can be
+  accessed [here](https://github.com/DaveyJH/template) and is available 
+  public use via the **Use this template** button
 
 ![Use Template](./readme-content/images/development/use-template.png)
 
@@ -329,7 +332,7 @@ Once the repository is open within VSCode, there are many extensions and aids th
 
 - Save files as appropriate, add, commit and push them. There are multiple ways to do this
   - VSCode Source Control
-    - Select the **Source Control** tab that looks like a repository fork
+    - Select the **Source Control** tab that looks like a repository branch
 
     ![Source Control](./readme-content/images/development/source-control.png)
 
@@ -392,7 +395,8 @@ Once the repository is open within VSCode, there are many extensions and aids th
 
 ![URL Snip](./readme-content/images/deployment/pages-url.png)
 
-- GitHub takes a short while to publish the page. The bar turns green if you refresh the pages tab and the page has been deployed
+- GitHub takes a short while to publish the page.
+  The bar turns green if you refresh the pages tab and the page has been deployed
 
 ![Confirmed Deployment Snip](./readme-content/images/deployment/pages-deployed.png)
 
@@ -401,6 +405,41 @@ Once the repository is open within VSCode, there are many extensions and aids th
 **[https://daveyjh.github.io/ci-portfolio-two/](https://daveyjh.github.io/ci-portfolio-two/)**
 
 The site is now live and operational
+
+### Forking
+
+If you wish to contribute to the site, this is most simply achieved by forking the repository.
+
+- Head over to [GitHub](https://github.com) and log in.
+- Search my username and repository in the bar provided
+  
+![GitHub Search](./readme-content/images/deployment/github-search.png)
+
+- Select the repository
+- Click the fork icon in the top right
+
+![GitHub Fork](./readme-content/images/deployment/fork.png)
+
+- This creates a fork within your GitHub repositories
+- Edit the files as necessary using your preferred method
+- Add, commit and push your changes to your remote repository using your preferred method
+- In your repository on GitHub select **Pull Requests**
+
+![Pull Request](./readme-content/images/deployment/pull-requests.png)
+
+- Click **New Pull Request**
+
+![New PR](./readme-content/images/deployment/new-pull-request.png)
+
+- Check the details of the pull request and then click **Create pull request**
+
+![Create PR](./readme-content/images/deployment/create-pr.png)
+
+- Add a message explaining what your pull request adds to the repository and complete with **Create pull request**
+
+![Complete PR](./readme-content/images/deployment/complete-pr.png)
+
+I will recieve the pull request and action it accordingly
 
 ***
 
