@@ -253,9 +253,17 @@ This made me realise many of my functions would be made better with **keyup** to
 ***
 <!-- 1. bugTwo
 
-![bugTwoImg](bugTwoImgURL)
+3. Custom styled checkboxes were not giving good UX when disabled:
 
-*Commit - **[sha](commit link with highlighted lines)** - explanation of fix* -->
+![Checkbox Disabled](./readme-content/images/bugs/checkbox-disabled.png)
+
+*I spent a lot of time looking over various methods to resolve this issue.
+The main issue is for accessibility, being that a disabled checkbox is
+effectively removed from the DOM.
+This causes a bad UX for users with specialised controls and screen readers.
+After many attempts, I realised I could have achieved the intended result with
+fewer lines of code but I am happy with the logic that is being applied to my
+solution*
 
 ***
 
