@@ -365,6 +365,10 @@ Once the repository is open within VSCode, there are many extensions and aids th
 
     ![Terminal Push](./readme-content/images/development/terminal-push.png)
 
+    - *There are many other stages to editing such as branches, git stash,
+    reverting commit messages and others. For more information,
+    refer to the [git documentation](https://git-scm.com)
+
 ## Deployment
 
 ### Github Pages
