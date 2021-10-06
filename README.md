@@ -51,6 +51,8 @@
     - [Media](#media)
     - [Acknowledgements](#acknowledgements)
     - [Personal Development](#personal-development)
+      - [Accessibility](#accessibility)
+      - [JavaScript Structure](#javascript-structure)
 
 ***
 
@@ -121,7 +123,7 @@ Contrast checks have been carried out with the WebAIM [contrast checker](https:/
 <!-- typography -->
 
 The font used for the site are [Orbitron](https://fonts.google.com/specimen/Orbitron) and [Rajdhani](https://fonts.google.com/specimen/Rajdhani) from google fonts.  
-Orbitron has been chosen as it has a geometric look which lends itself well to the content and feel of the site. It has been used for the main heading and the nav elements, all utilising the small-caps font variant.  
+Orbitron has been chosen as it has a geometric look that lends itself well to the content and feel of the site. It has been used for the main heading and the nav elements, all utilising the small-caps font variant.  
 Rajdhani has been chosen for the main text content of the site. The squared styling fits well with the Orbitron font and allows for a pleasant visual appearance with its slightly rounded corners.
 ***
 
@@ -230,7 +232,7 @@ look at daisy's testing documentation and [webinar](https://us02web.zoom.us/rec/
 <!-- checkboxes!! -->
 
 <!-- resolved bugs -->
-1. When playing the game an error was generated in the console once line 99 had been attempted. There were two errors causing this:
+1. When playing the game an error was generated in the console once line 99 had been attempted. Two errors were causing this:
 
 ![99 Rows Error](./readme-content/images/bugs/99rows.png)
 
@@ -251,7 +253,6 @@ I was made aware of this by [SiJiL82](https://github.com/sijil82) after posing a
 This made me realise many of my functions would be made better with **keyup** to try and prevent bad UX in the case of users with slower motor skills*
 
 ***
-<!-- 1. bugTwo
 
 3. Custom styled checkboxes were not giving good UX when disabled:
 
@@ -320,13 +321,16 @@ For general information on using GitHub with VSCode see their documentation [her
 
 ![Repo Clone](./readme-content/images/development/repo-clone.png)
 
-- Click the repository from the drop down list and save in a local directory of your choosing
+- Click the repository from the drop-down list and save it in a local directory
+- of your choosing
 
 The repository is now ready for development
 
 #### Extensions
 
-Once the repository is open within VSCode, there are many extensions and aids that can assist with your development process. This is a list of extensions I use with a brief description of the main functions I utilise
+Once the repository is open within VSCode, there are many extensions and aids
+that can assist with your development process. This is a list of extensions I use
+with a brief description of the main functions I utilise
 
 - [Beautify](#VSCode-Extensions) -  Auto-formatting of files
 - [Better Comments](#VSCode-Extensions) - Colour comments for easier identification
@@ -353,11 +357,11 @@ Once the repository is open within VSCode, there are many extensions and aids th
 
     ![Source Control](./readme-content/images/development/source-control.png)
 
-    - Click the **+** sign next to files you wish to add them to staged changes (add)
+    - Click the **+** sign next to files you wish to add to staged changes
 
     ![SC Add](./readme-content/images/development/sc-add-commit.png)
 
-    - Type a commit message and click the tick icon to commmit
+    - Type a commit message and click the tick icon to commit
 
     ![SC Commit](./readme-content/images/development/commit-tick.png)
 
@@ -385,7 +389,7 @@ Once the repository is open within VSCode, there are many extensions and aids th
 
     ![Terminal Push](./readme-content/images/development/terminal-push.png)
 
-    - *There are many other stages to editing such as branches, git stash,
+    - *There are many other stages to editing, such as branches, git stash,
     reverting commit messages and others. For more information,
     refer to the [git documentation](https://git-scm.com)*
 
@@ -398,7 +402,7 @@ Once the repository is open within VSCode, there are many extensions and aids th
 
 ![Settings Snip](./readme-content/images/deployment/github-settings.png)
 
-- Select **Pages** from the left hand menu
+- Select **Pages** from the left-hand menu
 
 ![Pages Snip](./readme-content/images/deployment/pages-select.png)
 
@@ -456,7 +460,7 @@ If you wish to contribute to the site, this is most simply achieved by forking t
 
 ![Complete PR](./readme-content/images/deployment/complete-pr.png)
 
-I will recieve the pull request and action it accordingly
+I will receive the pull request and action it accordingly
 
 ***
 
@@ -482,4 +486,21 @@ I will recieve the pull request and action it accordingly
 ### Personal Development
 
 <!-- notes -->
-<!-- remember accessibility earlier in design process -->
+#### Accessibility
+
+I would like to learn more about accessibility requirements. I feel I have a
+good understanding of some of the basics, however, I do not have enough knowledge
+of what various users would expect as 'normal behaviour'. As an addition to this,
+I should try and maintain designing things with more accessibility in mind at the
+initial stages.
+
+#### JavaScript Structure
+
+During this project, I have learned about many ways of working with JavaScript.
+One key aspect is the capability to pass variables and functions around a script.
+I have not utilised this enough in this project and will strive to design my
+future projects differently to allow less verbose code structures.
+Another point to consider is file size. Although I am comfortable with reading
+through my own code and have separated it into smaller functions, it does not lend
+itself to good readability and general maintenance. I hope to segregate my
+functions into relevant files in future projects.
