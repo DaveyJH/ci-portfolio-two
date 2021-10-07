@@ -339,7 +339,7 @@ The site was made utilising [GitHub](#GitHub) and [VSCode](#VSCode)
 
 - Sign in to GitHub
 - I use a template that contains a template of my README file which can be
-  accessed [here](https://github.com/DaveyJH/template) and is available 
+  accessed [here](https://github.com/DaveyJH/template) and is available
   public use via the **Use this template** button
 
 ![Use Template](./readme-content/images/development/use-template.png)
