@@ -96,6 +96,7 @@ input[type=number] {
 }
 hr {
   border-color: #022b3a;
+  border-width: 2px 0 0 0;
   margin: 0 auto;
   max-width: 30rem;
 }
