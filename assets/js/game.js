@@ -38,9 +38,9 @@ function timer() {
 
 //! settings
 //gameplay settings
-let numOfColors = 6;
+let numOfColors = "6";
 const calculatedColors = document.getElementById("number-of-colors");
-let numOfBalls = 4;
+let numOfBalls = "4";
 const calculatedBalls = document.getElementById("number-in-solution");
 
 //gameplay checkboxes
@@ -68,9 +68,10 @@ solutionRepeatCheck.addEventListener("click", checkRepeatState);
  *  - check state of checkboxes and disable/check guessRepeatCheck as needed.
  */
 function checkRepeatState() {
-  numOfColors = calculatedColors.value;
-  numOfBalls = calculatedBalls.value;
-  if (numOfBalls > numOfColors) {
+  let numColors = Number(calculatedColors.value);
+  let numBalls = Number(calculatedBalls.value);
+  console.log(`colors = ${typeof(numColors)} | balls = ${typeof(numBalls)}`);
+  if (numBalls > numColors) {
     solutionRepeatCheck.checked = true;
     solutionRepeatCheck.disabled = true;
     guessRepeatCheck.checked = true;
@@ -191,8 +192,8 @@ function plusminus() {
   function plusValue(event) {
     event.preventDefault();
     let num = event.currentTarget.previousElementSibling;
-    if (num.value < Number(num.max)) {
-      num.value++;
+    if (Number(num.value) < Number(num.max)) {
+      String(Number(num.value++));
     } else {
       alert("Sorry, you can't go any higher!");
     }
@@ -209,8 +210,8 @@ function plusminus() {
   function minusValue(event) {
     event.preventDefault();
     let num = event.currentTarget.nextElementSibling;
-    if (num.value > Number(num.min)) {
-      num.value--;
+    if (Number(num.value) > Number(num.min)) {
+      String(Number(num.value--));
     } else {
       alert("Sorry, you can't go any lower!");
     }
