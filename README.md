@@ -10,6 +10,7 @@
 ## Repository
 
 [https://github.com/daveyjh/ci-portfolio-two](https://github.com/daveyjh/ci-portfolio-two)
+
 ***
 
 ## Table of Contents
@@ -50,17 +51,20 @@
     - [Content](#content)
     - [Media](#media)
     - [Acknowledgements](#acknowledgements)
-    - [Personal Development](#personal-development)
-      - [Accessibility](#accessibility)
-      - [JavaScript Structure](#javascript-structure)
+  - [Personal Development](#personal-development)
+    - [Accessibility](#accessibility)
+    - [JavaScript Structure](#javascript-structure)
+    - [GitHub Project Board and Issues](#github-project-board-and-issues)
 
 ***
 
 ## Objective
 
-Design an interactive Mastermind game using JavaScript. The project should demonstrate competency with HTML, CSS and JavaScript.
+Design an interactive Mastermind game using JavaScript. The project should
+demonstrate competency with HTML, CSS and JavaScript.
 
-***The needs within this project are not genuine and are made purely for the purpose of completing my Code Institute project***
+***The needs within this project are not genuine and are made purely for the
+purpose of completing my Code Institute project***
 
 ***
 
@@ -68,7 +72,8 @@ Design an interactive Mastermind game using JavaScript. The project should demon
 
 ### Mastermind - A Logic Game
 
-The goal of this website is to provide an interactive version of the classic Mastermind game. The site should have:
+The goal of this website is to provide an interactive version of the classic
+Mastermind game. The site should have:
 
 - an emotive and enjoyable, interactive Mastermind game written using JavaScript
 - a few difficulty options and settings
@@ -84,52 +89,86 @@ The goal of this website is to provide an interactive version of the classic Mas
 
 Some example user stories which will affect the design:
 
-> *"As a person who enjoys Mastermind, I want to get straight into playing the game. I have played other versions and find them a little aesthetically dull"*
+> *"As a person who enjoys Mastermind, I want to get straight into playing the
+  game. I have played other versions and find them a little aesthetically dull"*
 >
-> *"As a person who hasn't played before, I would like to read the rules of the game. I want to know exactly how to play and what to expect"*
+> *"As a person who hasn't played before, I would like to read the rules of the
+  game. I want to know exactly how to play and what to expect"*
 >
-> *"As a person that likes a challenge, I would like the option of a more difficult game"*
+> *"As a person that likes a challenge, I would like the option of a more
+  difficult game"*
 >
-> *"As an interested developer/employer, I would like to learn more about the developer of this site"*
+> *"As an interested developer/employer, I would like to learn more about the
+  developer of this site"*
 
 ***
 
 ### Initial Concept
 
-I hope to provide a fully functioning version of the Mastermind game using JavaScript, HTML and CSS. I anticipate using a wooden colour scheme, perhaps with photographic textures, to add a little more style than some versions I have researched. The site should be simple to navigate, not allow errors during use and encourage users to play at increasing difficulty levels. The application is to be designed with 'mobile first' in mind.
+I hope to provide a fully functioning version of the Mastermind game using
+JavaScript, HTML and CSS. I anticipate using a wooden colour scheme, perhaps with
+photographic textures, to add a little more style than some versions I have
+researched. The site should be simple to navigate, not allow errors during use
+and encourage users to play at increasing difficulty levels. The application is
+to be designed with 'mobile first' in mind.
 
-The design process is detailed in more depth in the [design-notes](./readme-content/design-notes.md) document.
+The design process is detailed in more depth in the
+[design-notes](./readme-content/design-notes.md) document.
 
 #### Wireframes
 
 ![Mobile Home Wireframe](readme-content/images/mobile-game.png)
-*See [here](./readme-content/wireframes.md) for all mobile pages and other device types*
+*See [here](./readme-content/wireframes.md) for all mobile pages and other device
+types*
 
 ***
 
 #### Colour Scheme
 
-<!-- colour scheme, remember to contrast check!!! -->
-
-With the game board of the site designed with a wood style background, I used [instant eyedropper](#technologies-used) to obtain a couple of colours from the wood photographs.  I then used [coolors.co](https://coolors.co) to generate a colour scheme.  
+With the game board of the site designed with a wood style background, I used
+[instant eyedropper](#technologies-used) to obtain a couple of colours from the
+wood photographs.  I then used [coolors.co](https://coolors.co) to generate a
+colour scheme.  
 ![wood colour scheme](readme-content/images/wood-scheme.png)  
-The header uses the darkest colour from the scheme to contrast with the game board and allow a high contrast with the text colour. The main text content displayed in the rest of the site is set on a wood colour to maintain the style throughout. There are a few more sections with the dark colour background within the main site, these are highlighting calls-to-action, and the higher contrast helps to identify this.
+The header uses the darkest colour from the scheme to contrast with the game
+board and allow a high contrast with the text colour. The main text content
+displayed in the rest of the site is set on a wood colour to maintain the style
+throughout. There are a few more sections with the dark colour background within
+the main site, these are highlighting calls-to-action, and the higher contrast
+helps to identify this.
 
-Contrast checks have been carried out with the WebAIM [contrast checker](https://webaim.org/resources/contrastchecker/) with regards to all main text content. I suspect the footer element is less likely to give a good result but I do not wish to detract from the site content and am happy to leave it this way.
+Contrast checks have been carried out with the WebAIM
+[contrast checker](https://webaim.org/resources/contrastchecker/) with regards to
+all main text content. I suspect the footer element is less likely to give a good
+result but I do not wish to detract from the site content and am happy to leave
+it this way.
 ***
 
 #### Typography
 
-<!-- typography -->
+The font used for the site are
+[Orbitron](https://fonts.google.com/specimen/Orbitron) and
+[Rajdhani](https://fonts.google.com/specimen/Rajdhani) from google fonts.  
+Orbitron has been chosen as it has a geometric look that lends itself well to the
+content and feel of the site. It has been used for the main heading and the nav
+elements, all utilising the small-caps font variant.  
+Rajdhani has been chosen for the main text content of the site. The squared
+styling fits well with the Orbitron font and allows for a pleasant visual
+appearance with its slightly rounded corners.
 
-The font used for the site are [Orbitron](https://fonts.google.com/specimen/Orbitron) and [Rajdhani](https://fonts.google.com/specimen/Rajdhani) from google fonts.  
-Orbitron has been chosen as it has a geometric look that lends itself well to the content and feel of the site. It has been used for the main heading and the nav elements, all utilising the small-caps font variant.  
-Rajdhani has been chosen for the main text content of the site. The squared styling fits well with the Orbitron font and allows for a pleasant visual appearance with its slightly rounded corners.
 ***
 
 #### Imagery
 
-<!-- imagery -->
+There are not many images in the site. The split brain image in the header
+represents the colours of the game and the logic behind it. The repeating balls
+at the bottom of the page are there to prevent the footer from looking too
+isolated. The favicon looks like it could be a side on version of the header
+image.  
+All the rules images are screenshot snips made using
+[windows snipping tool](#technologies-used) and are taken from the finished
+design of the game. The image on the about page is me, taken using a
+[Samsung Galaxy S8](https://www.samsung.com/uk/smartphones/galaxy-s8/)
 
 ***
 
@@ -176,9 +215,19 @@ F2
        - Description -->
 
 - *[Instant Eyedropper](http://instant-eyedropper.com/)*
-  - A quick and simple application to obtain hex values from any colour on my display. I downloaded this while playing around with my laptop layout/display settings. I have the app set to run on startup and remain minimized in my system tray. This allows quick access and if I click the colour, it automatically copies the value to my clipboard.
+  - A quick and simple application to obtain hex values from any colour on my
+  display. I downloaded this while playing around with my laptop layout/display
+  settings. I have the app set to run on startup and remain minimized in my
+  system tray. This allows quick access and if I click the colour, it
+  automatically copies the value to my clipboard.
 - *[WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/)*
-  - A basic contrast checking service for conformity to the Web Content Accessibility Guidelines. The service allows input of a foreground and background colour and displays the resulting contrast ratio, including a quick reference to meeting WCAG AA / AAA standards.
+  - A basic contrast checking service for conformity to the Web Content
+  Accessibility Guidelines. The service allows input of a foreground and
+  background colour and displays the resulting contrast ratio, including a quick
+  reference to meeting WCAG AA / AAA standards.
+- *[Windows Snipping Tool](https://support.microsoft.com/en-us/windows/use-snipping-tool-to-capture-screenshots-00246869-1843-655f-f220-97299b865f6b)*
+  - A screenshot tool built in to Windows. It allows quick, partial screen shots
+  to be taken that can be saved as image files.
 
 ### VSCode Extensions
 
@@ -232,25 +281,34 @@ look at daisy's testing documentation and [webinar](https://us02web.zoom.us/rec/
 <!-- checkboxes!! -->
 
 <!-- resolved bugs -->
-1. When playing the game an error was generated in the console once line 99 had been attempted. Two errors were causing this:
+1. When playing the game an error was generated in the console once line 99 had
+  been attempted. Two errors were causing this:
 
 ![99 Rows Error](./readme-content/images/bugs/99rows.png)
 
-*Commit - **[bd06f93](https://github.com/DaveyJH/ci-portfolio-two/commit/bd06f93#diff-ce75dc990f41e122d063d10b3068e250494e1ca2ac80fa8a3bf62a618de01277R853)** - Corrected second line in **extremeLoss()** to correctly target the **hintIcon***
+*Commit - [bd06f93](https://github.com/DaveyJH/ci-portfolio-two/commit/bd06f93#diff-ce75dc990f41e122d063d10b3068e250494e1ca2ac80fa8a3bf62a618de01277R853) -
+Corrected second line in **extremeLoss()** to correctly target the **hintIcon***
 
 ![99 Rows Reset Error](./readme-content/images/bugs/99rows-reset.png)
 
-*Commit - **[bd06f93](https://github.com/DaveyJH/ci-portfolio-two/commit/bd06f93#diff-ce75dc990f41e122d063d10b3068e250494e1ca2ac80fa8a3bf62a618de01277R938)** - Added to line in **reset()** to prevent **deactivateRow()** when **aR** was equal to or greater than **98***
+*Commit - [bd06f93](https://github.com/DaveyJH/ci-portfolio-two/commit/bd06f93#diff-ce75dc990f41e122d063d10b3068e250494e1ca2ac80fa8a3bf62a618de01277R938) -
+Added to line in **reset()** to prevent **deactivateRow()** when **aR** was equal
+to or greater than **98***
 
 ***
 
-2. If the settings menu was opened with a keyboard and the focus jumped to the first button, the button would trigger. This revealed a number of other issues:
+2. If the settings menu was opened with a keyboard and the focus jumped to the
+  first button, the button would trigger. This revealed a number of other issues:
 
 ![Minus Button Error](./readme-content/images/bugs/minus.png)
 
-*Commit - **[2e48239](https://github.com/DaveyJH/ci-portfolio-two/commit/2e48239#diff-ce75dc990f41e122d063d10b3068e250494e1ca2ac80fa8a3bf62a618de01277R1010)** - Changed **keydown** in addEventListener to **keyup**.
-I was made aware of this by [SiJiL82](https://github.com/sijil82) after posing a question regarding the bug in the [Code Institute](https://codeinstitute.net/) Slack community. Thanks Sven  
-This made me realise many of my functions would be made better with **keyup** to try and prevent bad UX in the case of users with slower motor skills*
+*Commit - [2e48239](https://github.com/DaveyJH/ci-portfolio-two/commit/2e48239#diff-ce75dc990f41e122d063d10b3068e250494e1ca2ac80fa8a3bf62a618de01277R1010) -
+Changed **keydown** in addEventListener to **keyup**.
+I was made aware of this by [SiJiL82](https://github.com/sijil82) after posing a
+question regarding the bug in the [Code Institute](https://codeinstitute.net/)
+Slack community. Thanks Sven  
+This made me realise many of my functions would be made better with **keyup** to
+try and prevent bad UX in the case of users with slower motor skills*
 
 ***
 
@@ -286,7 +344,8 @@ The site was made utilising [GitHub](#GitHub) and [VSCode](#VSCode)
 
 ![Use Template](./readme-content/images/development/use-template.png)
 
-- Click ![GitHub Icon](./readme-content/images/development/github.png) and select **New** from the panel on the left, next to **Repositories**
+- Click ![GitHub Icon](./readme-content/images/development/github.png) and select
+- **New** from the panel on the left, next to **Repositories**
 
 ![New Repository](./readme-content/images/development/new-repo.png)
 
@@ -305,15 +364,19 @@ The repository has now been created and is ready for editing
 [VSCode Website](https://code.visualstudio.com/)
 
 For general information on using GitHub with VSCode see their documentation [here](https://code.visualstudio.com/docs/editor/github).  
-*This section assumes you have successfully linked your GitHub account to the application*
+*This section assumes you have successfully linked your GitHub account to the
+application*
 
 #### Cloning
 
-- Open the command panel using your keyboard shortcut or **View** > **Command Palette...**
+- Open the command panel using your keyboard shortcut or **View** > **Command
+  Palette...**
 
 ![View>Command](./readme-content/images/development/view-command.png)
 
-- With the command palette open, type *clone* and click **Git: Clone** and then **![GitHub Icon](./readme-content/images/development/git-icon.png)Clone from GitHub**
+- With the command palette open, type *clone* and click **Git: Clone** and then
+  **![GitHub Icon](./readme-content/images/development/git-icon.png)Clone from
+  GitHub**
 
 ![Command Palette](./readme-content/images/development/commands.png)
 
@@ -333,13 +396,20 @@ that can assist with your development process. This is a list of extensions I us
 with a brief description of the main functions I utilise
 
 - [Beautify](#VSCode-Extensions) -  Auto-formatting of files
-- [Better Comments](#VSCode-Extensions) - Colour comments for easier identification
-- [Bracket Pair Colorizer 2](#VSCode-Extensions) - Colours nested brackets and sequential brackets for more efficient workflow
-- [GitHub Pull Request and Issue Provider](#VSCode-Extensions) - Allows better integration with GitHub
-- [Highlight Matching Tag](#VSCode-Extensions) - Highlights paired tag for more efficient workflow
-- [Markdown All in One](#VSCode-Extensions) - Auto updates contents section and other efficiency features when writing markdown documents
-- [markdownlint](#VSCode-Extensions) - Highlights errors and best practices with markdown documents
-- [Preview on Web Server](#VSCode-Extensions) - Allows live webserver with keyboard shortcut
+- [Better Comments](#VSCode-Extensions) - Colour comments for easier
+  identification
+- [Bracket Pair Colorizer 2](#VSCode-Extensions) - Colours nested brackets and
+  sequential brackets for more efficient workflow
+- [GitHub Pull Request and Issue Provider](#VSCode-Extensions) - Allows better
+  integration with GitHub
+- [Highlight Matching Tag](#VSCode-Extensions) - Highlights paired tag for more
+  efficient workflow
+- [Markdown All in One](#VSCode-Extensions) - Auto updates contents section and
+  other efficiency features when writing markdown documents
+- [markdownlint](#VSCode-Extensions) - Highlights errors and best practices with
+  markdown documents
+- [Preview on Web Server](#VSCode-Extensions) - Allows live webserver with
+  keyboard shortcut
 
 #### Editing
 
@@ -347,11 +417,13 @@ with a brief description of the main functions I utilise
 
 ![Explorer](./readme-content/images/development/explorer.png)
 
-- Open files from the explorer tab in the editor window and perform changes as necessary
+- Open files from the explorer tab in the editor window and perform changes as
+  necessary
 
 ![Editor](./readme-content/images/development/editor-tab.png)
 
-- Save files as appropriate, add, commit and push them. There are multiple ways to do this
+- Save files as appropriate, add, commit and push them. There are multiple ways
+  to do this
   - VSCode Source Control
     - Select the **Source Control** tab that looks like a repository branch
 
@@ -365,39 +437,47 @@ with a brief description of the main functions I utilise
 
     ![SC Commit](./readme-content/images/development/commit-tick.png)
 
-    - When ready to push your repository back to GitHub click the push/pull icon in the bar at the bottom of the application
+    - When ready to push your repository back to GitHub click the push/pull icon
+      in the bar at the bottom of the application
   
     ![SC Push](./readme-content/images/development/sc-push.png)
 
-    - *I have many keyboard shortcuts set to speed up this process, they are configurable within the VSCode settings*
+    - *I have many keyboard shortcuts set to speed up this process, they are
+      configurable within the VSCode settings*
 
   - Terminal  
-  *These steps assume you are in the root directory of your repository and typing in the terminal*
+  *These steps assume you are in the root directory of your repository and typing
+  in the terminal*
     - Type `git add .` and press Enter to add all modified or untracked file
 
     ![Terminal All](./readme-content/images/development/terminal-add-all.png)
 
-    - Type `git add fileNameHere.extension assets/anotherFileHere.extension` and press Enter to add specific files, remembering to include sub-directories where necessary
+    - Type `git add fileNameHere.extension assets/anotherFileHere.extension` and
+      press Enter to add specific files, remembering to include sub-directories
+      where necessary
   
     ![Terminal Add](./readme-content/images/development/terminal-add.png)
 
-    - Type `git commit -m "meaningful message here"` to commit your staged files with the typed commit message
+    - Type `git commit -m "meaningful message here"` to commit your staged files
+      with the typed commit message
 
     ![Terminal Commit](./readme-content/images/development/terminal-commit.png)
 
-    - Type `git push` to push your repository to the remote repository held at GitHub
+    - Type `git push` to push your repository to the remote repository held at
+    GitHub
 
     ![Terminal Push](./readme-content/images/development/terminal-push.png)
 
     - *There are many other stages to editing, such as branches, git stash,
-    reverting commit messages and others. For more information,
-    refer to the [git documentation](https://git-scm.com)*
+      reverting commit messages and others. For more information,
+      refer to the [git documentation](https://git-scm.com)*
 
 ## Deployment
 
 ### Github Pages
 
-- Navigate to the relevant GitHub Repository [here](https://github.com/daveyjh/ci-portfolio-two)
+- Navigate to the relevant GitHub Repository
+  [here](https://github.com/daveyjh/ci-portfolio-two)
 - Select **Settings** from the options below the name of the repository
 
 ![Settings Snip](./readme-content/images/deployment/github-settings.png)
@@ -429,7 +509,8 @@ The site is now live and operational
 
 ### Forking
 
-If you wish to contribute to the site, this is most simply achieved by forking the repository.
+If you wish to contribute to the site, this is most simply achieved by forking
+the repository.
 
 - Head over to [GitHub](https://github.com) and log in.
 - Search my username and repository in the bar provided
@@ -443,7 +524,8 @@ If you wish to contribute to the site, this is most simply achieved by forking t
 
 - This creates a fork within your GitHub repositories
 - Edit the files as necessary using your preferred method
-- Add, commit and push your changes to your remote repository using your preferred method
+- Add, commit and push your changes to your remote repository using your
+  preferred method
 - In your repository on GitHub select **Pull Requests**
 
 ![Pull Request](./readme-content/images/deployment/pull-requests.png)
@@ -473,7 +555,8 @@ I will receive the pull request and action it accordingly
 
 ### Media
 
-<!-- - the a comes from b -->
+The favicon image and header image are license free, obtained from
+[Pixabay](https://pixabay.com/)
 <!-- - the c comes from d -->
 
 ### Acknowledgements
@@ -483,10 +566,9 @@ I will receive the pull request and action it accordingly
 
 ***
 
-### Personal Development
+## Personal Development
 
-<!-- notes -->
-#### Accessibility
+### Accessibility
 
 I would like to learn more about accessibility requirements. I feel I have a
 good understanding of some of the basics, however, I do not have enough knowledge
@@ -494,7 +576,7 @@ of what various users would expect as 'normal behaviour'. As an addition to this
 I should try and maintain designing things with more accessibility in mind at the
 initial stages.
 
-#### JavaScript Structure
+### JavaScript Structure
 
 During this project, I have learned about many ways of working with JavaScript.
 One key aspect is the capability to pass variables and functions around a script.
@@ -504,3 +586,11 @@ Another point to consider is file size. Although I am comfortable with reading
 through my own code and have separated it into smaller functions, it does not lend
 itself to good readability and general maintenance. I hope to segregate my
 functions into relevant files in future projects.
+
+### GitHub Project Board and Issues
+
+I took part in a hackathon event with a great team during the development of this
+site. I found the tracking, and work flow assistance that can be provided from
+it, to be very useful. I did not think to implement it on my own, solo project
+until very late in the development stages. In future projects, I intend to
+utilise the features far more often and to greater effect.
