@@ -1131,8 +1131,60 @@ colorSelectBox.addEventListener("keyup", function (keyed) {
   }
 })
 
+// !colorBlind setting
+const globalSettings = document.getElementById("global-settings");
+const colorBlind = document.getElementById("color-blind");
+const cBCheckmark = colorBlind.nextElementSibling;
+// aria control for click
+colorBlind.addEventListener("click", () => {
+  toggleColorBlind();
+  ariaCheck(colorBlind);
+})
+cBCheckmark.addEventListener("click", () => {
+  colorBlind.checked = !colorBlind.checked;
+  toggleColorBlind();
+  ariaCheck(colorBlind);
+});
+// prevent space scroll
+cBCheckmark.addEventListener("keydown", (keyed) => {
+  if (keyed.key === " ") {
+    keyed.preventDefault();
+  }
+});
+// keyboard
+cBCheckmark.addEventListener("keyup", (keyed) => {
+  if (!colorBlind.disabled) {
+    if (keyed.key === "Enter") {
+      colorBlind.checked = !colorBlind.checked;
+      toggleColorBlind();
+      ariaCheck(colorBlind);
+    } else if (keyed.key === " ") {
+      colorBlind.checked = !colorBlind.checked;
+      toggleColorBlind();
+      ariaCheck(colorBlind);
+    }
+  }
+});
 
-// ! aria state not changing if label clicked
+/**
+ * toggles tooltip appearing when hovering over color balls.
+ */
+function toggleColorBlind() {
+  if (!colorBlind.checked) {
+    document.querySelectorAll(".tooltip-text-ball").forEach(ball => {
+      ball.classList.add("vis-hidden");
+    });
+    // colorBlind.nextElementSibling.setAttribute("aria-checked", "false");
+  } else {
+    document.querySelectorAll(".tooltip-text-ball").forEach(ball => {
+      ball.classList.remove("vis-hidden");
+    });
+    // colorBlind.nextElementSibling.setAttribute("aria-checked", "true");
+  }
+}
+document.onload = toggleColorBlind();
+// end of colorblind
+
 /**
  * checks the state of the checkbox and alters aria-checked
  * and aria-disabled accordingly
