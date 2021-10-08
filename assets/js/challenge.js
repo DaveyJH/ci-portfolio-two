@@ -199,11 +199,12 @@ function deactivateRowC() {
   activeRow.classList.add("completed-row");
   activeRow.classList.remove("active-row");
   for (let i = 0; i < activeBalls.length; i++) {
-    activeBalls[i].classList.remove("active-balls");
-    activeBalls[i].removeEventListener("click", colorSelectorC);
-    activeBalls[i].setAttribute("disabled", "true");
+    const aBi = activeBalls[i];
+    aBi.classList.remove("active-balls");
+    aBi.removeEventListener("click", colorSelectorC);
+    aBi.classList.add("color-set");
+    aBi.children[0].textContent = `${aBi.children[0].innerText} disabled`;
   }
-  // activeNumber.removeEventListener("click", checkResultC);
   activeResultIcon.removeEventListener("click", checkResultC);
   hideTickResultCheckC();
   clearSelectionC();
@@ -323,7 +324,6 @@ function assignPegsC() {
   let blackPegs = 0;
   let whitePegs = 0;
   for (const peg of pegColors) {
-    console.log(peg);
     switch (peg) {
       case "black":
         blackPegs++;
@@ -504,6 +504,13 @@ function resetC() {
   for (const ball of solutionBalls) {
     ball.children[0].textContent = "hidden ball";
     ball.previousElementSibling.textContent = "hidden";
+  }
+  const colorSetBalls = document.getElementsByClassName("color-set");
+  while (colorSetBalls.length > 1) {
+    for (let ball of colorSetBalls) {
+      ball.classList.remove("color-set");
+      ball.children[0].textContent = "empty ball";
+    }
   }
   rows[0].removeAttribute("aria-hidden");
   solutionCover.style.zIndex = "1"; // hide solution
