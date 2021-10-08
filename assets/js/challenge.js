@@ -1,10 +1,10 @@
 // ! remove commented out solutions before submission!!!
 
-let colors = ["red", "green", "blue", "yellow", "pink", "purple"]; // colors available for the challenge
+const colors = ["red", "green", "blue", "yellow", "pink", "purple"]; // colors available for the challenge
 let solution = []; // blank array for the solution
 const numOfBalls = 4; // number of balls in the solution
 const numOfPegs = numOfBalls; // number of pegs === number of balls
-let pegColors = []; // array to store peg results
+const pegColors = []; // array to store peg results
 
 let aR = 0; // active row index number
 let activeRow; // variable to store activeRow
@@ -20,10 +20,9 @@ const clearSelector = document.getElementById("clear-selector"); // clear select
 let colorSelected; // color selected from the selector box
 
 const solutionRow = document.getElementById("solution");
-const solutionText = solutionRow.getElementsByTagName("span")[0];
 const solutionBalls = solutionRow.getElementsByClassName("color-ball"); // solution balls
 const solutionCover = document.getElementById("solution-cover"); // solution cover panel
-let solutionHolder; // none modified solution array
+let solutionHolder = []; // none modified solution array
 
 const colorBalls = document.getElementsByClassName("color-ball"); // all color balls
 const pegs = document.getElementsByClassName("peg"); // all pegs
@@ -98,7 +97,7 @@ function checkTimeC() {
     bestMinutes.textContent = (("0" + minutesTime).slice(-2)).toString(); // write bestMinutes
   }
   if (bestSeconds.textContent === "--") {
-    hiddenBestTime.textContent = `best time: unset`
+    hiddenBestTime.textContent = `best time: unset`;
   } else if (bestMinutes.textContent === "01") {
     if (bestSeconds.textContent === "01") {
       hiddenBestTime.textContent = `best time: ${Number(bestMinutes.textContent)} minute and ${Number(bestSeconds.textContent)} second`;
@@ -187,7 +186,7 @@ function activateRowC() {
         keyed.preventDefault();
         checkResultC();
       }
-    })
+    });
   }
   activePegs = activeRow.getElementsByClassName("peg"); // active pegs in active row
   score++;
@@ -214,7 +213,7 @@ function deactivateRowC() {
  * on lose, pause and then reset timer
  */
 function nextRowC() {
-  pegColors = []; // delete values from pegColors
+  pegColors.splice(0); // delete values from pegColors
   deactivateRowC();
   aR++; // increment active row number
   if (aR < 6) {
@@ -363,9 +362,8 @@ function checkBlackC() {
 /** check if ball color is correct but in wrong position */
 function checkWhiteC() {
   for (let i = 0; i < solution.length; i++) {
-    if (solution[i] !== "checked" // check if index is already a black peg
-      &&
-      solution.includes(activeBalls[i].style.backgroundColor)) { // check solution array contains guess
+    if (solution[i] !== "checked" && // check if index is already a black peg
+    solution.includes(activeBalls[i].style.backgroundColor)) { // solution array contains guess?
       const removal = solution.indexOf(activeBalls[i].style.backgroundColor);
       solution[removal] = "pegged"; // stop duplication of white pegs if color repeated in guess
       pegColors.push("white"); // add white to peg results array
@@ -478,7 +476,7 @@ function runChallenge() {
  * run challenge again
  */
 function resetC() {
-  solution = [];
+  solution.splice(0);
   for (let i = 0; i < colorBalls.length; i++) {
     colorBalls[i].style.backgroundColor = "#854e1e";
   }
@@ -486,7 +484,7 @@ function resetC() {
     pegs[i].style.backgroundColor = "#a0622c";
   }
   aR = 0;
-  pegColors = [];
+  pegColors.splice(0);
   deactivateRowC();
   const rows = document.getElementsByClassName("guess");
   for (const row of rows) {
@@ -496,7 +494,7 @@ function resetC() {
   const balls = document.querySelectorAll(".tooltip-text-ball");
   for (const ball of balls) {
     ball.textContent = "empty";
-  };
+  }
   const resultText = document.getElementsByClassName("result-text");
   for (const text of resultText) {
     text.textContent = "result: empty";
@@ -526,7 +524,7 @@ const cBCheckmark = colorBlind.nextElementSibling;
 colorBlind.addEventListener("click", () => {
   toggleColorBlind();
   ariaCheck(colorBlind);
-})
+});
 cBCheckmark.addEventListener("click", () => {
   colorBlind.checked = !colorBlind.checked;
   toggleColorBlind();
