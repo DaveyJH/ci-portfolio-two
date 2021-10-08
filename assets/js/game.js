@@ -38,10 +38,10 @@ function timer() {
 
 //! settings
 //gameplay settings
-let numOfColors = "6";
 const calculatedColors = document.getElementById("number-of-colors");
-let numOfBalls = "4";
 const calculatedBalls = document.getElementById("number-in-solution");
+let numOfColors = Number(calculatedColors.value);
+let numOfBalls = Number(calculatedBalls.value);
 
 //gameplay checkboxes
 const solutionRepeatCheck = document.getElementById("repeat-in-solution");
@@ -68,10 +68,9 @@ solutionRepeatCheck.addEventListener("click", checkRepeatState);
  *  - check state of checkboxes and disable/check guessRepeatCheck as needed.
  */
 function checkRepeatState() {
-  let numColors = Number(calculatedColors.value);
-  let numBalls = Number(calculatedBalls.value);
-  console.log(`colors = ${typeof(numColors)} | balls = ${typeof(numBalls)}`);
-  if (numBalls > numColors) {
+  numOfColors = Number(calculatedColors.value);
+  numOfBalls = Number(calculatedBalls.value);
+  if (numOfBalls > numOfColors) {
     solutionRepeatCheck.checked = true;
     solutionRepeatCheck.disabled = true;
     guessRepeatCheck.checked = true;
@@ -269,9 +268,6 @@ let individualBalls;
 const colorBalls = document.getElementsByClassName("color-ball");
 const pegs = document.getElementsByClassName("peg");
 
-numOfColors = calculatedColors.value;
-numOfBalls = calculatedBalls.value;
-
 let gameEnd = false;
 
 //! setup functions
@@ -420,7 +416,7 @@ function resizeBalls() {
   for (let i = 0; i < guessRows.length; i++) {
     individualBalls = guessRowBallsArray[i].getElementsByClassName("color-ball");
     switch (numOfBalls) {
-      case "6":
+      case 6:
         for (let i = 0; i < individualBalls.length; i++) {
           individualBalls[i].style.transform = "scale(.9)";
         }
@@ -433,7 +429,7 @@ function resizeBalls() {
   }
   //solution row
   switch (numOfBalls) {
-    case "6":
+    case 6:
       for (let i = 0; i < solutionBalls.length; i++) {
         solutionBalls[i].style.transform = "scale(.9)";
       }
@@ -928,16 +924,16 @@ let hintCount;
 /** use numOfBalls to calculate width reduction size */
 function calculateWidthReducer() {
   switch (numOfBalls) {
-    case "3":
+    case 3:
       widthReducer = 22.5;
       break;
-    case "4":
+    case 4:
       widthReducer = 16.875;
       break;
-    case "5":
+    case 5:
       widthReducer = 13.5;
       break;
-    case "6":
+    case 6:
       widthReducer = 11.25;
       break;
     default:
