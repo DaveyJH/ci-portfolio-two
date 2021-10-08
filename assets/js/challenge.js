@@ -513,43 +513,43 @@ function resetC() {
 }
 
 // !colorBlind setting
-let colorBlind = document.getElementById("color-blind");
+const colorBlind = document.getElementById("color-blind");
+const cBCheckmark = colorBlind.nextElementSibling;
+// aria control for click
+colorBlind.addEventListener("click", () => {
+  toggleColorBlind();
+  ariaCheck(colorBlind);
+})
+cBCheckmark.addEventListener("click", () => {
+  colorBlind.checked = !colorBlind.checked;
+  toggleColorBlind();
+  ariaCheck(colorBlind);
+});
+// keyboard
+cBCheckmark.addEventListener("keyup", (keyed) => {
+  if (!colorBlind.disabled) {
+    if (keyed.key === "Enter") {
+      colorBlind.checked = !colorBlind.checked;
+      toggleColorBlind();
+      ariaCheck(colorBlind);
+    } else if (keyed.key === " ") {
+      colorBlind.checked = !colorBlind.checked;
+      toggleColorBlind();
+      ariaCheck(colorBlind);
+    }
+  }
+});
 
-// checkmark controls
-let checkmarks = document.getElementsByClassName("checkmark");
-for (let i = 0; i < checkmarks.length; i++) {
-  // aria control for click
-  const checkbox = checkmarks[i].previousElementSibling;
-  checkbox.addEventListener("click", () => {
-    toggleColorBlind();
-    ariaCheck(checkbox);
-  })
-  checkmarks[i].addEventListener("click", () => {
-    checkbox.checked = !checkbox.checked;
-    toggleColorBlind();
-    ariaCheck(checkbox);
-  });
-  // prevent space scroll
-  checkmarks[i].addEventListener("keydown", (keyed) => {
+// prevent space scroll
+const checkmarks = document.getElementsByClassName("checkmark");
+for (let checkmark of checkmarks) {
+  checkmark.addEventListener("keydown", (keyed) => {
     if (keyed.key === " ") {
       keyed.preventDefault();
     }
   });
-  // keyboard
-  checkmarks[i].addEventListener("keyup", (keyed) => {
-    if (!checkbox.disabled) {
-      if (keyed.key === "Enter") {
-        checkbox.checked = !checkbox.checked;
-        toggleColorBlind();
-        ariaCheck(checkbox);
-      } else if (keyed.key === " ") {
-        checkbox.checked = !checkbox.checked;
-        toggleColorBlind();
-        ariaCheck(checkbox);
-      }
-    }
-  });
 }
+
 
 /**
  * checks the state of the checkbox and alters aria-checked
@@ -577,12 +577,10 @@ function toggleColorBlind() {
     document.querySelectorAll(".tooltip-text-ball").forEach(ball => {
       ball.classList.add("vis-hidden");
     });
-    // colorBlind.nextElementSibling.setAttribute("aria-checked", "false");
   } else {
     document.querySelectorAll(".tooltip-text-ball").forEach(ball => {
       ball.classList.remove("vis-hidden");
     });
-    // colorBlind.nextElementSibling.setAttribute("aria-checked", "true");
   }
 }
 document.onload = toggleColorBlind();
