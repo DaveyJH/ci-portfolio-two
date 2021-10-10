@@ -258,7 +258,8 @@ const clearSelector = document.getElementById("clear-selector");
 const guessRowBallsArray = document.getElementsByClassName("selection ball-spacing");
 const solutionRow = document.getElementById("solution");
 const guessRows = document.getElementsByClassName("guess");
-let solutionBalls = solutionRow.children;
+let solutionBallHolders = solutionRow.getElementsByClassName("tooltip-holder");
+let solutionBalls = [];
 const solutionCover = document.getElementById("solution-cover");
 const resultPegs = document.getElementsByClassName("result");
 let solution = [];
@@ -276,7 +277,13 @@ function setBallCount() {
   for (let i = 0; i < guessRowBallsArray.length; i++) {
     while (guessRowBallsArray[i].children.length < numOfBalls) {
       const newBall = document.createElement("div");
-      newBall.classList.add("color-ball");
+      newBall.classList.add("tooltip-holder");
+      newBall.innerHTML = `
+      <span class="tooltip-text-ball" aria-hidden="true">empty</span>
+      <button class="color-ball" disabled>
+        <span class="hidden-aria-text">empty ball</span>
+      </button>
+      `;
       guessRowBallsArray[i].appendChild(newBall);
     }
   }
@@ -284,10 +291,21 @@ function setBallCount() {
 
 /** set number of balls in solution row to equal settings value */
 function setSolutionBallCount() {
-  while (solutionRow.children.length < numOfBalls) {
+  while (solutionBallHolders.length < numOfBalls) {
     const newBall = document.createElement("div");
-    newBall.classList.add("color-ball");
+    newBall.classList.add("tooltip-holder");
+    newBall.innerHTML = `
+    <span class="tooltip-text-ball" aria-hidden="true">hidden</span>
+    <div class="color-ball">
+      <span class="hidden-aria-text">hidden ball</span>
+    </div>
+    `
     solutionRow.appendChild(newBall);
+  }
+
+  // todo check this
+  for (solutionHolder of solutionBallHolders) {
+    solutionBalls.push(solutionHolder.children[1]);
   }
 }
 
@@ -427,6 +445,8 @@ function resizeBalls() {
         }
     }
   }
+
+  //todo add child selector for solution balls
   //solution row
   switch (numOfBalls) {
     case 6:
@@ -473,7 +493,7 @@ function activateRow() {
   activeRow = document.getElementsByClassName("guess")[aR];
   activeRow.classList.add("active-row");
 
-  activeBalls = activeRow.children[1].children;
+  activeBalls = activeRow.getElementsByClassName("color-ball");
   for (let i = 0; i < activeBalls.length; i++) {
     activeBalls[i].classList.add("active-balls", "empty");
     activeBalls[i].addEventListener("click", rowColorSelector);
@@ -483,6 +503,7 @@ function activateRow() {
         colorSelectors[0].focus();
       }
     });
+    activeBalls[i].removeAttribute("disabled");
     addTabIndex(activeBalls[i]);
   }
 
