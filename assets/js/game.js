@@ -17,6 +17,7 @@ let minutesTime = 0;
 const bestSeconds = document.getElementById("best-seconds");
 const bestMinutes = document.getElementById("best-minutes");
 let intervalCount;
+const hiddenTime = document.getElementsByClassName("current")[0].getElementsByClassName("hidden-value")[0];
 
 /** runs a second and minute time that stops at 59:59 */
 function timer() {
@@ -32,6 +33,19 @@ function timer() {
     }
     if ((secondsTime === 59) && (minutesTime === 59)) {
       clearInterval(intervalCount);
+    }
+    if (minutesTime === 1) {
+      if (secondsTime === 1) {
+        hiddenTime.textContent = `current time: ${minutesTime} minute and ${secondsTime} second`;
+      } else {
+        hiddenTime.textContent = `current time: ${minutesTime} minute and ${secondsTime} seconds`;
+      }
+    } else {
+      if (secondsTime === 1) {
+        hiddenTime.textContent = `current time: ${minutesTime} minutes and ${secondsTime} second`;
+      } else {
+        hiddenTime.textContent = `current time: ${minutesTime} minutes and ${secondsTime} seconds`;
+      }
     }
   }, 1000);
 }
