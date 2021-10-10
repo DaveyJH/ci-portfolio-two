@@ -26,6 +26,9 @@ body {
   font-family: "Rajdhani", sans-serif;
   min-height: 100%;
 }
+button:disabled, .color-set {
+  cursor: default;
+}
 
 /* classes */
 .rel {
