@@ -849,6 +849,7 @@ function setSolutionBalls() {
   }
 }
 
+// todo add hidden value script #13
 /** check if best score has been set
  * - if it is larger than the current winning
  * score : change the displayed number to the best score
@@ -860,6 +861,7 @@ function checkScore() {
   }
 }
 
+// todo add hidden value script #13
 /** check current completion time against best time
  * - if quicker : replace best time
  */
