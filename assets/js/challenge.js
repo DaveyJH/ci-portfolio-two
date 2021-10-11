@@ -588,7 +588,7 @@ function toggleColorBlind() {
     });
   }
 }
-document.onload = toggleColorBlind();
+toggleColorBlind();
 // end of colorblind
 
 /** run the challenge */

@@ -9,6 +9,77 @@ function handleChange() {
   document.getElementById("settings").style.top = settingsSpacer;
 }
 
+// !colorBlind setting
+const globalSettings = document.getElementById("global-settings");
+const colorBlind = document.getElementById("color-blind");
+const cBCheckmark = colorBlind.nextElementSibling;
+// aria control for click
+colorBlind.addEventListener("click", () => {
+  toggleColorBlind();
+  ariaCheck(colorBlind);
+})
+cBCheckmark.addEventListener("click", () => {
+  colorBlind.checked = !colorBlind.checked;
+  toggleColorBlind();
+  ariaCheck(colorBlind);
+});
+// prevent space scroll
+cBCheckmark.addEventListener("keydown", (keyed) => {
+  if (keyed.key === " ") {
+    keyed.preventDefault();
+  }
+});
+// keyboard
+cBCheckmark.addEventListener("keyup", (keyed) => {
+  if (!colorBlind.disabled) {
+    if (keyed.key === "Enter") {
+      colorBlind.checked = !colorBlind.checked;
+      toggleColorBlind();
+      ariaCheck(colorBlind);
+    } else if (keyed.key === " ") {
+      colorBlind.checked = !colorBlind.checked;
+      toggleColorBlind();
+      ariaCheck(colorBlind);
+    }
+  }
+});
+
+/**
+ * toggles tooltip appearing when hovering over color balls.
+ */
+function toggleColorBlind() {
+  if (!colorBlind.checked) {
+    document.querySelectorAll(".tooltip-text-ball").forEach(ball => {
+      ball.classList.add("vis-hidden");
+    });
+    // colorBlind.nextElementSibling.setAttribute("aria-checked", "false");
+  } else {
+    document.querySelectorAll(".tooltip-text-ball").forEach(ball => {
+      ball.classList.remove("vis-hidden");
+    });
+    // colorBlind.nextElementSibling.setAttribute("aria-checked", "true");
+  }
+}
+// end of colorblind
+
+/**
+ * checks the state of the checkbox and alters aria-checked
+ * and aria-disabled accordingly
+ * @param {*} checkbox checkbox element to have **.checked** tested for true/false
+ */
+function ariaCheck(checkbox) {
+  if (checkbox.checked) {
+    checkbox.nextElementSibling.setAttribute("aria-checked", "true");
+  } else {
+    checkbox.nextElementSibling.setAttribute("aria-checked", "false");
+  };
+  if (checkbox.disabled) {
+    checkbox.nextElementSibling.setAttribute("aria-disabled", "true");
+  } else {
+    checkbox.nextElementSibling.setAttribute("aria-disabled", "false");
+  };
+}
+
 //! timer variables and functions
 const seconds = document.getElementById("seconds");
 const minutes = document.getElementById("minutes");
@@ -184,7 +255,6 @@ function disableClickNumberInputs() {
     item.addEventListener("click", preventNorm);
   });
 
-  //TODO move outside individual function?
   function preventNorm(event) {
     event.preventDefault();
   }
@@ -316,10 +386,15 @@ function setSolutionBallCount() {
     `
     solutionRow.appendChild(newBall);
   }
+}
 
-  // todo check this
-  for (solutionHolder of solutionBallHolders) {
-    solutionBalls.push(solutionHolder.children[1]);
+/** sets solutionBalls array to current number of balls */
+function createSolutionBallsArray() {
+  while (solutionBalls.length > 0) {
+    solutionBalls.pop();
+  }
+  for (let solutionBallHolder of solutionBallHolders) {
+    solutionBalls.push(solutionBallHolder.children[1]);
   }
 }
 
@@ -339,7 +414,13 @@ function setPegCount() {
 function addColorSelectors() {
   while (colorSelectors.length < numOfColors) {
     const newColorSelector = document.createElement("div");
-    newColorSelector.classList.add("color-ball", "selector");
+    newColorSelector.classList.add("tooltip-holder");
+    newColorSelector.innerHTML = `
+      <span class="tooltip-text-ball" aria-hidden="true">empty</span>
+      <button class="color-ball selector">
+        <span class="hidden-aria-text">empty selector</span>
+      </button>
+    `;
     colorSelectBox.appendChild(newColorSelector);
   }
 }
@@ -427,6 +508,8 @@ function setSelectorBalls() {
   addClearSelection();
   for (let i = 0; i < colorSelectors.length; i++) {
     colorSelectors[i].style.backgroundColor = colors[i];
+    colorSelectors[i].children[0].textContent = colors[i] + " selector";
+    colorSelectors[i].previousElementSibling.textContent = colors[i];
   }
 }
 
@@ -604,6 +687,7 @@ function addRow() {
   gameBoard.appendChild(newRow);
   setBallCount();
   setPegCount();
+  toggleColorBlind(); //needed to prevent tooltips showing if !colorBlind
 }
 
 /** enable color selection of row ball
@@ -868,13 +952,15 @@ function checkPegs() {
 /** set ball color and reveal answer */
 function ballReveal() {
   setSolutionBalls();
-  setTimeout(solutionCover.style.width = "0", 50);
+  setTimeout(solutionCover.style.width = "0", 150);
 }
 
 /** set color of solution balls to solution array values */
 function setSolutionBalls() {
   for (let i = 0; i < solutionHolder.length; i++) {
-    solutionBalls[i].style.backgroundColor = (solutionHolder[i]);
+    solutionBalls[i].style.backgroundColor = solutionHolder[i];
+    solutionBalls[i].children[0].textContent = solutionHolder[i] + " ball";
+    solutionBalls[i].previousElementSibling.textContent = solutionHolder[i];
   }
 }
 
@@ -1037,6 +1123,7 @@ function runGame() {
   setSelectorBalls();
   setPegCount();
   setSolutionBallCount();
+  createSolutionBallsArray();
   setSolution();
   // addResultChecks();
   calculateWidthReducer();
@@ -1063,6 +1150,7 @@ function runGame() {
   }
   addTabIndex(giveUpIcon);
   addTabIndex(hintIcon);
+  toggleColorBlind();
 }
 
 /** reset game board and values and run game */
@@ -1206,76 +1294,4 @@ function resetAria() {
       ball.children[0].textContent = "empty ball";
     }
   }
-}
-
-// !colorBlind setting
-const globalSettings = document.getElementById("global-settings");
-const colorBlind = document.getElementById("color-blind");
-const cBCheckmark = colorBlind.nextElementSibling;
-// aria control for click
-colorBlind.addEventListener("click", () => {
-  toggleColorBlind();
-  ariaCheck(colorBlind);
-})
-cBCheckmark.addEventListener("click", () => {
-  colorBlind.checked = !colorBlind.checked;
-  toggleColorBlind();
-  ariaCheck(colorBlind);
-});
-// prevent space scroll
-cBCheckmark.addEventListener("keydown", (keyed) => {
-  if (keyed.key === " ") {
-    keyed.preventDefault();
-  }
-});
-// keyboard
-cBCheckmark.addEventListener("keyup", (keyed) => {
-  if (!colorBlind.disabled) {
-    if (keyed.key === "Enter") {
-      colorBlind.checked = !colorBlind.checked;
-      toggleColorBlind();
-      ariaCheck(colorBlind);
-    } else if (keyed.key === " ") {
-      colorBlind.checked = !colorBlind.checked;
-      toggleColorBlind();
-      ariaCheck(colorBlind);
-    }
-  }
-});
-
-/**
- * toggles tooltip appearing when hovering over color balls.
- */
-function toggleColorBlind() {
-  if (!colorBlind.checked) {
-    document.querySelectorAll(".tooltip-text-ball").forEach(ball => {
-      ball.classList.add("vis-hidden");
-    });
-    // colorBlind.nextElementSibling.setAttribute("aria-checked", "false");
-  } else {
-    document.querySelectorAll(".tooltip-text-ball").forEach(ball => {
-      ball.classList.remove("vis-hidden");
-    });
-    // colorBlind.nextElementSibling.setAttribute("aria-checked", "true");
-  }
-}
-document.onload = toggleColorBlind();
-// end of colorblind
-
-/**
- * checks the state of the checkbox and alters aria-checked
- * and aria-disabled accordingly
- * @param {*} checkbox checkbox element to have **.checked** tested for true/false
- */
-function ariaCheck(checkbox) {
-  if (checkbox.checked) {
-    checkbox.nextElementSibling.setAttribute("aria-checked", "true");
-  } else {
-    checkbox.nextElementSibling.setAttribute("aria-checked", "false");
-  };
-  if (checkbox.disabled) {
-    checkbox.nextElementSibling.setAttribute("aria-disabled", "true");
-  } else {
-    checkbox.nextElementSibling.setAttribute("aria-disabled", "false");
-  };
 }

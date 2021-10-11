@@ -193,6 +193,10 @@
 }
 #clear-selector .color-ball {
   margin: .2rem auto;
+  display: block;
+}
+#clear-selector p {
+  cursor: pointer;
 }
 #selector-box .color-ball {
   border: .2rem solid #fffce8;
