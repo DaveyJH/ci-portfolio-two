@@ -363,10 +363,10 @@ function setBallCount() {
       const newBall = document.createElement("div");
       newBall.classList.add("tooltip-holder");
       newBall.innerHTML = `
-      <span class="tooltip-text-ball" aria-hidden="true">empty</span>
-      <button class="color-ball" disabled>
-        <span class="hidden-aria-text">empty ball</span>
-      </button>
+        <span class="tooltip-text-ball" aria-hidden="true">empty</span>
+        <button class="color-ball" disabled>
+          <span class="hidden-aria-text">empty ball</span>
+        </button>
       `;
       guessRowBallsArray[i].appendChild(newBall);
     }
@@ -430,14 +430,6 @@ function addColorSelectors() {
 function addClearSelection() {
   document.getElementById("clear-selector").children[0].addEventListener("click", clearSelection);
   document.getElementById("clear-selector").children[1].addEventListener("click", clearSelection);
-  if (!document.getElementById("clear-selector").children[0].classList.contains("key-assigned")) {
-    document.getElementById("clear-selector").children[0].classList.add("key-assigned")
-    document.getElementById("clear-selector").children[0].addEventListener("keyup", function (keyed) {
-      if (keyed.key === "Enter" || keyed.key === " ") {
-        clearSelection(keyed);
-      }
-    });
-  }
 }
 
 /** remove child elements
@@ -490,12 +482,6 @@ function setSolution() {
 function selectorsListeners() {
   document.querySelectorAll(".selector").forEach(item => {
     item.addEventListener("click", colorSelect);
-    item.addEventListener("keyup", function (keyed) {
-      if (keyed.key === "Enter" || keyed.key === " ") {
-        keyUser = true;
-        colorSelect(keyed);
-      }
-    })
   });
 }
 
@@ -584,12 +570,6 @@ function activateRow() {
   for (let i = 0; i < activeBalls.length; i++) {
     activeBalls[i].classList.add("active-balls", "empty");
     activeBalls[i].addEventListener("click", rowColorSelector);
-    activeBalls[i].addEventListener("keyup", function (keyed) {
-      if (keyed.key === "Enter" || keyed.key === " ") {
-        rowColorSelector(keyed);
-        colorSelectors[0].focus();
-      }
-    });
     activeBalls[i].removeAttribute("disabled");
     addTabIndex(activeBalls[i]);
   }
@@ -672,18 +652,20 @@ function addRow() {
   const newRowNumber = guessRows.length + 1;
   const newRow = document.createElement("div");
   newRow.classList.add("row", "guess");
-  newRow.innerHTML = `<div class="number text-center">
-                        ${newRowNumber}
-                      </div>
-                      <div class="selection ball-spacing">
-                      </div>
-                      <div class="result-holder">
-                        <div class="result">
-                        </div>
-                        <div class="check-result">
-                          <img src="assets/images/search-tick.png" alt="check result">
-                        </div>
-                      </div>`;
+  newRow.innerHTML = `
+    <div class="number text-center">
+      ${newRowNumber}
+    </div>
+    <div class="selection ball-spacing">
+    </div>
+    <div class="result-holder">
+      <div class="result">
+      </div>
+      <div class="check-result">
+        <img src="assets/images/search-tick.png" alt="check result">
+      </div>
+    </div>
+  `;
   gameBoard.appendChild(newRow);
   setBallCount();
   setPegCount();
@@ -710,9 +692,19 @@ function rowColorSelector(event) {
   if ((activeSelection.style.backgroundColor === "rgb(133, 78, 30)") ||
     (activeSelection.style.backgroundColor === "")) {
     clearSelector.style.visibility = "hidden";
+    if (event instanceof PointerEvent) {
+      if (event.pointerType !== "mouse") {
+        colorSelectors[0].focus();
+      }
+    }
   } else {
     clearSelector.style.visibility = "visible";
     addTabIndex(clearSelector.children[0]);
+    if (event instanceof PointerEvent) {
+      if (event.pointerType !== "mouse") {
+        clearSelector.children[0].focus();
+      }
+    }
   }
   activeSelection.style.border = ".2rem solid #fffce8";
   activeSelection.style.boxShadow = ".1rem .1rem .2rem #022b3a, .2rem 0 .2rem #022b3a, 0 .05rem .2rem #022b3a";
@@ -734,6 +726,12 @@ function setCurrentColorArrayBlank() {
  * - display check result icon if all balls colored
  */
 function colorSelect(event) {
+  let keyUser = false
+  if (event instanceof PointerEvent) {
+    if (event.pointerType !== "mouse") {
+      keyUser = true;
+    }
+  }
   /* reference index value to maintain position of colors
   from active row in currentGuessColors array*/
   getActiveIndex();
@@ -750,8 +748,8 @@ function colorSelect(event) {
       activeSelection.classList.remove("empty", "active-row-selector");
       activeSelection.parentNode.children[0].textContent = colorSelected;
       activeSelection.children[0].textContent = colorSelected + " ball";
-      if (event instanceof KeyboardEvent) {
-        activeSelection.focus();
+      if(keyUser) {
+        activeBalls[0].focus();
       }
       clearActiveSelect();
     }
@@ -760,8 +758,8 @@ function colorSelect(event) {
     activeSelection.classList.remove("empty", "active-row-selector");
     activeSelection.parentNode.children[0].textContent = colorSelected;
     activeSelection.children[0].textContent = colorSelected + " ball";
-    if (event instanceof KeyboardEvent) {
-      activeSelection.focus();
+    if(keyUser) {
+      activeBalls[0].focus();
     }
     clearActiveSelect();
   }
@@ -774,16 +772,24 @@ function colorSelect(event) {
 }
 
 /** clear color from active selection, add .empty, close selectBox and remove border */
-function clearSelection(keyed) {
+function clearSelection(event) {
+  let keyUser = false
+  if (event instanceof PointerEvent) {
+    if (event.pointerType !== "mouse") {
+      keyUser = true;
+    }
+  }
   if (!guessRepeatCheck.checked) {
     getActiveIndex();
     currentGuessColors[activeIndex] = "";
   }
   activeSelection.style.backgroundColor = "rgb(133, 78, 30)";
   activeSelection.classList.remove("active-row-selector");
+  activeSelection.parentNode.children[0].textContent = "empty";
+  activeSelection.children[0].textContent = "empty ball";
   activeSelection.classList.add("empty");
-  if (keyed) {
-    activeSelection.focus();
+  if(keyUser) {
+    activeBalls[0].focus();
   }
   clearActiveSelect();
   activeBallsEmpty();
@@ -1260,7 +1266,7 @@ window.addEventListener("keyup", function (keyed) {
 // close colorSelectBox with "Escape" key
 colorSelectBox.addEventListener("keyup", function (keyed) {
   if (keyed.key === "Escape") {
-    activeSelection.focus();
+    activeBalls[0].focus();
     clearActiveSelect();
   }
 })
