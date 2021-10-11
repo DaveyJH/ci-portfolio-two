@@ -494,6 +494,7 @@ function activateRow() {
   setCurrentColorArrayBlank();
 
   activeRow = document.getElementsByClassName("guess")[aR];
+  activeRow.removeAttribute("aria-hidden");
   activeRow.classList.add("active-row");
 
   activeBalls = activeRow.getElementsByClassName("color-ball");
@@ -663,6 +664,8 @@ function colorSelect(event) {
       currentGuessColors[activeIndex] = colorSelected; //replace array value to prevent repeat color
       activeSelection.style.backgroundColor = colorSelected;
       activeSelection.classList.remove("empty", "active-row-selector");
+      activeSelection.parentNode.children[0].textContent = colorSelected;
+      activeSelection.children[0].textContent = colorSelected + " ball";
       if (event instanceof KeyboardEvent) {
         activeSelection.focus();
       }
@@ -671,6 +674,8 @@ function colorSelect(event) {
   } else {
     activeSelection.style.backgroundColor = colorSelected;
     activeSelection.classList.remove("empty", "active-row-selector");
+    activeSelection.parentNode.children[0].textContent = colorSelected;
+    activeSelection.children[0].textContent = colorSelected + " ball";
     if (event instanceof KeyboardEvent) {
       activeSelection.focus();
     }
@@ -726,12 +731,16 @@ function getActiveIndex() {
 /** display result icon to allow checking result */
 function showResultCheck() {
   activeResultIcon.style.transform = "translateX(-50%) scale(1)";
+  activeResultIcon.children[0].setAttribute("aria-hidden", "false");
+  activeResultIcon.children[0].classList.remove("vis-hidden");
   addTabIndex(activeResultIcon);
 }
 
 /** hide result icon */
 function hideResultCheck() {
   activeResultIcon.style.transform = "translateX(-50%) scale(0)";
+  activeResultIcon.children[0].setAttribute("aria-hidden", "true");
+  activeResultIcon.children[0].classList.add("vis-hidden");
   removeTabIndex(activeResultIcon);
 }
 
@@ -1167,6 +1176,37 @@ colorSelectBox.addEventListener("keyup", function (keyed) {
     clearActiveSelect();
   }
 })
+
+/**
+ * reset hidden text, results and colorblind text elements. set rows to
+ * aria-hidden
+ */
+function resetAria() {
+  const rows = document.getElementsByClassName("guess");
+  for (const row of rows) {
+    row.setAttribute("aria-hidden", "true");
+    row.classList.remove("completed-row");
+  }
+  const balls = document.querySelectorAll(".tooltip-text-ball");
+  for (const ball of balls) {
+    ball.textContent = "empty";
+  }
+  const resultText = document.getElementsByClassName("result-text");
+  for (const text of resultText) {
+    text.textContent = "result: empty";
+  }
+  for (const ball of solutionBalls) {
+    ball.children[0].textContent = "hidden ball";
+    ball.previousElementSibling.textContent = "hidden";
+  }
+  const colorSetBalls = document.getElementsByClassName("color-set");
+  while (colorSetBalls.length > 1) {
+    for (let ball of colorSetBalls) {
+      ball.classList.remove("color-set");
+      ball.children[0].textContent = "empty ball";
+    }
+  }
+}
 
 // !colorBlind setting
 const globalSettings = document.getElementById("global-settings");
