@@ -773,6 +773,34 @@ function assignPegs() {
   for (let i = 0; i < numOfBalls; i++) {
     activePegs[i].style.backgroundColor = pegColors[i];
   }
+  const resultText = activeRow.getElementsByClassName("result-text")[0];
+  let blackPegs = 0;
+  let whitePegs = 0;
+  for (const peg of pegColors) {
+    switch (peg) {
+      case "black":
+        blackPegs++;
+        break;
+      case "white":
+        whitePegs++;
+        break;
+      default:
+        // do nothing
+    }
+  }
+
+  let blackPegsWord = blackPegs === 1 ? "peg" : "pegs";
+  let whitePegsWord = whitePegs === 1 ? "peg" : "pegs";
+
+  if (blackPegs !== 0 && whitePegs === 0) {
+    resultText.textContent = `result: ${blackPegs} black ${blackPegsWord}`;
+  } else if (blackPegs === 0 && whitePegs !== 0) {
+    resultText.textContent = `result: ${whitePegs} white ${whitePegsWord}`;
+  } else if (blackPegs !== 0 && whitePegs !== 0) {
+    resultText.textContent = `result: ${blackPegs} black ${blackPegsWord} and ${whitePegs} white ${whitePegsWord}`;
+  } else {
+    resultText.textContent = "result: no pegs";
+  }
 }
 
 //! win/lose checks
@@ -964,6 +992,7 @@ function runGame() {
   setPegCount();
   setSolutionBallCount();
   setSolution();
+  // addResultChecks();
   calculateWidthReducer();
   resizeBalls();
   timer();
