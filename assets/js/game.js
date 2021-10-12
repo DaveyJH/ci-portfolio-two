@@ -501,12 +501,15 @@ function deactivateRow() {
   clearActiveSelect();
   activeRow = document.getElementsByClassName("guess")[aR];
   activeRow.children[0].style.borderColor = "#fffce8";
+  activeRow.classList.add("completed-row");
   activeRow.classList.remove("active-row");
-  document.querySelectorAll(".active-balls").forEach(item => {
-    item.removeEventListener("click", rowColorSelector);
-    item.classList.remove("active-balls");
-    removeTabIndex(item);
-  });
+  for (let i = 0; i < activeBalls.length; i++) {
+    let aBi = activeBalls[i];
+    aBi.removeEventListener("click", rowColorSelector); 
+    aBi.classList.add("color-set");
+    aBi.children[0].textContent = `${aBi.children[0].innerText} disabled`;
+    aBi.classList.remove("active-balls");
+  }
   hideResultCheck();
 }
 
