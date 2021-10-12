@@ -9,6 +9,77 @@ function handleChange() {
   document.getElementById("settings").style.top = settingsSpacer;
 }
 
+// !colorBlind setting
+const globalSettings = document.getElementById("global-settings");
+const colorBlind = document.getElementById("color-blind");
+const cBCheckmark = colorBlind.nextElementSibling;
+// aria control for click
+colorBlind.addEventListener("click", () => {
+  toggleColorBlind();
+  ariaCheck(colorBlind);
+})
+cBCheckmark.addEventListener("click", () => {
+  colorBlind.checked = !colorBlind.checked;
+  toggleColorBlind();
+  ariaCheck(colorBlind);
+});
+// prevent space scroll
+cBCheckmark.addEventListener("keydown", (keyed) => {
+  if (keyed.key === " ") {
+    keyed.preventDefault();
+  }
+});
+// keyboard
+cBCheckmark.addEventListener("keyup", (keyed) => {
+  if (!colorBlind.disabled) {
+    if (keyed.key === "Enter") {
+      colorBlind.checked = !colorBlind.checked;
+      toggleColorBlind();
+      ariaCheck(colorBlind);
+    } else if (keyed.key === " ") {
+      colorBlind.checked = !colorBlind.checked;
+      toggleColorBlind();
+      ariaCheck(colorBlind);
+    }
+  }
+});
+
+/**
+ * toggles tooltip appearing when hovering over color balls.
+ */
+function toggleColorBlind() {
+  if (!colorBlind.checked) {
+    document.querySelectorAll(".tooltip-text-ball").forEach(ball => {
+      ball.classList.add("vis-hidden");
+    });
+    // colorBlind.nextElementSibling.setAttribute("aria-checked", "false");
+  } else {
+    document.querySelectorAll(".tooltip-text-ball").forEach(ball => {
+      ball.classList.remove("vis-hidden");
+    });
+    // colorBlind.nextElementSibling.setAttribute("aria-checked", "true");
+  }
+}
+// end of colorblind
+
+/**
+ * checks the state of the checkbox and alters aria-checked
+ * and aria-disabled accordingly
+ * @param {*} checkbox checkbox element to have **.checked** tested for true/false
+ */
+function ariaCheck(checkbox) {
+  if (checkbox.checked) {
+    checkbox.nextElementSibling.setAttribute("aria-checked", "true");
+  } else {
+    checkbox.nextElementSibling.setAttribute("aria-checked", "false");
+  };
+  if (checkbox.disabled) {
+    checkbox.nextElementSibling.setAttribute("aria-disabled", "true");
+  } else {
+    checkbox.nextElementSibling.setAttribute("aria-disabled", "false");
+  };
+}
+
 //! timer variables and functions
 const seconds = document.getElementById("seconds");
 const minutes = document.getElementById("minutes");
@@ -184,7 +255,6 @@ function disableClickNumberInputs() {
     item.addEventListener("click", preventNorm);
   });
 
-  //TODO move outside individual function?
   function preventNorm(event) {
     event.preventDefault();
   }
@@ -264,7 +334,19 @@ function resetTime() {
 //! gameplay variables
 const gameBoard = document.getElementById("game-board");
 
-const colors = ["red", "green", "blue", "yellow", "pink", "purple", "aqua", "lime", "black", "white", "silver", "orange"];
+const colors = ["red",
+  "green",
+  "blue",
+  "yellow",
+  "pink",
+  "purple",
+  "aqua",
+  "lime",
+  "black",
+  "white",
+  "silver",
+  "orange"
+];
 let availableColors;
 const colorSelectors = document.getElementsByClassName("selector");
 const colorSelectBox = document.getElementById("selector-box");
@@ -293,10 +375,10 @@ function setBallCount() {
       const newBall = document.createElement("div");
       newBall.classList.add("tooltip-holder");
       newBall.innerHTML = `
-      <span class="tooltip-text-ball" aria-hidden="true">empty</span>
-      <button class="color-ball" disabled>
-        <span class="hidden-aria-text">empty ball</span>
-      </button>
+        <span class="tooltip-text-ball" aria-hidden="true">empty</span>
+        <button class="color-ball" disabled>
+          <span class="hidden-aria-text">empty ball</span>
+        </button>
       `;
       guessRowBallsArray[i].appendChild(newBall);
     }
@@ -323,6 +405,16 @@ function setSolutionBallCount() {
   }
 }
 
+/** sets solutionBalls array to current number of balls */
+function createSolutionBallsArray() {
+  while (solutionBalls.length > 0) {
+    solutionBalls.pop();
+  }
+  for (let solutionBallHolder of solutionBallHolders) {
+    solutionBalls.push(solutionBallHolder.children[1]);
+  }
+}
+
 /** set number of pegs displayed to equal number of balls */
 function setPegCount() {
   for (let i = 0; i < resultPegs.length; i++) {
@@ -339,7 +431,13 @@ function setPegCount() {
 function addColorSelectors() {
   while (colorSelectors.length < numOfColors) {
     const newColorSelector = document.createElement("div");
-    newColorSelector.classList.add("color-ball", "selector");
+    newColorSelector.classList.add("tooltip-holder");
+    newColorSelector.innerHTML = `
+      <span class="tooltip-text-ball" aria-hidden="true">empty</span>
+      <button class="color-ball selector">
+        <span class="hidden-aria-text">empty selector</span>
+      </button>
+    `;
     colorSelectBox.appendChild(newColorSelector);
   }
 }
@@ -349,14 +447,6 @@ function addColorSelectors() {
 function addClearSelection() {
   document.getElementById("clear-selector").children[0].addEventListener("click", clearSelection);
   document.getElementById("clear-selector").children[1].addEventListener("click", clearSelection);
-  if (!document.getElementById("clear-selector").children[0].classList.contains("key-assigned")) {
-    document.getElementById("clear-selector").children[0].classList.add("key-assigned")
-    document.getElementById("clear-selector").children[0].addEventListener("keyup", function (keyed) {
-      if (keyed.key === "Enter" || keyed.key === " ") {
-        clearSelection(keyed);
-      }
-    });
-  }
 }
 
 /** remove child elements
@@ -409,12 +499,6 @@ function setSolution() {
 function selectorsListeners() {
   document.querySelectorAll(".selector").forEach(item => {
     item.addEventListener("click", colorSelect);
-    item.addEventListener("keyup", function (keyed) {
-      if (keyed.key === "Enter" || keyed.key === " ") {
-        keyUser = true;
-        colorSelect(keyed);
-      }
-    })
   });
 }
 
@@ -427,6 +511,8 @@ function setSelectorBalls() {
   addClearSelection();
   for (let i = 0; i < colorSelectors.length; i++) {
     colorSelectors[i].style.backgroundColor = colors[i];
+    colorSelectors[i].children[0].textContent = colors[i] + " selector";
+    colorSelectors[i].previousElementSibling.textContent = colors[i];
   }
 }
 
@@ -494,18 +580,13 @@ function activateRow() {
   setCurrentColorArrayBlank();
 
   activeRow = document.getElementsByClassName("guess")[aR];
+  activeRow.removeAttribute("aria-hidden");
   activeRow.classList.add("active-row");
 
   activeBalls = activeRow.getElementsByClassName("color-ball");
   for (let i = 0; i < activeBalls.length; i++) {
     activeBalls[i].classList.add("active-balls", "empty");
     activeBalls[i].addEventListener("click", rowColorSelector);
-    activeBalls[i].addEventListener("keyup", function (keyed) {
-      if (keyed.key === "Enter" || keyed.key === " ") {
-        rowColorSelector(keyed);
-        colorSelectors[0].focus();
-      }
-    });
     activeBalls[i].removeAttribute("disabled");
     addTabIndex(activeBalls[i]);
   }
@@ -588,21 +669,24 @@ function addRow() {
   const newRowNumber = guessRows.length + 1;
   const newRow = document.createElement("div");
   newRow.classList.add("row", "guess");
-  newRow.innerHTML = `<div class="number text-center">
-                        ${newRowNumber}
-                      </div>
-                      <div class="selection ball-spacing">
-                      </div>
-                      <div class="result-holder">
-                        <div class="result">
-                        </div>
-                        <div class="check-result">
-                          <img src="assets/images/search-tick.png" alt="check result">
-                        </div>
-                      </div>`;
+  newRow.innerHTML = `
+    <div class="number text-center">
+      ${newRowNumber}
+    </div>
+    <div class="selection ball-spacing">
+    </div>
+    <div class="result-holder">
+      <div class="result">
+      </div>
+      <div class="check-result">
+        <img src="assets/images/search-tick.png" alt="check result">
+      </div>
+    </div>
+  `;
   gameBoard.appendChild(newRow);
   setBallCount();
   setPegCount();
+  toggleColorBlind(); //needed to prevent tooltips showing if !colorBlind
 }
 
 /** enable color selection of row ball
@@ -625,9 +709,19 @@ function rowColorSelector(event) {
   if ((activeSelection.style.backgroundColor === "rgb(133, 78, 30)") ||
     (activeSelection.style.backgroundColor === "")) {
     clearSelector.style.visibility = "hidden";
+    if (event instanceof PointerEvent) {
+      if (event.pointerType !== "mouse") {
+        colorSelectors[0].focus();
+      }
+    }
   } else {
     clearSelector.style.visibility = "visible";
     addTabIndex(clearSelector.children[0]);
+    if (event instanceof PointerEvent) {
+      if (event.pointerType !== "mouse") {
+        clearSelector.children[0].focus();
+      }
+    }
   }
   activeSelection.style.border = ".2rem solid #fffce8";
   activeSelection.style.boxShadow = ".1rem .1rem .2rem #022b3a, .2rem 0 .2rem #022b3a, 0 .05rem .2rem #022b3a";
@@ -649,6 +743,12 @@ function setCurrentColorArrayBlank() {
  * - display check result icon if all balls colored
  */
 function colorSelect(event) {
+  let keyUser = false
+  if (event instanceof PointerEvent) {
+    if (event.pointerType !== "mouse") {
+      keyUser = true;
+    }
+  }
   /* reference index value to maintain position of colors
   from active row in currentGuessColors array*/
   getActiveIndex();
@@ -663,16 +763,20 @@ function colorSelect(event) {
       currentGuessColors[activeIndex] = colorSelected; //replace array value to prevent repeat color
       activeSelection.style.backgroundColor = colorSelected;
       activeSelection.classList.remove("empty", "active-row-selector");
-      if (event instanceof KeyboardEvent) {
-        activeSelection.focus();
+      activeSelection.parentNode.children[0].textContent = colorSelected;
+      activeSelection.children[0].textContent = colorSelected + " ball";
+      if(keyUser) {
+        activeBalls[0].focus();
       }
       clearActiveSelect();
     }
   } else {
     activeSelection.style.backgroundColor = colorSelected;
     activeSelection.classList.remove("empty", "active-row-selector");
-    if (event instanceof KeyboardEvent) {
-      activeSelection.focus();
+    activeSelection.parentNode.children[0].textContent = colorSelected;
+    activeSelection.children[0].textContent = colorSelected + " ball";
+    if(keyUser) {
+      activeBalls[0].focus();
     }
     clearActiveSelect();
   }
@@ -685,16 +789,24 @@ function colorSelect(event) {
 }
 
 /** clear color from active selection, add .empty, close selectBox and remove border */
-function clearSelection(keyed) {
+function clearSelection(event) {
+  let keyUser = false
+  if (event instanceof PointerEvent) {
+    if (event.pointerType !== "mouse") {
+      keyUser = true;
+    }
+  }
   if (!guessRepeatCheck.checked) {
     getActiveIndex();
     currentGuessColors[activeIndex] = "";
   }
   activeSelection.style.backgroundColor = "rgb(133, 78, 30)";
   activeSelection.classList.remove("active-row-selector");
+  activeSelection.parentNode.children[0].textContent = "empty";
+  activeSelection.children[0].textContent = "empty ball";
   activeSelection.classList.add("empty");
-  if (keyed) {
-    activeSelection.focus();
+  if(keyUser) {
+    activeBalls[0].focus();
   }
   clearActiveSelect();
   activeBallsEmpty();
@@ -726,12 +838,16 @@ function getActiveIndex() {
 /** display result icon to allow checking result */
 function showResultCheck() {
   activeResultIcon.style.transform = "translateX(-50%) scale(1)";
+  activeResultIcon.children[0].setAttribute("aria-hidden", "false");
+  activeResultIcon.children[0].classList.remove("vis-hidden");
   addTabIndex(activeResultIcon);
 }
 
 /** hide result icon */
 function hideResultCheck() {
   activeResultIcon.style.transform = "translateX(-50%) scale(0)";
+  activeResultIcon.children[0].setAttribute("aria-hidden", "true");
+  activeResultIcon.children[0].classList.add("vis-hidden");
   removeTabIndex(activeResultIcon);
 }
 
@@ -859,13 +975,15 @@ function checkPegs() {
 /** set ball color and reveal answer */
 function ballReveal() {
   setSolutionBalls();
-  setTimeout(solutionCover.style.width = "0", 50);
+  setTimeout(solutionCover.style.width = "0", 150);
 }
 
 /** set color of solution balls to solution array values */
 function setSolutionBalls() {
   for (let i = 0; i < solutionHolder.length; i++) {
-    solutionBalls[i].style.backgroundColor = (solutionHolder[i]);
+    solutionBalls[i].style.backgroundColor = solutionHolder[i];
+    solutionBalls[i].children[0].textContent = solutionHolder[i] + " ball";
+    solutionBalls[i].previousElementSibling.textContent = solutionHolder[i];
   }
 }
 
@@ -1028,6 +1146,7 @@ function runGame() {
   setSelectorBalls();
   setPegCount();
   setSolutionBallCount();
+  createSolutionBallsArray();
   setSolution();
   // addResultChecks();
   calculateWidthReducer();
@@ -1054,6 +1173,7 @@ function runGame() {
   }
   addTabIndex(giveUpIcon);
   addTabIndex(hintIcon);
+  toggleColorBlind();
 }
 
 /** reset game board and values and run game */
@@ -1163,79 +1283,38 @@ window.addEventListener("keyup", function (keyed) {
 // close colorSelectBox with "Escape" key
 colorSelectBox.addEventListener("keyup", function (keyed) {
   if (keyed.key === "Escape") {
-    activeSelection.focus();
+    activeBalls[0].focus();
     clearActiveSelect();
   }
 })
 
-// !colorBlind setting
-const globalSettings = document.getElementById("global-settings");
-const colorBlind = document.getElementById("color-blind");
-const cBCheckmark = colorBlind.nextElementSibling;
-// aria control for click
-colorBlind.addEventListener("click", () => {
-  toggleColorBlind();
-  ariaCheck(colorBlind);
-})
-cBCheckmark.addEventListener("click", () => {
-  colorBlind.checked = !colorBlind.checked;
-  toggleColorBlind();
-  ariaCheck(colorBlind);
-});
-// prevent space scroll
-cBCheckmark.addEventListener("keydown", (keyed) => {
-  if (keyed.key === " ") {
-    keyed.preventDefault();
+/**
+ * reset hidden text, results and colorblind text elements. set rows to
+ * aria-hidden
+ */
+function resetAria() {
+  const rows = document.getElementsByClassName("guess");
+  for (const row of rows) {
+    row.setAttribute("aria-hidden", "true");
+    row.classList.remove("completed-row");
   }
-});
-// keyboard
-cBCheckmark.addEventListener("keyup", (keyed) => {
-  if (!colorBlind.disabled) {
-    if (keyed.key === "Enter") {
-      colorBlind.checked = !colorBlind.checked;
-      toggleColorBlind();
-      ariaCheck(colorBlind);
-    } else if (keyed.key === " ") {
-      colorBlind.checked = !colorBlind.checked;
-      toggleColorBlind();
-      ariaCheck(colorBlind);
+  const balls = document.querySelectorAll(".tooltip-text-ball");
+  for (const ball of balls) {
+    ball.textContent = "empty";
+  }
+  const resultText = document.getElementsByClassName("result-text");
+  for (const text of resultText) {
+    text.textContent = "result: empty";
+  }
+  for (const ball of solutionBalls) {
+    ball.children[0].textContent = "hidden ball";
+    ball.previousElementSibling.textContent = "hidden";
+  }
+  const colorSetBalls = document.getElementsByClassName("color-set");
+  while (colorSetBalls.length > 1) {
+    for (let ball of colorSetBalls) {
+      ball.classList.remove("color-set");
+      ball.children[0].textContent = "empty ball";
     }
   }
-});
-
-/**
- * toggles tooltip appearing when hovering over color balls.
- */
-function toggleColorBlind() {
-  if (!colorBlind.checked) {
-    document.querySelectorAll(".tooltip-text-ball").forEach(ball => {
-      ball.classList.add("vis-hidden");
-    });
-    // colorBlind.nextElementSibling.setAttribute("aria-checked", "false");
-  } else {
-    document.querySelectorAll(".tooltip-text-ball").forEach(ball => {
-      ball.classList.remove("vis-hidden");
-    });
-    // colorBlind.nextElementSibling.setAttribute("aria-checked", "true");
-  }
-}
-document.onload = toggleColorBlind();
-// end of colorblind
-
-/**
- * checks the state of the checkbox and alters aria-checked
- * and aria-disabled accordingly
- * @param {*} checkbox checkbox element to have **.checked** tested for true/false
- */
-function ariaCheck(checkbox) {
-  if (checkbox.checked) {
-    checkbox.nextElementSibling.setAttribute("aria-checked", "true");
-  } else {
-    checkbox.nextElementSibling.setAttribute("aria-checked", "false");
-  };
-  if (checkbox.disabled) {
-    checkbox.nextElementSibling.setAttribute("aria-disabled", "true");
-  } else {
-    checkbox.nextElementSibling.setAttribute("aria-disabled", "false");
-  };
 }
