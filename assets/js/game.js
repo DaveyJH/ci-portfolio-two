@@ -327,17 +327,6 @@ function addClearSelection() {
   }
 }
 
-// todo delete??
-/** add result check icon to each row */
-function addResultChecks() {
-  for (let i = 0; i < guessRows.length; i++) {
-    const resultChecker = document.createElement("div");
-    resultChecker.classList.add("check-result");
-    resultChecker.innerHTML = `<i class="fas fa-check-square"></i>`;
-    guessRows[i].children[2].appendChild(resultChecker);
-  }
-}
-
 /** remove child elements
  * - ensure layout and gameplay matches settings selections
  */
@@ -972,7 +961,6 @@ function runGame() {
   setPegCount();
   setSolutionBallCount();
   setSolution();
-  // addResultChecks();
   calculateWidthReducer();
   resizeBalls();
   timer();
