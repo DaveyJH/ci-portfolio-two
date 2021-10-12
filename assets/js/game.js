@@ -193,10 +193,12 @@ function settingsState() {
     scoreTimerOptionsCheck();
     document.getElementById("game-board").style.visibility = "visible";
     settingsOverlay.style.visibility = "hidden";
+    settingsActivator.setAttribute("aria-expanded", "false");
     timer();
   } else {
     clearActiveSelect();
     showSettings();
+    settingsActivator.setAttribute("aria-expanded", "true");
     settingsActivator.style.color = "#6bdce9";
   }
 }
