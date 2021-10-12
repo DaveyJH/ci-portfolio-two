@@ -334,7 +334,19 @@ function resetTime() {
 //! gameplay variables
 const gameBoard = document.getElementById("game-board");
 
-const colors = ["red", "green", "blue", "yellow", "pink", "purple", "aqua", "lime", "black", "white", "silver", "orange"];
+const colors = ["red",
+  "green",
+  "blue",
+  "yellow",
+  "pink",
+  "purple",
+  "aqua",
+  "lime",
+  "black",
+  "white",
+  "silver",
+  "orange"
+];
 let availableColors;
 const colorSelectors = document.getElementsByClassName("selector");
 const colorSelectBox = document.getElementById("selector-box");
