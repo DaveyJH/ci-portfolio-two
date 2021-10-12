@@ -359,17 +359,6 @@ function addClearSelection() {
   }
 }
 
-// todo delete??
-/** add result check icon to each row */
-function addResultChecks() {
-  for (let i = 0; i < guessRows.length; i++) {
-    const resultChecker = document.createElement("div");
-    resultChecker.classList.add("check-result");
-    resultChecker.innerHTML = `<i class="fas fa-check-square"></i>`;
-    guessRows[i].children[2].appendChild(resultChecker);
-  }
-}
-
 /** remove child elements
  * - ensure layout and gameplay matches settings selections
  */
@@ -547,12 +536,15 @@ function deactivateRow() {
   clearActiveSelect();
   activeRow = document.getElementsByClassName("guess")[aR];
   activeRow.children[0].style.borderColor = "#fffce8";
+  activeRow.classList.add("completed-row");
   activeRow.classList.remove("active-row");
-  document.querySelectorAll(".active-balls").forEach(item => {
-    item.removeEventListener("click", rowColorSelector);
-    item.classList.remove("active-balls");
-    removeTabIndex(item);
-  });
+  for (let i = 0; i < activeBalls.length; i++) {
+    let aBi = activeBalls[i];
+    aBi.removeEventListener("click", rowColorSelector); 
+    aBi.classList.add("color-set");
+    aBi.children[0].textContent = `${aBi.children[0].innerText} disabled`;
+    aBi.classList.remove("active-balls");
+  }
   hideResultCheck();
 }
 
@@ -815,6 +807,34 @@ function checkWhite() {
 function assignPegs() {
   for (let i = 0; i < numOfBalls; i++) {
     activePegs[i].style.backgroundColor = pegColors[i];
+  }
+  const resultText = activeRow.getElementsByClassName("result-text")[0];
+  let blackPegs = 0;
+  let whitePegs = 0;
+  for (const peg of pegColors) {
+    switch (peg) {
+      case "black":
+        blackPegs++;
+        break;
+      case "white":
+        whitePegs++;
+        break;
+      default:
+        // do nothing
+    }
+  }
+
+  let blackPegsWord = blackPegs === 1 ? "peg" : "pegs";
+  let whitePegsWord = whitePegs === 1 ? "peg" : "pegs";
+
+  if (blackPegs !== 0 && whitePegs === 0) {
+    resultText.textContent = `result: ${blackPegs} black ${blackPegsWord}`;
+  } else if (blackPegs === 0 && whitePegs !== 0) {
+    resultText.textContent = `result: ${whitePegs} white ${whitePegsWord}`;
+  } else if (blackPegs !== 0 && whitePegs !== 0) {
+    resultText.textContent = `result: ${blackPegs} black ${blackPegsWord} and ${whitePegs} white ${whitePegsWord}`;
+  } else {
+    resultText.textContent = "result: no pegs";
   }
 }
 
