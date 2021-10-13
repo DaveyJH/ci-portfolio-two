@@ -1127,6 +1127,10 @@ function giveUp() {
   if (toggleAudio()) {
     audioFile.chicken.play();
   }
+  setTimeout(giveUpCheck, 100);
+}
+
+function giveUpCheck() {
   if (confirm("Do you really want to give up?")) {
     solutionHolder = solution.slice();
     ballReveal();
