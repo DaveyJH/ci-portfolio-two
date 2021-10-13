@@ -113,6 +113,8 @@ const audioFile = {
   win: new Audio("assets/audio/win.mp3"),
   lose: new Audio("assets/audio/lose.mp3"),
   error: new Audio("assets/audio/error.mp3"),
+  setup: new Audio("assets/audio/setup.mp3"),
+  check: new Audio("assets/audio/check.mp3"),
 }
 //#endregion
 // end of audio
@@ -934,6 +936,9 @@ function activeBallsEmpty() {
 //! result functions
 /** check result of input colors */
 function checkResult() {
+  if (toggleAudio()) {
+    audioFile.check.play();
+  }
   solutionHolder = solution.slice();
 
   clearActiveSelect();
@@ -1244,6 +1249,9 @@ function runGame() {
   setSolution();
   calculateWidthReducer();
   resizeBalls();
+  if (toggleAudio()) {
+    audioFile.setup.play();
+  }
   timer();
   activateRow();
   giveUpIcon.addEventListener("click", giveUp);
