@@ -9,9 +9,9 @@ function handleChange() {
   document.getElementById("settings").style.top = settingsSpacer;
 }
 
-// !colorBlind setting
-//#region [purple]
 const globalSettings = document.getElementById("global-settings");
+//! colorBlind setting
+//#region [purple]
 const colorBlind = document.getElementById("color-blind");
 const cBCheckmark = colorBlind.nextElementSibling;
 // aria control for click
@@ -53,16 +53,55 @@ function toggleColorBlind() {
     document.querySelectorAll(".tooltip-text-ball").forEach(ball => {
       ball.classList.add("vis-hidden");
     });
-    // colorBlind.nextElementSibling.setAttribute("aria-checked", "false");
   } else {
     document.querySelectorAll(".tooltip-text-ball").forEach(ball => {
       ball.classList.remove("vis-hidden");
     });
-    // colorBlind.nextElementSibling.setAttribute("aria-checked", "true");
   }
 }
 //#endregion
 // end of colorblind
+
+//#region [purple]
+//! audio settings
+const audio = document.getElementById("audio");
+const audioCheckmark = audio.nextElementSibling;
+// aria control for click
+audio.addEventListener("click", () => {
+  // toggleAudio();
+  ariaCheck(audio);
+})
+audioCheckmark.addEventListener("click", () => {
+  audio.checked = !audio.checked;
+  // toggleAudio();
+  ariaCheck(audio);
+});
+// prevent space scroll
+audioCheckmark.addEventListener("keydown", (keyed) => {
+  if (keyed.key === " ") {
+    keyed.preventDefault();
+  }
+});
+// keyboard
+audioCheckmark.addEventListener("keyup", (keyed) => {
+  if (!audio.disabled) {
+    if (keyed.key === "Enter") {
+      audio.checked = !audio.checked;
+      // toggleAudio();
+      ariaCheck(audio);
+    } else if (keyed.key === " ") {
+      audio.checked = !audio.checked;
+      // toggleAudio();
+      ariaCheck(audio);
+    }
+  }
+});
+
+
+function toggleAudio() {
+  return audio.checked;
+}
+//#endregion
 
 /**
  * checks the state of the checkbox and alters aria-checked
