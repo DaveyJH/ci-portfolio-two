@@ -403,11 +403,10 @@ function setSolutionBallCount() {
     `
     solutionRow.appendChild(newBall);
   }
-
-  // todo check this
-  for (solutionHolder of solutionBallHolders) {
-    solutionBalls.push(solutionHolder.children[1]);
-  }
+  createSolutionBallsArray();
+  // for (let solutionBallHolder of solutionBallHolders) {
+  //   solutionBalls.push(solutionBallHolder.children[1]);
+  // }
 }
 
 /** sets solutionBalls array to current number of balls */
@@ -571,6 +570,7 @@ let activeResultIcon;
 const giveUpIcon = document.getElementById("give-up");
 const hintIcon = document.getElementById("hint");
 let colorSelected;
+const message = document.getElementById("message");
 
 /** activates the next row
  * - set current color array to blank values 
@@ -707,6 +707,7 @@ function rowColorSelector(event) {
     activeSelection.classList.remove("active-row-selector");
   }
   colorSelectBox.style.visibility = "visible";
+  message.style.visibility = "hidden";
   for (i = 0; i < colorSelectors.length; i++) {
     addTabIndex(colorSelectors[i]);
   }
@@ -822,6 +823,7 @@ function clearSelection(event) {
  * - hide selector box
  */
 function clearActiveSelect() {
+  message.style.visibility = "visible";
   colorSelectBox.style.visibility = "hidden";
   clearSelector.style.visibility = "hidden";
   if (activeSelection !== "inactive") {
@@ -1044,8 +1046,6 @@ Would you like to play again?`)) {
   }
 }
 
-const message = document.getElementById("message");
-
 //! giveup and hint functions
 /** confirm popup to  give up
  * - if true : lose the game */
@@ -1151,9 +1151,7 @@ function runGame() {
   setSelectorBalls();
   setPegCount();
   setSolutionBallCount();
-  createSolutionBallsArray();
   setSolution();
-  // addResultChecks();
   calculateWidthReducer();
   resizeBalls();
   timer();
