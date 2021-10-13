@@ -238,7 +238,6 @@ function settingsState() {
     settingsActivator.style.color = "#fffce8";
     checkRepeatState();
     scoreTimerOptionsCheck();
-    document.getElementById("game-board").style.visibility = "visible";
     gameBoard.style.visibility = "visible";
     globalSettings.style.visibility = "visible";
     settingsOverlay.style.visibility = "hidden";
@@ -290,7 +289,8 @@ function storeNewSettings() {
 
 /** show settings overlay and enable functionality. pause timer */
 function showSettings() {
-  document.getElementById("game-board").style.visibility = "hidden";
+  gameBoard.style.visibility = "hidden";
+  globalSettings.style.visibility = "hidden";
   settingsOverlay.style.visibility = "visible";
   clearInterval(intervalCount);
   const playButton = document.getElementById("play-button");
@@ -373,7 +373,8 @@ function playGame(event) {
     bestMinutes.textContent = "--";
   }
   storeNewSettings();
-  document.getElementById("game-board").style.visibility = "visible";
+  gameBoard.style.visibility = "visible";
+  globalSettings.style.visibility = "visible";
   settingsOverlay.style.visibility = "hidden";
   settingsActivator.style.color = "#fffce8";
   reset();
@@ -1322,7 +1323,8 @@ window.addEventListener("keyup", function (keyed) {
       settingsActivator.style.color = "#fffce8";
       checkRepeatState();
       scoreTimerOptionsCheck();
-      document.getElementById("game-board").style.visibility = "visible";
+      gameBoard.style.visibility = "visible";
+      globalSettings.style.visibility = "visible";
       settingsOverlay.style.visibility = "hidden";
       timer();
       settingsActivator.focus();
