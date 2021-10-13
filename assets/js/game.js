@@ -404,9 +404,6 @@ function setSolutionBallCount() {
     solutionRow.appendChild(newBall);
   }
   createSolutionBallsArray();
-  // for (let solutionBallHolder of solutionBallHolders) {
-  //   solutionBalls.push(solutionBallHolder.children[1]);
-  // }
 }
 
 /** sets solutionBalls array to current number of balls */
@@ -680,11 +677,12 @@ function addRow() {
     </div>
     <div class="selection ball-spacing">
     </div>
-    <div class="result-holder">
+    <div class="result-holder hidden-aria-text">
+      <span class="result-text">result: empty</span>
       <div class="result">
       </div>
       <div class="check-result">
-        <img src="assets/images/search-tick.png" alt="check result">
+        <img src="assets/images/search-tick.png" alt="check result" role="button" class="vis-hidden">
       </div>
     </div>
   `;
