@@ -520,33 +520,16 @@ function setSelectorBalls() {
 // todo update when taptarget style done for 4 balls
 /** shrink balls if set to 6 in solution */
 function resizeBalls() {
-  //guessRows
-  for (let i = 0; i < guessRows.length; i++) {
-    individualBalls = guessRowBallsArray[i].getElementsByClassName("color-ball");
-    switch (numOfBalls) {
-      case 6:
-        for (let i = 0; i < individualBalls.length; i++) {
-          individualBalls[i].style.transform = "scale(.9)";
-        }
-        break;
-      default:
-        for (let i = 0; i < individualBalls.length; i++) {
-          individualBalls[i].style.transform = "scale(1)";
-        }
-    }
-  }
-
-  //todo add child selector for solution balls
-  //solution row
+  let sizeBalls = gameBoard.querySelectorAll(".color-ball");
   switch (numOfBalls) {
     case 6:
-      for (let i = 0; i < solutionBalls.length; i++) {
-        solutionBalls[i].style.transform = "scale(.9)";
+      for (let i = 0; i < sizeBalls.length; i++) {
+        sizeBalls[i].style.transform = "scale(.9)";
       }
       break;
     default:
-      for (let i = 0; i < solutionBalls.length; i++) {
-        solutionBalls[i].style.transform = "scale(1)";
+      for (let i = 0; i < sizeBalls.length; i++) {
+        sizeBalls[i].style.transform = "scale(1)";
       }
   }
 }
@@ -623,7 +606,7 @@ function deactivateRow() {
   activeRow.classList.remove("active-row");
   for (let i = 0; i < activeBalls.length; i++) {
     let aBi = activeBalls[i];
-    aBi.removeEventListener("click", rowColorSelector); 
+    aBi.removeEventListener("click", rowColorSelector);
     aBi.classList.add("color-set");
     aBi.children[0].textContent = `${aBi.children[0].innerText} disabled`;
     aBi.classList.remove("active-balls");
@@ -769,7 +752,7 @@ function colorSelect(event) {
       activeSelection.classList.remove("empty", "active-row-selector");
       activeSelection.parentNode.children[0].textContent = colorSelected;
       activeSelection.children[0].textContent = colorSelected + " ball";
-      if(keyUser) {
+      if (keyUser) {
         activeBalls[0].focus();
       }
       clearActiveSelect();
@@ -779,7 +762,7 @@ function colorSelect(event) {
     activeSelection.classList.remove("empty", "active-row-selector");
     activeSelection.parentNode.children[0].textContent = colorSelected;
     activeSelection.children[0].textContent = colorSelected + " ball";
-    if(keyUser) {
+    if (keyUser) {
       activeBalls[0].focus();
     }
     clearActiveSelect();
@@ -809,7 +792,7 @@ function clearSelection(event) {
   activeSelection.parentNode.children[0].textContent = "empty";
   activeSelection.children[0].textContent = "empty ball";
   activeSelection.classList.add("empty");
-  if(keyUser) {
+  if (keyUser) {
     activeBalls[0].focus();
   }
   clearActiveSelect();
