@@ -177,6 +177,7 @@ function checkRepeatState() {
   }
 }
 
+const gameBoard = document.getElementById("game-board");
 settingsActivator.addEventListener("click", settingsState);
 /** show or hide settings depending on current state.
  * if settings overlay closed without new game starting:
@@ -192,12 +193,16 @@ function settingsState() {
     checkRepeatState();
     scoreTimerOptionsCheck();
     document.getElementById("game-board").style.visibility = "visible";
+    gameBoard.style.visibility = "visible";
+    globalSettings.style.visibility = "visible";
     settingsOverlay.style.visibility = "hidden";
     settingsActivator.setAttribute("aria-expanded", "false");
     timer();
   } else {
     clearActiveSelect();
     showSettings();
+    gameBoard.style.visibility = "hidden";
+    globalSettings.style.visibility = "hidden";
     settingsActivator.setAttribute("aria-expanded", "true");
     settingsActivator.style.color = "#6bdce9";
   }
@@ -334,8 +339,6 @@ function resetTime() {
 }
 
 //! gameplay variables
-const gameBoard = document.getElementById("game-board");
-
 const colors = ["red",
   "green",
   "blue",
