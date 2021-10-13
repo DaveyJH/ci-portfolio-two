@@ -296,4 +296,10 @@ fieldset legend {
   height: 2.2rem;
 }
 /* end of checkboxes */
-/* end of settings */
+
+#audio-error {
+  font-weight: bold;
+  color: #3e363f;
+  max-width: 18rem;
+  margin: 0 auto -1rem;
+}

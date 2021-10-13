@@ -62,8 +62,8 @@ function toggleColorBlind() {
 //#endregion
 // end of colorblind
 
-//#region [purple]
 //! audio settings
+//#region [purple]
 const audio = document.getElementById("audio");
 const audioCheckmark = audio.nextElementSibling;
 // aria control for click
@@ -97,11 +97,25 @@ audioCheckmark.addEventListener("keyup", (keyed) => {
   }
 });
 
-
+/**
+ * check state of audio checkbox
+ * @returns boolean
+ */
 function toggleAudio() {
   return audio.checked;
 }
+
+const audioFile = {
+  add: new Audio("assets/audio/add-click.mp3"),
+  remove: new Audio("assets/audio/remove-click.mp3"),
+  reveal: new Audio("assets/audio/reveal.mp3"),
+  chicken: new Audio("assets/audio/chicken.mp3"),
+  win: new Audio("assets/audio/win.mp3"),
+  lose: new Audio("assets/audio/lose.mp3"),
+  error: new Audio("assets/audio/error.mp3"),
+}
 //#endregion
+// end of audio
 
 /**
  * checks the state of the checkbox and alters aria-checked
@@ -794,10 +808,16 @@ function colorSelect(event) {
     the activeSelection ball is not already the intended color */
     if ((currentGuessColors.includes(colorSelected)) &&
       (activeIndex !== currentGuessColors.indexOf(colorSelected))) {
+      if (toggleAudio()) {
+        audioFile.error.play();
+      }
       alert("Your chosen settings do not allow you to repeat colours, please pick another.");
     } else {
       currentGuessColors[activeIndex] = colorSelected; //replace array value to prevent repeat color
       activeSelection.style.backgroundColor = colorSelected;
+      if (toggleAudio()) {
+        audioFile.add.play();
+      }
       activeSelection.classList.remove("empty", "active-row-selector");
       activeSelection.parentNode.children[0].textContent = colorSelected;
       activeSelection.children[0].textContent = colorSelected + " ball";
@@ -808,6 +828,9 @@ function colorSelect(event) {
     }
   } else {
     activeSelection.style.backgroundColor = colorSelected;
+    if (toggleAudio()) {
+      audioFile.add.play();
+    }
     activeSelection.classList.remove("empty", "active-row-selector");
     activeSelection.parentNode.children[0].textContent = colorSelected;
     activeSelection.children[0].textContent = colorSelected + " ball";
@@ -837,6 +860,9 @@ function clearSelection(event) {
     currentGuessColors[activeIndex] = "";
   }
   activeSelection.style.backgroundColor = "rgb(133, 78, 30)";
+  if (toggleAudio()) {
+    audioFile.remove.play();
+  }
   activeSelection.classList.remove("active-row-selector");
   activeSelection.parentNode.children[0].textContent = "empty";
   activeSelection.children[0].textContent = "empty ball";
@@ -1084,6 +1110,9 @@ You were successful in a time of ${minutes.textContent}:${seconds.textContent}`;
     winnerMessage = `You took ${score} attempt and used ${hintCount} ${hintWord}.
 You were successful in a time of ${minutes.textContent}:${seconds.textContent}`;
   }
+  if (toggleAudio()) {
+    audioFile.win.play();
+  }
   if (confirm(`Congratulations, you won!
 ${winnerMessage}
 Would you like to play again?`)) {
@@ -1095,6 +1124,9 @@ Would you like to play again?`)) {
 /** confirm popup to  give up
  * - if true : lose the game */
 function giveUp() {
+  if (toggleAudio()) {
+    audioFile.chicken.play();
+  }
   if (confirm("Do you really want to give up?")) {
     solutionHolder = solution.slice();
     ballReveal();
@@ -1126,6 +1158,9 @@ Would you like to play again?`;
 You didn't even have a go!
 Would you like to play again?`;
   }
+  if (toggleAudio()) {
+    audioFile.lose.play();
+  }
   if (confirm(`${loserMessage}`)) {
     reset();
   }
@@ -1138,6 +1173,9 @@ function extremeLoss() {
   const extremeMessage = `Wow, that is serious dedication!
 I'm afraid you can't have any more guesses,
 perhaps you should try again?`;
+  if (toggleAudio()) {
+    audioFile.lose.play();
+  }
   if (confirm(`${extremeMessage}`)) {
     reset();
   }
@@ -1174,6 +1212,9 @@ function hint() {
       hintCount++;
       addOneSolutionColor();
       solutionCover.style.width = ((currentWidth - widthReducer) + "%");
+      if (toggleAudio()) {
+        audioFile.reveal.play();
+      }
       currentWidth = currentWidth - widthReducer;
     } else {
       alert("You cannot reveal the last ball. Maybe you should just give up!");
