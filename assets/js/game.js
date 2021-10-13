@@ -95,13 +95,13 @@ const hiddenBestTime = document.getElementsByClassName("best time")[0].getElemen
 function timer() {
   intervalCount = setInterval(function () {
     secondsTime++;
-    seconds.innerHTML = (("0" + secondsTime).slice(-2)).toString();
-    minutes.innerHTML = (("0" + minutesTime).slice(-2)).toString();
+    seconds.textContent = (("0" + secondsTime).slice(-2)).toString();
+    minutes.textContent = (("0" + minutesTime).slice(-2)).toString();
     if (secondsTime === 60) {
       secondsTime = 0;
-      seconds.innerHTML = (("0" + secondsTime).slice(-2)).toString();
+      seconds.textContent = (("0" + secondsTime).slice(-2)).toString();
       minutesTime++;
-      minutes.innerHTML = (("0" + minutesTime).slice(-2)).toString();
+      minutes.textContent = (("0" + minutesTime).slice(-2)).toString();
     }
     if ((secondsTime === 59) && (minutesTime === 59)) {
       clearInterval(intervalCount);
@@ -320,10 +320,10 @@ function playGame(event) {
     (settingsHolder[1] !== calculatedBalls.value) ||
     (settingsHolder[2] !== solutionRepeatCheck.checked) ||
     (settingsHolder[3] !== guessRepeatCheck.checked)) {
-    bestScoreHTML.innerHTML = "--";
+    bestScoreHTML.textContent = "--";
     bestScore = 0;
-    bestSeconds.innerHTML = "--";
-    bestMinutes.innerHTML = "--";
+    bestSeconds.textContent = "--";
+    bestMinutes.textContent = "--";
   }
   storeNewSettings();
   document.getElementById("game-board").style.visibility = "visible";
@@ -649,7 +649,6 @@ function testAddRows() {
   }
 }
 
-// todo update row html
 /** create new guess row with current settings */
 function addRow() {
   const newRowNumber = guessRows.length + 1;
@@ -876,7 +875,7 @@ function checkResult() {
     deactivateRow();
     ballReveal();
     checkScore();
-    message.innerHTML = "Well done!";
+    message.textContent = "Well done!";
     setTimeout(winner, 500);
     giveUpIcon.removeEventListener("click", giveUp);
     hintIcon.removeEventListener("click", hint);
@@ -976,7 +975,7 @@ function setSolutionBalls() {
   }
 }
 
-// todo add hidden value script #13
+const hiddenScoreText = document.getElementById("best-score-value");
 /** check if best score has been set
  * - if it is larger than the current winning
  * score : change the displayed number to the best score
@@ -989,13 +988,12 @@ function checkScore() {
   }
 }
 
-// todo add hidden value script #13
 /** check current completion time against best time
  * - if quicker : replace best time
  */
 function checkTime() {
-  const testSeconds = Number(bestSeconds.innerHTML);
-  const testMinutes = Number(bestMinutes.innerHTML);
+  const testSeconds = Number(bestSeconds.textContent);
+  const testMinutes = Number(bestMinutes.textContent);
   const calculatedCurrentTime = minutesTime * 60 + secondsTime;
   const calculatedBestTime = testMinutes * 60 + testSeconds;
   if ((calculatedCurrentTime < calculatedBestTime) || (bestSeconds.textContent === "--")) {
@@ -1032,10 +1030,10 @@ function winner() {
   }
   if (score > 1) {
     winnerMessage = `You took ${score} attempts and used ${hintCount} ${hintWord}.
-You were successful in a time of ${minutes.innerHTML}:${seconds.innerHTML}`;
+You were successful in a time of ${minutes.textContent}:${seconds.textContent}`;
   } else if (score === 1) {
     winnerMessage = `You took ${score} attempt and used ${hintCount} ${hintWord}.
-You were successful in a time of ${minutes.innerHTML}:${seconds.innerHTML}`;
+You were successful in a time of ${minutes.textContent}:${seconds.textContent}`;
   }
   if (confirm(`Congratulations, you won!
 ${winnerMessage}
@@ -1051,7 +1049,7 @@ function giveUp() {
   if (confirm("Do you really want to give up?")) {
     solutionHolder = solution.slice();
     ballReveal();
-    message.innerHTML = "Oh dear!";
+    message.textContent = "Oh dear!";
     clearInterval(intervalCount);
     deactivateRow();
     setTimeout(loser, 750);
@@ -1068,11 +1066,11 @@ function loser() {
   let loserMessage;
   if (score - 1 > 1) {
     loserMessage = `Unlucky, you lost!
-You had ${(score -1)} attempts in ${minutes.innerHTML}:${seconds.innerHTML}
+You had ${(score -1)} attempts in ${minutes.textContent}:${seconds.textContent}
 Would you like to play again?`;
   } else if (score - 1 === 1) {
     loserMessage = `Unlucky, you lost!
-You had ${(score -1)} attempt in ${minutes.innerHTML}:${seconds.innerHTML}
+You had ${(score -1)} attempt in ${minutes.textContent}:${seconds.textContent}
 Would you like to play again?`;
   } else {
     loserMessage = `Unlucky, you lost!
@@ -1198,7 +1196,7 @@ function reset() {
   currentWidth = 67.5;
   hintCount = 0;
   score = 0;
-  message.innerHTML = "Good luck!";
+  message.textContent = "Good luck!";
   resetTime();
   removeRows();
   runGame();
