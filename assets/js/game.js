@@ -762,7 +762,8 @@ function rowColorSelector(event) {
     (activeSelection.style.backgroundColor === "")) {
     clearSelector.style.visibility = "hidden";
     if (event instanceof PointerEvent) {
-      if (event.pointerType !== "mouse") {
+      if (event.pointerType !== "mouse" &&
+      event.pointerType !== "touch") {
         colorSelectors[0].focus();
       }
     }
@@ -770,7 +771,8 @@ function rowColorSelector(event) {
     clearSelector.style.visibility = "visible";
     addTabIndex(clearSelector.children[0]);
     if (event instanceof PointerEvent) {
-      if (event.pointerType !== "mouse") {
+      if (event.pointerType !== "mouse" &&
+      event.pointerType !== "touch") {
         clearSelector.children[0].focus();
       }
     }
