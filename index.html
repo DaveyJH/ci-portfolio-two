@@ -171,11 +171,19 @@
   <div id="game-board">
     <!-- todo add hidden values #13 -->
     <div id="scores-and-times" class="text-center">
-      <div class="best score">
-        --
+      <div class="best score tooltip-holder">
+        <span class="tooltip-text-left" aria-hidden="true">best score</span>
+        <span class="hidden-value hidden-aria-text" id="best-score-value">best score: unset</span>
+        <p aria-hidden="true">
+          --
+        </p>
       </div>
-      <div class="best time">
-        <span id="best-minutes">--</span>:<span id="best-seconds">--</span>
+      <div class="best time tooltip-holder">
+        <span class="tooltip-text" aria-hidden="true">best time</span>
+        <span class="hidden-value hidden-aria-text" id="best-time-value">best time: unset</span>
+        <p aria-hidden="true">
+          <span id="best-minutes">--</span>:<span id="best-seconds">--</span>
+        </p>
       </div>
     </div>
     <div class="row top">

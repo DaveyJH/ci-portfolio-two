@@ -89,6 +89,7 @@ const bestSeconds = document.getElementById("best-seconds");
 const bestMinutes = document.getElementById("best-minutes");
 let intervalCount;
 const hiddenTime = document.getElementsByClassName("current")[0].getElementsByClassName("hidden-value")[0];
+const hiddenBestTime = document.getElementsByClassName("best time")[0].getElementsByClassName("hidden-value")[0];
 
 /** runs a second and minute time that stops at 59:59 */
 function timer() {
@@ -944,7 +945,7 @@ function assignPegs() {
 
 //! win/lose checks
 let win;
-const bestScoreHTML = document.getElementsByClassName("best score")[0];
+const bestScoreHTML = document.getElementsByClassName("best score")[0].getElementsByTagName("p")[0];
 
 /**
  * checks for win condition
@@ -983,7 +984,8 @@ function setSolutionBalls() {
 function checkScore() {
   if (bestScore > score || bestScore === 0) {
     bestScore = score.toString();
-    bestScoreHTML.innerHTML = `${bestScore}`;
+    bestScoreHTML.textContent = `${bestScore}`;
+    hiddenScoreText.textContent = `best score: ${bestScore}`;
   }
 }
 
@@ -996,9 +998,24 @@ function checkTime() {
   const testMinutes = Number(bestMinutes.innerHTML);
   const calculatedCurrentTime = minutesTime * 60 + secondsTime;
   const calculatedBestTime = testMinutes * 60 + testSeconds;
-  if ((calculatedCurrentTime < calculatedBestTime) || (bestSeconds.innerHTML === "--")) {
-    bestSeconds.innerHTML = (("0" + secondsTime).slice(-2)).toString();
-    bestMinutes.innerHTML = (("0" + minutesTime).slice(-2)).toString();
+  if ((calculatedCurrentTime < calculatedBestTime) || (bestSeconds.textContent === "--")) {
+    bestSeconds.textContent = (("0" + secondsTime).slice(-2)).toString();
+    bestMinutes.textContent = (("0" + minutesTime).slice(-2)).toString();
+  }
+  if (bestSeconds.textContent === "--") {
+    hiddenBestTime.textContent = `best time: unset`;
+  } else if (bestMinutes.textContent === "01") {
+    if (bestSeconds.textContent === "01") {
+      hiddenBestTime.textContent = `best time: ${Number(bestMinutes.textContent)} minute and ${Number(bestSeconds.textContent)} second`;
+    } else {
+      hiddenBestTime.textContent = `best time: ${Number(bestMinutes.textContent)} minute and ${Number(bestSeconds.textContent)} seconds`;
+    }
+  } else {
+    if (bestSeconds.textContent === "01") {
+      hiddenBestTime.textContent = `best time: ${Number(bestMinutes.textContent)} minutes and ${Number(bestSeconds.textContent)} second`;
+    } else {
+      hiddenBestTime.textContent = `best time: ${Number(bestMinutes.textContent)} minutes and ${Number(bestSeconds.textContent)} seconds`;
+    }
   }
 }
 
