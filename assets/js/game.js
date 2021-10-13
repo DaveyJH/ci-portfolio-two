@@ -797,7 +797,8 @@ function setCurrentColorArrayBlank() {
 function colorSelect(event) {
   let keyUser = false
   if (event instanceof PointerEvent) {
-    if (event.pointerType !== "mouse") {
+    if (event.pointerType !== "mouse" &&
+    event.pointerType !== "touch") {
       keyUser = true;
     }
   }
@@ -853,7 +854,8 @@ function colorSelect(event) {
 function clearSelection(event) {
   let keyUser = false
   if (event instanceof PointerEvent) {
-    if (event.pointerType !== "mouse") {
+    if (event.pointerType !== "mouse" &&
+    event.pointerType !== "touch") {
       keyUser = true;
     }
   }
