@@ -10,6 +10,7 @@ function handleChange() {
 }
 
 // !colorBlind setting
+//#region [purple]
 const globalSettings = document.getElementById("global-settings");
 const colorBlind = document.getElementById("color-blind");
 const cBCheckmark = colorBlind.nextElementSibling;
@@ -60,6 +61,7 @@ function toggleColorBlind() {
     // colorBlind.nextElementSibling.setAttribute("aria-checked", "true");
   }
 }
+//#endregion
 // end of colorblind
 
 /**
@@ -81,6 +83,7 @@ function ariaCheck(checkbox) {
 }
 
 //! timer variables and functions
+//#region [purple]
 const seconds = document.getElementById("seconds");
 const minutes = document.getElementById("minutes");
 let secondsTime = 0;
@@ -121,8 +124,11 @@ function timer() {
     }
   }, 1000);
 }
+//#endregion
+// end of timer
 
 //! settings
+//#region [green]
 //gameplay settings
 const calculatedColors = document.getElementById("number-of-colors");
 const calculatedBalls = document.getElementById("number-in-solution");
@@ -309,6 +315,8 @@ function plusminus() {
     checkRepeatState();
   }
 }
+//#endregion
+//end of settings
 
 /** - hide settings overlay and run the main game script 
  * - if settings changed, reset best score and time to "--"
@@ -333,6 +341,7 @@ function playGame(event) {
 }
 
 //! main game functions
+//#region [main]
 /** reset timer to 0 */
 function resetTime() {
   secondsTime = 0;
@@ -1201,6 +1210,8 @@ function reset() {
   removeRows();
   runGame();
 }
+//#endregion
+// end of main
 
 handleChange();
 resetTime();
@@ -1209,6 +1220,7 @@ disableClickNumberInputs();
 reset();
 
 //! aria
+//#region [red]
 function addTabIndex(elem) {
   elem.setAttribute("tabindex", "0");
 }
@@ -1317,3 +1329,5 @@ function resetAria() {
     }
   }
 }
+//#endregion
+//end of aria
