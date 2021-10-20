@@ -18,7 +18,7 @@ const cBCheckmark = colorBlind.nextElementSibling;
 colorBlind.addEventListener("click", () => {
   toggleColorBlind();
   ariaCheck(colorBlind);
-})
+});
 cBCheckmark.addEventListener("click", () => {
   colorBlind.checked = !colorBlind.checked;
   toggleColorBlind();
@@ -70,7 +70,7 @@ const audioCheckmark = audio.nextElementSibling;
 audio.addEventListener("click", () => {
   // toggleAudio();
   ariaCheck(audio);
-})
+});
 audioCheckmark.addEventListener("click", () => {
   audio.checked = !audio.checked;
   // toggleAudio();
@@ -115,7 +115,7 @@ const audioFile = {
   error: new Audio("assets/audio/error.mp3"),
   setup: new Audio("assets/audio/setup.mp3"),
   check: new Audio("assets/audio/check.mp3"),
-}
+};
 //#endregion
 // end of audio
 
@@ -129,12 +129,12 @@ function ariaCheck(checkbox) {
     checkbox.nextElementSibling.setAttribute("aria-checked", "true");
   } else {
     checkbox.nextElementSibling.setAttribute("aria-checked", "false");
-  };
+  }
   if (checkbox.disabled) {
     checkbox.nextElementSibling.setAttribute("aria-disabled", "true");
   } else {
     checkbox.nextElementSibling.setAttribute("aria-disabled", "false");
-  };
+  }
 }
 
 //! timer variables and functions
@@ -466,7 +466,7 @@ function setSolutionBallCount() {
     <div class="color-ball">
       <span class="hidden-aria-text">hidden ball</span>
     </div>
-    `
+    `;
     solutionRow.appendChild(newBall);
   }
   createSolutionBallsArray();
@@ -797,7 +797,7 @@ function setCurrentColorArrayBlank() {
  * - display check result icon if all balls colored
  */
 function colorSelect(event) {
-  let keyUser = false
+  let keyUser = false;
   if (event instanceof PointerEvent) {
     if (event.pointerType !== "mouse" &&
     event.pointerType !== "touch") {
@@ -854,7 +854,7 @@ function colorSelect(event) {
 
 /** clear color from active selection, add .empty, close selectBox and remove border */
 function clearSelection(event) {
-  let keyUser = false
+  let keyUser = false;
   if (event instanceof PointerEvent) {
     if (event.pointerType !== "mouse" &&
     event.pointerType !== "touch") {
@@ -1340,7 +1340,7 @@ for (let i = 0; i < settingsCheckmarks.length; i++) {
   const checkbox = settingsCheckmarks[i].previousElementSibling;
   checkbox.addEventListener("click", () => {
     ariaCheck(checkbox);
-  })
+  });
   // aria control for click
   settingsCheckmarks[i].addEventListener("click", () => {
     settingsCheckmarks[i].previousElementSibling.checked = !checkbox.checked;
@@ -1387,7 +1387,7 @@ window.addEventListener("keyup", function (keyed) {
       settingsActivator.focus();
     }
   }
-})
+});
 
 // close colorSelectBox with "Escape" key
 colorSelectBox.addEventListener("keyup", function (keyed) {
@@ -1395,7 +1395,7 @@ colorSelectBox.addEventListener("keyup", function (keyed) {
     activeBalls[0].focus();
     clearActiveSelect();
   }
-})
+});
 
 /**
  * reset hidden text, results and colorblind text elements. set rows to
