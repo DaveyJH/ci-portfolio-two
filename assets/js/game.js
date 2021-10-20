@@ -1296,6 +1296,7 @@ function reset() {
   if ((aR !== (0 || undefined)) && (aR < 98)) {
     deactivateRow();
   }
+  resetAria();
   aR = 0;
   pegColors = [];
   solutionCover.style.width = "67.5%";
