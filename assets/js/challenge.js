@@ -34,6 +34,114 @@ const bestScoreHTML = document.getElementsByClassName("best score")[0].getElemen
 let bestScore = 0; // record of the best score without having to get from DOM
 let score = 0; // score count
 
+// !colorBlind setting
+//#region [purple]
+const colorBlind = document.getElementById("color-blind");
+const cBCheckmark = colorBlind.nextElementSibling;
+// aria control for click
+colorBlind.addEventListener("click", () => {
+  toggleColorBlind();
+  ariaCheck(colorBlind);
+});
+cBCheckmark.addEventListener("click", () => {
+  colorBlind.checked = !colorBlind.checked;
+  toggleColorBlind();
+  ariaCheck(colorBlind);
+});
+// keyboard
+cBCheckmark.addEventListener("keyup", (keyed) => {
+  if (!colorBlind.disabled) {
+    if (keyed.key === "Enter") {
+      colorBlind.checked = !colorBlind.checked;
+      toggleColorBlind();
+      ariaCheck(colorBlind);
+    } else if (keyed.key === " ") {
+      colorBlind.checked = !colorBlind.checked;
+      toggleColorBlind();
+      ariaCheck(colorBlind);
+    }
+  }
+});
+
+// prevent space scroll
+const checkmarks = document.getElementsByClassName("checkmark");
+for (let checkmark of checkmarks) {
+  checkmark.addEventListener("keydown", (keyed) => {
+    if (keyed.key === " ") {
+      keyed.preventDefault();
+    }
+  });
+}
+
+/**
+ * toggles tooltip appearing when hovering over color balls.
+ */
+function toggleColorBlind() {
+  if (!colorBlind.checked) {
+    document.querySelectorAll(".tooltip-text-ball").forEach(ball => {
+      ball.classList.add("vis-hidden");
+    });
+  } else {
+    document.querySelectorAll(".tooltip-text-ball").forEach(ball => {
+      ball.classList.remove("vis-hidden");
+    });
+  }
+}
+toggleColorBlind();
+// end of colorblind
+//#endregion
+
+//! audio settings
+//#region [purple]
+const audio = document.getElementById("audio");
+const audioCheckmark = audio.nextElementSibling;
+// aria control for click
+audio.addEventListener("click", () => {
+  ariaCheck(audio);
+});
+audioCheckmark.addEventListener("click", () => {
+  audio.checked = !audio.checked;
+  ariaCheck(audio);
+});
+// prevent space scroll
+audioCheckmark.addEventListener("keydown", (keyed) => {
+  if (keyed.key === " ") {
+    keyed.preventDefault();
+  }
+});
+// keyboard
+audioCheckmark.addEventListener("keyup", (keyed) => {
+  if (!audio.disabled) {
+    if (keyed.key === "Enter") {
+      audio.checked = !audio.checked;
+      ariaCheck(audio);
+    } else if (keyed.key === " ") {
+      audio.checked = !audio.checked;
+      ariaCheck(audio);
+    }
+  }
+});
+
+/**
+ * check state of audio checkbox
+ * @returns boolean
+ */
+function toggleAudio() {
+  return audio.checked;
+}
+
+const audioFile = {
+  add: new Audio("assets/audio/add-click.mp3"),
+  remove: new Audio("assets/audio/remove-click.mp3"),
+  reveal: new Audio("assets/audio/reveal.mp3"),
+  chicken: new Audio("assets/audio/chicken.mp3"),
+  win: new Audio("assets/audio/win.mp3"),
+  lose: new Audio("assets/audio/lose.mp3"),
+  error: new Audio("assets/audio/error.mp3"),
+  setup: new Audio("assets/audio/setup.mp3"),
+  check: new Audio("assets/audio/check.mp3"),
+};
+//#endregion
 
 // ! timer variables and functions
 /* credit to Code Institute course content for basic timer function
@@ -244,20 +352,41 @@ function colorSelectorC(event) {
   if ((activeSelection.style.backgroundColor === "rgb(133, 78, 30)") ||
     (activeSelection.style.backgroundColor === "")) {
     clearSelector.style.visibility = "hidden";
+    if (event instanceof PointerEvent) {
+      if (event.pointerType !== "mouse" &&
+      event.pointerType !== "touch") {
+        colorSelectors[0].focus();
+      }
+    }
   } else {
     clearSelector.style.visibility = "visible";
+    if (event instanceof PointerEvent) {
+      if (event.pointerType !== "mouse" &&
+      event.pointerType !== "touch") {
+        colorSelectors[0].focus();
+      }
+    }
   }
 }
 
 /** clear color from active selection, add .empty, close selectBox and remove border */
-function clearSelectionC() {
+function clearSelectionC(event) {
   if (activeSelection !== "inactive") {
     activeSelection.style.backgroundColor = "rgb(133, 78, 30)";
+    if (toggleAudio()) {
+      audioFile.remove.play();
+    }
     activeSelection.parentNode.children[0].textContent = "empty";
     activeSelection.children[0].textContent = "empty ball";
     activeSelection.classList.add("empty");
     activeSelection.style.border = "none";
     activeSelection.style.boxShadow = "none";
+  }
+  if (event instanceof PointerEvent) {
+    if (event.pointerType !== "mouse" &&
+    event.pointerType !== "touch") {
+      activeBalls[0].focus();
+    }
   }
   clearSelector.style.visibility = "hidden";
   colorSelectBox.style.visibility = "hidden";
@@ -296,11 +425,24 @@ function activeBallsEmptyC() {
 /** set color of selected ball and then close selector box
  */
 function colorSelectC(event) {
+  let keyUser = false;
+  if (event instanceof PointerEvent) {
+    if (event.pointerType !== "mouse" &&
+    event.pointerType !== "touch") {
+      keyUser = true;
+    }
+  }
   colorSelected = event.target.style.backgroundColor; // set colorSelected to color of clicked selector ball
   activeSelection.style.backgroundColor = colorSelected; // apply color to active ball in guess row
+  if (toggleAudio()) {
+    audioFile.add.play();
+  }
   activeSelection.classList.remove("empty"); // .empty removed to prevent alert when checking row
   activeSelection.parentNode.children[0].textContent = colorSelected;
   activeSelection.children[0].textContent = colorSelected + " ball";
+  if (keyUser) {
+    activeBalls[0].focus();
+  }
   colorSelectBox.style.visibility = "hidden"; // hide selector box
   clearSelector.style.visibility = "hidden"; // hide clear selection
   activeSelection.style.border = "none"; // remove border from color ball in guess row
@@ -373,6 +515,9 @@ function checkWhiteC() {
 
 /** check result of input colors */
 function checkResultC() {
+  if (toggleAudio()) {
+    audioFile.check.play();
+  }
   solutionHolder = solution.slice(); // make a copy of the solution which is not modified
   activeBallsEmptyC();
   // if (emptyBalls) { //!delete - not needed
@@ -443,6 +588,9 @@ function ballRevealC() {
 
 /** confirm with option to replay */
 function winnerC() {
+  if (toggleAudio()) {
+    audioFile.win.play();
+  }
   if (confirm(`Congratulations, you won!\nWould you like to play again?`)) {
     resetC();
   }
@@ -450,6 +598,9 @@ function winnerC() {
 
 /** confirm with option to replay */
 function loserC() {
+  if (toggleAudio()) {
+    audioFile.lose.play();
+  }
   if (confirm(`Unlucky, you lost!\nWould you like to play again?`)) {
     resetC();
   }
@@ -458,6 +609,9 @@ function loserC() {
 // ! run and reset functions
 /** initiate challenge with new solution */
 function runChallenge() {
+  if (toggleAudio()) {
+    audioFile.setup.play();
+  }
   setSolutionC();
   setSelectorBallsC();
   activateRowC();
@@ -517,45 +671,6 @@ function resetC() {
   runChallenge();
 }
 
-// !colorBlind setting
-const colorBlind = document.getElementById("color-blind");
-const cBCheckmark = colorBlind.nextElementSibling;
-// aria control for click
-colorBlind.addEventListener("click", () => {
-  toggleColorBlind();
-  ariaCheck(colorBlind);
-});
-cBCheckmark.addEventListener("click", () => {
-  colorBlind.checked = !colorBlind.checked;
-  toggleColorBlind();
-  ariaCheck(colorBlind);
-});
-// keyboard
-cBCheckmark.addEventListener("keyup", (keyed) => {
-  if (!colorBlind.disabled) {
-    if (keyed.key === "Enter") {
-      colorBlind.checked = !colorBlind.checked;
-      toggleColorBlind();
-      ariaCheck(colorBlind);
-    } else if (keyed.key === " ") {
-      colorBlind.checked = !colorBlind.checked;
-      toggleColorBlind();
-      ariaCheck(colorBlind);
-    }
-  }
-});
-
-// prevent space scroll
-const checkmarks = document.getElementsByClassName("checkmark");
-for (let checkmark of checkmarks) {
-  checkmark.addEventListener("keydown", (keyed) => {
-    if (keyed.key === " ") {
-      keyed.preventDefault();
-    }
-  });
-}
-
-
 /**
  * checks the state of the checkbox and alters aria-checked
  * and aria-disabled accordingly
@@ -574,22 +689,19 @@ function ariaCheck(checkbox) {
   }
 }
 
-/**
- * toggles tooltip appearing when hovering over color balls.
- */
-function toggleColorBlind() {
-  if (!colorBlind.checked) {
-    document.querySelectorAll(".tooltip-text-ball").forEach(ball => {
-      ball.classList.add("vis-hidden");
-    });
-  } else {
-    document.querySelectorAll(".tooltip-text-ball").forEach(ball => {
-      ball.classList.remove("vis-hidden");
-    });
+// close colorSelectBox with "Escape" key
+colorSelectBox.addEventListener("keyup", function (keyed) {
+  if (keyed.key === "Escape") {
+    activeBalls[0].focus();
+    colorSelectBox.style.visibility = "hidden";
+    clearSelector.style.visibility = "hidden";
+    if (activeSelection !== "inactive") {
+      activeSelection.style.border = "none";
+      activeSelection.style.boxShadow = "none";
+      activeSelection = "inactive";
+    }
   }
-}
-toggleColorBlind();
-// end of colorblind
+});
 
 /** run the challenge */
 runChallenge();
