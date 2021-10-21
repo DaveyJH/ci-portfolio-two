@@ -72,13 +72,33 @@
   <fieldset id="global-settings">
     <legend>Color blind and audio option checkboxes</legend>
     <div class="checkbox-hack">
-      <label for="color-blind">Colour Blind?</label>
+      <label for="color-blind" id="color-blind-label">Colour Blind?</label>
       <div class="rel">
         <input type="checkbox" name="color-blind" id="color-blind" tabindex="-1">
-        <span class="checkmark" tabindex="0" role="checkbox" aria-checked="false" aria-labelledby="color-blind"></span>
+        <span class="checkmark" tabindex="0" role="checkbox" aria-checked="false" aria-labelledby="color-blind-label"></span>
       </div>
     </div>
-  <!-- ?add audio control and audio? -->
+    <div class="checkbox-hack">
+      <label for="audio" id="audio-label">Audio?</label>
+      <div class="rel">
+        <input type="checkbox" name="audio" id="audio" tabindex="-1">
+        <span class="checkmark" tabindex="0" role="checkbox" aria-checked="false" aria-labelledby="audio-label"></span>
+      </div>
+    </div>
+    <audio preload>
+      <source src="assets/audio/add-click.mp3" type="audio/mp3">
+      <source src="assets/audio/remove-click.mp3" type="audio/mp3">
+      <source src="assets/audio/reveal.mp3" type="audio/mp3">
+      <source src="assets/audio/chicken.mp3" type="audio/mp3">
+      <source src="assets/audio/win.mp3" type="audio/mp3">
+      <source src="assets/audio/lose.mp3" type="audio/mp3">
+      <source src="assets/audio/error.mp3" type="audio/mp3">
+      <source src="assets/audio/setup.mp3" type="audio/mp3">
+      <source src="assets/audio/check.mp3" type="audio/mp3">
+      <p class="text-center" id="audio-error">
+        Sorry, your browser or device will not play mp3 audio files
+      </p>
+    </audio>
   </fieldset>
   <!-- section containing game and message -->
   <section id="game">
