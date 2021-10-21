@@ -68,12 +68,10 @@ const audio = document.getElementById("audio");
 const audioCheckmark = audio.nextElementSibling;
 // aria control for click
 audio.addEventListener("click", () => {
-  // toggleAudio();
   ariaCheck(audio);
 });
 audioCheckmark.addEventListener("click", () => {
   audio.checked = !audio.checked;
-  // toggleAudio();
   ariaCheck(audio);
 });
 // prevent space scroll
@@ -87,11 +85,9 @@ audioCheckmark.addEventListener("keyup", (keyed) => {
   if (!audio.disabled) {
     if (keyed.key === "Enter") {
       audio.checked = !audio.checked;
-      // toggleAudio();
       ariaCheck(audio);
     } else if (keyed.key === " ") {
       audio.checked = !audio.checked;
-      // toggleAudio();
       ariaCheck(audio);
     }
   }
