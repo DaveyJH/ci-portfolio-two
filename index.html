@@ -59,7 +59,7 @@
       </ul>
     </nav>
   </header>
-  
+
   <noscript>
     <p>
       Oh dear! JavaScript is required to play this game...
@@ -68,7 +68,7 @@
     </p>
     <img src="assets/images/js-sad.png" alt="a sad face">
   </noscript>
-  
+
   <section id="settings" class="text-center">
     <h2>Settings</h2>
     <form method="POST">
@@ -76,13 +76,14 @@
         <h3>Gameplay</h3>
         <div class="flex-container j-center m05">
           <label for="number-of-colors" class="prevent-click rel"><span aria-hidden="true">No.</span><span
-            class="hidden-aria-text">number</span> of colours<span
-            class="hidden-aria-text right">:control via buttons</span></label>
+              class="hidden-aria-text">number</span> of colours<span class="hidden-aria-text right">:control via
+              buttons</span></label>
           <div class="plusminus flex-container">
             <button class="minus">
               <span class="hidden-aria-text">minus</span><span aria-hidden="true">-</span>
             </button>
-            <input type="number" name="number-of-colors" id="number-of-colors" step="1" value="6" min="4" max="12" tabindex="-1">
+            <input type="number" name="number-of-colors" id="number-of-colors" step="1" value="6" min="4" max="12"
+              tabindex="-1">
             <button class="plus">
               <span class="hidden-aria-text">plus</span><span aria-hidden="true">+</span>
             </button>
@@ -91,13 +92,14 @@
         <hr>
         <div class="flex-container j-center m05">
           <label for="number-in-solution" class="prevent-click rel"><span aria-hidden="true">No.</span><span
-            class="hidden-aria-text">number</span> of balls in solution<span
-            class="hidden-aria-text right">:control via buttons</span></label>
+              class="hidden-aria-text">number</span> of balls in solution<span class="hidden-aria-text right">:control
+              via buttons</span></label>
           <div class="plusminus flex-container">
             <button class="minus">
               <span class="hidden-aria-text">minus</span><span aria-hidden="true">-</span>
             </button>
-            <input type="number" name="number-in-solution" id="number-in-solution" step="1" value="4" min="3" max="6" tabindex="-1">
+            <input type="number" name="number-in-solution" id="number-in-solution" step="1" value="4" min="3" max="6"
+              tabindex="-1">
             <button class="plus">
               <span class="hidden-aria-text">plus</span><span aria-hidden="true">+</span>
             </button>
@@ -110,7 +112,8 @@
             <label for="repeat-in-solution" id="repeat-in-solution-label">Colours may repeat in solution</label>
             <div class="rel">
               <input type="checkbox" name="repeat-in-solution" id="repeat-in-solution" checked tabindex="-1">
-              <span class="checkmark" tabindex="0" role="checkbox" aria-checked="true" aria-labelledby="repeat-in-solution-label"></span>
+              <span class="checkmark" tabindex="0" role="checkbox" aria-checked="true"
+                aria-labelledby="repeat-in-solution-label"></span>
             </div>
           </div>
           <hr>
@@ -118,7 +121,8 @@
             <label for="repeat-in-guess" id="repeat-in-guess-label">Colours may repeat in guess</label>
             <div class="rel">
               <input type="checkbox" name="repeat-in-guess" id="repeat-in-guess" checked disabled tabindex="-1">
-              <span class="checkmark" tabindex="0" role="checkbox" aria-checked="true" aria-labelledby="repeat-in-guess-label" aria-disabled="true"></span>
+              <span class="checkmark" tabindex="0" role="checkbox" aria-checked="true"
+                aria-labelledby="repeat-in-guess-label" aria-disabled="true"></span>
             </div>
           </div>
         </fieldset>
@@ -131,7 +135,8 @@
             <label for="current-time" id="current-time-label">Display current time</label>
             <div class="rel">
               <input type="checkbox" name="current-time" id="current-time" checked tabindex="-1">
-              <span class="checkmark" tabindex="0" aria-checked="true"  role="checkbox" aria-labelledby="current-time-label"></span>
+              <span class="checkmark" tabindex="0" aria-checked="true" role="checkbox"
+                aria-labelledby="current-time-label"></span>
             </div>
           </div>
           <hr>
@@ -139,7 +144,8 @@
             <label for="best-time" id="best-time-label">Display best time</label>
             <div class="rel">
               <input type="checkbox" name="best-time" id="best-time" checked tabindex="-1">
-              <span class="checkmark" tabindex="0" role="checkbox" aria-checked="true" aria-labelledby="best-time-label"></span>
+              <span class="checkmark" tabindex="0" role="checkbox" aria-checked="true"
+                aria-labelledby="best-time-label"></span>
             </div>
           </div>
           <hr>
@@ -147,7 +153,8 @@
             <label for="best-score" id="best-score-label">Display best score</label>
             <div class="rel">
               <input type="checkbox" name="best-score" id="best-score" checked tabindex="-1">
-              <span class="checkmark" tabindex="0" role="checkbox" aria-checked="true" aria-labelledby="best-score-label"></span>
+              <span class="checkmark" tabindex="0" role="checkbox" aria-checked="true"
+                aria-labelledby="best-score-label"></span>
             </div>
           </div>
         </fieldset>
@@ -155,458 +162,465 @@
       <input type="submit" value="Play!" id="play-button">
     </form>
   </section>
+  <!-- allow footer to sit at bottom of page -->
+  <div id="vp-filler">
 
-  <fieldset id="global-settings">
-    <legend>Color blind and audio option checkboxes</legend>
-    <div class="checkbox-hack">
-      <label for="color-blind" id="color-blind-label">Colour Blind?</label>
-      <div class="rel">
-        <input type="checkbox" name="color-blind" id="color-blind" tabindex="-1">
-        <span class="checkmark" tabindex="0" role="checkbox" aria-checked="false" aria-labelledby="color-blind-label"></span>
+    <div id="main-container">
+      <fieldset id="global-settings">
+        <legend>Color blind and audio option checkboxes</legend>
+        <div class="checkbox-hack">
+          <label for="color-blind" id="color-blind-label">Colour Blind?</label>
+          <div class="rel">
+            <input type="checkbox" name="color-blind" id="color-blind" tabindex="-1">
+            <span class="checkmark" tabindex="0" role="checkbox" aria-checked="false"
+              aria-labelledby="color-blind-label"></span>
+          </div>
+        </div>
+        <div class="checkbox-hack">
+          <label for="audio" id="audio-label">Audio?</label>
+          <div class="rel">
+            <input type="checkbox" name="audio" id="audio" tabindex="-1">
+            <span class="checkmark" tabindex="0" role="checkbox" aria-checked="false"
+              aria-labelledby="audio-label"></span>
+          </div>
+        </div>
+        <audio preload>
+          <source src="assets/audio/add-click.mp3" type="audio/mp3">
+          <source src="assets/audio/remove-click.mp3" type="audio/mp3">
+          <source src="assets/audio/reveal.mp3" type="audio/mp3">
+          <source src="assets/audio/chicken.mp3" type="audio/mp3">
+          <source src="assets/audio/win.mp3" type="audio/mp3">
+          <source src="assets/audio/lose.mp3" type="audio/mp3">
+          <source src="assets/audio/error.mp3" type="audio/mp3">
+          <source src="assets/audio/setup.mp3" type="audio/mp3">
+          <source src="assets/audio/check.mp3" type="audio/mp3">
+          <p class="text-center" id="audio-error">
+            Sorry, your browser or device will not play mp3 audio files
+          </p>
+        </audio>
+      </fieldset>
+
+      <div id="game-board">
+        <div id="scores-and-times" class="text-center">
+          <div class="best score tooltip-holder">
+            <span class="tooltip-text-left" aria-hidden="true">best score</span>
+            <span class="hidden-value hidden-aria-text" id="best-score-value">best score: unset</span>
+            <p aria-hidden="true">
+              --
+            </p>
+          </div>
+          <div class="best time tooltip-holder">
+            <span class="tooltip-text" aria-hidden="true">best time</span>
+            <span class="hidden-value hidden-aria-text" id="best-time-value">best time: unset</span>
+            <p aria-hidden="true">
+              <span id="best-minutes">--</span>:<span id="best-seconds">--</span>
+            </p>
+          </div>
+        </div>
+        <div class="row top">
+          <div class="text-center icon-holder">
+            <button id="give-up">
+              <span class="hidden-aria-text">Give Up</span>
+              <i class="fas fa-skull-crossbones"></i>
+            </button>
+          </div>
+          <div id="solution" class="ball-spacing">
+            <span class="hidden-aria-text">solution:</span>
+            <div class="tooltip-holder">
+              <span class="tooltip-text-ball" aria-hidden="true">hidden</span>
+              <div class="color-ball">
+                <span class="hidden-aria-text">hidden ball</span>
+              </div>
+            </div>
+            <div class="tooltip-holder">
+              <span class="tooltip-text-ball" aria-hidden="true">hidden</span>
+              <div class="color-ball">
+                <span class="hidden-aria-text">hidden ball</span>
+              </div>
+            </div>
+            <div class="tooltip-holder">
+              <span class="tooltip-text-ball" aria-hidden="true">hidden</span>
+              <div class="color-ball">
+                <span class="hidden-aria-text">hidden ball</span>
+              </div>
+            </div>
+            <div class="tooltip-holder">
+              <span class="tooltip-text-ball" aria-hidden="true">hidden</span>
+              <div class="color-ball">
+                <span class="hidden-aria-text">hidden ball</span>
+              </div>
+            </div>
+          </div>
+          <div id="solution-cover">
+          </div>
+          <div class="text-center icon-holder">
+            <button id="hint">
+              <span class="hidden-aria-text">Hint</span>
+              <i class="fas fa-question-circle"></i>
+            </button>
+          </div>
+        </div>
+        <div class="row guess">
+          <div class="number text-center">
+            1
+          </div>
+          <div class="selection ball-spacing">
+            <div class="tooltip-holder">
+              <span class="tooltip-text-ball" aria-hidden="true">empty</span>
+              <button class="color-ball">
+                <span class="hidden-aria-text">empty ball</span>
+              </button>
+            </div>
+            <div class="tooltip-holder">
+              <span class="tooltip-text-ball" aria-hidden="true">empty</span>
+              <button class="color-ball">
+                <span class="hidden-aria-text">empty ball</span>
+              </button>
+            </div>
+            <div class="tooltip-holder">
+              <span class="tooltip-text-ball" aria-hidden="true">empty</span>
+              <button class="color-ball">
+                <span class="hidden-aria-text">empty ball</span>
+              </button>
+            </div>
+            <div class="tooltip-holder">
+              <span class="tooltip-text-ball" aria-hidden="true">empty</span>
+              <button class="color-ball">
+                <span class="hidden-aria-text">empty ball</span>
+              </button>
+            </div>
+          </div>
+          <div class="result-holder hidden-aria-text">
+            <span class="result-text">result: empty</span>
+            <div class="result">
+              <div class="peg">
+              </div>
+              <div class="peg">
+              </div>
+              <div class="peg">
+              </div>
+              <div class="peg">
+              </div>
+            </div>
+            <div class="check-result">
+              <img src="assets/images/search-tick.png" alt="check result" role="button" class="vis-hidden">
+            </div>
+          </div>
+        </div>
+        <div class="row guess">
+          <div class="number text-center">
+            2
+          </div>
+          <div class="selection ball-spacing">
+            <div class="tooltip-holder">
+              <span class="tooltip-text-ball" aria-hidden="true">empty</span>
+              <button class="color-ball" disabled>
+                <span class="hidden-aria-text">empty ball</span>
+              </button>
+            </div>
+            <div class="tooltip-holder">
+              <span class="tooltip-text-ball" aria-hidden="true">empty</span>
+              <button class="color-ball" disabled>
+                <span class="hidden-aria-text">empty ball</span>
+              </button>
+            </div>
+            <div class="tooltip-holder">
+              <span class="tooltip-text-ball" aria-hidden="true">empty</span>
+              <button class="color-ball" disabled>
+                <span class="hidden-aria-text">empty ball</span>
+              </button>
+            </div>
+            <div class="tooltip-holder">
+              <span class="tooltip-text-ball" aria-hidden="true">empty</span>
+              <button class="color-ball" disabled>
+                <span class="hidden-aria-text">empty ball</span>
+              </button>
+            </div>
+          </div>
+          <div class="result-holder hidden-aria-text">
+            <span class="result-text">result: empty</span>
+            <div class="result">
+              <div class="peg">
+              </div>
+              <div class="peg">
+              </div>
+              <div class="peg">
+              </div>
+              <div class="peg">
+              </div>
+            </div>
+            <div class="check-result">
+              <img src="assets/images/search-tick.png" alt="check result" role="button" class="vis-hidden">
+            </div>
+          </div>
+        </div>
+        <div class="row guess">
+          <div class="number text-center">
+            3
+          </div>
+          <div class="selection ball-spacing">
+            <div class="tooltip-holder">
+              <span class="tooltip-text-ball" aria-hidden="true">empty</span>
+              <button class="color-ball" disabled>
+                <span class="hidden-aria-text">empty ball</span>
+              </button>
+            </div>
+            <div class="tooltip-holder">
+              <span class="tooltip-text-ball" aria-hidden="true">empty</span>
+              <button class="color-ball" disabled>
+                <span class="hidden-aria-text">empty ball</span>
+              </button>
+            </div>
+            <div class="tooltip-holder">
+              <span class="tooltip-text-ball" aria-hidden="true">empty</span>
+              <button class="color-ball" disabled>
+                <span class="hidden-aria-text">empty ball</span>
+              </button>
+            </div>
+            <div class="tooltip-holder">
+              <span class="tooltip-text-ball" aria-hidden="true">empty</span>
+              <button class="color-ball" disabled>
+                <span class="hidden-aria-text">empty ball</span>
+              </button>
+            </div>
+          </div>
+          <div class="result-holder hidden-aria-text">
+            <span class="result-text">result: empty</span>
+            <div class="result">
+              <div class="peg">
+              </div>
+              <div class="peg">
+              </div>
+              <div class="peg">
+              </div>
+              <div class="peg">
+              </div>
+            </div>
+            <div class="check-result">
+              <img src="assets/images/search-tick.png" alt="check result" role="button" class="vis-hidden">
+            </div>
+          </div>
+        </div>
+        <div class="row guess">
+          <div class="number text-center">
+            4
+          </div>
+          <div class="selection ball-spacing">
+            <div class="tooltip-holder">
+              <span class="tooltip-text-ball" aria-hidden="true">empty</span>
+              <button class="color-ball" disabled>
+                <span class="hidden-aria-text">empty ball</span>
+              </button>
+            </div>
+            <div class="tooltip-holder">
+              <span class="tooltip-text-ball" aria-hidden="true">empty</span>
+              <button class="color-ball" disabled>
+                <span class="hidden-aria-text">empty ball</span>
+              </button>
+            </div>
+            <div class="tooltip-holder">
+              <span class="tooltip-text-ball" aria-hidden="true">empty</span>
+              <button class="color-ball" disabled>
+                <span class="hidden-aria-text">empty ball</span>
+              </button>
+            </div>
+            <div class="tooltip-holder">
+              <span class="tooltip-text-ball" aria-hidden="true">empty</span>
+              <button class="color-ball" disabled>
+                <span class="hidden-aria-text">empty ball</span>
+              </button>
+            </div>
+          </div>
+          <div class="result-holder hidden-aria-text">
+            <span class="result-text">result: empty</span>
+            <div class="result">
+              <div class="peg">
+              </div>
+              <div class="peg">
+              </div>
+              <div class="peg">
+              </div>
+              <div class="peg">
+              </div>
+            </div>
+            <div class="check-result">
+              <img src="assets/images/search-tick.png" alt="check result" role="button" class="vis-hidden">
+            </div>
+          </div>
+        </div>
+        <div class="row guess">
+          <div class="number text-center">
+            5
+          </div>
+          <div class="selection ball-spacing">
+            <div class="tooltip-holder">
+              <span class="tooltip-text-ball" aria-hidden="true">empty</span>
+              <button class="color-ball" disabled>
+                <span class="hidden-aria-text">empty ball</span>
+              </button>
+            </div>
+            <div class="tooltip-holder">
+              <span class="tooltip-text-ball" aria-hidden="true">empty</span>
+              <button class="color-ball" disabled>
+                <span class="hidden-aria-text">empty ball</span>
+              </button>
+            </div>
+            <div class="tooltip-holder">
+              <span class="tooltip-text-ball" aria-hidden="true">empty</span>
+              <button class="color-ball" disabled>
+                <span class="hidden-aria-text">empty ball</span>
+              </button>
+            </div>
+            <div class="tooltip-holder">
+              <span class="tooltip-text-ball" aria-hidden="true">empty</span>
+              <button class="color-ball" disabled>
+                <span class="hidden-aria-text">empty ball</span>
+              </button>
+            </div>
+          </div>
+          <div class="result-holder hidden-aria-text">
+            <span class="result-text">result: empty</span>
+            <div class="result">
+              <div class="peg">
+              </div>
+              <div class="peg">
+              </div>
+              <div class="peg">
+              </div>
+              <div class="peg">
+              </div>
+            </div>
+            <div class="check-result">
+              <img src="assets/images/search-tick.png" alt="check result" role="button" class="vis-hidden">
+            </div>
+          </div>
+        </div>
+        <div class="row guess">
+          <div class="number text-center">
+            6
+          </div>
+          <div class="selection ball-spacing">
+            <div class="tooltip-holder">
+              <span class="tooltip-text-ball" aria-hidden="true">empty</span>
+              <button class="color-ball" disabled>
+                <span class="hidden-aria-text">empty ball</span>
+              </button>
+            </div>
+            <div class="tooltip-holder">
+              <span class="tooltip-text-ball" aria-hidden="true">empty</span>
+              <button class="color-ball" disabled>
+                <span class="hidden-aria-text">empty ball</span>
+              </button>
+            </div>
+            <div class="tooltip-holder">
+              <span class="tooltip-text-ball" aria-hidden="true">empty</span>
+              <button class="color-ball" disabled>
+                <span class="hidden-aria-text">empty ball</span>
+              </button>
+            </div>
+            <div class="tooltip-holder">
+              <span class="tooltip-text-ball" aria-hidden="true">empty</span>
+              <button class="color-ball" disabled>
+                <span class="hidden-aria-text">empty ball</span>
+              </button>
+            </div>
+          </div>
+          <div class="result-holder hidden-aria-text">
+            <span class="result-text">result: empty</span>
+            <div class="result">
+              <div class="peg">
+              </div>
+              <div class="peg">
+              </div>
+              <div class="peg">
+              </div>
+              <div class="peg">
+              </div>
+            </div>
+            <div class="check-result">
+              <img src="assets/images/search-tick.png" alt="check result" role="button" class="vis-hidden">
+            </div>
+          </div>
+        </div>
+        <div class="row guess">
+          <div class="number text-center">
+            7
+          </div>
+          <div class="selection ball-spacing">
+            <div class="tooltip-holder">
+              <span class="tooltip-text-ball" aria-hidden="true">empty</span>
+              <button class="color-ball" disabled>
+                <span class="hidden-aria-text">empty ball</span>
+              </button>
+            </div>
+            <div class="tooltip-holder">
+              <span class="tooltip-text-ball" aria-hidden="true">empty</span>
+              <button class="color-ball" disabled>
+                <span class="hidden-aria-text">empty ball</span>
+              </button>
+            </div>
+            <div class="tooltip-holder">
+              <span class="tooltip-text-ball" aria-hidden="true">empty</span>
+              <button class="color-ball" disabled>
+                <span class="hidden-aria-text">empty ball</span>
+              </button>
+            </div>
+            <div class="tooltip-holder">
+              <span class="tooltip-text-ball" aria-hidden="true">empty</span>
+              <button class="color-ball" disabled>
+                <span class="hidden-aria-text">empty ball</span>
+              </button>
+            </div>
+          </div>
+          <div class="result-holder hidden-aria-text">
+            <span class="result-text">result: empty</span>
+            <div class="result">
+              <div class="peg">
+              </div>
+              <div class="peg">
+              </div>
+              <div class="peg">
+              </div>
+              <div class="peg">
+              </div>
+            </div>
+            <div class="check-result">
+              <img src="assets/images/search-tick.png" alt="check result" role="button" class="vis-hidden">
+            </div>
+          </div>
+        </div>
+
       </div>
-    </div>
-    <div class="checkbox-hack">
-      <label for="audio" id="audio-label">Audio?</label>
-      <div class="rel">
-        <input type="checkbox" name="audio" id="audio" tabindex="-1">
-        <span class="checkmark" tabindex="0" role="checkbox" aria-checked="false" aria-labelledby="audio-label"></span>
+
+      <div id="selector-box">
+        <div id="clear-selector">
+          <!-- tooltip not required as text is visible -->
+          <button class="color-ball">
+            <span class="hidden-aria-text">clear</span>
+          </button>
+          <p class="text-center" aria-hidden="true">Clear</p>
+        </div>
+        <div class="tooltip-holder">
+          <span class="tooltip-text-ball" aria-hidden="true">empty</span>
+          <button class="color-ball selector">
+            <span class="hidden-aria-text">empty selector</span>
+          </button>
+        </div>
+        <div class="tooltip-holder">
+          <span class="tooltip-text-ball" aria-hidden="true">empty</span>
+          <button class="color-ball selector">
+            <span class="hidden-aria-text">empty selector</span>
+          </button>
+        </div>
       </div>
-    </div>
-    <audio preload>
-      <source src="assets/audio/add-click.mp3" type="audio/mp3">
-      <source src="assets/audio/remove-click.mp3" type="audio/mp3">
-      <source src="assets/audio/reveal.mp3" type="audio/mp3">
-      <source src="assets/audio/chicken.mp3" type="audio/mp3">
-      <source src="assets/audio/win.mp3" type="audio/mp3">
-      <source src="assets/audio/lose.mp3" type="audio/mp3">
-      <source src="assets/audio/error.mp3" type="audio/mp3">
-      <source src="assets/audio/setup.mp3" type="audio/mp3">
-      <source src="assets/audio/check.mp3" type="audio/mp3">
-      <p class="text-center" id="audio-error">
-        Sorry, your browser or device will not play mp3 audio files
+
+      <p id="message" class="text-center">
+        Good Luck!
       </p>
-    </audio>
-  </fieldset>
+    </div>
 
-  <div id="game-board">
-    <div id="scores-and-times" class="text-center">
-      <div class="best score tooltip-holder">
-        <span class="tooltip-text-left" aria-hidden="true">best score</span>
-        <span class="hidden-value hidden-aria-text" id="best-score-value">best score: unset</span>
-        <p aria-hidden="true">
-          --
-        </p>
-      </div>
-      <div class="best time tooltip-holder">
-        <span class="tooltip-text" aria-hidden="true">best time</span>
-        <span class="hidden-value hidden-aria-text" id="best-time-value">best time: unset</span>
-        <p aria-hidden="true">
-          <span id="best-minutes">--</span>:<span id="best-seconds">--</span>
-        </p>
-      </div>
-    </div>
-    <div class="row top">
-      <div class="text-center icon-holder">
-        <button id="give-up">
-          <span class="hidden-aria-text">Give Up</span>
-          <i class="fas fa-skull-crossbones"></i>
-        </button>
-      </div>
-      <div id="solution" class="ball-spacing">
-        <span class="hidden-aria-text">solution:</span>
-        <div class="tooltip-holder">
-          <span class="tooltip-text-ball" aria-hidden="true">hidden</span>
-          <div class="color-ball">
-            <span class="hidden-aria-text">hidden ball</span>
-          </div>
-        </div>
-        <div class="tooltip-holder">
-          <span class="tooltip-text-ball" aria-hidden="true">hidden</span>
-          <div class="color-ball">
-            <span class="hidden-aria-text">hidden ball</span>
-          </div>
-        </div>
-        <div class="tooltip-holder">
-          <span class="tooltip-text-ball" aria-hidden="true">hidden</span>
-          <div class="color-ball">
-            <span class="hidden-aria-text">hidden ball</span>
-          </div>
-        </div>
-        <div class="tooltip-holder">
-          <span class="tooltip-text-ball" aria-hidden="true">hidden</span>
-          <div class="color-ball">
-            <span class="hidden-aria-text">hidden ball</span>
-          </div>
-        </div>
-      </div>
-      <div id="solution-cover">
-      </div>
-      <div class="text-center icon-holder">
-        <button id="hint">
-          <span class="hidden-aria-text">Hint</span>
-          <i class="fas fa-question-circle"></i>
-        </button>
-      </div>
-    </div>
-    <div class="row guess">
-      <div class="number text-center">
-        1
-      </div>
-      <div class="selection ball-spacing">
-        <div class="tooltip-holder">
-          <span class="tooltip-text-ball" aria-hidden="true">empty</span>
-          <button class="color-ball">
-            <span class="hidden-aria-text">empty ball</span>
-          </button>
-        </div>
-        <div class="tooltip-holder">
-          <span class="tooltip-text-ball" aria-hidden="true">empty</span>
-          <button class="color-ball">
-            <span class="hidden-aria-text">empty ball</span>
-          </button>
-        </div>
-        <div class="tooltip-holder">
-          <span class="tooltip-text-ball" aria-hidden="true">empty</span>
-          <button class="color-ball">
-            <span class="hidden-aria-text">empty ball</span>
-          </button>
-        </div>
-        <div class="tooltip-holder">
-          <span class="tooltip-text-ball" aria-hidden="true">empty</span>
-          <button class="color-ball">
-            <span class="hidden-aria-text">empty ball</span>
-          </button>
-        </div>
-      </div>
-      <div class="result-holder hidden-aria-text">
-        <span class="result-text">result: empty</span>
-        <div class="result">
-          <div class="peg">
-          </div>
-          <div class="peg">
-          </div>
-          <div class="peg">
-          </div>
-          <div class="peg">
-          </div>
-        </div>
-        <div class="check-result">
-          <img src="assets/images/search-tick.png" alt="check result" role="button" class="vis-hidden">
-        </div>
-      </div>
-    </div>
-    <div class="row guess">
-      <div class="number text-center">
-        2
-      </div>
-      <div class="selection ball-spacing">
-        <div class="tooltip-holder">
-          <span class="tooltip-text-ball" aria-hidden="true">empty</span>
-          <button class="color-ball" disabled>
-            <span class="hidden-aria-text">empty ball</span>
-          </button>
-        </div>
-        <div class="tooltip-holder">
-          <span class="tooltip-text-ball" aria-hidden="true">empty</span>
-          <button class="color-ball" disabled>
-            <span class="hidden-aria-text">empty ball</span>
-          </button>
-        </div>
-        <div class="tooltip-holder">
-          <span class="tooltip-text-ball" aria-hidden="true">empty</span>
-          <button class="color-ball" disabled>
-            <span class="hidden-aria-text">empty ball</span>
-          </button>
-        </div>
-        <div class="tooltip-holder">
-          <span class="tooltip-text-ball" aria-hidden="true">empty</span>
-          <button class="color-ball" disabled>
-            <span class="hidden-aria-text">empty ball</span>
-          </button>
-        </div>
-      </div>
-      <div class="result-holder hidden-aria-text">
-        <span class="result-text">result: empty</span>
-        <div class="result">
-          <div class="peg">
-          </div>
-          <div class="peg">
-          </div>
-          <div class="peg">
-          </div>
-          <div class="peg">
-          </div>
-        </div>
-        <div class="check-result">
-          <img src="assets/images/search-tick.png" alt="check result" role="button" class="vis-hidden">
-        </div>
-      </div>
-    </div>
-    <div class="row guess">
-      <div class="number text-center">
-        3
-      </div>
-      <div class="selection ball-spacing">
-        <div class="tooltip-holder">
-          <span class="tooltip-text-ball" aria-hidden="true">empty</span>
-          <button class="color-ball" disabled>
-            <span class="hidden-aria-text">empty ball</span>
-          </button>
-        </div>
-        <div class="tooltip-holder">
-          <span class="tooltip-text-ball" aria-hidden="true">empty</span>
-          <button class="color-ball" disabled>
-            <span class="hidden-aria-text">empty ball</span>
-          </button>
-        </div>
-        <div class="tooltip-holder">
-          <span class="tooltip-text-ball" aria-hidden="true">empty</span>
-          <button class="color-ball" disabled>
-            <span class="hidden-aria-text">empty ball</span>
-          </button>
-        </div>
-        <div class="tooltip-holder">
-          <span class="tooltip-text-ball" aria-hidden="true">empty</span>
-          <button class="color-ball" disabled>
-            <span class="hidden-aria-text">empty ball</span>
-          </button>
-        </div>
-      </div>
-      <div class="result-holder hidden-aria-text">
-        <span class="result-text">result: empty</span>
-        <div class="result">
-          <div class="peg">
-          </div>
-          <div class="peg">
-          </div>
-          <div class="peg">
-          </div>
-          <div class="peg">
-          </div>
-        </div>
-        <div class="check-result">
-          <img src="assets/images/search-tick.png" alt="check result" role="button" class="vis-hidden">
-        </div>
-      </div>
-    </div>
-    <div class="row guess">
-      <div class="number text-center">
-        4
-      </div>
-      <div class="selection ball-spacing">
-        <div class="tooltip-holder">
-          <span class="tooltip-text-ball" aria-hidden="true">empty</span>
-          <button class="color-ball" disabled>
-            <span class="hidden-aria-text">empty ball</span>
-          </button>
-        </div>
-        <div class="tooltip-holder">
-          <span class="tooltip-text-ball" aria-hidden="true">empty</span>
-          <button class="color-ball" disabled>
-            <span class="hidden-aria-text">empty ball</span>
-          </button>
-        </div>
-        <div class="tooltip-holder">
-          <span class="tooltip-text-ball" aria-hidden="true">empty</span>
-          <button class="color-ball" disabled>
-            <span class="hidden-aria-text">empty ball</span>
-          </button>
-        </div>
-        <div class="tooltip-holder">
-          <span class="tooltip-text-ball" aria-hidden="true">empty</span>
-          <button class="color-ball" disabled>
-            <span class="hidden-aria-text">empty ball</span>
-          </button>
-        </div>
-      </div>
-      <div class="result-holder hidden-aria-text">
-        <span class="result-text">result: empty</span>
-        <div class="result">
-          <div class="peg">
-          </div>
-          <div class="peg">
-          </div>
-          <div class="peg">
-          </div>
-          <div class="peg">
-          </div>
-        </div>
-        <div class="check-result">
-          <img src="assets/images/search-tick.png" alt="check result" role="button" class="vis-hidden">
-        </div>
-      </div>
-    </div>
-    <div class="row guess">
-      <div class="number text-center">
-        5
-      </div>
-      <div class="selection ball-spacing">
-        <div class="tooltip-holder">
-          <span class="tooltip-text-ball" aria-hidden="true">empty</span>
-          <button class="color-ball" disabled>
-            <span class="hidden-aria-text">empty ball</span>
-          </button>
-        </div>
-        <div class="tooltip-holder">
-          <span class="tooltip-text-ball" aria-hidden="true">empty</span>
-          <button class="color-ball" disabled>
-            <span class="hidden-aria-text">empty ball</span>
-          </button>
-        </div>
-        <div class="tooltip-holder">
-          <span class="tooltip-text-ball" aria-hidden="true">empty</span>
-          <button class="color-ball" disabled>
-            <span class="hidden-aria-text">empty ball</span>
-          </button>
-        </div>
-        <div class="tooltip-holder">
-          <span class="tooltip-text-ball" aria-hidden="true">empty</span>
-          <button class="color-ball" disabled>
-            <span class="hidden-aria-text">empty ball</span>
-          </button>
-        </div>
-      </div>
-      <div class="result-holder hidden-aria-text">
-        <span class="result-text">result: empty</span>
-        <div class="result">
-          <div class="peg">
-          </div>
-          <div class="peg">
-          </div>
-          <div class="peg">
-          </div>
-          <div class="peg">
-          </div>
-        </div>
-        <div class="check-result">
-          <img src="assets/images/search-tick.png" alt="check result" role="button" class="vis-hidden">
-        </div>
-      </div>
-    </div>
-    <div class="row guess">
-      <div class="number text-center">
-        6
-      </div>
-      <div class="selection ball-spacing">
-        <div class="tooltip-holder">
-          <span class="tooltip-text-ball" aria-hidden="true">empty</span>
-          <button class="color-ball" disabled>
-            <span class="hidden-aria-text">empty ball</span>
-          </button>
-        </div>
-        <div class="tooltip-holder">
-          <span class="tooltip-text-ball" aria-hidden="true">empty</span>
-          <button class="color-ball" disabled>
-            <span class="hidden-aria-text">empty ball</span>
-          </button>
-        </div>
-        <div class="tooltip-holder">
-          <span class="tooltip-text-ball" aria-hidden="true">empty</span>
-          <button class="color-ball" disabled>
-            <span class="hidden-aria-text">empty ball</span>
-          </button>
-        </div>
-        <div class="tooltip-holder">
-          <span class="tooltip-text-ball" aria-hidden="true">empty</span>
-          <button class="color-ball" disabled>
-            <span class="hidden-aria-text">empty ball</span>
-          </button>
-        </div>
-      </div>
-      <div class="result-holder hidden-aria-text">
-        <span class="result-text">result: empty</span>
-        <div class="result">
-          <div class="peg">
-          </div>
-          <div class="peg">
-          </div>
-          <div class="peg">
-          </div>
-          <div class="peg">
-          </div>
-        </div>
-        <div class="check-result">
-          <img src="assets/images/search-tick.png" alt="check result" role="button" class="vis-hidden">
-        </div>
-      </div>
-    </div>
-    <div class="row guess">
-      <div class="number text-center">
-        7
-      </div>
-      <div class="selection ball-spacing">
-        <div class="tooltip-holder">
-          <span class="tooltip-text-ball" aria-hidden="true">empty</span>
-          <button class="color-ball" disabled>
-            <span class="hidden-aria-text">empty ball</span>
-          </button>
-        </div>
-        <div class="tooltip-holder">
-          <span class="tooltip-text-ball" aria-hidden="true">empty</span>
-          <button class="color-ball" disabled>
-            <span class="hidden-aria-text">empty ball</span>
-          </button>
-        </div>
-        <div class="tooltip-holder">
-          <span class="tooltip-text-ball" aria-hidden="true">empty</span>
-          <button class="color-ball" disabled>
-            <span class="hidden-aria-text">empty ball</span>
-          </button>
-        </div>
-        <div class="tooltip-holder">
-          <span class="tooltip-text-ball" aria-hidden="true">empty</span>
-          <button class="color-ball" disabled>
-            <span class="hidden-aria-text">empty ball</span>
-          </button>
-        </div>
-      </div>
-      <div class="result-holder hidden-aria-text">
-        <span class="result-text">result: empty</span>
-        <div class="result">
-          <div class="peg">
-          </div>
-          <div class="peg">
-          </div>
-          <div class="peg">
-          </div>
-          <div class="peg">
-          </div>
-        </div>
-        <div class="check-result">
-          <img src="assets/images/search-tick.png" alt="check result" role="button" class="vis-hidden">
-        </div>
-      </div>
-    </div>
-    
+    <footer>&#169;DaveyJH</footer>
   </div>
-  
-  <div id="selector-box">
-    <div id="clear-selector">
-      <!-- tooltip not required as text is visible -->
-      <button class="color-ball">
-        <span class="hidden-aria-text">clear</span>
-      </button>
-      <p class="text-center" aria-hidden="true">Clear</p>
-    </div>
-    <div class="tooltip-holder">
-      <span class="tooltip-text-ball" aria-hidden="true">empty</span>
-      <button class="color-ball selector">
-        <span class="hidden-aria-text">empty selector</span>
-      </button>
-    </div>
-    <div class="tooltip-holder">
-      <span class="tooltip-text-ball" aria-hidden="true">empty</span>
-      <button class="color-ball selector">
-        <span class="hidden-aria-text">empty selector</span>
-      </button>
-    </div>
-  </div>
-
-  <p id="message" class="text-center">
-    Good Luck!
-  </p>
-
-  <footer>&#169;DaveyJH</footer>
   <script src="assets/js/game.js"></script>
 </body>
 
