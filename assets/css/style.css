@@ -18,14 +18,17 @@ a {
   color: inherit;
   cursor: pointer;
 }
-a:hover, a:focus-within, #settings-activator:hover, #settings-activator:focus-within {
+a * {
+  cursor: pointer;
+}
+a:hover, a:focus-within, #settings-activator:hover, #settings-activator:focus-within, #algorithm-links a:hover, #algorithm-links a:focus-within, #contact-links a:hover, #contact-links a:focus-within {
   border: #6bdce9 solid;
   border-width: .1rem 0 .1rem;
 }
 body {
   /* fallback background color */
   background-color: #fffce8;
-  background: linear-gradient(#fffce8 70%, #fffce899), url("../images/color-balls.jpg") repeat-x center bottom / auto 50%;
+  background: linear-gradient(#fffce899, #fffce8 30% 60%, #fffce899), url("../images/color-balls-endless.png") repeat center bottom / auto 100%;
   color: #fffce8;
   font-family: "Rajdhani", sans-serif;
   min-height: 100%;
@@ -38,6 +41,10 @@ button:disabled, .color-set {
   flex-direction: column;
   justify-content: space-between;
   min-height: calc(100vh - 6rem);
+}
+#vp-filler {
+  max-width: 60rem;
+  margin: 0 auto;
 }
 
 /* classes */
@@ -133,6 +140,10 @@ header {
   font-family: "Orbitron", sans-serif;
   font-variant: small-caps;
   position: relative;
+}
+header>* {
+  margin: 0 auto;
+  max-width: 60rem;
 }
 #header-img-background {
   background: linear-gradient(to right, #fffce8 10%,  #3e363f00 55%);
