@@ -23,11 +23,16 @@
 
 <body>
   <header>
-    <span id="header-img-background"></span>
-    <div id="header-img">
-      <!-- header image applied as background image via CSS -->
+    <div class="flex-container lr-padding j-space-between">
+      <div>
+        <span id="header-img-background"></span>
+        <div id="header-img">
+          <!-- header image applied as background image via CSS -->
+        </div>
+      </div>
+      <h1 class="text-center js-center">Mastermind</h1>
+      <div class="current"></div>
     </div>
-    <h1 class="text-center">Mastermind</h1>
     <nav>
       <ul>
         <li>
@@ -119,8 +124,7 @@
         have a <span class="small-caps">'Clear'</span> option. You may clear the colour, or select the new colour you
         wish to use
       </p>
-      <img src="assets/images/rules/row-full.png"
-        alt="row with all colours selected and a check result icon">
+      <img src="assets/images/rules/row-full.png" alt="row with all colours selected and a check result icon">
       <p>
         Once all colours have been selected, an icon will appear. Tap (or click) the
         icon to confirm your guess and see the result
@@ -152,7 +156,8 @@
         <span class="bold">You may not reveal the final colour this way</span> but you may reveal more than one, one at
         a time
       </p>
-      <img src="assets/images/rules/solution-revealed.png" alt="the skull and bones icon is to the left of the solution row">
+      <img src="assets/images/rules/solution-revealed.png"
+        alt="the skull and bones icon is to the left of the solution row">
       <p>If you really don't want to continue, or you just want to know the answer, tap (or click) the skull and bones
         <i class="fas fa-skull-crossbones"></i> icon. A prompt will appear allowing you to confirm your choice to give
         up. If you are certain, select 'OK' and the game will end. The solution will be revealed and you will be given

@@ -63,11 +63,10 @@ h2 {
 }
 .main-rules.last {
   font-size: larger;
+  text-transform: uppercase;
   margin-top: 1rem;
   margin-bottom: .8rem;
-  text-decoration: underline dotted;
-  text-underline-offset: .3rem;
-  text-decoration-thickness: .1rem;
+  border-bottom: solid .1rem #3e363f;
 }
 /* end of main rules */
 
