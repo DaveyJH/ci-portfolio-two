@@ -1259,23 +1259,7 @@ function runGame() {
   timer();
   activateRow();
   giveUpIcon.addEventListener("click", giveUp);
-  if (!giveUpIcon.classList.contains("key-assigned")) {
-    giveUpIcon.classList.add("key-assigned");
-    giveUpIcon.addEventListener("keyup", function (keyed) {
-      if (keyed.key === "Enter" || keyed.key === " ") {
-        giveUp();
-      }
-    });
-  }
   hintIcon.addEventListener("click", hint);
-  if (!hintIcon.classList.contains("key-assigned")) {
-    hintIcon.classList.add("key-assigned");
-    hintIcon.addEventListener("keyup", function (keyed) {
-      if (keyed.key === "Enter" || keyed.key === " ") {
-        hint();
-      }
-    });
-  }
   addTabIndex(giveUpIcon);
   addTabIndex(hintIcon);
   toggleColorBlind();
