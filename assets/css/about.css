@@ -33,6 +33,53 @@ p {
   display: inline-block;
   margin:  0 .5rem;
 }
+#main-about, form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* form */
+form {
+  margin: 1.5rem .8rem 0;
+  background-color: #a0622c;
+  font-size: 1.2rem;
+}
+form h2 {
+  margin: 1rem 0;
+}
+form label {
+  text-align: start;
+  margin: 0 1rem;
+}
+form input, form textarea {
+  margin: 0 1rem .5rem;
+  padding: .2rem;
+  font: 1.2rem "Orbitron", sans-serif;
+}
+form textarea {
+  height: 10rem;
+  resize: none;
+}
+form input[type="submit"] {
+  margin: .5rem 0 0;
+  height: 4rem;
+  font: bolder 1.2rem "Rajdhani", sans-serif;
+  text-transform: uppercase;
+  background-color: #3e363f;
+  color: #fffce8;
+  width: 100%;
+  border-color: #6bdce9;
+  transition: all 1s;
+}
+form input[type="submit"]:hover {
+  border-width: .5rem;
+  font-size: 2rem;
+}
+form input[type="submit"]:active {
+  transition: all 0s;
+  color: #00ff00;
+  border-color: #00ff00;
+}
 /* * link styles at bottom of CSS file */
 /* end of about me section */
 

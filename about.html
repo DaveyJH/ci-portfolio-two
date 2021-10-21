@@ -73,50 +73,66 @@
       <a href="https://github.com/daveyjh" target="_blank"><i class="fab fa-github-alt"></i> @DaveyJH</a>
       <a href="https://linkedin.com/in/davejhorrocks" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
     </div>
+    <form id="contact-form">
+      <h2>Contact Via Email</h2>
+      <input type="hidden" name="contact_number">
+      <label>Name:</label>
+      <input type="text" name="user_name" required>
+      <label>Email:</label>
+      <input type="email" name="user_email" required>
+      <label>GitHub:</label>
+      <input type="text" name="github_link" id="github_link" placeholder="@">
+      <label>Message:</label>
+      <textarea name="message" maxlength="250" required placeholder="Max. 250 characters..."></textarea>
+      <input type="submit" value="Send">
+    </form>
   </main>
   <aside class="text-center">
     <article>
       <div id="knuth">
-      <h1>About The Mastermind Five-Guess Algorithm</h1>
+        <h1>About The Mastermind Five-Guess Algorithm</h1>
         <h2>Donald E. Knuth</h2>
-      <p>
-        An algorithm was devised in the late 1970s which allows a player to decipher the code within five guesses,
-        as long as the following conditions are set:
-        <ul id="text-left-list">
-          <li>There are four balls in the solution</li>
-          <li>The number of colours available is six</li>
-          <li>Colours are repeatable within the solution</li>
-        </ul>
-      </p>
-      <p>
-        The first step is to guess a sequence of <span>1122</span>, where each integer 1-6 represents a colour.
-        The algorithm continues by choosing a sequence that could eliminate the highest number of possible
-        solutions each time. The number of possible solutions to this particular set-up is
-        6<sup>4</sup> = <strong>1296!</strong>
-      </p>
-      <p>
-        That would take you quite a while to work through on paper. It would be almost impossible to calculate
-        and keep track of in your head. Therefore, this algorithm is done far quicker by machines - if coded
-        correctly to do so!
-      </p>
-      <p>
-        To find out more about the steps involved, and for the original document written by Donald E. Knuth,
-        please consult the links below.
-      </p>
-      <p class="last">
-        If you still can't get your head around it, contact <a href="#daveyjh" id="link-to-top">Dave J. Horrocks</a>
-        via one of the links above and he will do his best to explain each step in the algorithm.
-      </p>
-    </div>
+        <p>
+          An algorithm was devised in the late 1970s which allows a player to decipher the code within five guesses,
+          as long as the following conditions are set:
+        </p>
+          <ul id="text-left-list">
+            <li>There are four balls in the solution</li>
+            <li>The number of colours available is six</li>
+            <li>Colours are repeatable within the solution</li>
+          </ul>
+        <p>
+          The first step is to guess a sequence of <span>1122</span>, where each integer 1-6 represents a colour.
+          The algorithm continues by choosing a sequence that could eliminate the highest number of possible
+          solutions each time. The number of possible solutions to this particular set-up is
+          6<sup>4</sup> = <strong>1296!</strong>
+        </p>
+        <p>
+          That would take you quite a while to work through on paper. It would be almost impossible to calculate
+          and keep track of in your head. Therefore, this algorithm is done far quicker by machines - if coded
+          correctly to do so!
+        </p>
+        <p>
+          To find out more about the steps involved, and for the original document written by Donald E. Knuth,
+          please consult the links below.
+        </p>
+        <p class="last">
+          If you still can't get your head around it, contact <a href="#daveyjh" id="link-to-top">Dave J. Horrocks</a>
+          via one of the methods above and he will do his best to explain each step in the algorithm.
+        </p>
+      </div>
       <div id="algorithm-links">
         <a href="https://www.cs.uni.edu/~wallingf/teaching/cs3530/resources/knuth-mastermind.pdf"
-        target="_blank">Knuth's Paper&#0160;&#0160;<i class="far fa-file-pdf"></i></a>
+          target="_blank">Knuth's Paper&#0160;&#0160;<i class="far fa-file-pdf"></i></a>
         <a href="https://en.wikipedia.org/wiki/Mastermind_(board_game)#Best_strategies_with_four_pegs_and_six_colors"
-        target="_blank">Wikipedia Explanation</a>
+          target="_blank">Wikipedia Explanation</a>
       </div>
     </article>
   </aside>
   <footer>&#169;DaveyJH</footer>
+  <!-- emailjs -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script src="assets/js/email.js"></script>
 </body>
 
 </html>
