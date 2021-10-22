@@ -146,4 +146,18 @@ img.icon, img.icon:first-of-type {
     position: sticky;
     top: 0;
   }
+  main {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  section > div {
+    border-top-left-radius: .2rem;
+    border-top-right-radius: .2rem;
+  }
+  .return-link, section:first-of-type > div {
+    border-bottom-left-radius: .2rem;
+    border-bottom-right-radius: .2rem;
+  }
 }
