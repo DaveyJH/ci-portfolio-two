@@ -28,7 +28,7 @@ a:hover, a:focus-within, #settings-activator:hover, #settings-activator:focus-wi
 body {
   /* fallback background color */
   background-color: #fffce8;
-  background: linear-gradient(#fffce899, #fffce8 30% 60%, #fffce899), url("../images/color-balls-endless.png") repeat center bottom / auto 100%;
+  background: linear-gradient(#fffce899, #fffce8 30% 60%, #fffce899), url("../images/infinite-balls.png") repeat center center / 100% auto;
   color: #fffce8;
   font-family: "Rajdhani", sans-serif;
   min-height: 100%;

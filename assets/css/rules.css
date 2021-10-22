@@ -1,7 +1,4 @@
 /* general */
-body {
-  background: linear-gradient(#fffce8 95.5%, #fffce899), url("../images/color-balls.jpg") repeat-x center bottom / 100% auto;
-}
 main {
   margin: 1.5rem .8rem;
   font-size: 1.2rem;
