@@ -10,9 +10,6 @@
 html {
   min-height: 100%;
 }
-.text-center {
-  text-align: center;
-}
 a {
   text-decoration: none;
   color: inherit;
@@ -50,6 +47,9 @@ button:disabled, .color-set {
 /* classes */
 .rel {
   position: relative;
+}
+.text-center {
+  text-align: center;
 }
 .flex-container {
   display: flex;
@@ -169,13 +169,14 @@ header h1 {
   font-family: "Rajdhani", sans-serif;
   font-size: 1.2rem;
   font-weight: 700;
-  /* width = image width - offset to center h1 without causing side scroll */
   width: 3.4rem;
+  padding-left: .8rem;
   margin-top: 1rem;
   position: relative;
+  box-sizing: border-box;
 }
 .current p {
-  width: 3.5rem;
+  width: 3rem;
 }
 header ul {
   font-size: .9rem;
@@ -185,6 +186,7 @@ header ul {
   padding: .5rem .4rem;
 }
 header li {
+  font-size: 1.2rem;
   list-style-type: none;
   padding: 0 .2rem .2rem;
 }

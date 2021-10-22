@@ -43,11 +43,11 @@
   position: relative;
   display: grid;
   grid-template-columns: 16.25% 67.5% 16.25%;
-  height: 2.6rem;
+  height: 3.2rem;
   margin-bottom: .3rem;
 }
 .row>* {
-  height: 2.6rem;
+  height: 3.2rem;
   border-radius: .2rem;
   box-sizing: border-box;
 }
@@ -62,8 +62,8 @@
 }
 .color-ball {
   border-radius: 50%;
-  height: 2rem;
-  width: 2rem;
+  height: 2.5rem;
+  width: 2.5rem;
   background-color: #854e1e;
 }
 .color-ball:not(#selector-box *) {
@@ -98,6 +98,7 @@
 .number {
   background-color: #854e1e;
   font-size: 1.8rem;
+  line-height: 2.85rem;
   justify-self: center;
   border: .2rem solid;
   position: relative;
@@ -116,20 +117,21 @@
   align-content: space-around;
   padding: .3rem 0;
   position: absolute;
-  height: 2rem;
+  height: 3.2rem;
   left: 50%;
   transform: translateX(-50%);
   border-radius: .2rem;
+  box-sizing: border-box;
 }
 .peg {
   background-color: #a0622c;
-  width: .8rem;
-  height: .8rem;
+  width: 1rem;
+  height: 1rem;
   border-radius: 50%;
 }
 .check-result {
-  height: 2.6rem;
-  width: 2.6rem;
+  height: 3.2rem;
+  width: 3.2rem;
   background-color: #36B9D3;
   border-radius: .2rem;
   position: absolute;
@@ -144,8 +146,8 @@
   z-index: 2;
 }
 .check-result img {
-  height: 2.4rem;
-  width: 2.4rem;
+  height: 3rem;
+  width: 3rem;
   position: relative;
   left: .1rem;
   top: .1rem;
@@ -162,7 +164,7 @@
   position: -webkit-sticky;
   position: sticky;
   bottom: 0;
-  /* margin: 4rem 0; */
+  padding: .3rem 0;
   border-top-left-radius: .2rem;
   border-top-right-radius: .2rem;
   display: flex;
@@ -181,9 +183,9 @@
 #clear-selector {
   position: absolute;
   margin: 0 auto;
-  top: -4.7rem;
+  top: -5.2rem;
   background-color: #3e363f;
-  height: 4.45rem;
+  height: 4.75rem;
   width: 8rem;
   padding: .275rem;
   border-top-left-radius: .2rem;
@@ -251,8 +253,8 @@ fieldset legend {
   width: 1rem;
 }
 .checkmark {
-  height: 1rem;
-  width: 1rem;
+  height: 2.5rem;
+  width: 2.5rem;
   background-color: #165764;
   border: solid .1rem #022b3a;
   border-radius: .2rem;
@@ -270,12 +272,12 @@ fieldset legend {
   content:"";
   position: absolute;
   display: block;
-  left: .28rem;
-  height: .6rem;
-  width: .3rem;
+  left: .64rem;
+  height: 1.5rem;
+  width: .75rem;
   border: solid #fffce8;
-  border-width: 0 .2rem .2rem 0;
-  border-radius: .1rem;
+  border-width: 0 .5rem .5rem 0;
+  border-bottom-right-radius: .25rem;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
