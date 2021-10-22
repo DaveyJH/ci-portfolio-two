@@ -3,7 +3,7 @@ main {
   margin: 1.5rem .8rem;
   font-size: 1.2rem;
 }
-section {
+section>div {
   background-color: #a0622c;
   padding: 1rem 1.8rem;
 }
@@ -18,10 +18,7 @@ h2 {
 }
 /* end of general */
 
-/* main rules at top */
-
 /* internal nav links */
-
 .internal-nav {
   background-color: #3e363f;
   margin: 0 -1.8rem;
@@ -38,7 +35,6 @@ h2 {
   list-style-type: none;
   text-align: center;
   line-height: 2.2rem;
-  /* flex-basis: 100%; */
   width: 100%;
 }
 .internal-nav li:first-of-type {
@@ -52,6 +48,7 @@ h2 {
 }
 /* end of internal nav links */
 
+/* main rules section */
 .main-rules {
   margin: .5rem 0;
 }
@@ -73,17 +70,18 @@ main img {
   box-shadow: .2rem .2rem 1rem #165764;
   border-radius: .2rem;
   width: 100%;
+  max-width: 25rem;
 }
 main img:first-of-type {
   margin-top: 1.2rem;
 }
-/* end if images */
+/* end of images */
 
 /* gameplay section */
 .gameplay {
   margin-top: 1.5rem;
 }
-.gameplay p {
+.gameplay p:not(:last-of-type) {
   margin-top: .5rem;
 }
 /* end of gameplay section */
@@ -96,7 +94,7 @@ main img:first-of-type {
   margin-top: 0;
 }
 .text-left-list {
-  margin: .5rem 1rem;
+  margin: .8rem 0 .8rem 2rem;
   list-style-type :circle;
   text-align: left;
 }
