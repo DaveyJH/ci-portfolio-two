@@ -3,7 +3,7 @@ main {
   margin: 1.5rem .8rem;
   font-size: 1.2rem;
 }
-section>div {
+section > div {
   background-color: #a0622c;
   padding: 1rem 1.8rem;
 }
@@ -15,6 +15,13 @@ h2 {
 }
 .bold {
   font-weight: 900;
+}
+section div p {
+  margin-top: .5rem;
+}
+#top-link {
+  position: absolute;
+  top: -5rem;
 }
 /* end of general */
 
@@ -81,18 +88,15 @@ main img:first-of-type {
 .gameplay {
   margin-top: 1.5rem;
 }
-.gameplay p:not(:last-of-type) {
-  margin-top: .5rem;
-}
 /* end of gameplay section */
 
 /* specific items */
-.ends-rule {
+/*.ends-rule {
   margin-bottom: 0;
 }
 .ends-rule + p {
   margin-top: 0;
-}
+}*/
 .text-left-list {
   margin: .8rem 0 .8rem 2rem;
   list-style-type :circle;
@@ -113,4 +117,33 @@ img.icon, img.icon:first-of-type {
   background-color: #3e363f;
   padding: 1rem 0;
   margin-bottom: 1.5rem;
+}
+
+@media screen and (min-width: 600px) {
+  body {
+    background: linear-gradient(#fffce899, #fffce8 11.1% 22.2%,
+    #fffce899, #fffce8 33.3% 44.4%, #fffce899, #fffce8 55.5% 66.6%,
+    #fffce899, #fffce8 77.7% 88.8%, #fffce899),
+    url("../images/infinite-balls.png") repeat center center / 100% auto;
+  }
+  main {
+    max-width: 60rem;
+    margin: 1.5rem auto;
+  }
+  section {
+    margin: 0 .8rem;
+  }
+  section div p, .main-rules {
+    margin: 0 4rem;
+  }
+  .text-left-list {
+    padding: 0 4rem;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  header {
+    position: sticky;
+    top: 0;
+  }
 }
