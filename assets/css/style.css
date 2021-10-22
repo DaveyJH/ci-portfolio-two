@@ -221,3 +221,45 @@ noscript img {
   transform: translateX(-50%);
 }
 /* end of noscript */
+
+@media screen and (min-width: 800px) {
+  #vp-filler {
+    min-height: calc(100vh - 8.26175rem);
+  }
+  header {
+    color: #fffce8;
+    background-color: #3e363f;
+    font-family: "Orbitron", sans-serif;
+    font-variant: small-caps;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+  }
+  header h1 {
+    font-size: 3rem;
+  }
+  #header-img-background {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 2.2rem;
+    margin: .5rem;
+  }
+  #header-img {
+    width: 5rem;
+    height: 5rem;
+    background-size: 5rem 5rem;
+  }
+  .current {
+    font-family: "Rajdhani", sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    width: 6rem;
+  }
+  .current .tooltip-text {
+    font-size: 1.2rem;
+    top: .42rem;
+  }
+  header ul {
+    font-size: 1.25rem;
+  }
+}
