@@ -242,24 +242,24 @@ fieldset legend {
   justify-content: space-between;
   max-width: 18rem;
   margin: .5rem auto;
-  line-height: 1.1rem;
 }
 .checkbox-hack label {
   cursor: pointer;
+  max-width: 12rem;
 }
 .checkbox-hack input {
   visibility: hidden;
-  height: 1rem;
-  width: 1rem;
+  height: 2.7rem;
+  width: 2.7rem;
 }
 .checkmark {
   height: 2.5rem;
   width: 2.5rem;
+  left: 0;
   background-color: #165764;
   border: solid .1rem #022b3a;
   border-radius: .2rem;
   position: absolute;
-  left: -.2rem;
   cursor: pointer;
 }
 .checkbox-hack:hover input ~ .checkmark {
@@ -286,16 +286,19 @@ fieldset legend {
   background-color: #aaaaaa;
 }
 #global-settings > div {
-  max-width: 12rem;
+  max-width: 14rem;
   margin-top: 1.5rem;
   font-size: 1.75rem;
-  line-height: 1.25rem;
   font-weight: bold;
   color: #3e363f;
 }
 #global-settings legend {
   margin-top: 1rem;
   height: 2.2rem;
+}
+.checkmark-width {
+  width: 2.7rem;
+  height: 2.7rem;
 }
 /* end of checkboxes */
 
