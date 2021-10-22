@@ -4,7 +4,8 @@ const settingsOverlay = document.getElementById("settings");
 /** ensure settings overlay sits below header */
 function handleChange() {
   let headerHeight = document.getElementsByTagName("header")[0].offsetHeight;
-  let settingsSpacerHeight = headerHeight / 15.185185;
+  console.log(headerHeight);
+  let settingsSpacerHeight = headerHeight / 16;
   let settingsSpacer = (settingsSpacerHeight + "rem");
   document.getElementById("settings").style.top = settingsSpacer;
 }
