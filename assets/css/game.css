@@ -235,7 +235,7 @@ fieldset legend {
 #timer-score-legend {
   height: 7.2rem
 }
-.checkbox-hack {
+.checkbox-hack, .plusminus-container {
   position: relative;
   display: flex;
   align-items: center;

@@ -25,6 +25,7 @@
 /* settings */
 nav span, button, input[type="submit"] {
   cursor: pointer;
+  height: 2.7rem;
 }
 #settings {
   position: absolute;
@@ -75,12 +76,15 @@ input[type=number] {
 }
 
 .plusminus {
-  width: 6rem;
+  width: 7.2rem;
+}
+.plusminus-label {
+  max-width: 6rem;
 }
 .plusminus *:not(span) {
   display: inline;
   box-sizing: border-box;
-  width: 33%;
+  width: 25%;
   height: 1.9rem;
   font: 600 1.1rem "Rajdhani";
 }
@@ -89,8 +93,8 @@ input[type=number] {
   background-color: #fffce8;
 }
 .plusminus button {
-  height: 80%;
-  width: 26.4%;
+  height: 2.7rem;
+  width: 2.7rem;
   /* z-index to prevent overlap from nuumber on focus border */
   z-index: 2;
 }
