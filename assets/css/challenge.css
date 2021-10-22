@@ -18,3 +18,13 @@ aside.text-center {
   padding: .5rem 0;
   margin-bottom: 1.5rem;
 }
+
+@media screen and (min-width: 960px) {
+  aside.text-center {
+    border-radius: .2rem;
+  }
+  #learn-more-link {
+    border-bottom-left-radius: .2rem;
+    border-bottom-right-radius: .2rem;
+  }
+}
