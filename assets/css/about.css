@@ -144,7 +144,13 @@ aside a {
     max-width: 20rem;
   }
   #main-about, #knuth {
-    padding: .8rem 5.8rem;
+    padding: .8rem 3.8rem;
+  }
+  #main-about, form, #knuth, #contact-links a, form input[type="submit"], #algorithm-links {
+    font-size: 1.35rem;
+  }
+  form label, form input, form textarea {
+    margin: 0 3.8rem .5rem;
   }
   .last {
     margin-bottom: 1.2rem;
@@ -158,6 +164,9 @@ aside a {
   header {
     position: sticky;
     top: 0;
+  }
+  #main-about, #knuth {
+    padding: .8rem 5.8rem;
   }
   #main-about, form, #knuth, #contact-links a, form input[type="submit"], #algorithm-links {
     font-size: 1.5rem;

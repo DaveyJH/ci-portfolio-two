@@ -73,13 +73,16 @@ section div p {
 
 /* images within rules */
 main img {
-  margin: 1.8rem auto .3rem;
+  margin: 2rem auto .3rem;
   box-shadow: .2rem .2rem 1rem #165764;
   border-radius: .2rem;
   width: 100%;
   max-width: 25rem;
 }
 main img:first-of-type {
+  margin-top: 1.4rem;
+}
+.below-list {
   margin-top: 1.2rem;
 }
 /* end of images */
@@ -91,12 +94,7 @@ main img:first-of-type {
 /* end of gameplay section */
 
 /* specific items */
-/*.ends-rule {
-  margin-bottom: 0;
-}
-.ends-rule + p {
-  margin-top: 0;
-}*/
+
 .text-left-list {
   margin: .8rem 0 .8rem 2rem;
   list-style-type :circle;
@@ -129,15 +127,16 @@ img.icon, img.icon:first-of-type {
   main {
     max-width: 60rem;
     margin: 1.5rem auto;
+    font-size: 1.35rem;
   }
   section {
     margin: 0 .8rem;
   }
   section div p, .main-rules {
-    margin: 0 4rem;
+    margin: 0 2rem;
   }
   .text-left-list {
-    padding: 0 4rem;
+    padding: 0 2rem;
   }
 }
 
@@ -148,6 +147,12 @@ img.icon, img.icon:first-of-type {
   }
   main {
     font-size: 1.5rem;
+  }
+  section div p, .main-rules {
+    margin: 0 4rem;
+  }
+  .text-left-list {
+    padding: 0 4rem;
   }
 }
 
