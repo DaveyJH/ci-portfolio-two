@@ -95,6 +95,8 @@ input[type=number] {
 .plusminus button {
   height: 2.7rem;
   width: 2.7rem;
+  font-size: 2.5rem;
+  line-height: 2.7rem;
   /* z-index to prevent overlap from number on focus border */
   z-index: 2;
 }
