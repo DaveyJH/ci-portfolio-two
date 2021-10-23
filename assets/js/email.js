@@ -18,7 +18,6 @@ window.onload = function () {
         githubLink.value = `github.com/${githubLink.value}`;
       }
     }
-    console.log(githubLink);
     emailjs.sendForm('ci_p2_contact_service', 'ci_p2_form', this)
       .then(function () {
         alert('Thank you for your email.');
