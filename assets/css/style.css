@@ -113,19 +113,19 @@ button:disabled, .color-set {
 }
 .tooltip-holder:hover .tooltip-text, .tooltip-holder:hover .tooltip-text-left {
   transform: scale(1);
-  z-index: 5;
+  z-index: 3;
 }
 .active-row .tooltip-holder:hover .tooltip-text-ball, #selector-box .tooltip-holder:hover .tooltip-text-ball, .completed-row .tooltip-holder:hover .tooltip-text-ball, #solution .tooltip-holder:hover .tooltip-text-ball {
   transform: translateX(-50%) scale(1);
-  z-index: 5;
+  z-index: 3;
 }
 .tooltip-holder:focus-within .tooltip-text, .tooltip-holder:focus-within .tooltip-text-left{
   transform: scale(1);
-  z-index: 5;
+  z-index: 3;
 }
 .active-row .tooltip-holder:focus-within .tooltip-text-ball, #selector-box .tooltip-holder:focus-within .tooltip-text-ball, .completed-row .tooltip-holder:focus-within .tooltip-text-ball, #solution .tooltip-holder:focus-within .tooltip-text-ball {
   transform: translateX(-50%) scale(1);
-  z-index: 5;
+  z-index: 3;
 }
 .hidden-value {
   position: absolute;
@@ -243,7 +243,7 @@ and (min-height: 500px) {
     font-variant: small-caps;
     position: sticky;
     top: 0;
-    z-index: 6;
+    z-index: 5;
   }
   header h1 {
     font-size: 3rem;
@@ -271,32 +271,5 @@ and (min-height: 500px) {
   }
   header ul {
     font-size: 1.25rem;
-  }
-}
-
-@media (hover: none) {
-  .tooltip-holder:hover .tooltip-text, .tooltip-holder:hover .tooltip-text-left {
-    transform: scale(0);
-    z-index: 5;
-  }
-  .active-row .tooltip-holder:hover .tooltip-text-ball, #selector-box .tooltip-holder:hover .tooltip-text-ball, .completed-row .tooltip-holder:hover .tooltip-text-ball, #solution .tooltip-holder:hover .tooltip-text-ball {
-    transform: translateX(-50%) scale(0);
-    z-index: 5;
-  }
-  .tooltip-holder:focus-within .tooltip-text, .tooltip-holder:focus-within .tooltip-text-left{
-    transform: scale(0);
-    z-index: 5;
-  }
-  .active-row .tooltip-holder:focus-within .tooltip-text-ball, #selector-box .tooltip-holder:focus-within .tooltip-text-ball, .completed-row .tooltip-holder:focus-within .tooltip-text-ball, #solution .tooltip-holder:focus-within .tooltip-text-ball {
-    transform: translateX(-50%) scale(0);
-    z-index: 5;
-  }
-  .tooltip-holder:active .tooltip-text, .tooltip-holder:active .tooltip-text-left {
-    transform: scale(1);
-    z-index: 5;
-  }
-  .active-row .tooltip-holder:active .tooltip-text-ball, #selector-box .tooltip-holder:active .tooltip-text-ball, .completed-row .tooltip-holder:active .tooltip-text-ball, #solution .tooltip-holder:active .tooltip-text-ball {
-    transform: translateX(-50%) scale(1);
-    z-index: 5;
   }
 }

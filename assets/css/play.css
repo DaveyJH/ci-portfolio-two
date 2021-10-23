@@ -29,7 +29,7 @@ nav span, button, input[type="submit"] {
 }
 #settings {
   position: absolute;
-  z-index: 3;
+  z-index: 4;
   top: 5.4rem;
   padding: 1rem 2rem 1.6rem;
   color: #3e363f;
@@ -95,7 +95,7 @@ input[type=number] {
 .plusminus button {
   height: 2.7rem;
   width: 2.7rem;
-  /* z-index to prevent overlap from nuumber on focus border */
+  /* z-index to prevent overlap from number on focus border */
   z-index: 2;
 }
 .plusminus button:hover, input[type="submit"]:hover {
