@@ -256,6 +256,24 @@ Links to website of each extension provided
 look at daisy's testing documentation and [webinar](https://us02web.zoom.us/rec/play/9FIKllHX2ZiQNFRhYPn_hBh_ZeA8964ZvIDLnhpKGAf1NLVc3_hBJ6zSL8Hv5Hx7ALnPtDmbg8CmFAs.YVsZ9LR_uI7OjEwH)-->
 
 <!-- validation of html, css and script. -->
+<!--html
+https://validator.w3.org/nu/?doc=https%3A%2F%2Fdaveyjh.github.io%2Fci-portfolio-two%2F
+https://validator.w3.org/nu/?doc=https%3A%2F%2Fdaveyjh.github.io%2Fci-portfolio-two%2Fchallenge
+https://validator.w3.org/nu/?doc=https%3A%2F%2Fdaveyjh.github.io%2Fci-portfolio-two%2Frules
+https://validator.w3.org/nu/?doc=https%3A%2F%2Fdaveyjh.github.io%2Fci-portfolio-two%2Fabout-->
+
+<!--css
+http://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fdaveyjh.github.io%2Fci-portfolio-two%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en
+http://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fdaveyjh.github.io%2Fci-portfolio-two%2Fchallenge&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en
+http://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fdaveyjh.github.io%2Fci-portfolio-two%2Frules&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en
+http://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fdaveyjh.github.io%2Fci-portfolio-two%2Fabout&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en-->
+
+<!--wave
+https://wave.webaim.org/report#/daveyjh.github.io/ci-portfolio-two
+https://wave.webaim.org/report#/https://daveyjh.github.io/ci-portfolio-two/challenge.html
+https://wave.webaim.org/report#/https://daveyjh.github.io/ci-portfolio-two/rules.html
+https://wave.webaim.org/report#/https://daveyjh.github.io/ci-portfolio-two/rules.html
+-->
 <!-- lighthouse testing -->
 
 ## Bugs
