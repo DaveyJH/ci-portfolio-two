@@ -765,6 +765,8 @@ function rowColorSelector(event) {
       if (event.pointerType !== "mouse" &&
         event.pointerType !== "touch") {
         colorSelectors[0].focus();
+      } else {
+        document.activeElement.blur();
       }
     }
   } else {
@@ -774,6 +776,8 @@ function rowColorSelector(event) {
       if (event.pointerType !== "mouse" &&
         event.pointerType !== "touch") {
         clearSelector.children[0].focus();
+      } else {
+        document.activeElement.blur();
       }
     }
   }

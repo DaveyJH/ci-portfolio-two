@@ -357,9 +357,7 @@ function colorSelectorC(event) {
       event.pointerType !== "touch") {
         colorSelectors[0].focus();
       } else {
-        console.log("active element before blur = " + document.activeElement);
         document.activeElement.blur();
-        console.log("active element after blur = " + document.activeElement);
       }
     }
   } else {
@@ -368,6 +366,8 @@ function colorSelectorC(event) {
       if (event.pointerType !== "mouse" &&
       event.pointerType !== "touch") {
         colorSelectors[0].focus();
+      } else {
+        document.activeElement.blur();
       }
     }
   }
