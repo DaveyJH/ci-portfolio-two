@@ -1,15 +1,3 @@
-//* maintain settings overlay layout below header
-window.addEventListener("resize", handleChange);
-const settingsOverlay = document.getElementById("settings");
-/** ensure settings overlay sits below header */
-function handleChange() {
-  let headerHeight = document.getElementsByTagName("header")[0].offsetHeight;
-  let settingsSpacerHeight = headerHeight / 16;
-  let settingsSpacer = (settingsSpacerHeight + "rem");
-  document.getElementById("settings").style.top = settingsSpacer;
-  resizeBalls();
-}
-
 const globalSettings = document.getElementById("global-settings");
 //! colorBlind setting
 //#region [purple]
@@ -181,6 +169,7 @@ function timer() {
 
 //! settings
 //#region [green]
+const settingsOverlay = document.getElementById("settings");
 //gameplay settings
 const calculatedColors = document.getElementById("number-of-colors");
 const calculatedBalls = document.getElementById("number-in-solution");
@@ -774,7 +763,7 @@ function rowColorSelector(event) {
     clearSelector.style.visibility = "hidden";
     if (event instanceof PointerEvent) {
       if (event.pointerType !== "mouse" &&
-      event.pointerType !== "touch") {
+        event.pointerType !== "touch") {
         colorSelectors[0].focus();
       }
     }
@@ -783,7 +772,7 @@ function rowColorSelector(event) {
     addTabIndex(clearSelector.children[0]);
     if (event instanceof PointerEvent) {
       if (event.pointerType !== "mouse" &&
-      event.pointerType !== "touch") {
+        event.pointerType !== "touch") {
         clearSelector.children[0].focus();
       }
     }
@@ -811,7 +800,7 @@ function colorSelect(event) {
   let keyUser = false;
   if (event instanceof PointerEvent) {
     if (event.pointerType !== "mouse" &&
-    event.pointerType !== "touch") {
+      event.pointerType !== "touch") {
       keyUser = true;
     }
   }
@@ -868,7 +857,7 @@ function clearSelection(event) {
   let keyUser = false;
   if (event instanceof PointerEvent) {
     if (event.pointerType !== "mouse" &&
-    event.pointerType !== "touch") {
+      event.pointerType !== "touch") {
       keyUser = true;
     }
   }
@@ -1259,6 +1248,7 @@ function runGame() {
   setAvailableColors();
   setBallCount();
   setSelectorBalls();
+  repositionSelectorTips();
   setPegCount();
   setSolutionBallCount();
   setSolution();
@@ -1305,12 +1295,6 @@ function reset() {
 }
 //#endregion
 // end of main
-
-handleChange();
-resetTime();
-plusminus();
-disableClickNumberInputs();
-reset();
 
 //! aria
 //#region [red]
@@ -1423,5 +1407,49 @@ function resetAria() {
     }
   }
 }
+
+/** adjusts left and right selector ball tool tips to prevent overflow
+ * @param colorBalls colorBalls > 10
+ */
+function repositionSelectorTips() {
+  if (window.innerWidth <= 380) {
+    adjustmentPercent = Math.abs(window.innerWidth - 380) / 5;
+    console.log(adjustmentPercent);
+    if (numOfColors === 12) {
+      colorSelectors[colorSelectors.length - 2].previousElementSibling.style.left = `${50 - adjustmentPercent}%`;
+    } else {
+      colorSelectors[colorSelectors.length - 2].previousElementSibling.style.left = "50%";
+    }
+    if (numOfColors > 10) {
+      colorSelectors[colorSelectors.length - 1].previousElementSibling.style.left = `${50 - adjustmentPercent}%`;
+      colorSelectors[0].previousElementSibling.style.left = `${50 + adjustmentPercent}%`;
+      colorSelectors[1].previousElementSibling.style.left = `${50 + adjustmentPercent}%`;
+    } else {
+      //else statement may not be needed as selectors are deleted and re-added on game reset
+      colorSelectors[colorSelectors.length - 1].previousElementSibling.style.left = "50%";
+      colorSelectors[colorSelectors.length - 2].previousElementSibling.style.left = "50%";
+      colorSelectors[0].previousElementSibling.style.left = "50%";
+      colorSelectors[1].previousElementSibling.style.left = "50%";
+    }
+  }
+}
 //#endregion
 //end of aria
+
+//* maintain settings overlay layout below header
+window.addEventListener("resize", handleChange);
+/** ensure settings overlay sits below header */
+function handleChange() {
+  let headerHeight = document.getElementsByTagName("header")[0].offsetHeight;
+  let settingsSpacerHeight = headerHeight / 16;
+  let settingsSpacer = (settingsSpacerHeight + "rem");
+  document.getElementById("settings").style.top = settingsSpacer;
+  resizeBalls();
+  repositionSelectorTips();
+}
+
+handleChange();
+resetTime();
+plusminus();
+disableClickNumberInputs();
+reset();
