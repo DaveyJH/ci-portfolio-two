@@ -49,6 +49,9 @@ section div p {
   border: .2rem solid #3e363f;
   border-radius: .1rem;
 }
+.thin-bottom-border {
+  border-bottom: solid .1rem #3e363f;
+}
 /* end of general */
 
 /* internal nav links */
