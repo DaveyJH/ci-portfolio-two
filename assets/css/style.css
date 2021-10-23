@@ -231,7 +231,8 @@ noscript img {
 }
 /* end of noscript */
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 800px)
+and (min-height: 500px) {
   #vp-filler {
     min-height: calc(100vh - 8.26175rem);
   }
@@ -242,7 +243,7 @@ noscript img {
     font-variant: small-caps;
     position: sticky;
     top: 0;
-    z-index: 5;
+    z-index: 6;
   }
   header h1 {
     font-size: 3rem;
