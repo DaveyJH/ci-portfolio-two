@@ -9,7 +9,7 @@ window.onload = function () {
     https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_OR */
     this.contact_number.value = Math.random() * 100000 | 0;
     //convert github user to clickable link if input used
-    let githubLink = document.getElementById("github_link");
+    let githubLink = document.getElementById("github-link");
     if (githubLink.value.length !== 0) {
       if (githubLink.value.includes("@")) {
         githubLink.value = githubLink.value.slice(githubLink.value.indexOf("@") + 1);
