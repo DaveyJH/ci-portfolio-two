@@ -85,6 +85,15 @@ main img:first-of-type {
 .below-list {
   margin-top: 1.2rem;
 }
+.column {
+  flex-direction: column;
+}
+.column img:first-of-type {
+  box-shadow: .2rem 0 1rem #165764;
+}
+.column img:last-of-type {
+  margin-top: .6rem;
+}
 /* end of images */
 
 /* gameplay section */
