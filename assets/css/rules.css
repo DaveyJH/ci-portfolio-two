@@ -10,6 +10,9 @@ section > div {
 h2 {
   margin:  0 0 .8rem;
 }
+h3 {
+  margin-top: 1.6rem;
+}
 .small-caps {
   font-variant: small-caps;
 }
@@ -22,6 +25,29 @@ section div p {
 #top-link {
   position: absolute;
   top: -5rem;
+}
+.rule-separator {
+  color: #3e363f;
+  font-weight: 900;
+  width: 60%;
+  margin: .7rem auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rule-separator > div {
+  height: .1rem;
+  width: 100%;
+  border: 0 solid #3e363f;
+  border-top-width: .2rem;
+  position: relative;
+  top: -.05rem;
+}
+.rule-separator .center-separator {
+  height: 1rem;
+  width: .2rem;
+  border: .2rem solid #3e363f;
+  border-radius: .1rem;
 }
 /* end of general */
 
@@ -79,7 +105,7 @@ main img {
   width: 100%;
   max-width: 25rem;
 }
-main img:first-of-type {
+.gameplay img:first-of-type {
   margin-top: 1.4rem;
 }
 .below-list {
@@ -94,6 +120,9 @@ main img:first-of-type {
 .column img:last-of-type {
   margin-top: .6rem;
 }
+.column + p {
+  margin-top: .5rem;
+}
 /* end of images */
 
 /* gameplay section */
@@ -103,7 +132,6 @@ main img:first-of-type {
 /* end of gameplay section */
 
 /* specific items */
-
 .text-left-list {
   margin: .8rem 0 .8rem 2rem;
   list-style-type :circle;
