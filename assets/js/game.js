@@ -4,10 +4,10 @@ const settingsOverlay = document.getElementById("settings");
 /** ensure settings overlay sits below header */
 function handleChange() {
   let headerHeight = document.getElementsByTagName("header")[0].offsetHeight;
-  console.log(headerHeight);
   let settingsSpacerHeight = headerHeight / 16;
   let settingsSpacer = (settingsSpacerHeight + "rem");
   document.getElementById("settings").style.top = settingsSpacer;
+  resizeBalls();
 }
 
 const globalSettings = document.getElementById("global-settings");
@@ -580,20 +580,34 @@ function setSelectorBalls() {
   }
 }
 
-// todo update when taptarget style done for 4 balls
-/** shrink balls if set to 6 in solution */
+/** shrink balls if set to 5 or 6 in solution - works down to 320 screen width*/
 function resizeBalls() {
   let sizeBalls = gameBoard.querySelectorAll(".color-ball");
-  switch (numOfBalls) {
-    case 6:
-      for (let i = 0; i < sizeBalls.length; i++) {
-        sizeBalls[i].style.transform = "scale(.9)";
-      }
-      break;
-    default:
-      for (let i = 0; i < sizeBalls.length; i++) {
-        sizeBalls[i].style.transform = "scale(1)";
-      }
+  const windowWidth = window.innerWidth;
+  if (windowWidth < 420) {
+    switch (numOfBalls) {
+      case 5:
+        for (let i = 0; i < sizeBalls.length; i++) {
+          let newSize = `${1.6 + ((windowWidth - 270) / 100)}`;
+          if (newSize > 2.5) newSize = 2.5;
+          sizeBalls[i].style.height = `${newSize}rem`;
+          sizeBalls[i].style.width = `${newSize}rem`;
+        }
+        break;
+      case 6:
+        for (let i = 0; i < sizeBalls.length; i++) {
+          let newSize = `${1.6 + ((windowWidth - 320) / 100)}`;
+          if (newSize > 2.5) newSize = 2.5;
+          sizeBalls[i].style.height = `${newSize}rem`;
+          sizeBalls[i].style.width = `${newSize}rem`;
+        }
+        break;
+      default:
+        for (let i = 0; i < sizeBalls.length; i++) {
+          sizeBalls[i].style.height = "2.5rem";
+          sizeBalls[i].style.width = "2.5rem";
+        }
+    }
   }
 }
 
