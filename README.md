@@ -146,7 +146,7 @@ it this way.
 
 #### Typography
 
-The font used for the site are
+The fonts used for the site are
 [Orbitron](https://fonts.google.com/specimen/Orbitron) and
 [Rajdhani](https://fonts.google.com/specimen/Rajdhani) from google fonts.  
 Orbitron has been chosen as it has a geometric look that lends itself well to the
@@ -162,13 +162,15 @@ appearance with its slightly rounded corners.
 
 There are not many images in the site. The split brain image in the header
 represents the colours of the game and the logic behind it. The repeating balls
-at the bottom of the page are there to prevent the footer from looking too
-isolated. The favicon looks like it could be a side on version of the header
-image.  
+used as a background on the pages are there to break up the blank space behind
+sections. The favicon looks like it could be a side on version of the
+header image.  
 All the rules images are screenshot snips made using
-[windows snipping tool](#technologies-used) and are taken from the finished
+[Windows Snipping Tool](#technologies-used) and are taken from the finished
 design of the game. The image on the about page is me, taken using a
-[Samsung Galaxy S8](https://www.samsung.com/uk/smartphones/galaxy-s8/)
+[Samsung Galaxy S8](https://www.samsung.com/uk/smartphones/galaxy-s8/). All
+other images were made using
+[Paint3D](#technologies-used)
 
 ***
 
@@ -228,6 +230,10 @@ F2
 - *[Windows Snipping Tool](https://support.microsoft.com/en-us/windows/use-snipping-tool-to-capture-screenshots-00246869-1843-655f-f220-97299b865f6b)*
   - A screenshot tool built in to Windows. It allows quick, partial screen shots
   to be taken that can be saved as image files.
+- *[Paint3D](https://www.microsoft.com/en-gb/p/paint-3d/9nblggh5fv99?activetab=pivot:overviewtab)*
+  - Free software on Windows, allowing image editing and creation.
+- *[EmailJS](https://www.emailjs.com/)*
+  - An email client API that allows custom emails to be sent via a mix of HTML forms and JavaScript.
 
 ### VSCode Extensions
 
