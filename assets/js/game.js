@@ -738,6 +738,7 @@ function addRow() {
   setBallCount();
   setPegCount();
   toggleColorBlind(); //needed to prevent tooltips showing if !colorBlind
+  resizeBalls();
 }
 
 /** enable color selection of row ball
