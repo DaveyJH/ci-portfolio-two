@@ -231,6 +231,12 @@ noscript img {
 }
 /* end of noscript */
 
+/* link adjustment for header height */
+.adjust-destination {
+  position: absolute;
+  top: -8rem;
+}
+
 @media screen and (min-width: 800px)
 and (min-height: 500px) {
   #vp-filler {

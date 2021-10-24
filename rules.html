@@ -50,6 +50,7 @@
     </nav>
   </header>
   <main class="text-center">
+    <span class="adjust-destination" id="top-link-destination"></span>
     <div id="top-link"></div>
     <section>
       <div>
@@ -57,15 +58,15 @@
         <nav class="internal-nav">
           <ul>
             <li>
-              <a href="#gameplay-sect"><span>Gameplay</span> <i class="fas
+              <a href="#gameplay-sect" class="adjust-origin"><span>Gameplay</span> <i class="fas
                 fa-gamepad"></i></a>
             </li>
             <li>
-              <a href="#settings-sect"><span>Settings</span> <i class="fas
+              <a href="#settings-sect" class="adjust-origin"><span>Settings</span> <i class="fas
                 fa-cogs"></i></a>
             </li>
             <li>
-              <a href="#challenge-sect"><span>Challenge</span> <i class="fas
+              <a href="#challenge-sect" class="adjust-origin"><span>Challenge</span> <i class="fas
                 fa-brain"></i></a>
             </li>
           </ul>
@@ -88,7 +89,8 @@
         </p>
       </div>
     </section>
-    <section class="gameplay" id="gameplay-sect">
+    <section class="gameplay rel" id="gameplay-sect">
+      <span class="adjust-destination" id="gameplay-sect-destination"></span>
       <div>
         <h2>Gameplay</h2>
         <img src="assets/images/rules/game-board-top.webp"
@@ -294,10 +296,11 @@
         </p>
       </div>
       <p class="return-link">
-        <a href="#top-link">Return to top</a>
+        <a href="#top-link" class="adjust-origin">Return to top</a>
       </p>
     </section>
-    <section class="settings" id="settings-sect">
+    <section class="settings rel" id="settings-sect">
+      <span class="adjust-destination" id="settings-sect-destination"></span>
       <div>
         <h2>Settings</h2>
         <h3>Option Settings</h3>
@@ -412,10 +415,11 @@
         </p>
       </div>
       <p class="return-link">
-        <a href="#top-link">Return to top</a>
+        <a href="#top-link" class="adjust-origin">Return to top</a>
       </p>
     </section>
-    <section class="challenge" id="challenge-sect">
+    <section class="challenge rel" id="challenge-sect">
+      <span class="adjust-destination" id="challenge-sect-destination"></span>
       <div>
         <h2>Challenge</h2>
         <img src="assets/images/rules/challenge-top.webp" alt="navbar with
@@ -435,11 +439,12 @@
           </ul>
       </div>
       <p class="return-link">
-        <a href="#top-link">Return to top</a>
+        <a href="#top-link" class="adjust-origin">Return to top</a>
       </p>
     </section>
   </main>
   <footer>&#169;DaveyJH</footer>
+  <script src="assets/js/header-link.js"></script>
 </body>
 
 </html>
