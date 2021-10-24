@@ -74,6 +74,7 @@ form input[type="submit"] {
   border-color: #6bdce9;
   transition: all 1s;
   cursor: pointer;
+  border-radius: 0;
 }
 form input[type="submit"]:hover {
   border-width: .5rem;
