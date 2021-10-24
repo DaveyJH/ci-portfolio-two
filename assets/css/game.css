@@ -3,7 +3,7 @@
   margin: 1.5rem .8rem 0;
   padding: 0 .4rem;
   background-color: #c58e48;
-  background: linear-gradient(#fffce822, #fffce822), URL("../images/wood-effect.jpg") no-repeat center center / cover;
+  background: linear-gradient(#fffce822, #fffce822), URL("../images/wood-effect.webp") no-repeat center center / cover;
   border: .2rem solid #854e1e;
   border-radius: .2rem;
 }
@@ -85,7 +85,7 @@
   left: 16.25%;
   width: 67.5%;
   background-color: #a0622c;
-  background: URL("../images/horizontal-wood.jpg") no-repeat center / 100% 100%;
+  background: URL("../images/horizontal-wood.webp") no-repeat center / 100% 100%;
   border: .2rem solid #854e1e;
   transition: all .3s ease;
 }

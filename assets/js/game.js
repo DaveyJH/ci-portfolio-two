@@ -730,7 +730,7 @@ function addRow() {
       <div class="result">
       </div>
       <div class="check-result">
-        <img src="assets/images/search-tick.png" alt="check result" role="button" class="vis-hidden">
+        <img src="assets/images/search-tick.webp" alt="check result" role="button" class="vis-hidden">
       </div>
     </div>
   `;

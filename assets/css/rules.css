@@ -162,7 +162,7 @@ img.icon, img.icon:first-of-type {
     background: linear-gradient(#fffce899, #fffce8 11.1% 22.2%,
     #fffce899, #fffce8 33.3% 44.4%, #fffce899, #fffce8 55.5% 66.6%,
     #fffce899, #fffce8 77.7% 88.8%, #fffce899),
-    url("../images/infinite-balls.png") repeat center center / 100% auto;
+    url("../images/infinite-balls.webp") repeat center center / 100% auto;
   }
   main {
     max-width: 60rem;

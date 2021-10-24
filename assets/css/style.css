@@ -25,7 +25,7 @@ a:hover, a:focus-within, #settings-activator:hover, #settings-activator:focus-wi
 body {
   /* fallback background color */
   background-color: #fffce8;
-  background: linear-gradient(#fffce899, #fffce8 30% 60%, #fffce899), url("../images/infinite-balls.png") repeat center center / 100% auto;
+  background: linear-gradient(#fffce899, #fffce8 30% 60%, #fffce899), url("../images/infinite-balls.webp") repeat center center / 100% auto;
   color: #fffce8;
   font-family: "Rajdhani", sans-serif;
   min-height: 100%;
@@ -167,7 +167,7 @@ header>* {
   height: 3rem;
   position: relative;
   z-index: 2;
-  background: url(../images/color-brain-split.png) no-repeat center bottom / 3rem 3rem;
+  background: url(../images/color-brain-split.webp) no-repeat center bottom / 3rem 3rem;
 }
 header h1 {
   margin-top: .5rem;
