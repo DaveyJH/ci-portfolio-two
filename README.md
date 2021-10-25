@@ -99,16 +99,16 @@ Mastermind game. The site should have:
 Some example user stories which will affect the design:
 
 > *"As a person who enjoys Mastermind, I want to get straight into playing the
-  game. I have played other versions and find them a little aesthetically dull"*
+> game. I have played other versions and find them a little aesthetically dull"*
 >
 > *"As a person who hasn't played before, I would like to read the rules of the
-  game. I want to know exactly how to play and what to expect"*
+> game. I want to know exactly how to play and what to expect"*
 >
 > *"As a person that likes a challenge, I would like the option of a more
-  difficult game"*
+> difficult game"*
 >
 > *"As an interested developer/employer, I would like to learn more about the
-  developer of this site"*
+> developer of this site"*
 
 ***
 
@@ -194,21 +194,123 @@ All images have been converted to webp format using
 
 ### Existing Features
 
-<!-- - Feature 1 - allows users X to achieve Y, by having them fill out Z -->
-<!-- 1. feature1
->*"User... **story quote**"*
-- *explanation*-->
-F1
+1. The game is on the index page.
+
+> *"As a person who enjoys Mastermind, **I want to get straight into playing
+> the game.**"*
+>
+> "...**please don't force me to the rules**"
+
+- The game is available to play with default settings on the index page. A user
+  is able to play as soon as the site is loaded.
+
+  ![Game ready on index page](./readme-content/images/features/index.png)
 
 ***
 
-<!-- - Feature 2 - allows users X to achieve Y, by having them fill out Z -->
-<!-- 1. feature2
->*"User... **story quote**"*
-- *explanation*
-  ![imgName](imgURL)
--->
-F2
+2. The rules page is available.
+
+> *"As a person who hasn't played before, **I would like to read the rules of
+> the game.**"*
+>
+> *"As a person who hasn't played before...**I want to know exactly how to play
+> and what to expect**"*
+>
+> "...**please don't force me to the rules**"
+
+- The rules page is available for users who need it. It has images taken from
+  the deployed product so they are accurate and informative.
+
+  ![Rules page](./readme-content/images/features/rules.png)
+
+***
+
+3. There are a number of settings and a challenge.
+
+> *"As a person that likes a challenge, **I would like the option of a more
+> difficult game**"*
+>
+> "...**different difficulty settings**"
+>
+> "**I enjoy trying to complete the game within a set number guesses**"
+
+- The settings overlay allows various difficulty settings to be changed. The
+  challenge page allows users to play within a limited number of guesses.
+
+  ![Settings](./readme-content/images/features/settings.png)
+
+***
+
+4. The about page has some information about me.
+
+> *"As an interested developer/employer, **I would like to learn more about the
+> developer of this site**"*
+
+- The about page has a bried introduction to me and has a contact form for
+  any users who wish to reach out to me.
+
+  ![About section](./readme-content/images/features/about.png)
+
+***
+
+5. Audio settings
+
+> *"...**a little confirmation sound**..."*
+
+- There are audio confirmation sounds that can be toggled on or off. They are
+  off as default to prevent bad UX.
+
+  ![Audio settings](./assets/images/rules/audio.webp)
+
+***
+
+6. Click controls
+
+> "...**click rather than drag and drop**"
+
+- The interface of the application allows users to single tap or click, rather
+  than relying on a drag effect, to make their selections.
+
+***
+
+7. A clean and attractive design.
+
+> "...**it would be nice to see a little more style**"
+
+- The design considerations ensure an attractive application that is more
+  appealing than other versions I found while researching. The photographed
+  wood effect means the game board looks authentic.
+
+![Wooden game board](readme-content/images/features/wood-gameboard.png)
+
+***
+
+8. User error preventative JavaScript.
+
+> "**I don't want to waste a turn**..."
+
+- The JavaScript is written in a way that prevents users from accidentally
+  wasting a turn.
+
+***
+
+9. Best time and score elements.
+
+> "...**know my best score**"
+
+- The user is presented with their best score and best time for the session.
+
+![Best score and time](readme-content/images/features/bests.png)
+
+***
+
+10. Scores and timers can be disabled.
+
+> "**I don't enjoy seeing a timer**"
+
+- The current time, best score and best time can be toggled via the settings.
+
+![Score and time settings](readme-content/images/features/score-time-settings.png)
 
 ***
 
@@ -225,13 +327,14 @@ F2
 2. Tooltip to show what the results mean.
     - *To assist users who are unfamiliar with the game, a tooltip could help
     remind them of the meaning of the results.*  
-    ![Results Explanation Example](./readme-content/images/explanation-pop-up.png)
+    ![Results Explanation Example](./readme-content/images/features/explanation-pop-up.png)
     - I came across this feature on another version of the game. It would be a
     nice feature for new players, but it may become annoying. It is something I
     would consider as a toggle option.
 
 3. Offer an increase in difficulty for users on successful completion of the
   game.
+    > "I like being offered a harder difficulty if I win"
     - *To encourage users to continue to play, and to improve their skill level,
     an option to increase the difficulty depending on current settings would
     improve UX.*
@@ -247,6 +350,8 @@ F2
     a set of controls to allow the user to progress through each stage.
 
 5. Alternative patterns, instead of tooltips, for colour blind users.
+    > "I don't want to play with colours, how about some animals or symbols
+    > instead"
     - *Change colours on the balls to different images/icons or patterns to
     enable a more user friendly experience for colour blind users.*
     - This may be done through JavaScript by changing the background property
@@ -315,8 +420,6 @@ F2
   available have allowed me to customize my workspace and become more
   efficient.
 
-***
-
 ### VSCode Extensions
 
 Links to website of each extension provided
@@ -330,6 +433,7 @@ Links to website of each extension provided
 - [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
 - [Preview on Web Server](https://marketplace.visualstudio.com/items?itemName=yuichinukiyama.vscode-preview-server)
 - [jshint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.jshint)
+- [Colored Regions](https://marketplace.visualstudio.com/items?itemName=mihelcic.colored-regions)
 
 ***
 
@@ -402,7 +506,7 @@ I used `ar = (97);` and `testAddRows()` to test the `extremeLoss` conditions.
     - `test`
     - `https://github.com/test`
   - By attempting to write a message longer than 250 characters.
-- An example of the input and result:  
+  - An example of the input and result:  
   ![Form Input Example](./readme-content/images/testing/form-input.png)
   ![Email Result Example](./readme-content/images/testing/email-result.png)
 - The site was tested on multiple devices and browsers with all results as expected.
@@ -521,7 +625,6 @@ All scores are green and highly satisfactory.
 
 ### Current
 
-<!-- current bugs -->
 1. When playing the game on a mobile device and having the 'Colour Blind' setting
    enabled, the tooltip remains above the ball that is selected for a colour
    selection.
@@ -709,6 +812,9 @@ with a brief description of the main functions I utilise
   markdown documents
 - [Preview on Web Server](#VSCode-Extensions) - Allows live webserver with
   keyboard shortcut
+- [Colored Regions](#VSCode-Extensions) - Allows collapsible sections of code
+  by using certain comment strings. I have used these in my JavaScript files
+  by using `//#region [attribute here]` and then ended by `//#endregion`
 
 #### Editing
 
