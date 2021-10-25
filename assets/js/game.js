@@ -701,19 +701,6 @@ function nextRow() {
   }
 }
 
-//! delete before deployment
-/** for testing
- * * testAddRows();
- * * aR = 97;
- * - complete first row (number border will remain)
- * - complete last row (99)
- */
-function testAddRows() {
-  while (guessRows.length < 98) {
-    addRow();
-  }
-}
-
 /** create new guess row with current settings */
 function addRow() {
   const newRowNumber = guessRows.length + 1;
