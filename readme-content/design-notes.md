@@ -210,7 +210,7 @@ As the game has a few aspects to present on the page, I will adjust and simplify
 
 ![Mobile Wireframe](./images/mobile-game.png)
 
-The game features will be designed to be as intuitive as possible, however, due to the quantity of important, items there will be detailed explanations with screenshots included in the rules page.
+The game features will be designed to be as intuitive as possible, however, due to the quantity of important items, there will be detailed explanations with screenshots included in the rules page.
 
 ## Surface
 
