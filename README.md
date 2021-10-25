@@ -2,7 +2,8 @@
 
 ![Multiple Device Demo](./readme-content/images/multi-device.png)
 
-*A gentle reminder to all - to open links in a new tab, hold 'Ctrl' (or '⌘' on Apple devices) as you click!*
+*A gentle reminder to all - to open links in a new tab, hold 'Ctrl' (or '⌘' on
+Apple devices) as you click!*
 
 ## Live Site
 
@@ -173,7 +174,7 @@ appearance with its slightly rounded corners.
 
 #### Imagery
 
-There are not many images in the site. The split brain image in the header
+There are not many images in the site. The split-brain image in the header
 represents the colours of the game and the logic behind it. The repeating balls
 used as a background on the pages are there to break up the blank space behind
 sections. The favicon looks like it could be a side on version of the
@@ -246,7 +247,7 @@ All images have been converted to webp format using
 > *"As an interested developer/employer, **I would like to learn more about the
 > developer of this site**"*
 
-- The about page has a bried introduction to me and has a contact form for
+- The about page has a brief introduction to me and has a contact form for
   any users who wish to reach out to me.
 
   ![About section](./readme-content/images/features/about.png)
@@ -339,7 +340,7 @@ All images have been converted to webp format using
     an option to increase the difficulty depending on current settings would
     improve UX.*
     - This could be implemented via a modal as opposed to the currently used
-    confirm pop ups. I would need to check the current settings and offer an
+    confirm pop-ups. I would need to check the current settings and offer an
     increased number of colours or solution balls, or change the repeat
     settings depending on those currently selected.
 
@@ -353,7 +354,7 @@ All images have been converted to webp format using
     > "I don't want to play with colours, how about some animals or symbols
     > instead"
     - *Change colours on the balls to different images/icons or patterns to
-    enable a more user friendly experience for colour blind users.*
+    enable a more user-friendly experience for colour blind users.*
     - This may be done through JavaScript by changing the background property
     to a linear background effect or an image/icon.
 
@@ -379,12 +380,13 @@ All images have been converted to webp format using
   background colour and displays the resulting contrast ratio, including a quick
   reference to meeting WCAG AA / AAA standards.
 - *[Windows Snipping Tool](https://support.microsoft.com/en-us/windows/use-snipping-tool-to-capture-screenshots-00246869-1843-655f-f220-97299b865f6b)*
-  - A screenshot tool built in to Windows. It allows quick, partial screen shots
+  - A screenshot tool built in to Windows. It allows quick, partial screenshots
   to be taken that can be saved as image files.
 - *[Paint3D](https://www.microsoft.com/en-gb/p/paint-3d/9nblggh5fv99?activetab=pivot:overviewtab)*
   - Free software on Windows, allowing image editing and creation.
 - *[EmailJS](https://www.emailjs.com/)*
-  - An email client API that allows custom emails to be sent via a mix of HTML forms and JavaScript.
+  - An email client API that allows custom emails to be sent via a mix of HTML
+  forms and JavaScript.
 - *[JSHint](https://jshint.com/)*
   - A static code analysis tool for JavaScript. [Results here](#jshint).
 - *[Balsamiq](https://balsamiq.com/)*
@@ -422,7 +424,7 @@ All images have been converted to webp format using
 
 ### VSCode Extensions
 
-Links to website of each extension provided
+Links to the website of each extension
 
 - [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
 - [Better Comments](https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments)
@@ -439,7 +441,7 @@ Links to website of each extension provided
 
 ## Testing
 
-I utilised the console in devTools for some of the testing. This allowed me to
+I utilised the console in DevTools for some of the testing. This allowed me to
 check solutions without having to work them out, add rows without making 99
 attempts and see stages of my JavaScript by using `console.log()`.
 
@@ -463,24 +465,25 @@ I used `ar = (97);` and `testAddRows()` to test the `extremeLoss` conditions.
 ***
 
 - Testing of internal and external links was done manually. All links directed
-  to the intended location in the correct manor.
+  to the intended location in the correct manner.
 - The challenge and default index settings were tested manually with all
   results as expected:
   - Empty colour balls were selected and checked for functionality.
   - Intended colours were selected and checked for correct placement.
-  - Colour balls with colours alrady chosen were selected to ensure operation
-    of the clear selector.
-  - Rows were completed to ensure the check result icon displayed.
+  - Colour balls with colours already chosen were selected to ensure the
+    operation of the clear selector.
+  - Rows were completed to ensure the check result icon was displayed.
   - Completed rows had a colour cleared to ensure the check result icon
     disappeared.
-  - `console.log(solution)` was used while checking correct result peg operation.
-  - Results we checked with all possible outcomes (number of white and black
+  - `console.log(solution)` was used while checking the correct result peg
+    operation by completing rows.
+  - Results were checked with all possible outcomes (number of white and black
     pegs).
   - The game was completed in various times, using various numbers of rows, to
-    ensure correct function of the best score and time.
+    ensure the correct function of the best score and time.
   - The challenge was unsuccessful after 6 rows to ensure the loss condition
     worked correctly.
-  - The index game was unsuccessful after 7 rows to ensure new rows were addded
+  - The index game was unsuccessful after 7 rows to ensure new rows were added
     correctly.
   - The colour blind option was selected and tested.
   - The audio option was selected and tested for all audio instances.
@@ -498,7 +501,7 @@ I used `ar = (97);` and `testAddRows()` to test the `extremeLoss` conditions.
 - The contact form was tested:
   - Without a 'Name', 'Email' and 'Message' entry to ensure `required` was
     applied to the correct elements.
-  - Without a 'GitHub' entry to ensure this was not requird.
+  - Without a 'GitHub' entry to ensure this was not required.
   - With various 'GitHub' styles to ensure the string modification worked
     correctly:
     - `@Test`
@@ -554,7 +557,7 @@ heading sits within an `article` and appears to be an acceptable practice.
 - [About](https://wave.webaim.org/report#/https://daveyjh.github.io/ci-portfolio-two/about.html)
 
 No errors are reported on any of the pages. There are multiple alerts for font
-sizes, however these are for screen readers so I am happy leaving them in
+sizes, however these are for screen readers so I am happy to leave them in
 place.
 
 ***
@@ -567,8 +570,8 @@ JavaScript files.
 ![JSHint Screenshot](./readme-content/images/testing/jshint.png)
 
 The warnings refer to functions that reference outer scoped variables and
-functions. This could be resoved by re-declaring the variables and functions
-within the function, but seems an unecessary step as variables are
+functions. This could be resolved by re-declaring the variables and functions
+within the function, but seems an unnecessary step as variables are
 descriptively named and docstrings are present for functions.
 
 ![JSHint Warnings](./readme-content/images/bugs/referencing-outer-scope.png)
@@ -587,7 +590,7 @@ descriptively named and docstrings are present for functions.
 Performance and SEO scores could be a little higher.
 
 The image used for the background of the gameboard is delayed by some of the
-third party stylesheets and could be re-designed to use linear-gradients.
+third-party stylesheets and could be re-designed to use linear-gradients.
 I tested this with commit
 [966c35d](https://github.com/DaveyJH/ci-portfolio-two/commit/966c35dc37284515b13802ff1f7abd5d46c007e5)
 but found the style was not suitable. The slight difference in performance score
@@ -645,27 +648,27 @@ so minimal it did not warrant the time spent on it.*
 ![99 Rows Error](./readme-content/images/bugs/99rows.png)
 
 *Commit - [bd06f93](https://github.com/DaveyJH/ci-portfolio-two/commit/bd06f93#diff-ce75dc990f41e122d063d10b3068e250494e1ca2ac80fa8a3bf62a618de01277R853) -
-Corrected second line in **extremeLoss()** to correctly target the **hintIcon**.*
+Corrected second line in `extremeLoss()` to correctly target the `hintIcon`.*
 
 ![99 Rows Reset Error](./readme-content/images/bugs/99rows-reset.png)
 
 *Commit - [bd06f93](https://github.com/DaveyJH/ci-portfolio-two/commit/bd06f93#diff-ce75dc990f41e122d063d10b3068e250494e1ca2ac80fa8a3bf62a618de01277R938) -
-Added to line in **reset()** to prevent **deactivateRow()** when **aR** was equal
+Added to line in `reset()` to prevent `deactivateRow()` when `aR` was equal
 to or greater than **98**.*
 
 ***
 
-2. If the settings menu was opened with a keyboard and the focus jumped to the
+1. If the settings menu was opened with a keyboard and the focus jumped to the
   first button, the button would trigger. This revealed a number of other issues:
 
 ![Minus Button Error](./readme-content/images/bugs/minus.png)
 
 *Commit - [2e48239](https://github.com/DaveyJH/ci-portfolio-two/commit/2e48239#diff-ce75dc990f41e122d063d10b3068e250494e1ca2ac80fa8a3bf62a618de01277R1010) -
-Changed **keydown** in addEventListener to **keyup**.
+Changed `keydown` in addEventListener to `keyup`.
 I was made aware of this by [SiJiL82](https://github.com/sijil82) after posing a
 question regarding the bug in the [Code Institute](https://codeinstitute.net/)
 Slack community. Thanks Sven!  
-This made me realise many of my functions would be made better with **keyup** to
+This made me realise many of my functions would be made better with `keyup` to
 try and prevent bad UX in the case of users with slower motor skills.*
 
 ***
@@ -740,7 +743,7 @@ The site was made utilising [GitHub](#GitHub) and [VSCode](#VSCode)
 - Sign in to GitHub
 - I use a template that contains a template of my README file which can be
   accessed [here](https://github.com/DaveyJH/template) and is available
-  public use via the **Use this template** button
+  for public use via the **Use this template** button
 
 ![Use Template](./readme-content/images/development/use-template.png)
 
@@ -765,7 +768,8 @@ The repository has now been created and is ready for editing
 
 [VSCode Website](https://code.visualstudio.com/)
 
-For general information on using GitHub with VSCode see their documentation [here](https://code.visualstudio.com/docs/editor/github).  
+For general information on using GitHub with VSCode see their documentation
+[here](https://code.visualstudio.com/docs/editor/github).  
 *This section assumes you have successfully linked your GitHub account to the
 application*
 
@@ -810,7 +814,7 @@ with a brief description of the main functions I utilise
   other efficiency features when writing markdown documents
 - [markdownlint](#VSCode-Extensions) - Highlights errors and best practices with
   markdown documents
-- [Preview on Web Server](#VSCode-Extensions) - Allows live webserver with
+- [Preview on Web Server](#VSCode-Extensions) - Allows live webserver via
   keyboard shortcut
 - [Colored Regions](#VSCode-Extensions) - Allows collapsible sections of code
   by using certain comment strings. I have used these in my JavaScript files
@@ -945,7 +949,8 @@ the repository.
 
 ![Create PR](./readme-content/images/deployment/create-pr.png)
 
-- Add a message explaining what your pull request adds to the repository and complete with **Create pull request**
+- Add a message explaining what your pull request adds to the repository and
+  complete with **Create pull request**
 
 ![Complete PR](./readme-content/images/deployment/complete-pr.png)
 
@@ -962,9 +967,9 @@ for his algorithm information
 
 ### Media
 
-- The favicon image and header image are license free, obtained from
+- The favicon image and header image are license-free, obtained from
   [Pixabay](https://pixabay.com/)  
-- The audio content is license free and comes from
+- The audio content is license-free and comes from
   [ZapSplat](https://www.zapsplat.com/)
 
 ### Acknowledgements
@@ -998,7 +1003,7 @@ functions into relevant files in future projects.
 ### GitHub Project Board and Issues
 
 I took part in a hackathon event with a great team during the development of this
-site. I found the tracking, and work flow assistance that can be provided from
+site. I found the tracking, and workflow assistance that can be provided from
 it, to be very useful. I did not think to implement it on my own, solo project
 until very late in the development stages. In future projects, I intend to
 utilise the features far more often and to greater effect.
