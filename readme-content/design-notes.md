@@ -1,8 +1,30 @@
 # Design Notes
 
-General notes regarding the initial concept, layout and features of the Mastermind game application
+General notes regarding the initial concept, layout and features of the Mastermind
+game application
 
 ---
+
+## Contents
+
+- [Design Notes](#design-notes)
+  - [Contents](#contents)
+  - [Strategy](#strategy)
+    - [User Considerations](#user-considerations)
+      - [Audience](#audience)
+      - [User Reviews and Suggestions](#user-reviews-and-suggestions)
+    - [Rules](#rules)
+    - [Difficulties](#difficulties)
+    - [Design Considerations](#design-considerations)
+    - [Importance/Viability Trade Offs](#importanceviability-trade-offs)
+  - [Scope](#scope)
+  - [Structure](#structure)
+  - [Skeleton](#skeleton)
+  - [Surface](#surface)
+    - [Colour Schemes](#colour-schemes)
+    - [Typography](#typography)
+    - [Imagery/design](#imagerydesign)
+    - [Site Identity](#site-identity)
 
 ## Strategy
 
@@ -36,14 +58,20 @@ General notes regarding the initial concept, layout and features of the Mastermi
 
 #### Audience
 
-The majority of users will fall into the consumer category, with that in mind, the site should allow quick access to the game. It should require minor input to view the rules and change the difficulty levels.  
-The developer section will be more targeted toward the business category and so may involve a little more input from the user. It should maintain the style of the site but should also portray a slightly more professional approach with links to learn more if desired.
+The majority of users will fall into the consumer category, with that in mind,
+the site should allow quick access to the game. It should require minor input to
+view the rules and change the difficulty levels.  
+The developer section will be more targeted toward the business category and so
+may involve a little more input from the user. It should maintain the style of
+the site but should also portray a slightly more professional approach with
+links to learn more if desired.
 
 ---
 
 #### User Reviews and Suggestions
 
-I asked a few potential users of the game to advise on what they liked about current versions that are available from other developers
+I asked a few potential users of the game to advise on what they liked about
+current versions that are available from other developers
 
 > "I like a little confirmation sound when I choose a colour or submit my answer"
 >
@@ -53,7 +81,8 @@ I asked a few potential users of the game to advise on what they liked about cur
 >
 > "I know how to play, please don't force me to the rules"
 >
-> "A lot of these logic games look a bit basic, it would be nice to see a little more style"
+> "A lot of these logic games look a bit basic, it would be nice to see a little
+> more style"
 >
 > "I don't want to waste a turn because I have forgotten to add all the colours"
 >
@@ -83,7 +112,8 @@ I asked a few potential users of the game to advise on what they liked about cur
 - Number of coloured circles
 - Number of possible colours
 - Whether colours may be repeated within the solution
-- Whether the player may repeat colour selections if the solution is not allowed repeats
+- Whether the player may repeat colour selections if the solution is not allowed
+  repeats
 - Limit number of attempts (challenge mode)
 
 ---
@@ -94,11 +124,13 @@ I asked a few potential users of the game to advise on what they liked about cur
   - Contrast should be high enough that it doesn't cause confusion
   - Hovering over a colour could display its name for a visual aid
 - Layout of game
-  - Solution 'hidden' under a covering element which can animate away on correct solution/give up
+  - Solution 'hidden' under a covering element which can animate away on correct
+    solution/give up
   - Pegs responses should be aligned to make it clear which attempt they relate to
     - Pop up to explain the result? Hover/click result for more explanation?
   - Selecting a position should reveal possible colours to choose from
-    - Remove already selected colours from choices or could be alerted with a pop-up depending on difficulty settings
+    - Remove already selected colours from choices or could be alerted with a
+      pop-up depending on difficulty settings
 - Brain image/favicon
 - Display number of guesses
   - Fewest guesses to solution for current difficulty level
@@ -126,7 +158,7 @@ List of desired features and ability to deliver those features
 | Appealing design/visuals | 9/10 | 8/10 | A |
 | Option to select number of colours | 7/10 | 7/10 | B |
 | Option to select number of circles in solution | 10/10 | 8/10 | C |
-| Option to select if colours may be repeated within the solution | 7/10 | 7/10 | D |
+| Option to select if colours may be repeated within the solution | 7/10 | 7/10 |D |
 | Option to repeat colours in guess if the solution has no repeats | 4/10 | 6/10 | E |
 | Click control mechanism with revealing colour options | 8/10 | 6/10 | F |
 | Display result of each guess | 10/10 | 7/10 | G |
@@ -172,7 +204,8 @@ Considering the chart above I will focus on these elements as priorities:
 - Stop guess if not all selections made
 - Challenge mode
 
-As I have a fairly good timescale to work on the project, I would hope to work on the following elements too:
+As I have a fairly good timescale to work on the project, I would hope to work
+on the following elements too:
 
 - Demo game
 - Hidden solution that reveals on correct answer/give up
@@ -182,46 +215,85 @@ As I have a fairly good timescale to work on the project, I would hope to work o
 - Option to hide timer during gameplay
 - Best score display
 
-The remaining elements are things that may take more time for me to develop. If I am able, I will include as many as possible:
+The remaining elements are things that may take more time for me to develop. If
+I am able, I will include as many as possible:
 
 - Confirmation Sounds
 - Pause function
 - Pop up to remind meaning of results
 
-The final two elements are likely to take a little more research and could require a lot more time to refine. I will only attempt to include these if I am really ahead of schedule:
+The final two elements are likely to take a little more research and could
+require a lot more time to refine. I will only attempt to include these if I am
+really ahead of schedule:
 
 - Alternative images to just using colours
 - Set a code for 'AI' to solve
-  - *This would utilise the [Donald Knuth](https://en.wikipedia.org/wiki/Mastermind_(board_game)#Algorithms_and_strategies) 5 guess algorithm which, logically, I understand...I just imagine it would take me a while to write the scripts for it*
+  - *This would utilise the [Donald Knuth](https://en.wikipedia.org/wiki/Mastermind_(board_game)#Algorithms_and_strategies)
+  5 guess algorithm which, logically, I understand...I just imagine it would take
+  me a while to write the scripts for it*
 
 ---
 
 ## Structure
 
-The information architecture of the site should allow users to navigate easily between different pages. All pages should be accessible from each other, as the overall construct is not too complex, and the site will have just five pages.  
-I am yet to decide whether there will be a welcome page. My initial thoughts are that users will enjoy being able to play immediately, with the option to explore further if desired. Pages will be easily accessible via a header element which will remain present at the top of the page.  
-The interaction design will be styled in a way that maintains the user experience throughout. Navigation elements will remain in the same places, colour schemes and typography will remain consistent across the pages.  
+The information architecture of the site should allow users to navigate easily
+between different pages. All pages should be accessible from each other, as the
+overall construct is not too complex, and the site will have just five pages.  
+I am yet to decide whether there will be a welcome page. My initial thoughts are
+that users will enjoy being able to play immediately, with the option to explore
+further if desired. Pages will be easily accessible via a header element which
+will remain present at the top of the page.  
+The interaction design will be styled in a way that maintains the user experience
+throughout. Navigation elements will remain in the same places, colour schemes
+and typography will remain consistent across the pages.  
 
 ---
 
 ## Skeleton
 
-As the game has a few aspects to present on the page, I will adjust and simplify things as necessary. The wireframe shown below has many comments attached which can be viewed in [*Blasamiq*](https://balsamiq.com/) and can be downloaded from the readme-content directory [here](./mastermind.bmpr)  
+As the game has a few aspects to present on the page, I will adjust and simplify
+things as necessary. The wireframe shown below has many comments attached which
+can be viewed in [*Blasamiq*](https://balsamiq.com/) and can be downloaded from
+the readme-content directory [here](./mastermind.bmpr)  
 
 ![Mobile Wireframe](./images/wireframes/mobile-game.png)
 
-The game features will be designed to be as intuitive as possible, however, due to the quantity of important items, there will be detailed explanations with screenshots included in the rules page.
+The game features will be designed to be as intuitive as possible, however, due
+to the quantity of important items, there will be detailed explanations with
+screenshots included in the rules page.
 
 ## Surface
 
-<!-- Colour schemes -->
-The classic version of this game is played in a wooden box construction. I will look at contrast viability of browns and see if I can maintain the classic look. If that seems improbable, I will research some more modern designs and look to give the game a more modern 'edgy' representation.
-<!-- Typography -->
-The game is logic based and so does not require any very fancy typography. I will aim to keep the font basic and clean to give good readability.
-<!-- Imagery/design -->
-With the game being of logic design, the image I intend to use as a logo should reference the human brain. Most other images will be generated through the development process via screenshots or snips. The design of the colour selections/positions should be maintained throughout and be kept simple and functional. The result pegs should also follow the simple and functional design aspects.  
-I intend to use the Rubik's cube as a 'logo' for myself as a developer but need to look into the legality of this. If needed, I can use my own profile image on the 'about' page.
+### Colour Schemes
 
-*Having worked on the site, I have decided not to use the Rubik's cube image as it may cause user confusion. I have used a profile image picture of myself as is customary with a brief 'about-me' section.*
-<!-- The identity of the site -->
-The identity of the site will be made through the design considerations listed above. One of the key aspects for the design is to make a more visually appealing and emotively rewarding game than I have found available from other developers.
+The classic version of this game is played in a wooden box construction. I will
+look at contrast viability of browns and see if I can maintain the classic look.
+If that seems improbable, I will research some more modern designs and look to
+give the game a more modern 'edgy' representation.
+
+### Typography
+
+The game is logic based and so does not require any very fancy typography. I will
+aim to keep the font basic and clean to give good readability.
+
+### Imagery/design
+
+With the game being of logic design, the image I intend to use as a logo should
+reference the human brain. Most other images will be generated through the
+development process via screenshots or snips. The design of the colour
+selections/positions should be maintained throughout and be kept simple and
+functional. The result pegs should also follow the simple and functional design
+aspects.  
+I intend to use the Rubik's cube as a 'logo' for myself as a developer but need
+to look into the legality of this. If needed, I can use my own profile image on
+the 'about' page.
+
+*Having worked on the site, I have decided not to use the Rubik's cube image as
+it may cause user confusion. I have used a profile image picture of myself as is
+customary with a brief 'about-me' section.*
+
+### Site Identity
+
+The identity of the site will be made through the design considerations listed
+above. One of the key aspects for the design is to make a more visually appealing
+and emotively rewarding game than I have found available from other developers.
