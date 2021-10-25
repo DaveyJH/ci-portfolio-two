@@ -91,7 +91,7 @@ button:disabled, .color-set {
   right: calc(100% + .26rem);
   top: -.2rem;
   width: 7.5rem;
-  background-color: black;
+  background-color: #000;
   color: #fffce8;
   text-align: center;
   padding: .2rem 0;
