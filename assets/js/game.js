@@ -84,7 +84,7 @@ audioCheckmark.addEventListener("keyup", (keyed) => {
 
 /**
  * check state of audio checkbox
- * @returns boolean
+ * @returns {Boolean} audio.checked
  */
 function toggleAudio() {
   return audio.checked;
@@ -107,7 +107,7 @@ const audioFile = {
 /**
  * checks the state of the checkbox and alters aria-checked
  * and aria-disabled accordingly
- * @param {*} checkbox checkbox element to have **.checked** tested for true/false
+ * @param {Element} checkbox checkbox element to have **.checked** tested for true/false
  */
 function ariaCheck(checkbox) {
   if (checkbox.checked) {
@@ -1027,7 +1027,7 @@ const bestScoreHTML = document.getElementsByClassName("best score")[0].getElemen
 
 /**
  * checks for win condition
- * - win = all black pegs? true : false
+ * - if all black pegs win = true - otherwise, win = false
  */
 function checkPegs() {
   for (let i = 0; i < activePegs.length; i++) {
@@ -1057,7 +1057,7 @@ function setSolutionBalls() {
 const hiddenScoreText = document.getElementById("best-score-value");
 /** check if best score has been set
  * - if it is larger than the current winning
- * score : change the displayed number to the best score
+ * score --> change the displayed number to the best score
  */
 function checkScore() {
   if (bestScore > score || bestScore === 0) {
@@ -1068,7 +1068,7 @@ function checkScore() {
 }
 
 /** check current completion time against best time
- * - if quicker : replace best time
+ * - if quicker --> replace best time
  */
 function checkTime() {
   const testSeconds = Number(bestSeconds.textContent);
@@ -1126,7 +1126,7 @@ Would you like to play again?`)) {
 
 //! giveup and hint functions
 /** confirm popup to  give up
- * - if true : lose the game */
+ * - if true -> lose the game */
 function giveUp() {
   if (toggleAudio()) {
     audioFile.chicken.play();
@@ -1146,7 +1146,7 @@ function giveUpCheck() {
 }
 
 /** confirm popup about loss
- * - if true : replay */
+ * - if true -> replay */
 function loser() {
   giveUpIcon.removeEventListener("click", giveUp);
   hintIcon.removeEventListener("click", hint);
