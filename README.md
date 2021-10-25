@@ -406,6 +406,8 @@ All images have been converted to webp format using
   featured heavily as I modified sizings and spacings.
 - *[Google Fonts](https://fonts.google.com/)*
   - The fonts used in the website are imported from Google Fonts.
+- *[Favicon Converter](https://favicon.io/favicon-converter/)*
+  - A service to convert images to favicons
 - *[Multi Device Mockup Generator](https://techsini.com/multi-mockup/index.php)*
   - The image at the top of this document was created using a free service
   provided by TechSini.&#8203;com
@@ -641,6 +643,15 @@ so minimal it did not warrant the time spent on it.*
 
 ---
 
+2. The completed row results and solution balls are not accessible via the tab
+  key.
+
+*This could provide a poor UX for colour blind switch/keyboard users. I am
+unsure of how to resolve this issue as the elements are not interactive and so
+a `tab-index` attribute should not be used.*
+
+---
+
 ### Resolved
 
 1. When playing the game an error was generated in the console once line 99 had
@@ -659,7 +670,7 @@ to or greater than **98**.*
 
 ---
 
-1. If the settings menu was opened with a keyboard and the focus jumped to the
+2. If the settings menu was opened with a keyboard and the focus jumped to the
   first button, the button would trigger. This revealed a number of other issues:
 
 ![Minus Button Error](./readme-content/images/bugs/minus.png)
