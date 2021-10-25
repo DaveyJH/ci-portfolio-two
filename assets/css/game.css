@@ -224,16 +224,16 @@ fieldset {
 fieldset legend {    
   font-size: 0;
   position: absolute;
-  /* left: 50%; */
+  left: 50%;
   width: 20%;
   right: 0;
-  /* !add media query for larger screens */
+  min-width: 10rem;
 }
 #repeat-legend {
-  height: 4.6rem;
+  height: 7.7rem;
 }
 #timer-score-legend {
-  height: 7.2rem
+  height: 11.3rem;
 }
 .checkbox-hack, .plusminus-container {
   position: relative;
@@ -294,7 +294,7 @@ fieldset legend {
 }
 #global-settings legend {
   margin-top: 1rem;
-  height: 2.2rem;
+  height: 8rem;
 }
 .checkmark-width {
   width: 2.7rem;
