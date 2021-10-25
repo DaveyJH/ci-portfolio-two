@@ -536,8 +536,7 @@ Added `resizeBalls()` to `addRow()`*
 
 ![Tooltip Bug](readme-content/images/bugs/tooltip-radius.png)
 
-<!-- todo insert commit SHA -->
-*Commit - []() -
+*Commit - [915aded](https://github.com/DaveyJH/ci-portfolio-two/commit/915aded43b0bf6734d111516feefd024396980e3) -
 Modified `.tooltip-holer` to have `border-radius: 50%`.
 
 ***
