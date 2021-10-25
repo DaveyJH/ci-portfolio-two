@@ -183,7 +183,7 @@ All the rules images are screenshot snips made using
 design of the game. The image on the about page is me, taken using a
 [Samsung Galaxy S8](https://www.samsung.com/uk/smartphones/galaxy-s8/). All
 other images were made using
-[Paint3D](#technologies-used)
+[Paint3D](#technologies-used).
 
 All images have been converted to webp format using
 [cloudconvert](https://cloudconvert.com/).
@@ -285,6 +285,8 @@ F2
   available have allowed me to customize my workspace and become more
   efficient.
 
+***
+
 ### VSCode Extensions
 
 Links to website of each extension provided
@@ -299,7 +301,30 @@ Links to website of each extension provided
 - [Preview on Web Server](https://marketplace.visualstudio.com/items?itemName=yuichinukiyama.vscode-preview-server)
 - [jshint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.jshint)
 
+***
+
 ## Testing
+
+I utilised the console in devTools for some of the testing. This allowed me to
+check solutions without having to work them out, add rows without making 99
+attempts and see stages of my JavaScript by using `console.log()`.
+
+``` JavaScript
+//! delete before deployment
+/** for testing
+ * * testAddRows();
+ * * aR = 97;
+ * - complete first row (number border will remain)
+ * - complete last row (99)
+ */
+function testAddRows() {
+  while (guessRows.length < 98) {
+    addRow();
+  }
+}
+```
+
+I used `ar = (97);` and `testAddRows()` to test the `extremeLoss` conditions.
 
 <!-- explain testing
 ? item tested
@@ -332,6 +357,8 @@ heading sits within an `article` and appears to be an acceptable practice.
 
 ![Duplicate h1](readme-content/images/testing/duplicate-h1.png)
 
+***
+
 #### CSS
 
 - [Index](http://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fdaveyjh.github.io%2Fci-portfolio-two%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
@@ -340,6 +367,8 @@ heading sits within an `article` and appears to be an acceptable practice.
 - [About](http://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fdaveyjh.github.io%2Fci-portfolio-two%2Fabout&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
 
 <!-- todo add warnings -->
+
+***
 
 ### Wave
 
@@ -351,6 +380,8 @@ heading sits within an `article` and appears to be an acceptable practice.
 No errors are reported on any of the pages. There are multiple alerts for font
 sizes, however these are for screen readers so I am happy leaving them in
 place.
+
+***
 
 ### JSHint
 
@@ -365,6 +396,8 @@ within the function, but seems an unecessary step as variables are
 descriptively named and docstrings are present for functions.
 
 ![JSHint Warnings](readme-content/images/bugs/referencing-outer-scope.png)
+
+***
 
 ### Lighthouse Testing
 
@@ -392,12 +425,14 @@ the performance score and is beyond my control.
 
 ![Cache Times](readme-content/images/testing/cache.png)
 ![GitHub Response](readme-content/images/testing/github-cache.png)
-[Reference](https://webapps.stackexchange.com/questions/119286/caching-assets-in-website-served-from-github-pages)
+*[Reference](https://webapps.stackexchange.com/questions/119286/caching-assets-in-website-served-from-github-pages)*
 
 SEO scores are affected by the small font size applied to screen reader
 assistive text.
 
 ![Legible Font Size Warning](readme-content/images/testing/aria-text-font-size.png)
+
+***
 
 #### Desktop
 
@@ -408,21 +443,22 @@ assistive text.
 
 All scores are green and highly satisfactory.
 
+***
+
 ## Bugs
 
 ### Current
 
 <!-- current bugs -->
+1. When playing the game on a mobile device and having the 'Colour Blind' setting
+   enabled, the tooltip remains above the ball that is selected for a colour
+   selection.
 
-<!-- - bugOne explanation
+![Colour Blind Tooltip Bug](readme-content/images/bugs/colorblind-bug.jpg)
 
-*notes on explanation* -->
-
-***
-
-<!-- - bugTwo explanation
-
-*notes on explanation* -->
+*The bug is due to the `.blur()` method not working as intended on touch screen
+devices. I investigated ways to resolve this but found the impact on UX to be
+so minimal it did not warrant the time spent on it.*
 
 ***
 
@@ -453,7 +489,7 @@ to or greater than **98**.*
 Changed **keydown** in addEventListener to **keyup**.
 I was made aware of this by [SiJiL82](https://github.com/sijil82) after posing a
 question regarding the bug in the [Code Institute](https://codeinstitute.net/)
-Slack community. Thanks Sven  
+Slack community. Thanks Sven!  
 This made me realise many of my functions would be made better with **keyup** to
 try and prevent bad UX in the case of users with slower motor skills.*
 
@@ -469,6 +505,29 @@ effectively removed from the DOM. This causes a bad UX for users with
 specialised controls and screen readers. After many attempts, I realised I
 could have achieved the intended result with fewer lines of code but I am happy
 with the logic that is being applied to my solution.*
+
+***
+
+4. Links to element `id`s were not responding as expected on larger screens:
+
+![Sticky Header Bug](readme-content/images/bugs/sticky-header-bug.png)
+
+*Commit - [8a50740](https://github.com/DaveyJH/ci-portfolio-two/commit/8a5074004e65263c1527115faf14e13a60372a0d) -
+Added JavaScript and extra spans to dynamically change `href` values.  
+When clicking on an internal link on a large screen, the top of the destination
+was overlayed by the header. This was due to `position: sticky` and was overcome
+by use of some positioned elements with a similar id to the target and a small
+JavaScript file to calculate if the destination should be modified.*
+
+***
+
+5. When playing with more than 4 balls in the solution, if a new row was
+  created, the balls would not be re-sized:
+
+![Row With Bigger Balls](./readme-content/images/bugs/new-row.png)
+
+*Commit - [e762e7a](https://github.com/DaveyJH/ci-portfolio-two/commit/e762e7a998e7352218b6afb626e1a08a90a1ed7e) -
+Added `resizeBalls()` to `addRow()`*
 
 ***
 
@@ -504,6 +563,8 @@ The site was made utilising [GitHub](#GitHub) and [VSCode](#VSCode)
 ![Create Repo](./readme-content/images/development/create-repo.png)
 
 The repository has now been created and is ready for editing
+
+***
 
 ### VSCode
 
@@ -618,6 +679,8 @@ with a brief description of the main functions I utilise
       reverting commit messages and others. For more information,
       refer to the [git documentation](https://git-scm.com)*
 
+***
+
 ## Deployment
 
 ### Github Pages
@@ -688,7 +751,7 @@ the repository.
 
 ![Complete PR](./readme-content/images/deployment/complete-pr.png)
 
-I will receive the pull request and action it accordingly
+I will receive the pull request and action it accordingly.
 
 ***
 
@@ -696,14 +759,15 @@ I will receive the pull request and action it accordingly
 
 ### Content
 
-<!-- - the a comes from b -->
-<!-- - the c comes from d -->
+- Thanks to [Donald Knuth](https://www-cs-faculty.stanford.edu/~knuth/index.html)
+for his algorithm information
 
 ### Media
 
-The favicon image and header image are license free, obtained from
-[Pixabay](https://pixabay.com/)
-<!-- - the c comes from d -->
+- The favicon image and header image are license free, obtained from
+  [Pixabay](https://pixabay.com/)  
+- The audio content is license free and comes from
+  [ZapSplat](https://www.zapsplat.com/)
 
 ### Acknowledgements
 
