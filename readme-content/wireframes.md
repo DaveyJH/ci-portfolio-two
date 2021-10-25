@@ -6,7 +6,7 @@
 - [Tablet](#Tablet)
 - [Desktop](#Desktop)
 
-***
+---
 
 ## Mobile
 
@@ -30,14 +30,14 @@
 
 ![About Page Wireframe](./images/wireframes/mob-about.png)
 
-***
+---
 
 ## Tablet
 
 Tablet wireframes have not been generated as the overall design is almost
 identical across all device types.
 
-***
+---
 
 ## Desktop
 
@@ -61,7 +61,7 @@ identical across all device types.
 
 ![About Page Wireframe](./images/wireframes/desktop-about.png)
 
-***
+---
 
 View all wireframes in a PDF document [here](./pdf/mastermind.pdf)  
 Download all wireframes as a balsamiq file [here](./mastermind.bmpr)
