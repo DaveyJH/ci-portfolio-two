@@ -583,6 +583,16 @@ Modified `.tooltip-holer` to have `border-radius: 50%`.
 
 ***
 
+7. Tooltips and aria text was not updating when using a hint:
+
+![Tooltip Error With Hints](readme-content/images/bugs/hint-tooltip.png)
+
+*Issue [#17](https://github.com/DaveyJH/ci-portfolio-two/issues/17) -
+Modified `addOneSolutionColor()` and found `setSolutionBallCount()` needed an
+extra loop to set the original ball text.*
+
+***
+
 ## Development
 
 <!-- section missed in first project. 
