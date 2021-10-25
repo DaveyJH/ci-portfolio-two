@@ -36,6 +36,14 @@
   - [Technologies Used](#technologies-used)
     - [VSCode Extensions](#vscode-extensions)
   - [Testing](#testing)
+    - [W3C Validator](#w3c-validator)
+      - [HTML](#html)
+      - [CSS](#css)
+    - [Wave](#wave)
+    - [JSHint](#jshint)
+    - [Lighthouse Testing](#lighthouse-testing)
+      - [Mobile](#mobile)
+      - [Desktop](#desktop)
   - [Bugs](#bugs)
     - [Current](#current)
     - [Resolved](#resolved)
@@ -65,7 +73,7 @@ Design an interactive Mastermind game using JavaScript. The project should
 demonstrate competency with HTML, CSS and JavaScript.
 
 ***The needs within this project are not genuine and are made purely for the
-purpose of completing my Code Institute project***
+purpose of completing my Code Institute project.***
 
 ***
 
@@ -113,8 +121,10 @@ researched. The site should be simple to navigate, not allow errors during use
 and encourage users to play at increasing difficulty levels. The application is
 to be designed with 'mobile first' in mind.
 
-The design process is detailed in more depth in the
-[design-notes](./readme-content/design-notes.md) document.
+**The design process is detailed in more depth in the
+[design-notes](./readme-content/design-notes.md) document.**
+
+***
 
 #### Wireframes
 
@@ -149,11 +159,13 @@ it this way.
 
 The fonts used for the site are
 [Orbitron](https://fonts.google.com/specimen/Orbitron) and
-[Rajdhani](https://fonts.google.com/specimen/Rajdhani) from google fonts.  
-Orbitron has been chosen as it has a geometric look that lends itself well to the
-content and feel of the site. It has been used for the main heading and the nav
+[Rajdhani](https://fonts.google.com/specimen/Rajdhani) from google fonts.
+
+- **Orbitron** has been chosen as it has a geometric look that lends itself well
+to the content and feel of the site. It has been used for the main heading and
+the nav
 elements, all utilising the small-caps font variant.  
-Rajdhani has been chosen for the main text content of the site. The squared
+- **Rajdhani** has been chosen for the main text content of the site. The squared
 styling fits well with the Orbitron font and allows for a pleasant visual
 appearance with its slightly rounded corners.
 
@@ -172,6 +184,9 @@ design of the game. The image on the about page is me, taken using a
 [Samsung Galaxy S8](https://www.samsung.com/uk/smartphones/galaxy-s8/). All
 other images were made using
 [Paint3D](#technologies-used)
+
+All images have been converted to webp format using
+[cloudconvert](https://cloudconvert.com/).
 
 ***
 
@@ -235,6 +250,40 @@ F2
   - Free software on Windows, allowing image editing and creation.
 - *[EmailJS](https://www.emailjs.com/)*
   - An email client API that allows custom emails to be sent via a mix of HTML forms and JavaScript.
+- *[JSHint](https://jshint.com/)*
+  - A static code analysis tool for JavaScript. [Results here](#jshint).
+- *[Balsamiq](https://balsamiq.com/)*
+  - Balsamiq was used to create [wireframes](./readme-content/wireframes.md)
+  for the project.
+- *[CloudConvert](https://cloudconvert.com/)*
+  - All images within the project have been processed through their free file
+  converter service
+- *[Font Awesome](https://fontawesome.com/)*
+  - The project uses icons from Font Awesome version 5.
+- *[Coolors.co](https://coolors.co)*
+  - The colour scheme, and subsequent shades and tones, were generated via this
+  application.
+- *[Chrome DevTools](https://developer.chrome.com/docs/devtools/)*
+  - Once the website was made to a basic deployment level, this extension
+  featured heavily as I modified sizings and spacings.
+- *[Google Fonts](https://fonts.google.com/)*
+  - The fonts used in the website are imported from Google Fonts.
+- *[Multi Device Mockup Generator](https://techsini.com/multi-mockup/index.php)*
+  - The image at the top of this document was created using a free service
+  provided by TechSini.&#8203;com
+- *[WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/)*
+  - A contrast checker to test WCAG levels.
+- *[Wave Web Accessibility Evaluation Tool](https://wave.webaim.org/)*
+  - A tool to check for errors with accessibility. [Results here](#wave).
+- *[W3C Markup Validation Service](validator.w3.org)*
+  - A service to check the HTML and CSS files for errors. During
+  development, I copied the entire text from the files and ran them through the
+  direct input method. Upon completion, I ran the deployed site through the
+  'Validate by URI' method with [results here](#w3c-validator).
+- *[Visual Studio Code](https://code.visualstudio.com/)*
+  - A free, streamlined code editor. The [extensions](#vscode-extensions)
+  available have allowed me to customize my workspace and become more
+  efficient.
 
 ### VSCode Extensions
 
@@ -248,6 +297,7 @@ Links to website of each extension provided
 - [Markdown All in One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)
 - [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
 - [Preview on Web Server](https://marketplace.visualstudio.com/items?itemName=yuichinukiyama.vscode-preview-server)
+- [jshint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.jshint)
 
 ## Testing
 
@@ -262,26 +312,101 @@ Links to website of each extension provided
 - more detail and better format required compared with project 1
 look at daisy's testing documentation and [webinar](https://us02web.zoom.us/rec/play/9FIKllHX2ZiQNFRhYPn_hBh_ZeA8964ZvIDLnhpKGAf1NLVc3_hBJ6zSL8Hv5Hx7ALnPtDmbg8CmFAs.YVsZ9LR_uI7OjEwH)-->
 
-<!-- validation of html, css and script. -->
-<!--html
-https://validator.w3.org/nu/?doc=https%3A%2F%2Fdaveyjh.github.io%2Fci-portfolio-two%2F
-https://validator.w3.org/nu/?doc=https%3A%2F%2Fdaveyjh.github.io%2Fci-portfolio-two%2Fchallenge
-https://validator.w3.org/nu/?doc=https%3A%2F%2Fdaveyjh.github.io%2Fci-portfolio-two%2Frules
-https://validator.w3.org/nu/?doc=https%3A%2F%2Fdaveyjh.github.io%2Fci-portfolio-two%2Fabout-->
+### W3C Validator
 
-<!--css
-http://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fdaveyjh.github.io%2Fci-portfolio-two%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en
-http://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fdaveyjh.github.io%2Fci-portfolio-two%2Fchallenge&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en
-http://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fdaveyjh.github.io%2Fci-portfolio-two%2Frules&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en
-http://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fdaveyjh.github.io%2Fci-portfolio-two%2Fabout&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en-->
+#### HTML
 
-<!--wave
-https://wave.webaim.org/report#/daveyjh.github.io/ci-portfolio-two
-https://wave.webaim.org/report#/https://daveyjh.github.io/ci-portfolio-two/challenge.html
-https://wave.webaim.org/report#/https://daveyjh.github.io/ci-portfolio-two/rules.html
-https://wave.webaim.org/report#/https://daveyjh.github.io/ci-portfolio-two/rules.html
--->
-<!-- lighthouse testing -->
+- [Index](https://validator.w3.org/nu/?doc=https%3A%2F%2Fdaveyjh.github.io%2Fci-portfolio-two%2F)
+- [Challenge](https://validator.w3.org/nu/?doc=https%3A%2F%2Fdaveyjh.github.io%2Fci-portfolio-two%2Fchallenge)
+- [Rules](https://validator.w3.org/nu/?doc=https%3A%2F%2Fdaveyjh.github.io%2Fci-portfolio-two%2Frules)
+- [About](https://validator.w3.org/nu/?doc=https%3A%2F%2Fdaveyjh.github.io%2Fci-portfolio-two%2Fabout)
+
+There is a warning on the challenge page regarding a `section` without a heading.
+The section contains the gameboard and I am happy to leave it this way.
+
+![Section Lacks Heading](./readme-content/images/testing/lacks-heading.png)
+
+There is a warning on the about page regarding a second `h1` element. The
+heading sits within an `article` and appears to be an acceptable practice.
+[See here for reference](https://html.spec.whatwg.org/multipage/sections.html#headings-and-sections).
+
+![Duplicate h1](readme-content/images/testing/duplicate-h1.png)
+
+#### CSS
+
+- [Index](http://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fdaveyjh.github.io%2Fci-portfolio-two%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+- [Challenge](http://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fdaveyjh.github.io%2Fci-portfolio-two%2Fchallenge&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+- [Rules](http://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fdaveyjh.github.io%2Fci-portfolio-two%2Frules&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+- [About](http://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fdaveyjh.github.io%2Fci-portfolio-two%2Fabout&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+
+<!-- todo add warnings -->
+
+### Wave
+
+- [Index](https://wave.webaim.org/report#/daveyjh.github.io/ci-portfolio-two)
+- [Challenge](https://wave.webaim.org/report#/https://daveyjh.github.io/ci-portfolio-two/challenge.html)
+- [Rules](https://wave.webaim.org/report#/https://daveyjh.github.io/ci-portfolio-two/rules.html)
+- [About](https://wave.webaim.org/report#/https://daveyjh.github.io/ci-portfolio-two/about.html)
+
+No errors are reported on any of the pages. There are multiple alerts for font
+sizes, however these are for screen readers so I am happy leaving them in
+place.
+
+### JSHint
+
+No errors are reported by JSHint. There are 3 warnings reported in the
+JavaScript files.
+
+![JSHint Screenshot](readme-content/images/testing/jshint.png)
+
+The warnings refer to functions that reference outer scoped variables and
+functions. This could be resoved by re-declaring the variables and functions
+within the function, but seems an unecessary step as variables are
+descriptively named and docstrings are present for functions.
+
+![JSHint Warnings](readme-content/images/bugs/referencing-outer-scope.png)
+
+### Lighthouse Testing
+
+#### Mobile
+
+![Index Mobile Result](readme-content/images/testing/lh-index-mobile.png)
+![Challenge Mobile Result](readme-content/images/testing/lh-challenge-mobile.png)
+![Rules Mobile Result](readme-content/images/testing/lh-rules-mobile.png)
+![About Mobile Result](readme-content/images/testing/lh-about-mobile.png)
+
+Performance and SEO scores could be a little higher.
+
+The image used for the background of the gameboard is delayed by some of the
+third party stylesheets and could be re-designed to use linear-gradients.
+I tested this with commit
+[966c35d](https://github.com/DaveyJH/ci-portfolio-two/commit/966c35dc37284515b13802ff1f7abd5d46c007e5)
+but found the style was not suitable. The slight difference in performance score
+did not warrant a reduction in UX.
+
+![Largest Contentful Paint Warning](readme-content/images/testing/lcp.png)
+![Third Party Render-Blocking Resources](readme-content/images/testing/third-party-render-block.png)
+
+The maximum cache time is set by GitHub pages at 10 minutes. This also reduces
+the performance score and is beyond my control.
+
+![Cache Times](readme-content/images/testing/cache.png)
+![GitHub Response](readme-content/images/testing/github-cache.png)
+[Reference](https://webapps.stackexchange.com/questions/119286/caching-assets-in-website-served-from-github-pages)
+
+SEO scores are affected by the small font size applied to screen reader
+assistive text.
+
+![Legible Font Size Warning](readme-content/images/testing/aria-text-font-size.png)
+
+#### Desktop
+
+![Index Desktop Result](readme-content/images/testing/lighthouse-index.png)
+![Challenge Desktop Result](readme-content/images/testing/lighthouse-challenge.png)
+![Rules Desktop Result](readme-content/images/testing/lighthouse-rules.png)
+![About Desktop Result](readme-content/images/testing/lighthouse-about.png)
+
+All scores are green and highly satisfactory.
 
 ## Bugs
 
@@ -303,22 +428,19 @@ https://wave.webaim.org/report#/https://daveyjh.github.io/ci-portfolio-two/rules
 
 ### Resolved
 
-<!-- checkboxes!! -->
-
-<!-- resolved bugs -->
 1. When playing the game an error was generated in the console once line 99 had
   been attempted. Two errors were causing this:
 
 ![99 Rows Error](./readme-content/images/bugs/99rows.png)
 
 *Commit - [bd06f93](https://github.com/DaveyJH/ci-portfolio-two/commit/bd06f93#diff-ce75dc990f41e122d063d10b3068e250494e1ca2ac80fa8a3bf62a618de01277R853) -
-Corrected second line in **extremeLoss()** to correctly target the **hintIcon***
+Corrected second line in **extremeLoss()** to correctly target the **hintIcon**.*
 
 ![99 Rows Reset Error](./readme-content/images/bugs/99rows-reset.png)
 
 *Commit - [bd06f93](https://github.com/DaveyJH/ci-portfolio-two/commit/bd06f93#diff-ce75dc990f41e122d063d10b3068e250494e1ca2ac80fa8a3bf62a618de01277R938) -
 Added to line in **reset()** to prevent **deactivateRow()** when **aR** was equal
-to or greater than **98***
+to or greater than **98**.*
 
 ***
 
@@ -333,7 +455,7 @@ I was made aware of this by [SiJiL82](https://github.com/sijil82) after posing a
 question regarding the bug in the [Code Institute](https://codeinstitute.net/)
 Slack community. Thanks Sven  
 This made me realise many of my functions would be made better with **keyup** to
-try and prevent bad UX in the case of users with slower motor skills*
+try and prevent bad UX in the case of users with slower motor skills.*
 
 ***
 
@@ -343,11 +465,10 @@ try and prevent bad UX in the case of users with slower motor skills*
 
 *I spent a lot of time looking over various methods to resolve this issue.
 The main issue is for accessibility, being that a disabled checkbox is
-effectively removed from the DOM.
-This causes a bad UX for users with specialised controls and screen readers.
-After many attempts, I realised I could have achieved the intended result with
-fewer lines of code but I am happy with the logic that is being applied to my
-solution*
+effectively removed from the DOM. This causes a bad UX for users with
+specialised controls and screen readers. After many attempts, I realised I
+could have achieved the intended result with fewer lines of code but I am happy
+with the logic that is being applied to my solution.*
 
 ***
 
