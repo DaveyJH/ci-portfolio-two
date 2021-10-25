@@ -206,9 +206,9 @@ The interaction design will be styled in a way that maintains the user experienc
 
 ## Skeleton
 
-As the game has a few aspects to present on the page, I will adjust and simplify thing as necessary. The wireframe shown below has many comments attached which can be viewed in [*Blasamiq*](https://balsamiq.com/) and can be downloaded from the readme-content directory [here](./mastermind.bmpr)  
+As the game has a few aspects to present on the page, I will adjust and simplify things as necessary. The wireframe shown below has many comments attached which can be viewed in [*Blasamiq*](https://balsamiq.com/) and can be downloaded from the readme-content directory [here](./mastermind.bmpr)  
 
-![Mobile Wireframe](./images/mobile-game.png)
+![Mobile Wireframe](./images/wireframes/mobile-game.png)
 
 The game features will be designed to be as intuitive as possible, however, due to the quantity of important items, there will be detailed explanations with screenshots included in the rules page.
 
