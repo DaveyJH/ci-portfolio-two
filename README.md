@@ -214,13 +214,43 @@ F2
 
 ### Features Left to Implement
 
-<!-- features left to implement -->
-<!-- 1. Explain desired feature 1
-  - *Notes regarding feature*
-  - Explanation of feature need etc. -->
-<!-- 2. Explain desired feature 2
-  - *Notes regarding feature*
-  - Explanation of feature need etc. -->
+1. Style changes to incorporate tap target size for more than 4 balls.
+    - *For smaller screens, the balls do not meet the minimum suggested tap
+    target size of 40px. This could result in a bad UX.*
+    - I think I would need to re-structure the HTML of the game to allow
+    guess rows to be presented in a grid rather than a row. I may be able
+    to achieve this by making style changes in the CSS. I need to spend time
+    thinking about the most viable solution.
+
+2. Tooltip to show what the results mean.
+    - *To assist users who are unfamiliar with the game, a tooltip could help
+    remind them of the meaning of the results.*  
+    ![Results Explanation Example](./readme-content/images/explanation-pop-up.png)
+    - I came across this feature on another version of the game. It would be a
+    nice feature for new players, but it may become annoying. It is something I
+    would consider as a toggle option.
+
+3. Offer an increase in difficulty for users on successful completion of the
+  game.
+    - *To encourage users to continue to play, and to improve their skill level,
+    an option to increase the difficulty depending on current settings would
+    improve UX.*
+    - This could be implemented via a modal as opposed to the currently used
+    confirm pop ups. I would need to check the current settings and offer an
+    increased number of colours or solution balls, or change the repeat
+    settings depending on those currently selected.
+
+4. Set the solution for an AI to solve.
+    - *Have a separate page where the user can set a solution and the device
+    calculates the correct answer within a set number of guesses.*
+    - This could be done by utilising the Donald Knuth algorithm and having
+    a set of controls to allow the user to progress through each stage.
+
+5. Alternative patterns, instead of tooltips, for colour blind users.
+    - *Change colours on the balls to different images/icons or patterns to
+    enable a more user friendly experience for colour blind users.*
+    - This may be done through JavaScript by changing the background property
+    to a linear background effect or an image/icon.
 
 ***
 
