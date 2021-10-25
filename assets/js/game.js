@@ -444,6 +444,9 @@ function setBallCount() {
 
 /** set number of balls in solution row to equal settings value */
 function setSolutionBallCount() {
+  while (solutionBallHolders.length > 0) {
+    solutionRow.removeChild(solutionBallHolders[0]);
+  }
   while (solutionBallHolders.length < numOfBalls) {
     const newBall = document.createElement("div");
     newBall.classList.add("tooltip-holder");
