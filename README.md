@@ -13,7 +13,7 @@ Apple devices) as you click!*
 
 [https://github.com/daveyjh/ci-portfolio-two](https://github.com/daveyjh/ci-portfolio-two)
 
-***
+---
 
 ## Table of Contents
 
@@ -66,7 +66,7 @@ Apple devices) as you click!*
     - [JavaScript Structure](#javascript-structure)
     - [GitHub Project Board and Issues](#github-project-board-and-issues)
 
-***
+---
 
 ## Objective
 
@@ -76,7 +76,7 @@ demonstrate competency with HTML, CSS and JavaScript.
 ***The needs within this project are not genuine and are made purely for the
 purpose of completing my Code Institute project.***
 
-***
+---
 
 ## Brief
 
@@ -91,7 +91,7 @@ Mastermind game. The site should have:
 - a brief intro and link to me as a developer
 - a consistent layout and design
 
-***
+---
 
 ## UX - User Experience Design
 
@@ -111,7 +111,7 @@ Some example user stories which will affect the design:
 > *"As an interested developer/employer, I would like to learn more about the
 > developer of this site"*
 
-***
+---
 
 ### Initial Concept
 
@@ -125,7 +125,7 @@ to be designed with 'mobile first' in mind.
 **The design process is detailed in more depth in the
 [design-notes](./readme-content/design-notes.md) document.**
 
-***
+---
 
 #### Wireframes
 
@@ -133,7 +133,7 @@ to be designed with 'mobile first' in mind.
 *See [here](./readme-content/wireframes.md) for all mobile pages and other device
 types*
 
-***
+---
 
 #### Colour Scheme
 
@@ -154,7 +154,8 @@ Contrast checks have been carried out with the WebAIM
 all main text content. I suspect the footer element is less likely to give a good
 result but I do not wish to detract from the site content and am happy to leave
 it this way.
-***
+
+---
 
 #### Typography
 
@@ -170,7 +171,7 @@ elements, all utilising the small-caps font variant.
 styling fits well with the Orbitron font and allows for a pleasant visual
 appearance with its slightly rounded corners.
 
-***
+---
 
 #### Imagery
 
@@ -189,7 +190,7 @@ other images were made using
 All images have been converted to webp format using
 [cloudconvert](https://cloudconvert.com/).
 
-***
+---
 
 ## Features
 
@@ -207,7 +208,7 @@ All images have been converted to webp format using
 
   ![Game ready on index page](./readme-content/images/features/index.png)
 
-***
+---
 
 2. The rules page is available.
 
@@ -224,7 +225,7 @@ All images have been converted to webp format using
 
   ![Rules page](./readme-content/images/features/rules.png)
 
-***
+---
 
 3. There are a number of settings and a challenge.
 
@@ -240,7 +241,7 @@ All images have been converted to webp format using
 
   ![Settings](./readme-content/images/features/settings.png)
 
-***
+---
 
 4. The about page has some information about me.
 
@@ -252,7 +253,7 @@ All images have been converted to webp format using
 
   ![About section](./readme-content/images/features/about.png)
 
-***
+---
 
 5. Audio settings
 
@@ -263,7 +264,7 @@ All images have been converted to webp format using
 
   ![Audio settings](./assets/images/rules/audio.webp)
 
-***
+---
 
 6. Click controls
 
@@ -272,7 +273,7 @@ All images have been converted to webp format using
 - The interface of the application allows users to single tap or click, rather
   than relying on a drag effect, to make their selections.
 
-***
+---
 
 7. A clean and attractive design.
 
@@ -284,7 +285,7 @@ All images have been converted to webp format using
 
 ![Wooden game board](readme-content/images/features/wood-gameboard.png)
 
-***
+---
 
 8. User error preventative JavaScript.
 
@@ -293,7 +294,7 @@ All images have been converted to webp format using
 - The JavaScript is written in a way that prevents users from accidentally
   wasting a turn.
 
-***
+---
 
 9. Best time and score elements.
 
@@ -303,7 +304,7 @@ All images have been converted to webp format using
 
 ![Best score and time](readme-content/images/features/bests.png)
 
-***
+---
 
 10. Scores and timers can be disabled.
 
@@ -313,7 +314,7 @@ All images have been converted to webp format using
 
 ![Score and time settings](readme-content/images/features/score-time-settings.png)
 
-***
+---
 
 ### Features Left to Implement
 
@@ -358,7 +359,7 @@ All images have been converted to webp format using
     - This may be done through JavaScript by changing the background property
     to a linear background effect or an image/icon.
 
-***
+---
 
 ## Technologies Used
 
@@ -437,7 +438,7 @@ Links to the website of each extension
 - [jshint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.jshint)
 - [Colored Regions](https://marketplace.visualstudio.com/items?itemName=mihelcic.colored-regions)
 
-***
+---
 
 ## Testing
 
@@ -462,7 +463,7 @@ function testAddRows() {
 
 I used `ar = (97);` and `testAddRows()` to test the `extremeLoss` conditions.
 
-***
+---
 
 - Testing of internal and external links was done manually. All links directed
   to the intended location in the correct manner.
@@ -514,7 +515,7 @@ I used `ar = (97);` and `testAddRows()` to test the `extremeLoss` conditions.
   ![Email Result Example](./readme-content/images/testing/email-result.png)
 - The site was tested on multiple devices and browsers with all results as expected.
 
-***
+---
 
 ### W3C Validator
 
@@ -536,7 +537,7 @@ heading sits within an `article` and appears to be an acceptable practice.
 
 ![Duplicate h1](./readme-content/images/testing/duplicate-h1.png)
 
-***
+---
 
 #### CSS
 
@@ -547,7 +548,7 @@ heading sits within an `article` and appears to be an acceptable practice.
 
 <!-- todo add warnings -->
 
-***
+---
 
 ### Wave
 
@@ -560,7 +561,7 @@ No errors are reported on any of the pages. There are multiple alerts for font
 sizes, however these are for screen readers so I am happy to leave them in
 place.
 
-***
+---
 
 ### JSHint
 
@@ -576,7 +577,7 @@ descriptively named and docstrings are present for functions.
 
 ![JSHint Warnings](./readme-content/images/bugs/referencing-outer-scope.png)
 
-***
+---
 
 ### Lighthouse Testing
 
@@ -611,7 +612,7 @@ assistive text.
 
 ![Legible Font Size Warning](./readme-content/images/testing/aria-text-font-size.png)
 
-***
+---
 
 #### Desktop
 
@@ -622,7 +623,7 @@ assistive text.
 
 All scores are green and highly satisfactory.
 
-***
+---
 
 ## Bugs
 
@@ -638,7 +639,7 @@ All scores are green and highly satisfactory.
 devices. I investigated ways to resolve this but found the impact on UX to be
 so minimal it did not warrant the time spent on it.*
 
-***
+---
 
 ### Resolved
 
@@ -656,7 +657,7 @@ Corrected second line in `extremeLoss()` to correctly target the `hintIcon`.*
 Added to line in `reset()` to prevent `deactivateRow()` when `aR` was equal
 to or greater than **98**.*
 
-***
+---
 
 1. If the settings menu was opened with a keyboard and the focus jumped to the
   first button, the button would trigger. This revealed a number of other issues:
@@ -671,7 +672,7 @@ Slack community. Thanks Sven!
 This made me realise many of my functions would be made better with `keyup` to
 try and prevent bad UX in the case of users with slower motor skills.*
 
-***
+---
 
 3. Custom styled checkboxes were not giving good UX when disabled:
 
@@ -684,7 +685,7 @@ specialised controls and screen readers. After many attempts, I realised I
 could have achieved the intended result with fewer lines of code but I am happy
 with the logic that is being applied to my solution.*
 
-***
+---
 
 4. Links to element `id`s were not responding as expected on larger screens:
 
@@ -697,7 +698,7 @@ was overlayed by the header. This was due to `position: sticky` and was overcome
 by use of some positioned elements with a similar id to the target and a small
 JavaScript file to calculate if the destination should be modified.*
 
-***
+---
 
 5. When playing with more than 4 balls in the solution, if a new row was
   created, the balls would not be re-sized:
@@ -707,7 +708,7 @@ JavaScript file to calculate if the destination should be modified.*
 *Commit - [e762e7a](https://github.com/DaveyJH/ci-portfolio-two/commit/e762e7a998e7352218b6afb626e1a08a90a1ed7e) -
 Added `resizeBalls()` to `addRow()`*
 
-***
+---
 
 6. With 'Colour Blind' active, it was possible to tap just outside the ball
   to bring up the tooltip without activating the button:
@@ -717,7 +718,7 @@ Added `resizeBalls()` to `addRow()`*
 *Commit - [915aded](https://github.com/DaveyJH/ci-portfolio-two/commit/915aded43b0bf6734d111516feefd024396980e3) -
 Modified `.tooltip-holer` to have `border-radius: 50%`.
 
-***
+---
 
 7. Tooltips and aria text was not updating when using a hint:
 
@@ -727,7 +728,7 @@ Modified `.tooltip-holer` to have `border-radius: 50%`.
 Modified `addOneSolutionColor()` and found `setSolutionBallCount()` needed an
 extra loop to set the original ball text.*
 
-***
+---
 
 ## Development
 
@@ -762,7 +763,7 @@ The site was made utilising [GitHub](#GitHub) and [VSCode](#VSCode)
 
 The repository has now been created and is ready for editing
 
-***
+---
 
 ### VSCode
 
@@ -881,7 +882,7 @@ with a brief description of the main functions I utilise
       reverting commit messages and others. For more information,
       refer to the [git documentation](https://git-scm.com)*
 
-***
+---
 
 ## Deployment
 
@@ -956,7 +957,7 @@ the repository.
 
 I will receive the pull request and action it accordingly.
 
-***
+---
 
 ## Credits
 
@@ -977,7 +978,7 @@ for his algorithm information
 <!-- - acknowledge a, found at [b](bURL), for c -->
 <!-- - acknowledge d, found at [e](eURL), for f -->
 
-***
+---
 
 ## Personal Development
 
