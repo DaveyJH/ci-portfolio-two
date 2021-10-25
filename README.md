@@ -128,7 +128,7 @@ to be designed with 'mobile first' in mind.
 
 #### Wireframes
 
-![Mobile Home Wireframe](./readme-content/images/mobile-game.png)
+![Mobile Home Wireframe](./readme-content/images/wireframes/mobile-game.png)
 *See [here](./readme-content/wireframes.md) for all mobile pages and other device
 types*
 
