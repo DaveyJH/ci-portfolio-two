@@ -48,6 +48,9 @@ button:disabled, .color-set {
 .rel, .tooltip-holder {
   position: relative;
 }
+.tooltip-holder {
+  border-radius: 50%;
+}
 .text-center {
   text-align: center;
 }
@@ -92,7 +95,7 @@ button:disabled, .color-set {
   color: #fffce8;
   text-align: center;
   padding: .2rem 0;
-  border-radius: 6px;
+  border-radius: .25rem;
   text-transform: capitalize;
   font-variant: small-caps;
 }

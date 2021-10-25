@@ -531,6 +531,17 @@ Added `resizeBalls()` to `addRow()`*
 
 ***
 
+6. With 'Colour Blind' active, it was possible to tap just outside the ball
+  to bring up the tooltip without activating the button:
+
+![Tooltip Bug](readme-content/images/bugs/tooltip-radius.png)
+
+<!-- todo insert commit SHA -->
+*Commit - []() -
+Modified `.tooltip-holer` to have `border-radius: 50%`.
+
+***
+
 ## Development
 
 <!-- section missed in first project. 
