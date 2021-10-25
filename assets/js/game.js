@@ -1231,6 +1231,9 @@ function hint() {
 function addOneSolutionColor() {
   const solutionIndex = solutionBalls.length - hintCount;
   solutionBalls[solutionIndex].style.backgroundColor = solutionHolder[solutionIndex];
+  solutionBalls[solutionIndex].children[0].textContent = solutionHolder[solutionIndex] + " ball";
+  solutionBalls[solutionIndex].previousElementSibling.textContent = solutionHolder[solutionIndex];
+
 }
 
 /** set gameboard according to settings and run game */
