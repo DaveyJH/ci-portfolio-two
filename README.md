@@ -128,7 +128,7 @@ to be designed with 'mobile first' in mind.
 
 #### Wireframes
 
-![Mobile Home Wireframe](readme-content/images/mobile-game.png)
+![Mobile Home Wireframe](./readme-content/images/mobile-game.png)
 *See [here](./readme-content/wireframes.md) for all mobile pages and other device
 types*
 
@@ -140,7 +140,7 @@ With the game board of the site designed with a wood style background, I used
 [instant eyedropper](#technologies-used) to obtain a couple of colours from the
 wood photographs.  I then used [coolors.co](https://coolors.co) to generate a
 colour scheme.  
-![wood colour scheme](readme-content/images/wood-scheme.png)  
+![wood colour scheme](./readme-content/images/wood-scheme.png)  
 The header uses the darkest colour from the scheme to contrast with the game
 board and allow a high contrast with the text colour. The main text content
 displayed in the rest of the site is set on a wood colour to maintain the style
@@ -326,16 +326,58 @@ function testAddRows() {
 
 I used `ar = (97);` and `testAddRows()` to test the `extremeLoss` conditions.
 
-<!-- explain testing
-? item tested
-? expected result
-? how test was performed
-? actual result
-? differences
-? action required
-? re-test
-- more detail and better format required compared with project 1
-look at daisy's testing documentation and [webinar](https://us02web.zoom.us/rec/play/9FIKllHX2ZiQNFRhYPn_hBh_ZeA8964ZvIDLnhpKGAf1NLVc3_hBJ6zSL8Hv5Hx7ALnPtDmbg8CmFAs.YVsZ9LR_uI7OjEwH)-->
+***
+
+- Testing of internal and external links was done manually. All links directed
+  to the intended location in the correct manor.
+- The challenge and default index settings were tested manually with all
+  results as expected:
+  - Empty colour balls were selected and checked for functionality.
+  - Intended colours were selected and checked for correct placement.
+  - Colour balls with colours alrady chosen were selected to ensure operation
+    of the clear selector.
+  - Rows were completed to ensure the check result icon displayed.
+  - Completed rows had a colour cleared to ensure the check result icon
+    disappeared.
+  - `console.log(solution)` was used while checking correct result peg operation.
+  - Results we checked with all possible outcomes (number of white and black
+    pegs).
+  - The game was completed in various times, using various numbers of rows, to
+    ensure correct function of the best score and time.
+  - The challenge was unsuccessful after 6 rows to ensure the loss condition
+    worked correctly.
+  - The index game was unsuccessful after 7 rows to ensure new rows were addded
+    correctly.
+  - The colour blind option was selected and tested.
+  - The audio option was selected and tested for all audio instances.
+  - A screen reader was used to test all aria text and functions.
+  - The index settings were modified to test the correct operation and
+    disablement of the checkboxes.
+  - The pause function of the current timer was tested by opening the settings
+    overlay.
+  - The score and timer settings were tested on new games and by closing the
+    settings overlay.
+  - The hint and give up icons were tested at various stages of the game to
+    ensure correct function.
+  - The confirmation alerts were tested for positive and negative inputs.
+  - The text below the gameboard was checked in win and loss conditions.
+- The contact form was tested:
+  - Without a 'Name', 'Email' and 'Message' entry to ensure `required` was
+    applied to the correct elements.
+  - Without a 'GitHub' entry to ensure this was not requird.
+  - With various 'GitHub' styles to ensure the string modification worked
+    correctly:
+    - `@Test`
+    - `github.com/test`
+    - `test`
+    - `https://github.com/test`
+  - By attempting to write a message longer than 250 characters.
+- An example of the input and result:  
+  ![Form Input Example](./readme-content/images/testing/form-input.png)
+  ![Email Result Example](./readme-content/images/testing/email-result.png)
+- The site was tested on multiple devices and browsers with all results as expected.
+
+***
 
 ### W3C Validator
 
@@ -355,7 +397,7 @@ There is a warning on the about page regarding a second `h1` element. The
 heading sits within an `article` and appears to be an acceptable practice.
 [See here for reference](https://html.spec.whatwg.org/multipage/sections.html#headings-and-sections).
 
-![Duplicate h1](readme-content/images/testing/duplicate-h1.png)
+![Duplicate h1](./readme-content/images/testing/duplicate-h1.png)
 
 ***
 
@@ -388,14 +430,14 @@ place.
 No errors are reported by JSHint. There are 3 warnings reported in the
 JavaScript files.
 
-![JSHint Screenshot](readme-content/images/testing/jshint.png)
+![JSHint Screenshot](./readme-content/images/testing/jshint.png)
 
 The warnings refer to functions that reference outer scoped variables and
 functions. This could be resoved by re-declaring the variables and functions
 within the function, but seems an unecessary step as variables are
 descriptively named and docstrings are present for functions.
 
-![JSHint Warnings](readme-content/images/bugs/referencing-outer-scope.png)
+![JSHint Warnings](./readme-content/images/bugs/referencing-outer-scope.png)
 
 ***
 
@@ -403,10 +445,10 @@ descriptively named and docstrings are present for functions.
 
 #### Mobile
 
-![Index Mobile Result](readme-content/images/testing/lh-index-mobile.png)
-![Challenge Mobile Result](readme-content/images/testing/lh-challenge-mobile.png)
-![Rules Mobile Result](readme-content/images/testing/lh-rules-mobile.png)
-![About Mobile Result](readme-content/images/testing/lh-about-mobile.png)
+![Index Mobile Result](./readme-content/images/testing/lh-index-mobile.png)
+![Challenge Mobile Result](./readme-content/images/testing/lh-challenge-mobile.png)
+![Rules Mobile Result](./readme-content/images/testing/lh-rules-mobile.png)
+![About Mobile Result](./readme-content/images/testing/lh-about-mobile.png)
 
 Performance and SEO scores could be a little higher.
 
@@ -417,29 +459,29 @@ I tested this with commit
 but found the style was not suitable. The slight difference in performance score
 did not warrant a reduction in UX.
 
-![Largest Contentful Paint Warning](readme-content/images/testing/lcp.png)
-![Third Party Render-Blocking Resources](readme-content/images/testing/third-party-render-block.png)
+![Largest Contentful Paint Warning](./readme-content/images/testing/lcp.png)
+![Third Party Render-Blocking Resources](./readme-content/images/testing/third-party-render-block.png)
 
 The maximum cache time is set by GitHub pages at 10 minutes. This also reduces
 the performance score and is beyond my control.
 
-![Cache Times](readme-content/images/testing/cache.png)
-![GitHub Response](readme-content/images/testing/github-cache.png)
+![Cache Times](./readme-content/images/testing/cache.png)
+![GitHub Response](./readme-content/images/testing/github-cache.png)
 *[Reference](https://webapps.stackexchange.com/questions/119286/caching-assets-in-website-served-from-github-pages)*
 
 SEO scores are affected by the small font size applied to screen reader
 assistive text.
 
-![Legible Font Size Warning](readme-content/images/testing/aria-text-font-size.png)
+![Legible Font Size Warning](./readme-content/images/testing/aria-text-font-size.png)
 
 ***
 
 #### Desktop
 
-![Index Desktop Result](readme-content/images/testing/lighthouse-index.png)
-![Challenge Desktop Result](readme-content/images/testing/lighthouse-challenge.png)
-![Rules Desktop Result](readme-content/images/testing/lighthouse-rules.png)
-![About Desktop Result](readme-content/images/testing/lighthouse-about.png)
+![Index Desktop Result](./readme-content/images/testing/lighthouse-index.png)
+![Challenge Desktop Result](./readme-content/images/testing/lighthouse-challenge.png)
+![Rules Desktop Result](./readme-content/images/testing/lighthouse-rules.png)
+![About Desktop Result](./readme-content/images/testing/lighthouse-about.png)
 
 All scores are green and highly satisfactory.
 
@@ -454,7 +496,7 @@ All scores are green and highly satisfactory.
    enabled, the tooltip remains above the ball that is selected for a colour
    selection.
 
-![Colour Blind Tooltip Bug](readme-content/images/bugs/colorblind-bug.jpg)
+![Colour Blind Tooltip Bug](./readme-content/images/bugs/colorblind-bug.jpg)
 
 *The bug is due to the `.blur()` method not working as intended on touch screen
 devices. I investigated ways to resolve this but found the impact on UX to be
@@ -510,7 +552,7 @@ with the logic that is being applied to my solution.*
 
 4. Links to element `id`s were not responding as expected on larger screens:
 
-![Sticky Header Bug](readme-content/images/bugs/sticky-header-bug.png)
+![Sticky Header Bug](./readme-content/images/bugs/sticky-header-bug.png)
 
 *Commit - [8a50740](https://github.com/DaveyJH/ci-portfolio-two/commit/8a5074004e65263c1527115faf14e13a60372a0d) -
 Added JavaScript and extra spans to dynamically change `href` values.  
@@ -534,7 +576,7 @@ Added `resizeBalls()` to `addRow()`*
 6. With 'Colour Blind' active, it was possible to tap just outside the ball
   to bring up the tooltip without activating the button:
 
-![Tooltip Bug](readme-content/images/bugs/tooltip-radius.png)
+![Tooltip Bug](./readme-content/images/bugs/tooltip-radius.png)
 
 *Commit - [915aded](https://github.com/DaveyJH/ci-portfolio-two/commit/915aded43b0bf6734d111516feefd024396980e3) -
 Modified `.tooltip-holer` to have `border-radius: 50%`.
