@@ -548,7 +548,19 @@ heading sits within an `article` and appears to be an acceptable practice.
 - [Rules](http://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fdaveyjh.github.io%2Fci-portfolio-two%2Frules&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
 - [About](http://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fdaveyjh.github.io%2Fci-portfolio-two%2Fabout&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
 
-<!-- todo add warnings -->
+There are some warnings returned by the CSS validator. One that occurs on all
+pages is a reference to the `body` `color` being the same as its
+`background-color`. All text is set on a different colour background, styled
+later in the CSS. Targeting the body font color allows fewer declarations.
+
+There are other warnings that refer to vendor extensions. These are required to
+ensure styles are maintained across various browsers.
+
+The majority of the warnings come from the FontAwesome CSS and are beyond my
+control.
+
+![CSS Warnings](./readme-content/images/testing/css-index.png)  
+![FontAwesome Warnings](./readme-content/images/testing/fontawesome-warnings.png)
 
 ---
 
