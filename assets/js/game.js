@@ -1412,7 +1412,6 @@ function resetAria() {
 function repositionSelectorTips() {
   if (window.innerWidth <= 380) {
     adjustmentPercent = Math.abs(window.innerWidth - 380) / 5;
-    console.log(adjustmentPercent);
     if (numOfColors === 12) {
       colorSelectors[colorSelectors.length - 2].previousElementSibling.style.left = `${50 - adjustmentPercent}%`;
     } else {
