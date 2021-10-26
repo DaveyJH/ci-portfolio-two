@@ -283,7 +283,7 @@ All images have been converted to webp format using
   appealing than other versions I found while researching. The photographed
   wood effect means the game board looks authentic.
 
-![Wooden game board](readme-content/images/features/wood-gameboard.png)
+  ![Wooden game board](readme-content/images/features/wood-gameboard.png)
 
 ---
 
@@ -302,7 +302,7 @@ All images have been converted to webp format using
 
 - The user is presented with their best score and best time for the session.
 
-![Best score and time](readme-content/images/features/bests.png)
+  ![Best score and time](readme-content/images/features/bests.png)
 
 ---
 
@@ -312,7 +312,7 @@ All images have been converted to webp format using
 
 - The current time, best score and best time can be toggled via the settings.
 
-![Score and time settings](readme-content/images/features/score-time-settings.png)
+  ![Score and time settings](readme-content/images/features/score-time-settings.png)
 
 ---
 
@@ -559,7 +559,8 @@ ensure styles are maintained across various browsers.
 The majority of the warnings come from the FontAwesome CSS and are beyond my
 control.
 
-![CSS Warnings](./readme-content/images/testing/css-index.png)  
+![CSS Warnings](./readme-content/images/testing/css-index.png)
+
 ![FontAwesome Warnings](./readme-content/images/testing/fontawesome-warnings.png)
 
 ---
@@ -669,12 +670,12 @@ a `tab-index` attribute should not be used.*
 1. When playing the game an error was generated in the console once line 99 had
   been attempted. Two errors were causing this:
 
-![99 Rows Error](./readme-content/images/bugs/99rows.png)
+  ![99 Rows Error](./readme-content/images/bugs/99rows.png)
 
 *Commit - [bd06f93](https://github.com/DaveyJH/ci-portfolio-two/commit/bd06f93#diff-ce75dc990f41e122d063d10b3068e250494e1ca2ac80fa8a3bf62a618de01277R853) -
 Corrected second line in `extremeLoss()` to correctly target the `hintIcon`.*
 
-![99 Rows Reset Error](./readme-content/images/bugs/99rows-reset.png)
+  ![99 Rows Reset Error](./readme-content/images/bugs/99rows-reset.png)
 
 *Commit - [bd06f93](https://github.com/DaveyJH/ci-portfolio-two/commit/bd06f93#diff-ce75dc990f41e122d063d10b3068e250494e1ca2ac80fa8a3bf62a618de01277R938) -
 Added to line in `reset()` to prevent `deactivateRow()` when `aR` was equal
@@ -685,7 +686,7 @@ to or greater than **98**.*
 2. If the settings menu was opened with a keyboard and the focus jumped to the
   first button, the button would trigger. This revealed a number of other issues:
 
-![Minus Button Error](./readme-content/images/bugs/minus.png)
+  ![Minus Button Error](./readme-content/images/bugs/minus.png)
 
 *Commit - [2e48239](https://github.com/DaveyJH/ci-portfolio-two/commit/2e48239#diff-ce75dc990f41e122d063d10b3068e250494e1ca2ac80fa8a3bf62a618de01277R1010) -
 Changed `keydown` in addEventListener to `keyup`.
@@ -699,7 +700,7 @@ try and prevent bad UX in the case of users with slower motor skills.*
 
 3. Custom styled checkboxes were not giving good UX when disabled:
 
-![Checkbox Disabled](./readme-content/images/bugs/checkbox-disabled.png)
+  ![Checkbox Disabled](./readme-content/images/bugs/checkbox-disabled.png)
 
 *I spent a lot of time looking over various methods to resolve this issue.
 The main issue is for accessibility, being that a disabled checkbox is
@@ -712,7 +713,7 @@ with the logic that is being applied to my solution.*
 
 4. Links to element `id`s were not responding as expected on larger screens:
 
-![Sticky Header Bug](./readme-content/images/bugs/sticky-header-bug.png)
+  ![Sticky Header Bug](./readme-content/images/bugs/sticky-header-bug.png)
 
 *Commit - [8a50740](https://github.com/DaveyJH/ci-portfolio-two/commit/8a5074004e65263c1527115faf14e13a60372a0d) -
 Added JavaScript and extra spans to dynamically change `href` values.  
@@ -726,7 +727,7 @@ JavaScript file to calculate if the destination should be modified.*
 5. When playing with more than 4 balls in the solution, if a new row was
   created, the balls would not be re-sized:
 
-![Row With Bigger Balls](./readme-content/images/bugs/new-row.png)
+  ![Row With Bigger Balls](./readme-content/images/bugs/new-row.png)
 
 *Commit - [e762e7a](https://github.com/DaveyJH/ci-portfolio-two/commit/e762e7a998e7352218b6afb626e1a08a90a1ed7e) -
 Added `resizeBalls()` to `addRow()`*
@@ -736,7 +737,7 @@ Added `resizeBalls()` to `addRow()`*
 6. With 'Colour Blind' active, it was possible to tap just outside the ball
   to bring up the tooltip without activating the button:
 
-![Tooltip Bug](./readme-content/images/bugs/tooltip-radius.png)
+  ![Tooltip Bug](./readme-content/images/bugs/tooltip-radius.png)
 
 *Commit - [915aded](https://github.com/DaveyJH/ci-portfolio-two/commit/915aded43b0bf6734d111516feefd024396980e3) -
 Modified `.tooltip-holer` to have `border-radius: 50%`.
@@ -745,7 +746,7 @@ Modified `.tooltip-holer` to have `border-radius: 50%`.
 
 7. Tooltips and aria text was not updating when using a hint:
 
-![Tooltip Error With Hints](readme-content/images/bugs/hint-tooltip.png)
+  ![Tooltip Error With Hints](readme-content/images/bugs/hint-tooltip.png)
 
 *Issue [#17](https://github.com/DaveyJH/ci-portfolio-two/issues/17) -
 Modified `addOneSolutionColor()` and found `setSolutionBallCount()` needed an
