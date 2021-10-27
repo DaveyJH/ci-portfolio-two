@@ -988,19 +988,29 @@ I will receive the pull request and action it accordingly.
 ### Content
 
 - Thanks to [Donald Knuth](https://www-cs-faculty.stanford.edu/~knuth/index.html)
-for his algorithm information
+for his algorithm information.
 
 ### Media
 
 - The favicon image and header image are license-free, obtained from
-  [Pixabay](https://pixabay.com/)  
+  [Pixabay](https://pixabay.com/).
 - The audio content is license-free and comes from
-  [ZapSplat](https://www.zapsplat.com/)
+  [ZapSplat](https://www.zapsplat.com/).
 
 ### Acknowledgements
 
-<!-- - acknowledge a, found at [b](bURL), for c -->
-<!-- - acknowledge d, found at [e](eURL), for f -->
+- Thanks again to Sven, [SiJiL82](https://github.com/sijil82), for drawing my
+  attention to the use of `keyup` rather than `keydown`.
+- The custom checkboxes were originally based on an example found at
+  [W3Schools](https://www.w3schools.com/howto/howto_css_custom_checkbox.asp).
+- Some credit to the [Code Institute](https://code-institute.net) course content
+  for the basic timer function. I modified it quite a bit, but the general
+  concept remains the same.  
+  The modification owes credit to
+  [Joseph Marikle](https://stackoverflow.com/users/854246/joseph-marikle) for
+  his answer on
+  [Stack Overflow](https://stackoverflow.com/questions/8043026/how-to-format-numbers-by-prepending-0-to-single-digit-numbers/8043061#8043061).
+  The answer that applies only for positive integers works for this situation.
 
 ---
 
