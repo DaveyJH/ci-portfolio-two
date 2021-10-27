@@ -45,6 +45,7 @@ Apple devices) as you click!*
     - [Lighthouse Testing](#lighthouse-testing)
       - [Mobile](#mobile)
       - [Desktop](#desktop)
+    - [Coverage](#coverage)
   - [Bugs](#bugs)
     - [Current](#current)
     - [Resolved](#resolved)
@@ -637,6 +638,30 @@ assistive text.
 ![About Desktop Result](./readme-content/images/testing/lighthouse-about.png)
 
 All scores are green and highly satisfactory.
+
+---
+
+### Coverage
+
+Chrome DevTools
+[Coverage](https://developer.chrome.com/docs/devtools/coverage/)
+tab was used after searching for easy ways to check for unused CSS
+declarations. This allowed me to test all JavaScript was error free and being
+used. There are a few untested lines in
+[email.js](https://github.com/DaveyJH/ci-portfolio-two/blob/main/assets/js/email.js#L24-L26)
+that I cannot work out how to test manually.  
+Some of the CSS remains untested, mainly commment lines that help break up the
+styles into sections. I am unable to test the third-party files so have omitted
+their results where possible.
+
+Index
+![Index Coverage](readme-content/images/testing/coverage-index.png)  
+Challenge
+![Challenge Coverage](readme-content/images/testing/coverage-challenge.png)  
+Rules
+![Rules Coverage](readme-content/images/testing/coverage-rules.png)  
+About
+![About Coverage](readme-content/images/testing/coverage-about.png)  
 
 ---
 
