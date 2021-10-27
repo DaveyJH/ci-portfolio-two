@@ -608,7 +608,7 @@ let aR; //activeRow number
 let activeRow;
 let activeBalls;
 let activePegs;
-let activeSelection = "inactive";
+let activeSelection;
 let score;
 let emptyBalls;
 let pegColors = [];
@@ -738,7 +738,7 @@ function addRow() {
  * - give selected ball a border and shadow
  */
 function rowColorSelector(event) {
-  if (activeSelection !== "inactive") {
+  if (activeSelection !== undefined) {
     activeSelection.style.boxShadow = "none";
     activeSelection.style.border = "none";
     activeSelection.classList.remove("active-row-selector");
@@ -883,10 +883,10 @@ function clearActiveSelect() {
   message.style.visibility = "visible";
   colorSelectBox.style.visibility = "hidden";
   clearSelector.style.visibility = "hidden";
-  if (activeSelection !== "inactive") {
+  if (activeSelection !== undefined) {
     activeSelection.style.border = "none";
     activeSelection.style.boxShadow = "none";
-    activeSelection = "inactive";
+    activeSelection = undefined;
   }
 }
 
