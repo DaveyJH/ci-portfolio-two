@@ -532,8 +532,10 @@ function checkResultC() {
   */
   colorSelectBox.style.visibility = "hidden"; // hide selector box
   clearSelector.style.visibility = "hidden";
-  activeSelection.style.border = "none"; // remove border from active ball
-  activeSelection.style.boxShadow = "none";
+  if (activeSelection !== undefined) {
+    activeSelection.style.border = "none"; // remove border from active ball
+    activeSelection.style.boxShadow = "none";
+  }
   activeSelection = undefined; // set active ball to undefined
 
   checkBlackC();
