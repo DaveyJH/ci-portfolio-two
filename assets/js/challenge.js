@@ -9,7 +9,7 @@ const pegColors = []; // array to store peg results
 let aR = 0; // active row index number
 let activeRow; // variable to store activeRow
 let activeBalls; // variable to store activeBalls
-let activeSelection = "inactive"; // color-ball chosen for color change
+let activeSelection; // color-ball chosen for color change
 let activePegs; // activeRow result pegs
 let activeNumber; // activeRow number
 let activeResultIcon; // result checker
@@ -341,7 +341,7 @@ function nextRowC() {
  */
 function colorSelectorC(event) {
   // check if activeSelection border is already in place
-  if (activeSelection !== "inactive") {
+  if (activeSelection !== undefined) {
     activeSelection.style.border = "none"; // remove border from previous selected ball
     activeSelection.style.boxShadow = "none";
   }
@@ -375,7 +375,7 @@ function colorSelectorC(event) {
 
 /** clear color from active selection, add .empty, close selectBox and remove border */
 function clearSelectionC(event) {
-  if (activeSelection !== "inactive") {
+  if (activeSelection !== undefined) {
     activeSelection.style.backgroundColor = "rgb(133, 78, 30)";
     if (toggleAudio()) {
       audioFile.remove.play();
@@ -534,7 +534,7 @@ function checkResultC() {
   clearSelector.style.visibility = "hidden";
   activeSelection.style.border = "none"; // remove border from active ball
   activeSelection.style.boxShadow = "none";
-  activeSelection = "inactive"; // set active ball to undefined
+  activeSelection = undefined; // set active ball to undefined
 
   checkBlackC();
   checkWhiteC();
@@ -699,10 +699,10 @@ colorSelectBox.addEventListener("keyup", function (keyed) {
     activeBalls[0].focus();
     colorSelectBox.style.visibility = "hidden";
     clearSelector.style.visibility = "hidden";
-    if (activeSelection !== "inactive") {
+    if (activeSelection !== undefined) {
       activeSelection.style.border = "none";
       activeSelection.style.boxShadow = "none";
-      activeSelection = "inactive";
+      activeSelection = undefined;
     }
   }
 });
