@@ -13,12 +13,6 @@ h2 {
 h3 {
   margin-top: 1.6rem;
 }
-.small-caps {
-  font-variant: small-caps;
-}
-.bold {
-  font-weight: 900;
-}
 section div p {
   margin-top: .5rem;
 }
@@ -145,10 +139,6 @@ img.icon, img.icon:first-of-type {
   width: 1.6rem;
   vertical-align: bottom;
   box-shadow: none;
-}
-#challenge-link {
-  text-decoration: underline;
-  font-style: italic;
 }
 .return-link {
   font-style: italic;

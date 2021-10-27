@@ -83,6 +83,12 @@ button:disabled, .color-set {
   left: initial;
   right: 0;
 }
+.small-caps {
+  font-variant: small-caps;
+}
+.bold {
+  font-weight: 900;
+}
 
 /* aria */
 .tooltip-text, .tooltip-text-left, .tooltip-text-ball {

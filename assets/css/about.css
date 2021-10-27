@@ -100,7 +100,7 @@ aside h2 {
   font-size: 1.2em;
 }
 #text-left-list {
-  margin: .5rem 1rem;
+  margin: .5rem 2rem;
   list-style-type :circle;
   text-align: left;
 }
